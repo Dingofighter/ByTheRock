@@ -25,6 +25,50 @@ ExportedObj/
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
-# Builds
-*.apk
-*.unitypackage
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+Assets/AssetStoreTools*
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tracking data
+TrackingData/*
+
+# FMOD Generated Files
+/Assets/FMODAssets/*
+/Assets/StreamingAssets/*
+/Assets/StreamingAssets.meta
+/Assets/FMODStudioCache.asset
+/Assets/FMODStudioCache.asset.meta
+/Assets/FMODStudioCache.meta
+fmod_editor.log
+fmod.log
