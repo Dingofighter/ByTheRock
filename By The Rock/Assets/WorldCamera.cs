@@ -6,6 +6,15 @@ public class WorldCamera : MonoBehaviour {
 
 
 
+
+
+
+
+    
+
+
+
+    
     public Transform target;
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
@@ -23,6 +32,8 @@ public class WorldCamera : MonoBehaviour {
     float x = 0.0f;
     float y = 0.0f;
 
+    private float hitDistance;
+
     // Use this for initialization
     void Start()
     {
@@ -38,6 +49,7 @@ public class WorldCamera : MonoBehaviour {
             rigidbody.freezeRotation = true;
         }
 
+        hitDistance = 0;
         camMax = transform.position;
     }
 
@@ -61,23 +73,26 @@ public class WorldCamera : MonoBehaviour {
             if (Physics.Linecast(target.position, transform.position, out hit))
             {
                 distance -= hit.distance;
+                hitDistance = hit.distance;
             }
             if (distance < 5)
             {
                 if (Physics.Linecast(target.position, camMax, out hit))
                 {
-                    distance += 6-hit.distance;
+                    distance += hit.distance-hitDistance;
                 }
                 else
                 {
-                    //distance = 5;
+                    distance = 5;
                 }
             }
+
+            Mathf.Clamp(distance, distanceMin, distanceMax);
             
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = rotation * negDistance + target.position;
 
-            camMax = rotation * new Vector3(0.0f, 0.0f, 5) + target.position;
+            camMax = rotation * new Vector3(0.0f, 0.0f, -5.0f) + target.position;
             
             transform.rotation = rotation;
             transform.position = position;
@@ -92,7 +107,7 @@ public class WorldCamera : MonoBehaviour {
             angle -= 360F;
         return Mathf.Clamp(angle, min, max);
     }
-
+    
 
 
 

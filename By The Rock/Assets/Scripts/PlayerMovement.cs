@@ -45,9 +45,9 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("Crouch", isCrouching);
         }
     }
-
+    /*
     void OnTriggerEnter(Collider other)
     {
         FindObjectOfType<DialogueHandler>().StartDialogue(other.GetComponentInParent<Dialogue>());
-    }
+    }*/
 }
