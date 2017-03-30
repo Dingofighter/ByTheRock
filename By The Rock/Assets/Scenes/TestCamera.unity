@@ -172,6 +172,7 @@ GameObject:
   - 33: {fileID: 533731549}
   - 65: {fileID: 533731548}
   - 23: {fileID: 533731547}
+  - 114: {fileID: 533731551}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -231,12 +232,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 533731546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -7.3, y: 1.29, z: -13.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &533731551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 533731546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a707ac1032b5fe0409103d59b8e0ed21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1425397261
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +323,7 @@ GameObject:
   - 92: {fileID: 1637329387}
   - 124: {fileID: 1637329386}
   - 81: {fileID: 1637329385}
+  - 114: {fileID: 1637329390}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -380,9 +393,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1637329384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -7.08, y: 1.955, z: -22.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1637329390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637329384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cc8b376416bfd46a5d318fc2f92852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 533731550}
+  distance: 5
+  xSpeed: 120
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
+  distanceMin: 2
+  distanceMax: 15
