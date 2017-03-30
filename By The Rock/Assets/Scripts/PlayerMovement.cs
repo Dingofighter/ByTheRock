@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-    Animator anim;
-    //DialogueHandler 
+    Animator animator;
+    DialogueHandler dialogueHandler;
 
     bool isWalking = false;
     bool isCrouching = false;
@@ -12,11 +12,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        anim = GetComponent<Animator>();
-	}
+        animator = GetComponent<Animator>();
+        dialogueHandler = FindObjectOfType<DialogueHandler>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        canMove = !dialogueHandler.inDialogue;
+
         if (canMove)
         {
             float vertical = Input.GetAxis("Vertical");
@@ -34,20 +37,25 @@ public class PlayerMovement : MonoBehaviour {
 
             if (isWalking)
             {
-                anim.SetFloat("Forward", vertical * 0.5f);
+                animator.SetFloat("Forward", vertical * 0.5f);
             }
             else
             {
-                anim.SetFloat("Forward", vertical);
+                animator.SetFloat("Forward", vertical);
             }
 
-            anim.SetFloat("Turn", horizontal * 0.5f);
-            anim.SetBool("Crouch", isCrouching);
+            animator.SetFloat("Turn", horizontal * 0.5f);
+            animator.SetBool("Crouch", isCrouching);
+        }
+        else
+        {
+            animator.SetFloat("Forward", 0);
+            animator.SetFloat("Turn", 0);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<DialogueHandler>().StartDialogue(other.GetComponentInParent<Dialogue>());
+        dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
     }
 }

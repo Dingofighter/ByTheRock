@@ -5,7 +5,7 @@ using System.Collections;
 public class DialogueHandler : MonoBehaviour {
 
     public Text dialogueText;
-    bool inDialogue = false;
+    public bool inDialogue = false;
     Dialogue currentDialogue;
     int currentLine = 0;
 
