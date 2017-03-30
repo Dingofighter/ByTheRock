@@ -196,10 +196,10 @@ RectTransform:
   - {fileID: 801801209}
   m_Father: {fileID: 992757203}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13, y: -162}
-  m_SizeDelta: {x: -383, y: -324}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 13, y: 50}
+  m_SizeDelta: {x: 689, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525932861
 MonoBehaviour:
@@ -436,6 +436,7 @@ GameObject:
   - 224: {fileID: 801801209}
   - 222: {fileID: 801801211}
   - 114: {fileID: 801801210}
+  - 114: {fileID: 801801212}
   m_Layer: 5
   m_Name: DialogueText
   m_TagString: Untagged
@@ -473,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -500,6 +501,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 801801208}
+--- !u!114 &801801212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 801801208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.19117647, g: 0.19117647, b: 0.19117647, a: 0.5019608}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &924892645
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,10 +880,10 @@ RectTransform:
   - {fileID: 733731979}
   m_Father: {fileID: 2138835329}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -516, y: 192}
-  m_SizeDelta: {x: -1033, y: -385}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -20}
+  m_SizeDelta: {x: 39, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1605783789
 MonoBehaviour:
