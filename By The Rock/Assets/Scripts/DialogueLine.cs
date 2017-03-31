@@ -7,6 +7,7 @@ public class DialogueLine {
 
     public string name;
     public string line;
+    public int nextLine;
 
 	// Use this for initialization
 	void Start () {

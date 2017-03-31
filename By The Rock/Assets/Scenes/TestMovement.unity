@@ -324,15 +324,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startLine: 2
   lines:
   - name: Boxperson
     line: Hi.
+    nextLine: 4
   - name: Boxperson
     line: I am a box.
+    nextLine: 3
   - name: Boxperson
     line: Help.
+    nextLine: 1
   - name: Ougrah
     line: Nah.
+    nextLine: -1
 --- !u!1 &733731978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 801801210}
-  dialogueNameText: {fileID: 0}
+  dialogueNameText: {fileID: 1224232013}
   inDialogue: 0
 --- !u!4 &1900004992
 Transform:

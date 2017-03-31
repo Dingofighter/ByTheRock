@@ -28,15 +28,15 @@ public class DialogueHandler : MonoBehaviour {
     {
         inDialogue = true;
         currentDialogue = dialogue;
-        currentLine = 0;
+        currentLine = currentDialogue.startLine - 1;
         dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
         dialogueText.text = currentDialogue.GetLine(currentLine).line;
     }
 
     void NextLine()
     {
-        currentLine++;
-        if (currentLine + 1 > currentDialogue.GetLength())
+        currentLine = currentDialogue.GetLine(currentLine).nextLine - 1;
+        if (currentLine < 0)
         {
             inDialogue = false;
             dialogueNameText.text = "";

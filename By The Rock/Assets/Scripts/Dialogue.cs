@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Dialogue : MonoBehaviour {
 
+    public int startLine;
     public DialogueLine[] lines;
 
 	// Use this for initialization
