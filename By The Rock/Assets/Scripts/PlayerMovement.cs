@@ -72,14 +72,9 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetFloat("Turn", 0);
         }
     }
-    /*
+
     void OnTriggerEnter(Collider other)
     {
-<<<<<<< HEAD
-        FindObjectOfType<DialogueHandler>().StartDialogue(other.GetComponentInParent<Dialogue>());
-    }*/
-=======
         dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
     }
->>>>>>> refs/remotes/origin/master
 }
