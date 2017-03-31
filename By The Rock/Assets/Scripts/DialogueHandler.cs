@@ -5,12 +5,14 @@ using System.Collections;
 public class DialogueHandler : MonoBehaviour {
 
     public Text dialogueText;
+    public Text dialogueNameText;
     public bool inDialogue = false;
     Dialogue currentDialogue;
     int currentLine = 0;
 
     // Use this for initialization
     void Start () {
+        dialogueNameText.text = "";
         dialogueText.text = "";
     }
 	
@@ -27,7 +29,8 @@ public class DialogueHandler : MonoBehaviour {
         inDialogue = true;
         currentDialogue = dialogue;
         currentLine = 0;
-        dialogueText.text = dialogue.GetLine(currentLine);
+        dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
+        dialogueText.text = currentDialogue.GetLine(currentLine).line;
     }
 
     void NextLine()
@@ -36,11 +39,13 @@ public class DialogueHandler : MonoBehaviour {
         if (currentLine + 1 > currentDialogue.GetLength())
         {
             inDialogue = false;
+            dialogueNameText.text = "";
             dialogueText.text = "";
         }
         else
         {
-            dialogueText.text = currentDialogue.GetLine(currentLine);
+            dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
+            dialogueText.text = currentDialogue.GetLine(currentLine).line;
         }
     }
 }
