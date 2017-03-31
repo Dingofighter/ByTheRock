@@ -75,6 +75,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
+        //dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
     }
 }
