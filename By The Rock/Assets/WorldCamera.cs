@@ -69,7 +69,7 @@ public class WorldCamera : MonoBehaviour {
             
             if (shoulderZoom)
             {
-                distance = Mathf.Clamp(desiredDistance, distanceMin, 3);
+                distance = Mathf.Clamp(desiredDistance, distanceMin, 2);
                 position = target.position - (rotation * Vector3.forward * distance) + new Vector3(0.7f, 1, 0);
                 cameraTargetPosition = new Vector3(target.position.x+0.7f, target.position.y + height+1, target.position.z);
 

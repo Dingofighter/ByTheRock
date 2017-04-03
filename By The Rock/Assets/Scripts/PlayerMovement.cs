@@ -17,9 +17,16 @@ public class PlayerMovement : MonoBehaviour {
         dialogueHandler = FindObjectOfType<DialogueHandler>();
         cam = Camera.main.transform;
     }
+
+    public bool getCrouching()
+    {
+        return isCrouching;
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        
+
         canMove = !dialogueHandler.inDialogue;
 
         if (canMove)
@@ -71,6 +78,12 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetFloat("Forward", 0);
             animator.SetFloat("Turn", 0);
         }
+    }
+
+
+    void onKeyDown()
+    {
+
     }
 
     void OnTriggerEnter(Collider other)

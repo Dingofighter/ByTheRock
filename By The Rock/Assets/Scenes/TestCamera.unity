@@ -265,7 +265,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0b03b78ef28e65746ac86aef35a3177d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -431,8 +431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a707ac1032b5fe0409103d59b8e0ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c: {r: 0, g: 1, b: 0, a: 1}
-  c2: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  colorEdge: {r: 0, g: 0, b: 0, a: 0}
+  colorHit: {r: 0, g: 0, b: 0, a: 0}
+  colorRun: {r: 0, g: 0, b: 0, a: 0}
   outOfBoundsDist: 0
   maxDist: 0
   minDist: 0
@@ -660,7 +662,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458184, guid: 3ee46c1513b830b46a5f4be7377165a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.44
       objectReference: {fileID: 0}
     - target: {fileID: 458184, guid: 3ee46c1513b830b46a5f4be7377165a0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1270,6 +1272,47 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1723672962}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1801382387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1801382388}
+  - 135: {fileID: 1801382389}
+  m_Layer: 0
+  m_Name: sensePlayerHitbox
+  m_TagString: closeToPlayer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1801382388
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1801382387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 434373276}
+  m_RootOrder: 4
+--- !u!135 &1801382389
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1801382387}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.6
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!1 &1940592510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,12 +1343,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a707ac1032b5fe0409103d59b8e0ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c: {r: 0, g: 1, b: 0, a: 1}
-  c2: {r: 1, g: 0, b: 0, a: 1}
-  outOfBoundsDist: 10
+  color: {r: 0, g: 0.9044118, b: 0.11850903, a: 0}
+  colorEdge: {r: 0.17561609, g: 0.034061395, b: 0.9264706, a: 0}
+  colorHit: {r: 1, g: 0.022058845, b: 0.022058845, a: 0}
+  colorRun: {r: 0.12943341, g: 0.8934896, b: 0.9264706, a: 0}
+  outOfBoundsDist: 5
   maxDist: 5
   minDist: 2
-  walkSpeed: 0.02
+  walkSpeed: 0.03
   health: 5
 --- !u!23 &1940592512
 MeshRenderer:
@@ -1318,6 +1363,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 05373672c4fa9fc4981e6826e730bde4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
