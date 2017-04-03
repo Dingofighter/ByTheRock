@@ -46,7 +46,7 @@ public class DialogueHandler : MonoBehaviour {
                     }
                 }
 
-                //If a choice is seleted, destroy all buttons and clear buttonlist
+                //If a choice is selected, destroy all buttons and clear buttonlist
                 if (choiceSelected)
                 {
                     foreach (Button choiceButton in choiceButtons)

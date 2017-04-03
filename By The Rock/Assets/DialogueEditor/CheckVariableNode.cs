@@ -3,9 +3,9 @@ using UnityEditor;
 using System;
 
 [Serializable]
-public class DialogueLineNode : Node {
+public class CheckVariableNode : Node {
 
-    public static int width = 200;
+    public static int width = 250;
     public static int defaultHeight = 180;
     // Space between left side / top of box and contents of node
     public static int padding = 15;
@@ -18,14 +18,22 @@ public class DialogueLineNode : Node {
 
     public Action<ConnectionPoint> defaultOnClickInPoint;
 
+    public string[] variableTypes = { "Attribute", "Bool" };
+    public string[] attributes = { "Aggressive", "Kind" };
+    public string[] intComparators = { ">", "<", "==", "!=", ">=", "<=" };
+
     // Variables displayed in node
-    public string actorName = "Name";
-    public string dialogueLine = "Line";
+    public int variableTypeIndex = 0;
+    public bool valueComparison = false;
+    public int attributeIndex = 0;
+    public int intComparatorIndex = 0;
+    public string intValueTwo = "";
+    public int attributeIndexTwo = 0;
 
     public void Init(int id, Vector2 position, int width, int height, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle inPointStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickInPoint, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode)
     {
         this.id = id;
-        title = "Dialogue Line Node";
+        title = "Check Variable Node";
         currentHeight = height;
         rect = new Rect(position.x, position.y, width, height);
         style = nodeStyle;
@@ -38,10 +46,8 @@ public class DialogueLineNode : Node {
         OnRemoveNode = OnClickRemoveNode;
     }
 
-    public void Load(string actorName, string dialogueLine, int inPoints)
+    public void Load(int inPoints)
     {
-        this.actorName = actorName;
-        this.dialogueLine = dialogueLine;
         for (int i = 0; i < inPoints - 1; i++)
         {
             AddInPoint();
@@ -62,18 +68,41 @@ public class DialogueLineNode : Node {
 
         GUILayout.BeginArea(new Rect(rect.position.x + padding, rect.position.y + padding, width - padding * 2, currentHeight - padding * 2));
         // Make text inside textArea wrap when reaching edge
-        EditorStyles.textField.wordWrap = true;
+        EditorStyles.textArea.wordWrap = true;
 
         GUIStyle centerTextStyle = new GUIStyle(GUI.skin.textField);
         centerTextStyle.alignment = TextAnchor.MiddleCenter;
         /* Specify contents of node here */
         EditorGUILayout.TextField("ID: " + id.ToString(), centerTextStyle);
 
-        EditorGUILayout.LabelField("ACTOR NAME");
-        actorName = EditorGUILayout.TextField(actorName);
+        EditorGUILayout.LabelField("Variable Type");
+        variableTypeIndex = EditorGUILayout.Popup(variableTypeIndex, variableTypes);
 
-        EditorGUILayout.LabelField("DIALOGUE LINE");
-        dialogueLine = EditorGUILayout.TextArea(dialogueLine, GUILayout.Height(50), GUILayout.ExpandHeight(false));
+        if (variableTypeIndex == 0)
+        {
+            valueComparison = EditorGUILayout.Toggle(valueComparison);
+            GUILayout.BeginHorizontal();
+
+            attributeIndex = EditorGUILayout.Popup(attributeIndex, attributes);
+
+            intComparatorIndex = EditorGUILayout.Popup(intComparatorIndex, intComparators);
+
+            if (valueComparison)
+            {
+                intValueTwo = EditorGUILayout.TextField(intValueTwo);
+            }
+            else
+            {
+                attributeIndexTwo = EditorGUILayout.Popup(attributeIndexTwo, attributes);
+            }
+
+            GUILayout.EndHorizontal();
+        }
+        else if (variableTypeIndex == 1)
+        {
+            EditorGUILayout.LabelField("BOOL");
+        }
+
 
         if (GUILayout.Button("Add input"))
         {
