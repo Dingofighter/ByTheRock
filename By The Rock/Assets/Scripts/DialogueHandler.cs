@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 using System.Collections;
 
 public class DialogueHandler : MonoBehaviour {
@@ -8,7 +10,11 @@ public class DialogueHandler : MonoBehaviour {
     public Text dialogueNameText;
     public Button choiceButtonPrefab;
     public Vector3 optionsPosition;
+    public Vector3 optionsOffset;
     public bool inDialogue = false;
+    private bool isChoice = false;
+    private bool choiceSelected = false;
+    private List<Button> choiceButtons;
     Dialogue currentDialogue;
     Node currentNode;
 
@@ -16,13 +22,45 @@ public class DialogueHandler : MonoBehaviour {
     void Start () {
         dialogueNameText.text = "";
         dialogueText.text = "";
+
+        if (choiceButtons == null)
+        {
+            choiceButtons = new List<Button>();
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 	    if (inDialogue && Input.GetButtonDown("Interact"))
         {
-            NextNode(0);
+            // If player choice, check if button clicked
+            if (isChoice)
+            {
+                for(int i = 0; i < choiceButtons.Count; i++)
+                {
+                    //If a button is clicked, go to nextLine
+                    if (EventSystem.current.currentSelectedGameObject == choiceButtons[i].gameObject)
+                    {
+                        NextNode(i);
+                        choiceSelected = true;
+                    }
+                }
+
+                //If a choice is seleted, destroy all buttons and clear buttonlist
+                if (choiceSelected)
+                {
+                    foreach (Button choiceButton in choiceButtons)
+                    {
+                        Destroy(choiceButton.gameObject);
+                    }
+
+                    choiceButtons.Clear();
+                }
+            }
+            else
+            {
+                NextNode(0);
+            }
         }
 	}
 
@@ -36,23 +74,39 @@ public class DialogueHandler : MonoBehaviour {
 
     void NextNode(int option)
     {
+        //Remove dialogue if last
+        if (!currentDialogue.nodes.ContainsKey(currentNode.nextNodesID[option]))
+        {
+            dialogueNameText.text = "";
+            dialogueText.text = "";
+            inDialogue = false;
+            return;
+        }
+
+        //Set current node
         currentNode = currentDialogue.GetNode(currentNode.nextNodesID[option]);
 
+        //Check if currentNode is dialogueLine or playerLine
         if (currentNode is DialogueLineNode)
         {
+            isChoice = false;
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
             dialogueNameText.text = tempNode.actorName;
             dialogueText.text = tempNode.dialogueLine;
         }
         else if (currentNode is PlayerChoiceNode)
         {
+            isChoice = true;
             PlayerChoiceNode tempNode = (PlayerChoiceNode)currentNode;
             dialogueNameText.text = "Ougrah";
+
             for (int i = 0; i < tempNode.optionLines.Count; i++)
             {
-                Button choiceButton = (Button) Instantiate(choiceButtonPrefab, optionsPosition, Quaternion.identity);
+                // Spawn buttons with offset
+                Button choiceButton = (Button) Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
                 choiceButton.transform.SetParent(dialogueText.transform.parent);
                 choiceButton.GetComponentInChildren<Text>().text = tempNode.optionLines[i];
+                choiceButtons.Add(choiceButton);
             }
         }
         /*
