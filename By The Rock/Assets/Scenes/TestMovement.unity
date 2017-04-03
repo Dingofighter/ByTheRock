@@ -324,20 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLine: 2
-  lines:
-  - name: Boxperson
-    line: Hi.
-    nextLine: 4
-  - name: Boxperson
-    line: I am a box.
-    nextLine: 3
-  - name: Boxperson
-    line: Help.
-    nextLine: 1
-  - name: Ougrah
-    line: Nah.
-    nextLine: -1
+  dialogue: {fileID: 11400000, guid: 8a8e698efcb4b2a469daddcd826d3b1f, type: 2}
 --- !u!1 &733731978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7903787}
+  maxTarget: {fileID: 0}
+  height: 5
   distance: 5
   xSpeed: 120
   ySpeed: 120
@@ -1212,6 +1201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 801801210}
   dialogueNameText: {fileID: 1224232013}
+  choiceButtonPrefab: {fileID: 11419110, guid: e7718a8bf756e204d84c47fe0bcd7da0, type: 2}
+  optionsPosition: {x: 100, y: 100, z: 0}
   inDialogue: 0
 --- !u!4 &1900004992
 Transform:

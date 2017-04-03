@@ -6,9 +6,11 @@ public class DialogueHandler : MonoBehaviour {
 
     public Text dialogueText;
     public Text dialogueNameText;
+    public Button choiceButtonPrefab;
+    public Vector3 optionsPosition;
     public bool inDialogue = false;
     Dialogue currentDialogue;
-    int currentLine = 0;
+    Node currentNode;
 
     // Use this for initialization
     void Start () {
@@ -20,7 +22,7 @@ public class DialogueHandler : MonoBehaviour {
 	void Update () {
 	    if (inDialogue && Input.GetButtonDown("Interact"))
         {
-            NextLine();
+            NextNode(0);
         }
 	}
 
@@ -28,13 +30,32 @@ public class DialogueHandler : MonoBehaviour {
     {
         inDialogue = true;
         currentDialogue = dialogue;
-        currentLine = currentDialogue.startLine - 1;
-        dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
-        dialogueText.text = currentDialogue.GetLine(currentLine).line;
+        currentNode = currentDialogue.GetNode(0);
+        NextNode(0);
     }
 
-    void NextLine()
+    void NextNode(int option)
     {
+        currentNode = currentDialogue.GetNode(currentNode.nextNodesID[option]);
+
+        if (currentNode is DialogueLineNode)
+        {
+            DialogueLineNode tempNode = (DialogueLineNode)currentNode;
+            dialogueNameText.text = tempNode.actorName;
+            dialogueText.text = tempNode.dialogueLine;
+        }
+        else if (currentNode is PlayerChoiceNode)
+        {
+            PlayerChoiceNode tempNode = (PlayerChoiceNode)currentNode;
+            dialogueNameText.text = "Ougrah";
+            for (int i = 0; i < tempNode.optionLines.Count; i++)
+            {
+                Button choiceButton = (Button) Instantiate(choiceButtonPrefab, optionsPosition, Quaternion.identity);
+                choiceButton.transform.SetParent(dialogueText.transform.parent);
+                choiceButton.GetComponentInChildren<Text>().text = tempNode.optionLines[i];
+            }
+        }
+        /*
         currentLine = currentDialogue.GetLine(currentLine).nextLine - 1;
         if (currentLine < 0)
         {
@@ -47,5 +68,6 @@ public class DialogueHandler : MonoBehaviour {
             dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
             dialogueText.text = currentDialogue.GetLine(currentLine).line;
         }
+        */
     }
 }
