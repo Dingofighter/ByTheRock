@@ -2,26 +2,38 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
-
-    Vector3 target1;
-    Vector3 target2;
-    Vector3 target3;
-    Vector3 target4;
-    int currTarget;
+    
     int counter;
-    bool fast;
-    int fastCounter;
+    int counterIdleMax;
     bool invincibility;
+
+    bool agro;
+    bool walking;
+    
+    Vector3 targetPosition;
+    Vector3 lastPosition;
+    Vector3 spawnPosition;
+    float currAngle;
+    float currDist;
+
+    Renderer rend;
+    public Color c = Color.green;
+    public Color c2 = Color.red;
+    public float outOfBoundsDist;
+    public float maxDist;
+    public float minDist;
+    public float walkSpeed;
 
     public int health;
 
     // Use this for initialization
     void Start () {
+        
+        counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
+        spawnPosition = transform.position;
 
-        target1 = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z);
-        target2 = new Vector3(transform.position.x, transform.position.y, transform.position.z + 5);
-        target3 = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
-        target4 = new Vector3(transform.position.x, transform.position.y, transform.position.z - 5);
+        rend = GetComponent<Renderer>();
+        rend.material.color = c;
 
     }
 
@@ -30,7 +42,6 @@ public class Movement : MonoBehaviour {
         if (!invincibility)
         {
             health -= i;
-            fast = true;
             invincibility = true;
         }
     }
@@ -41,30 +52,45 @@ public class Movement : MonoBehaviour {
         if (health <= 0) Destroy(gameObject); 
 
         counter++;
-        if (counter > 130)
+        if ((transform.position == targetPosition && walking) || (!walking && counter > counterIdleMax))
         {
-            currTarget++;
+            walking = !walking;
+            counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
             counter = 0;
-        }
-        if (currTarget == 4) currTarget = 0;
-
-        float speed = 0.07f;
-        if (fast)
-        {
-            speed = 0.2f;
-            fastCounter++;
-            if (fastCounter > 30) invincibility = false;
-            if (fastCounter == 100)
+            if (walking)
             {
-                fast = false;
-                fastCounter = 0;
+                if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
+                {
+                    rend.material.color = c2;
+                    targetPosition = lastPosition;
+                }
+                else
+                {
+                    lastPosition = targetPosition;
+                    currAngle = Random.Range(0, 2 * Mathf.PI);
+                    currDist = Random.Range(3, 5);
+
+                    rend.material.color = c;
+                    
+                    targetPosition = new Vector3(transform.position.x + Mathf.Sin(currAngle) * currDist, transform.position.y, transform.position.z + Mathf.Cos(currAngle) * currDist);
+                }
             }
+            else
+            {
+                if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
+                {
+                    rend.material.color = c2;
+                }
+                else rend.material.color = c;
+            }
+            
         }
 
-        if (currTarget == 0) transform.position = Vector3.MoveTowards(transform.position, target1, speed);
-        if (currTarget == 1) transform.position = Vector3.MoveTowards(transform.position, target2, speed);
-        if (currTarget == 2) transform.position = Vector3.MoveTowards(transform.position, target3, speed);
-        if (currTarget == 3) transform.position = Vector3.MoveTowards(transform.position, target4, speed);
-	
-	}
+        if (walking)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, walkSpeed);
+        }
+
+
+    }
 }

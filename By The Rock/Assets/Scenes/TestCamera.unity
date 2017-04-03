@@ -431,6 +431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a707ac1032b5fe0409103d59b8e0ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c: {r: 0, g: 1, b: 0, a: 1}
+  c2: {r: 1, g: 0, b: 0, a: 1}
+  outOfBoundsDist: 0
+  maxDist: 0
+  minDist: 0
+  walkSpeed: 0
   health: 0
 --- !u!1 &608024671
 GameObject:
@@ -1294,6 +1300,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a707ac1032b5fe0409103d59b8e0ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c: {r: 0, g: 1, b: 0, a: 1}
+  c2: {r: 1, g: 0, b: 0, a: 1}
+  outOfBoundsDist: 10
+  maxDist: 5
+  minDist: 2
+  walkSpeed: 0.02
   health: 5
 --- !u!23 &1940592512
 MeshRenderer:
