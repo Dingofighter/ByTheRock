@@ -1,0 +1,62 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Spear : MonoBehaviour {
+
+    public bool isThrown = false;
+    private bool hitSomething = false;
+    private bool hitSomethingForward = false;
+
+    float distToGround;
+    float distToWall;
+
+    private Rigidbody rigidbodyY;
+
+	// Use this for initialization
+	void Start () {
+
+        rigidbodyY = GetComponent<Rigidbody>();
+
+        distToGround = GetComponent<Collider>().bounds.extents.y;
+        distToWall = GetComponent<Collider>().bounds.extents.z;
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        Debug.DrawRay(transform.position, transform.forward * (distToGround + 0.1f), Color.magenta);
+        if (Physics.Raycast(transform.position, transform.forward, distToGround + 0.1f) && isThrown && !hitSomething && !hitSomethingForward)
+        {
+            hitSomething = true;
+        }
+
+        Debug.DrawRay(transform.position, transform.up * 1.5f, Color.green);
+        if (Physics.Raycast(transform.position, transform.up, 1.5f) && isThrown && !hitSomethingForward && !hitSomething)
+        {
+            hitSomethingForward = true;
+        }
+
+        if (rigidbodyY.velocity != Vector3.zero && !hitSomething && !hitSomethingForward)
+        {
+            transform.LookAt(transform.position + rigidbodyY.velocity);
+            transform.Rotate(90, 0, 0);
+            //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z));
+        }
+
+        if (hitSomethingForward)
+        {
+
+        }
+
+    }
+
+    void OnTriggerEnter(Collider c)
+    {
+        if (c.gameObject.tag == "enemy" && isThrown)
+        {
+            c.GetComponent<Movement>().takeDamage(1);
+        }
+    }
+}

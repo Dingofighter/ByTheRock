@@ -35,6 +35,8 @@ public class WorldCamera : MonoBehaviour {
         x = angles.y;
         y = angles.x;
 
+        Cursor.lockState = CursorLockMode.Locked;
+
         //rigidbody = GetComponent<Rigidbody>();
 
         // Make the rigid body not change rotation
@@ -66,12 +68,14 @@ public class WorldCamera : MonoBehaviour {
 
             Vector3 position = new Vector3(0, 0, 0);
             Vector3 cameraTargetPosition;
-            
+
             if (shoulderZoom)
             {
+                target.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                 distance = Mathf.Clamp(desiredDistance, distanceMin, 2);
-                position = target.position - (rotation * Vector3.forward * distance) + new Vector3(0.7f, 1, 0);
-                cameraTargetPosition = new Vector3(target.position.x+0.7f, target.position.y + height+1, target.position.z);
+
+                position = target.position - (rotation * Vector3.forward * distance) + transform.right * 1.3f + transform.up * 1.3f;
+                cameraTargetPosition = new Vector3(target.position.x, target.position.y + height+3, target.position.z) + ((transform.right * 2));
 
             }
             else
@@ -143,6 +147,13 @@ public class WorldCamera : MonoBehaviour {
             transform.rotation = rotation;
             transform.position = position;*/
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
     }
 
     public static float ClampAngle(float angle, float min, float max)
