@@ -1,14 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Dialogue : MonoBehaviour {
 
-    public int startLine;
-    public DialogueLine[] lines;
+    public DialogueContainer dialogue;
+
+    public Dictionary<int, Node> nodes;
 
 	// Use this for initialization
 	void Start () {
-	
+        if (nodes == null)
+        {
+            nodes = new Dictionary<int, Node>();
+        }
+
+        foreach(Node node in dialogue.nodes)
+        {
+            nodes.Add(node.id, node);
+        }
 	}
 	
 	// Update is called once per frame
@@ -16,13 +26,13 @@ public class Dialogue : MonoBehaviour {
 	
 	}
 
-    public DialogueLine GetLine(int lineNumber)
+    public Node GetNode(int nodeID)
     {
-        return lines[lineNumber];
+        return nodes[nodeID];
     }
 
     public int GetLength()
     {
-        return lines.Length;
+        return nodes.Count;
     }
 }
