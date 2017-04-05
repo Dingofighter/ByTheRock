@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour {
-
-    private bool pressingInteract;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +18,8 @@ public class PlayerInteraction : MonoBehaviour {
 
     void OnTriggerStay(Collider c)
     {
+        if (GameManager.instance.paused) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (c.gameObject.tag == "Interact1")

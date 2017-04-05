@@ -6,10 +6,15 @@ public class PlayerMovement : MonoBehaviour {
     Animator animator;
     DialogueHandler dialogueHandler;
     Transform cam;
+    public Transform spearPre;
+    Transform spear;
+
 
     bool isWalking = false;
     bool isCrouching = false;
     bool canMove = true;
+
+    bool holdingSpear;
 
 	// Use this for initialization
 	void Start () {
@@ -17,9 +22,50 @@ public class PlayerMovement : MonoBehaviour {
         dialogueHandler = FindObjectOfType<DialogueHandler>();
         cam = Camera.main.transform;
     }
+
+    public bool getCrouching()
+    {
+        return isCrouching;
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (GameManager.instance.paused) return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
+            spear.GetComponent<Rigidbody>().detectCollisions = false;
+            spear.GetComponent<Rigidbody>().useGravity = false;
+            holdingSpear = true;
+            spear.GetComponentInChildren<Rigidbody>().detectCollisions = false;
+            spear.GetComponentInChildren<Rigidbody>().useGravity = false;
+        }
+
+        if (holdingSpear)
+        {
+            spear.transform.position = new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f);
+            spear.transform.rotation = Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0));
+        }
+
+        if (!Input.GetMouseButton(0) && holdingSpear)
+        {
+            holdingSpear = false;
+            spear.GetComponent<Rigidbody>().useGravity = true;
+            spear.GetComponent<Rigidbody>().detectCollisions = true;
+            spear.GetComponentInChildren<Rigidbody>().detectCollisions = true;
+            spear.GetComponentInChildren<Rigidbody>().useGravity = true;
+            spear.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 85 + transform.up * 10, ForceMode.Impulse);
+            spear.GetComponent<Spear>().isThrown = true;
+        }
+
+
+
+
+
+
+        
         canMove = !dialogueHandler.inDialogue;
 
         if (canMove)
@@ -73,8 +119,14 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+
+    void onKeyDown()
+    {
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
+        //dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
     }
 }
