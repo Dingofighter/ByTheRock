@@ -6,6 +6,7 @@ public class NodeBasedEditor : EditorWindow {
 
     // Container used for saving and loading
     private DialogueContainer dialogue;
+    private BoolList boolList;
 
     private List<Node> nodes = new List<Node>();
     private List<Connection> connections = new List<Connection>();
@@ -33,6 +34,22 @@ public class NodeBasedEditor : EditorWindow {
         // Create editor window and set title
         NodeBasedEditor window = GetWindow<NodeBasedEditor>();
         window.titleContent = new GUIContent("Dialogue Editor");
+    }
+
+    //Show boolasset-create
+    [MenuItem("Assets/Create/Bool List")]
+    private static void createBoolList()
+    {
+        // Create an instance of container class
+        BoolList boolList = CreateInstance<BoolList>();
+        AssetDatabase.CreateAsset(boolList, "Assets/BoolList.asset");
+    }
+
+    //Show attribute-create
+    [MenuItem("Assets/Create/Attribute List")]
+    private static void createAttributeList()
+    {
+        
     }
 
     private void OnEnable()
@@ -184,12 +201,26 @@ public class NodeBasedEditor : EditorWindow {
         }
         GUILayout.FlexibleSpace();
 
+        if (GUILayout.Button("Create Bool", EditorStyles.toolbarButton))
+        {
+            CreateBool();
+        }
+
         GUILayout.EndHorizontal();
         GUILayout.EndArea();
     }
 
+    private void CreateBool()
+    {
+        string boolName = EditorUtility.SaveFilePanel("Select asset", "Assets", "boolName", "asset");
+        boolName = boolName.Replace(Application.dataPath, "");
+
+        Debug.Log(boolName);
+    }
+
     private void Save()
     {
+
         // Create an instance of container class
         dialogue = CreateInstance<DialogueContainer>();
         // Show file browser
