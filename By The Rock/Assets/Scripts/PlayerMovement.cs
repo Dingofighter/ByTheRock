@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (GameManager.instance.paused) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
             spear.transform.rotation = Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0));
         }
 
-        if (Input.GetMouseButtonUp(0) && holdingSpear)
+        if (!Input.GetMouseButton(0) && holdingSpear)
         {
             holdingSpear = false;
             spear.GetComponent<Rigidbody>().useGravity = true;

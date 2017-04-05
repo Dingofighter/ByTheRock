@@ -4,7 +4,6 @@ using System.Collections;
 public class WorldCamera : MonoBehaviour {
     
     public Transform target;
-    public Transform maxTarget;
     public float height = 5.0f;
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
@@ -17,16 +16,16 @@ public class WorldCamera : MonoBehaviour {
     public float distanceMax = 15f;
 
     float desiredDistance = 5.0f;
-
-   // private Rigidbody rigidbody;
-    private Vector3 camMax;
-
+    
     float x = 0.0f;
     float y = 0.0f;
 
-    private float hitDistance;
-
     private bool shoulderZoom;
+
+    public UIManager UI;
+    public GameObject canvas;
+
+    public static bool shoulderView;
 
     // Use this for initialization
     void Start()
@@ -36,32 +35,19 @@ public class WorldCamera : MonoBehaviour {
         y = angles.x;
 
         Cursor.lockState = CursorLockMode.Locked;
-
-        //rigidbody = GetComponent<Rigidbody>();
-
-        // Make the rigid body not change rotation
-        /*if (rigidbody != null)
-        {
-            rigidbody.freezeRotation = true;
-        }*/
-
-        hitDistance = 0;
-        camMax = transform.position;
     }
 
     void LateUpdate()
     {
-        if (target)
+        if (target && !canvas.activeInHierarchy)
         {
             x += Input.GetAxis("Mouse X") * xSpeed * 0.05f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-
+            
             desiredDistance = Mathf.Clamp(desiredDistance, distanceMin, distanceMax);
 
             distance = desiredDistance;
-
-
+            
             y = ClampAngle(y, yMinLimit, yMaxLimit);
 
             Quaternion rotation = Quaternion.Euler(y, x, 0);
@@ -71,6 +57,7 @@ public class WorldCamera : MonoBehaviour {
 
             if (shoulderZoom)
             {
+                shoulderView = true;
                 target.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                 distance = Mathf.Clamp(desiredDistance, distanceMin, 2);
 
@@ -80,6 +67,7 @@ public class WorldCamera : MonoBehaviour {
             }
             else
             {
+                shoulderView = false;
                 // Collision Detection
                 position = target.position - (rotation * Vector3.forward * distance);
                 cameraTargetPosition = new Vector3(target.position.x, target.position.y + height, target.position.z);

@@ -8,7 +8,6 @@ public class Spear : MonoBehaviour {
     private bool hitSomethingForward = false;
 
     float distToGround;
-    float distToWall;
 
     private Rigidbody rigidbodyY;
 
@@ -18,13 +17,11 @@ public class Spear : MonoBehaviour {
         rigidbodyY = GetComponent<Rigidbody>();
 
         distToGround = GetComponent<Collider>().bounds.extents.y;
-        distToWall = GetComponent<Collider>().bounds.extents.z;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        
 
         Debug.DrawRay(transform.position, transform.forward * (distToGround + 0.1f), Color.magenta);
         if (Physics.Raycast(transform.position, transform.forward, distToGround + 0.1f) && isThrown && !hitSomething && !hitSomethingForward)
@@ -43,11 +40,6 @@ public class Spear : MonoBehaviour {
             transform.LookAt(transform.position + rigidbodyY.velocity);
             transform.Rotate(90, 0, 0);
             //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z));
-        }
-
-        if (hitSomethingForward)
-        {
-
         }
 
     }

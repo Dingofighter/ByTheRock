@@ -60,6 +60,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.paused) return;
 
         if (health <= 0) Destroy(gameObject);
         
@@ -148,6 +149,8 @@ public class Movement : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
+
+
         if (c.gameObject.tag == "closeToPlayer" && !run && !c.GetComponentInParent<PlayerMovement>().getCrouching())
         {
             rend.material.color = colorRun;
