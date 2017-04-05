@@ -431,6 +431,7 @@ public class NodeBasedEditor : EditorWindow {
         genericMenu.AddItem(new GUIContent("Add Dialogue Line Node"), false, () => OnClickAddDialogueLineNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Player Choice Node"), false, () => OnClickAddPlayerChoiceNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Check Variable Node"), false, () => OnClickAddCheckVariableNode(mousePosition));
+        genericMenu.AddItem(new GUIContent("Add Set Variable Node"), false, () => OnClickAddSetVariableNode(mousePosition));
         genericMenu.ShowAsContext();
     }
 
@@ -510,6 +511,20 @@ public class NodeBasedEditor : EditorWindow {
         currentHighestID++;
         CheckVariableNode node = CreateInstance<CheckVariableNode>();
         node.Init(currentHighestID, mousePosition, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+
+        nodes.Add(node);
+    }
+
+    private void OnClickAddSetVariableNode(Vector2 mousePosition)
+    {
+        if (nodes == null)
+        {
+            nodes = new List<Node>();
+        }
+
+        currentHighestID++;
+        SetVariableNode node = CreateInstance<SetVariableNode>();
+        node.Init(currentHighestID, mousePosition, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
 
         nodes.Add(node);
     }

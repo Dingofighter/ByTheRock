@@ -30,8 +30,8 @@ public class PlayerChoiceNode : Node {
         title = "Player Choice Node";
         rect = new Rect(position.x, position.y, width, height);
         style = nodeStyle;
-        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, inPointStyle, OnClickInPoint, 0));
-        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, outPointStyle, OnClickOutPoint, 0));
+        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, inPointStyle, OnClickInPoint, 0, 0));
+        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, outPointStyle, OnClickOutPoint, 0, 0));
         defaultInPointStyle = inPointStyle;
         defaultOutPointStyle = outPointStyle;
         defaultNodeStyle = nodeStyle;
@@ -105,7 +105,7 @@ public class PlayerChoiceNode : Node {
 
     public void AddInPoint()
     {
-        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, defaultInPointStyle, defaultOnClickInPoint, inPoints.Count));
+        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, defaultInPointStyle, defaultOnClickInPoint, inPoints.Count, 0));
 
         // Increase height of node when inputs would start showing beyond node bounds
         if (Mathf.Max(inPoints.Count, outPoints.Count) > 3)
@@ -118,7 +118,7 @@ public class PlayerChoiceNode : Node {
 
     public void AddOutPoint()
     {
-        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, defaultOutPointStyle, defaultOnClickOutPoint, outPoints.Count));
+        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, defaultOutPointStyle, defaultOnClickOutPoint, outPoints.Count, 0));
 
         // Increase height of node when outputs would start showing beyond node bounds
         if (Mathf.Max(inPoints.Count, outPoints.Count) > 3)

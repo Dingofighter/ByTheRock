@@ -6,11 +6,13 @@ using System;
 public class CheckVariableNode : Node {
 
     public static int width = 250;
-    public static int defaultHeight = 180;
+    public static int defaultHeight = 220;
     // Space between left side / top of box and contents of node
     public static int padding = 15;
     // Amount of height to add when adding inputs
     public static int heightIncrease = 55;
+    // Offset to add to outpoints
+    public static int outPointOffset = 115;
 
     public int currentHeight = defaultHeight;
 
@@ -22,6 +24,8 @@ public class CheckVariableNode : Node {
     public string[] attributes = { "Aggressive", "Kind" };
     public string[] intComparators = { ">", "<", "==", "!=", ">=", "<=" };
 
+    public string[] bools = { "TestBool1", "TestBool2" };
+
     // Variables displayed in node
     public int variableTypeIndex = 0;
     public bool valueComparison = false;
@@ -30,6 +34,9 @@ public class CheckVariableNode : Node {
     public string intValueTwo = "";
     public int attributeIndexTwo = 0;
 
+    public int boolIndex = 0;
+    public int boolComparatorIndex = 0;
+
     public void Init(int id, Vector2 position, int width, int height, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle inPointStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickInPoint, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode)
     {
         this.id = id;
@@ -37,8 +44,9 @@ public class CheckVariableNode : Node {
         currentHeight = height;
         rect = new Rect(position.x, position.y, width, height);
         style = nodeStyle;
-        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, inPointStyle, OnClickInPoint, 0));
-        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, outPointStyle, OnClickOutPoint, 0));
+        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, inPointStyle, OnClickInPoint, 0, 0));
+        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, outPointStyle, OnClickOutPoint, 0, outPointOffset));
+        outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, outPointStyle, OnClickOutPoint, 1, outPointOffset));
         defaultInPointStyle = inPointStyle;
         defaultNodeStyle = nodeStyle;
         selectedNodeStyle = selectedStyle;
@@ -70,6 +78,9 @@ public class CheckVariableNode : Node {
         // Make text inside textArea wrap when reaching edge
         EditorStyles.textArea.wordWrap = true;
 
+        GUIStyle labelRight = new GUIStyle(GUI.skin.label);
+        labelRight.alignment = TextAnchor.MiddleRight;
+
         GUIStyle centerTextStyle = new GUIStyle(GUI.skin.textField);
         centerTextStyle.alignment = TextAnchor.MiddleCenter;
         /* Specify contents of node here */
@@ -80,7 +91,7 @@ public class CheckVariableNode : Node {
 
         if (variableTypeIndex == 0)
         {
-            valueComparison = EditorGUILayout.Toggle(valueComparison);
+            valueComparison = EditorGUILayout.Toggle("Int/Attribute comparison", valueComparison);
             GUILayout.BeginHorizontal();
 
             attributeIndex = EditorGUILayout.Popup(attributeIndex, attributes);
@@ -100,21 +111,30 @@ public class CheckVariableNode : Node {
         }
         else if (variableTypeIndex == 1)
         {
-            EditorGUILayout.LabelField("BOOL");
-        }
+            EditorGUILayout.LabelField("Bool to check:");
 
+            boolIndex = EditorGUILayout.Popup(boolIndex, bools);
+        }
 
         if (GUILayout.Button("Add input"))
         {
             AddInPoint();
         }
 
+        GUILayout.Space(6);
+
+        EditorGUILayout.LabelField("IF TRUE", labelRight);
+
+        GUILayout.Space(35);
+
+        EditorGUILayout.LabelField("IF FALSE", labelRight);
+
         GUILayout.EndArea();
     }
 
     public void AddInPoint()
     {
-        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, defaultInPointStyle, defaultOnClickInPoint, inPoints.Count));
+        inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, defaultInPointStyle, defaultOnClickInPoint, inPoints.Count, 0));
 
         // Increase height of node when inputs would start showing beyond node bounds
         if (Mathf.Max(inPoints.Count, outPoints.Count) > 3)

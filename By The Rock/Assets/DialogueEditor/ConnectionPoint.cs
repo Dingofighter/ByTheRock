@@ -20,20 +20,23 @@ public class ConnectionPoint {
     public Action<ConnectionPoint> OnClickConnectionPoint;
 
     public int index;
+
+    public int startOffset;
     
-    public ConnectionPoint(Node node, ConnectionPointType type, GUIStyle style, Action<ConnectionPoint> OnClickConnectionPoint, int index)
+    public ConnectionPoint(Node node, ConnectionPointType type, GUIStyle style, Action<ConnectionPoint> OnClickConnectionPoint, int index, int startOffset)
     {
         this.node = node;
         this.type = type;
         this.style = style;
         this.OnClickConnectionPoint = OnClickConnectionPoint;
         this.index = index;
-        rect = new Rect(0, 0, 10f, 20f);
+        this.startOffset = startOffset;
+        rect = new Rect(0, startOffset, 10f, 20f);
     }
 
     public void Draw()
     {
-        rect.y = (node.rect.y + rect.height) + index * offset;
+        rect.y = (node.rect.y + rect.height) + startOffset + index * offset;
 
         switch(type)
         {
