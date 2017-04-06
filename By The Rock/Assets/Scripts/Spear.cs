@@ -48,7 +48,7 @@ public class Spear : MonoBehaviour {
     {
         if (c.gameObject.tag == "enemy" && isThrown)
         {
-            c.GetComponent<Movement>().takeDamage(1);
+            c.GetComponentInParent<Movement>().takeDamage(1);
         }
     }
 }
