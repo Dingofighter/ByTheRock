@@ -4,10 +4,11 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
-
-    public UIManager UI;
+    
     public GameObject canvas;
     public bool paused;
+    public bool talking;
+    public bool shoulderView;
 
     void Awake()
     {
@@ -28,7 +29,15 @@ public class GameManager : MonoBehaviour {
         //DontDestroyOnLoad(gameObject);
     }
 
-    public void TogglePauseMenu()
+    public void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
+        {
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
     {
         //Debug.Log(canvas.activeInHierarchy());
         if (canvas.activeInHierarchy)
@@ -36,26 +45,16 @@ public class GameManager : MonoBehaviour {
             canvas.SetActive(false);
             Time.timeScale = 1.0f;
             paused = false;
+            if (!talking) Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             canvas.SetActive(true);
             Time.timeScale = 0f;
             paused = true;
         }
-        /*
-        if (UI.GetComponentInChildren<Canvas>().enabled)
-        {
-            UI.GetComponentInChildren<Canvas>().enabled = false;
-            Time.timeScale = 1.0f;
-        }
-        else
-        {
-            UI.GetComponentInChildren<Canvas>().enabled = true;
-            Time.timeScale = 0f;
-        }*/
-
-        Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
     }
 
 }

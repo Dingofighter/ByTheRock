@@ -20,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Interact"))
         {
             if (c.gameObject.tag == "Interact1")
             {
@@ -29,6 +29,10 @@ public class PlayerInteraction : MonoBehaviour {
             if (c.gameObject.tag == "Interact2")
             {
                 c.gameObject.transform.position += new Vector3(0, 1, 0);
+            }
+            if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
+            {
+                FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentInParent<Dialogue>());
             }
         }
     }

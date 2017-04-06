@@ -31,7 +31,7 @@ public class DialogueHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (inDialogue && Input.GetButtonDown("Interact"))
+        if (inDialogue && Input.GetButtonDown("Interact") && !GameManager.instance.paused)
         {
             // If player choice, check if button clicked
             if (isChoice)
@@ -55,6 +55,7 @@ public class DialogueHandler : MonoBehaviour {
                     }
 
                     choiceButtons.Clear();
+                    choiceSelected = false;
                 }
             }
             else
@@ -66,6 +67,10 @@ public class DialogueHandler : MonoBehaviour {
 
     public void StartDialogue(Dialogue dialogue)
     {
+        if (GameManager.instance.talking) return;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameManager.instance.talking = true;
         inDialogue = true;
         currentDialogue = dialogue;
         currentNode = currentDialogue.GetNode(0);
@@ -80,6 +85,8 @@ public class DialogueHandler : MonoBehaviour {
             dialogueNameText.text = "";
             dialogueText.text = "";
             inDialogue = false;
+            GameManager.instance.talking = false;
+            Cursor.lockState = CursorLockMode.Locked;
             return;
         }
 

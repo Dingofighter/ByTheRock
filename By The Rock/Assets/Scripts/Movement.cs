@@ -147,11 +147,10 @@ public class Movement : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider c)
+    void OnTriggerStay(Collider c)
     {
-
-
-        if (c.gameObject.tag == "closeToPlayer" && !run && !c.GetComponentInParent<PlayerMovement>().getCrouching())
+        
+        if (c.gameObject.tag == "Player" && !run && !c.GetComponent<PlayerMovement>().getCrouching())
         {
             rend.material.color = colorRun;
             run = true;
