@@ -8,7 +8,7 @@ public class Crosshair : MonoBehaviour {
     void OnGUI()
     {
         //if not paused
-        if (Time.timeScale != 0 && WorldCamera.shoulderView)
+        if (Time.timeScale != 0 && GameManager.instance.shoulderView)
         {
             if (crosshairTexture != null)
                 GUI.DrawTexture(new Rect((Screen.width - crosshairTexture.width * crosshairScale) / 2 - 50, 

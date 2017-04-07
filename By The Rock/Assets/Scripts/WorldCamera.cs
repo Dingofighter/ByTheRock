@@ -22,11 +22,6 @@ public class WorldCamera : MonoBehaviour {
 
     private bool shoulderZoom;
 
-    public UIManager UI;
-    public GameObject canvas;
-
-    public static bool shoulderView;
-
     // Use this for initialization
     void Start()
     {
@@ -39,7 +34,7 @@ public class WorldCamera : MonoBehaviour {
 
     void LateUpdate()
     {
-        if (target && !canvas.activeInHierarchy)
+        if (target && !GameManager.instance.paused)
         {
             x += Input.GetAxis("Mouse X") * xSpeed * 0.05f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
@@ -57,7 +52,7 @@ public class WorldCamera : MonoBehaviour {
 
             if (shoulderZoom)
             {
-                shoulderView = true;
+                GameManager.instance.shoulderView = true;
                 target.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                 distance = Mathf.Clamp(desiredDistance, distanceMin, 2);
 
@@ -67,8 +62,8 @@ public class WorldCamera : MonoBehaviour {
             }
             else
             {
-                shoulderView = false;
                 // Collision Detection
+                GameManager.instance.shoulderView = false;
                 position = target.position - (rotation * Vector3.forward * distance);
                 cameraTargetPosition = new Vector3(target.position.x, target.position.y + height, target.position.z);
             }
@@ -83,7 +78,7 @@ public class WorldCamera : MonoBehaviour {
             transform.rotation = rotation;
             transform.position = position;
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetButtonDown("AimMode") && !GameManager.instance.talking)
             {
                 shoulderZoom = !shoulderZoom;
             }
@@ -134,12 +129,6 @@ public class WorldCamera : MonoBehaviour {
             
             transform.rotation = rotation;
             transform.position = position;*/
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
 
     }

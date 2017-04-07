@@ -14,11 +14,7 @@ public class UIManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        ScanForKeyStroke();
+       
     }
-
-    void ScanForKeyStroke()
-    {
-        if (Input.GetKeyDown("escape")) GM.TogglePauseMenu();
-    }
+    
 }
