@@ -21,7 +21,8 @@ public class Spear : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
+
+        RaycastHit rayhit;
 
         Debug.DrawRay(transform.position, transform.forward * (distToGround + 0.1f), Color.magenta);
         if (Physics.Raycast(transform.position, transform.forward, distToGround + 0.1f) && isThrown && !hitSomething && !hitSomethingForward)
@@ -42,6 +43,14 @@ public class Spear : MonoBehaviour {
             //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z));
         }
 
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+       if (c.gameObject.tag == "tree")
+        {
+            Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
+        }
     }
 
     void OnTriggerEnter(Collider c)

@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     Vector3 spawnPosition;
     float currAngle;
     float currDist;
+    bool still;
 
     Renderer rend;
     public Color color;
@@ -59,6 +60,11 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void standStill()
+    {
+        still = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -69,6 +75,8 @@ public class Movement : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        if (still) return;
         
         if (!run)
         {
@@ -160,8 +168,9 @@ public class Movement : MonoBehaviour
 
     void OnTriggerStay(Collider c)
     {
-        if (c.gameObject.tag == "Player" && !run && !c.GetComponent<PlayerMovement>().getCrouching())
+        if (c.gameObject.tag == "Player" && !run && !c.GetComponent<PlayerMovement>().getCrouching() && !still)
         {
+            maxMoveCounter = 0;
             rend.material.color = colorRun;
             run = true;
             playerPosition = c.gameObject.transform.position;
