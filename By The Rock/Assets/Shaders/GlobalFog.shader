@@ -157,6 +157,8 @@
 
 		SubShader
 	{
+		//Tags {"Queue" = "Transparent+1"}
+
 		ZTest Always Cull Off ZWrite Off Fog{ Mode Off }
 
 			// 0: distance + height
