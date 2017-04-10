@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
     public bool paused;
     public bool talking;
     public bool shoulderView;
+    public int currScene;
+    public int currSecondScene;
+    public bool secondSceneLoaded;
 
     void Awake()
     {
@@ -26,11 +29,12 @@ public class GameManager : MonoBehaviour {
 
         }
         //Sets this to not be destroyed when reloading scene
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Update()
     {
+
         if (Input.GetButtonDown("Pause"))
         {
             TogglePause();

@@ -21,7 +21,6 @@ public class Spear : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
 
         Debug.DrawRay(transform.position, transform.forward * (distToGround + 0.1f), Color.magenta);
         if (Physics.Raycast(transform.position, transform.forward, distToGround + 0.1f) && isThrown && !hitSomething && !hitSomethingForward)
@@ -44,11 +43,23 @@ public class Spear : MonoBehaviour {
 
     }
 
+    void OnCollisionEnter(Collision c)
+    {
+       if (c.gameObject.tag == "tree")
+        {
+            Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
+        }
+    }
+
     void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "enemy" && isThrown)
         {
-            c.GetComponent<Movement>().takeDamage(1);
+            c.GetComponentInParent<Movement>().takeDamage(1);
+        }
+        if (c.gameObject.tag == "FriendOrc" && isThrown)
+        {
+            c.GetComponentInParent<orcMovement>().hitByPlayer();
         }
     }
 }
