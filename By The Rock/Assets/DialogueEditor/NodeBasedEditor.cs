@@ -261,7 +261,6 @@ public class NodeBasedEditor : EditorWindow {
             // Create an asset file from container class instance
             AssetDatabase.CreateAsset(dialogue, assetPath);
         }
-        Debug.Log(dialogue);
         
         // Loop through all nodes and connections in current dialogue and add them as subassets to created asset file
         foreach (Node node in nodes)
@@ -333,6 +332,22 @@ public class NodeBasedEditor : EditorWindow {
                 newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count);
                 nodes.Add(newNode);
             }
+            else if (node is CheckVariableNode)
+            {
+                CheckVariableNode newNode = CreateInstance<CheckVariableNode>();
+                newNode.Init(node.id, node.rect.position, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                CheckVariableNode tempNode = (CheckVariableNode)node;
+                newNode.Load(tempNode.boolIndex, node.inPoints.Count);
+                nodes.Add(newNode);
+            }
+            else if (node is SetVariableNode)
+            {
+                SetVariableNode newNode = CreateInstance<SetVariableNode>();
+                newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                SetVariableNode tempNode = (SetVariableNode)node;
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
+                nodes.Add(newNode);
+            }
 
             // Make sure currentHighestID is updated to avoid multiple nodes with same id
             if (node.id > currentHighestID)
@@ -400,6 +415,22 @@ public class NodeBasedEditor : EditorWindow {
                 newNode.Init(node.id, node.rect.position, PlayerChoiceNode.width, PlayerChoiceNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 PlayerChoiceNode tempNode = (PlayerChoiceNode)node;
                 newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count);
+                nodes.Add(newNode);
+            }
+            else if (node is CheckVariableNode)
+            {
+                CheckVariableNode newNode = CreateInstance<CheckVariableNode>();
+                newNode.Init(node.id, node.rect.position, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                CheckVariableNode tempNode = (CheckVariableNode)node;
+                newNode.Load(tempNode.boolIndex, node.inPoints.Count);
+                nodes.Add(newNode);
+            }
+            else if (node is SetVariableNode)
+            {
+                SetVariableNode newNode = CreateInstance<SetVariableNode>();
+                newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                SetVariableNode tempNode = (SetVariableNode)node;
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
                 nodes.Add(newNode);
             }
 
