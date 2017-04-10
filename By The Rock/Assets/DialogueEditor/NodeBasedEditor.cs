@@ -220,9 +220,6 @@ public class NodeBasedEditor : EditorWindow {
 
     private void Save()
     {
-
-        // Create an instance of container class
-        dialogue = CreateInstance<DialogueContainer>();
         // Show file browser
         string assetPath = EditorUtility.SaveFilePanel("Select asset", "Assets/Dialogues", "DialogueName", "asset");
         if (assetPath != "")
@@ -234,8 +231,38 @@ public class NodeBasedEditor : EditorWindow {
         {
             return;
         }
-        // Create an asset file from container class instance
-        AssetDatabase.CreateAsset(dialogue, assetPath);
+
+        // Try to load asset at specified path
+        dialogue = (DialogueContainer)AssetDatabase.LoadAssetAtPath(assetPath, typeof(DialogueContainer));
+
+        if (dialogue != null)
+        {
+            // If asset exists, delete all sub-assets and clear lists
+            Object[] subAssets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+            for (int i = 0; i < subAssets.Length; i++)
+            {
+                if (subAssets[i] is DialogueContainer)
+                {
+                    // Don't destroy DialogueContainer
+                }
+                else
+                {
+                    DestroyImmediate(subAssets[i], true);
+                }
+            }
+
+            dialogue.nodes.Clear();
+            dialogue.connections.Clear();
+        }
+        else
+        {
+            // Create an instance of container class
+            dialogue = CreateInstance<DialogueContainer>();
+            // Create an asset file from container class instance
+            AssetDatabase.CreateAsset(dialogue, assetPath);
+        }
+        Debug.Log(dialogue);
+        
         // Loop through all nodes and connections in current dialogue and add them as subassets to created asset file
         foreach (Node node in nodes)
         {
