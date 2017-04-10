@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,13 +13,23 @@ public class PlayerMovement : MonoBehaviour
     bool isWalking = false;
     bool isCrouching = false;
 
+    bool unload;
+    string unloadName;
+
     bool holdingSpear;
+
+    private readonly int NONE = 0;
+    private readonly int FOREST = 1;
+    private readonly int VILLAGE = 2;
 
     // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
         cam = Camera.main.transform;
+        Object.DontDestroyOnLoad(this);
+        GameManager.instance.currScene = FOREST;
+        GameManager.instance.currSecondScene = NONE;
     }
 
     public bool getCrouching()
@@ -107,6 +118,43 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("Forward", 0);
             animator.SetFloat("Turn", 0);
+        }
+
+        if (unload)
+        {
+            unload = false;
+            SceneManager.UnloadScene(unloadName);
+        }
+    }
+
+    void OnTriggerEnter(Collider c)
+    {
+
+        if (c.gameObject.tag == "loadInWall" && GameManager.instance.currSecondScene == NONE)
+        {
+            GameManager.instance.currSecondScene = VILLAGE;
+            SceneManager.LoadSceneAsync("AdditiveTest", LoadSceneMode.Additive);
+        }
+        if (c.gameObject.tag == "loadInWallRevert" && GameManager.instance.currSecondScene == VILLAGE)
+        {
+            GameManager.instance.currSecondScene = NONE;
+            unload = true;
+            unloadName = "AdditiveTest";
+        }
+        if (c.gameObject.tag == "loadOutWall" && GameManager.instance.currScene == FOREST)
+        {
+            Debug.Log("unloading");
+            GameManager.instance.currScene = VILLAGE;
+            GameManager.instance.currSecondScene = NONE;
+            unload = true;
+            unloadName = "AITest";
+            //SceneManager.UnloadScene("AITest");
+            Debug.Log("unloaded");
+        }
+        if (c.gameObject.tag == "loadOutWallRevert" && GameManager.instance.currScene == VILLAGE)
+        {
+            GameManager.instance.currSecondScene = FOREST;
+            SceneManager.LoadSceneAsync("AITest", LoadSceneMode.Additive);
         }
     }
 }
