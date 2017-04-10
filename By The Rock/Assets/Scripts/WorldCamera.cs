@@ -81,7 +81,6 @@ public class WorldCamera : MonoBehaviour {
             {
                 position = collisionHit.point;
                 distance = Vector3.Distance(target.position, position);
-//Debug.Log(distance);
             }
             transform.rotation = rotation;
             transform.position = position;
@@ -97,10 +96,6 @@ public class WorldCamera : MonoBehaviour {
             if (Input.GetButtonDown("AimMode") && !GameManager.instance.talking)
             {
                 shoulderZoom = !shoulderZoom;
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                SceneManager.UnloadScene("AITest");
             }
         }
     }
