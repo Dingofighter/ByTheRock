@@ -105,30 +105,41 @@ public class DialogueHandler : MonoBehaviour {
         {
             isChoice = true;
             PlayerChoiceNode tempNode = (PlayerChoiceNode)currentNode;
-            dialogueNameText.text = "Ougrah";
 
             for (int i = 0; i < tempNode.optionLines.Count; i++)
             {
                 // Spawn buttons with offset
-                Button choiceButton = (Button) Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
+                Button choiceButton = (Button)Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
                 choiceButton.transform.SetParent(dialogueText.transform.parent);
                 choiceButton.GetComponentInChildren<Text>().text = tempNode.optionLines[i];
                 choiceButtons.Add(choiceButton);
             }
         }
-        /*
-        currentLine = currentDialogue.GetLine(currentLine).nextLine - 1;
-        if (currentLine < 0)
+        else if (currentNode is CheckVariableNode)
         {
-            inDialogue = false;
-            dialogueNameText.text = "";
-            dialogueText.text = "";
+            CheckVariableNode tempNode = (CheckVariableNode)currentNode;
+            if (AllFlags.Instance.flags[tempNode.boolIndex].value)
+            {
+                NextNode(0);
+            }
+            else
+            {
+                NextNode(1);
+            }
         }
-        else
+        else if (currentNode is SetVariableNode)
         {
-            dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
-            dialogueText.text = currentDialogue.GetLine(currentLine).line;
+            SetVariableNode tempNode = (SetVariableNode)currentNode;
+            if (tempNode.boolValueIndex == 0)
+            {
+                AllFlags.Instance.flags[tempNode.boolIndex].value = true;
+            }
+            else
+            {
+                AllFlags.Instance.flags[tempNode.boolIndex].value = false;
+            }
+
+            NextNode(0);
         }
-        */
     }
 }
