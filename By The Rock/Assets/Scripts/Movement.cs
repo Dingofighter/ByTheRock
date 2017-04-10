@@ -157,6 +157,7 @@ public class Movement : MonoBehaviour
             invincibilityTimer++;
             if (invincibilityTimer > 50)
             {
+                rend.material.color = color;
                 agent.acceleration = acceleration;
                 agent.speed = walkSpeed;
                 rend.material.color = color;

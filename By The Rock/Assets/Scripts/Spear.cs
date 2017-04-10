@@ -22,8 +22,6 @@ public class Spear : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        RaycastHit rayhit;
-
         Debug.DrawRay(transform.position, transform.forward * (distToGround + 0.1f), Color.magenta);
         if (Physics.Raycast(transform.position, transform.forward, distToGround + 0.1f) && isThrown && !hitSomething && !hitSomethingForward)
         {
@@ -58,6 +56,10 @@ public class Spear : MonoBehaviour {
         if (c.gameObject.tag == "enemy" && isThrown)
         {
             c.GetComponentInParent<Movement>().takeDamage(1);
+        }
+        if (c.gameObject.tag == "FriendOrc" && isThrown)
+        {
+            c.GetComponentInParent<orcMovement>().hitByPlayer();
         }
     }
 }

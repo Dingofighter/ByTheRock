@@ -53,15 +53,15 @@ public class orcMovement : MonoBehaviour {
         
         checkForPlayer();
 
-        shouldThrow = true;
+        //shouldThrow = true;
     }
 
     void checkForPlayer()
     {
-        if (Vector3.Distance(player.position, transform.position) > 4)
+        if (Vector3.Distance(player.position, transform.position) > 7)
         {
             maxMoveCounter = 0;
-            Debug.Log("you're LEAVING MEEEE!! REEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            //Debug.Log("you're LEAVING MEEEE!! REEEEEEEEEEEEEEEEEEEEEEEEEEE");
             rend.material.color = colorRun;
             run = true;
 
@@ -75,6 +75,11 @@ public class orcMovement : MonoBehaviour {
             agent.SetDestination(playerPosition);
             targetPosition = playerPosition;
         }
+    }
+
+    public void hitByPlayer()
+    {
+
     }
 
     // Update is called once per frame
@@ -108,7 +113,7 @@ public class orcMovement : MonoBehaviour {
                 spear.GetComponent<Rigidbody>().AddForce(transform.forward * Vector3.Distance(transform.position, enemy.position) * 10 + transform.up * (enemy.position.y - transform.position.y) * 10 - transform.right * 5, ForceMode.Impulse);
                 spear.GetComponent<Spear>().isThrown = true;
                 spearTimer = 0;
-                //shouldThrow = false;
+                shouldThrow = false;
             }
             return;
         }
@@ -164,14 +169,14 @@ public class orcMovement : MonoBehaviour {
                 maxMoveCounter = 0;
                 if (Vector3.Distance(player.position, transform.position) > 4)
                 {
-                    Debug.Log("STILL AWAY WAAH");
+                    //Debug.Log("STILL AWAY WAAH");
                     transform.LookAt(playerPosition);
                     agent.SetDestination(player.position);
                     targetPosition = playerPosition;
                 }
                 else
                 {
-                    Debug.Log("I'm here");
+                    //Debug.Log("I'm here");
                     run = false;
                     agent.acceleration = acceleration;
                     agent.speed = walkSpeed;
@@ -187,9 +192,11 @@ public class orcMovement : MonoBehaviour {
         {
             maxMoveCounter++;
         }
+
+        checkForPlayer();
     }
 
-    void OnTriggerExit(Collider c)
+  /*  void OnTriggerExit(Collider c)
     {
         if (c.gameObject.tag == "Player" && !run)
         {
@@ -208,5 +215,5 @@ public class orcMovement : MonoBehaviour {
             agent.SetDestination(playerPosition);
             targetPosition = playerPosition;
         }
-    }
+    }*/
 }

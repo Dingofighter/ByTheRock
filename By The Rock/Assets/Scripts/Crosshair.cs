@@ -10,8 +10,10 @@ public class Crosshair : MonoBehaviour {
         //if not paused
         if (Time.timeScale != 0 && GameManager.instance.shoulderView)
         {
+            
+            //Debug.Log(WorldCamera.shoulderDistance);
             if (crosshairTexture != null)
-                GUI.DrawTexture(new Rect((Screen.width - crosshairTexture.width * crosshairScale) / 2 - 50, 
+                GUI.DrawTexture(new Rect((Screen.width - crosshairTexture.width * crosshairScale) / 2 - 60 + WorldCamera.shoulderDistance, 
                     (Screen.height - crosshairTexture.height * crosshairScale) / 2, 
                     crosshairTexture.width * crosshairScale, 
                     crosshairTexture.height * crosshairScale), 
