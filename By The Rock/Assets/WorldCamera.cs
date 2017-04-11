@@ -34,7 +34,7 @@ public class WorldCamera : MonoBehaviour {
         x = angles.y;
         y = angles.x;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void LateUpdate()

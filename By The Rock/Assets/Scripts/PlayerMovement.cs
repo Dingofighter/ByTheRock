@@ -127,6 +127,10 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        //dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
+        if (other.tag == "Dialogue")
+        {
+            dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
+        }
+        
     }
 }
