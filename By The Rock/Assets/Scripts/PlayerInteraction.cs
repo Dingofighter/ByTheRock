@@ -32,6 +32,11 @@ public class PlayerInteraction : MonoBehaviour {
             }
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
             {
+                //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
+                //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
+                //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
+                //transform.LookAt(new Vector3(transform.right.x, c.transform.position.y, transform.forward.z));
+                transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentInParent<Dialogue>());
             }
         }

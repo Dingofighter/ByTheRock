@@ -8,6 +8,8 @@ public class WorldCamera : MonoBehaviour {
     public float height = 1.5f;
     public float aimHeight = 1.3f;
     public float aimRight = 1.3f;
+    public float talkHeight = 1f;
+    public float talkRight = 1f;
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
@@ -24,6 +26,8 @@ public class WorldCamera : MonoBehaviour {
     
     float x = 0.0f;
     float y = 0.0f;
+
+    Quaternion rotation;
 
     private bool shoulderZoom;
 
@@ -52,7 +56,15 @@ public class WorldCamera : MonoBehaviour {
 
             y = ClampAngle(y, yMinLimit, yMaxLimit);
 
-            Quaternion rotation = Quaternion.Euler(y, x, 0);
+            if (!GameManager.instance.talking)
+            {
+                //Debug.Log(y.ToString() + " " + x.ToString());
+                rotation = Quaternion.Euler(y, x, 0);
+            }
+            else
+            {
+                rotation = Quaternion.Euler(13, target.rotation.x+180, 0);
+            }
 
             Vector3 position = new Vector3(0, 0, 0);
             Vector3 cameraTargetPosition;
@@ -64,7 +76,8 @@ public class WorldCamera : MonoBehaviour {
                 distance = Mathf.Clamp(desiredDistance, distanceMin, 1.5f);
 
                 position = target.position - (rotation * Vector3.forward * distance) + transform.right * aimRight + Vector3.up * aimHeight;
-                cameraTargetPosition = new Vector3(target.position.x, target.position.y + height + 3, target.position.z) + ((transform.right * 2));
+                //cameraTargetPosition = new Vector3(target.position.x, target.position.y + height + 3, target.position.z) + ((transform.right * 2));
+                cameraTargetPosition = new Vector3(target.position.x, target.position.y + height, target.position.z);
 
             }
             else
@@ -75,15 +88,31 @@ public class WorldCamera : MonoBehaviour {
                 cameraTargetPosition = new Vector3(target.position.x, target.position.y + height, target.position.z);
             }
 
+            if (GameManager.instance.talking)
+            {
+                Vector3 angles = transform.eulerAngles;
+                x = angles.y;
+                y = angles.x;
+                position = target.position - (rotation * Vector3.forward * distance) + transform.right * talkHeight + Vector3.up * talkRight;
+            }
+
+
             RaycastHit collisionHit;
 
+            Debug.DrawLine(cameraTargetPosition, position, Color.black);
             if (Physics.Linecast(cameraTargetPosition, position, out collisionHit))
             {
                 position = collisionHit.point;
                 distance = Vector3.Distance(target.position, position);
             }
-            transform.rotation = rotation;
-            transform.position = position;
+
+            if (GameManager.instance.talking) transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+            else transform.rotation = rotation;
+
+            int cameraSpeed = 25;
+            if (GameManager.instance.talking) cameraSpeed = 5;
+            
+            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed);
 
             shoulderDistance = 50;
             RaycastHit rayHit;
