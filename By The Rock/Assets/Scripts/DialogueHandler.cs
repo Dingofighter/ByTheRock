@@ -31,7 +31,7 @@ public class DialogueHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (inDialogue && Input.GetButtonDown("Interact"))
+        if (inDialogue && Input.GetButtonDown("Interact") && !GameManager.instance.paused)
         {
             // If player choice, check if button clicked
             if (isChoice)
@@ -55,6 +55,7 @@ public class DialogueHandler : MonoBehaviour {
                     }
 
                     choiceButtons.Clear();
+                    choiceSelected = false;
                 }
             }
             else
@@ -66,6 +67,10 @@ public class DialogueHandler : MonoBehaviour {
 
     public void StartDialogue(Dialogue dialogue)
     {
+        if (GameManager.instance.talking) return;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameManager.instance.talking = true;
         inDialogue = true;
         currentDialogue = dialogue;
         currentNode = currentDialogue.GetNode(0);
@@ -80,6 +85,8 @@ public class DialogueHandler : MonoBehaviour {
             dialogueNameText.text = "";
             dialogueText.text = "";
             inDialogue = false;
+            GameManager.instance.talking = false;
+            Cursor.lockState = CursorLockMode.Locked;
             return;
         }
 
@@ -98,30 +105,41 @@ public class DialogueHandler : MonoBehaviour {
         {
             isChoice = true;
             PlayerChoiceNode tempNode = (PlayerChoiceNode)currentNode;
-            dialogueNameText.text = "Ougrah";
 
             for (int i = 0; i < tempNode.optionLines.Count; i++)
             {
                 // Spawn buttons with offset
-                Button choiceButton = (Button) Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
+                Button choiceButton = (Button)Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
                 choiceButton.transform.SetParent(dialogueText.transform.parent);
                 choiceButton.GetComponentInChildren<Text>().text = tempNode.optionLines[i];
                 choiceButtons.Add(choiceButton);
             }
         }
-        /*
-        currentLine = currentDialogue.GetLine(currentLine).nextLine - 1;
-        if (currentLine < 0)
+        else if (currentNode is CheckVariableNode)
         {
-            inDialogue = false;
-            dialogueNameText.text = "";
-            dialogueText.text = "";
+            CheckVariableNode tempNode = (CheckVariableNode)currentNode;
+            if (AllFlags.Instance.flags[tempNode.boolIndex].value)
+            {
+                NextNode(0);
+            }
+            else
+            {
+                NextNode(1);
+            }
         }
-        else
+        else if (currentNode is SetVariableNode)
         {
-            dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
-            dialogueText.text = currentDialogue.GetLine(currentLine).line;
+            SetVariableNode tempNode = (SetVariableNode)currentNode;
+            if (tempNode.boolValueIndex == 0)
+            {
+                AllFlags.Instance.flags[tempNode.boolIndex].value = true;
+            }
+            else
+            {
+                AllFlags.Instance.flags[tempNode.boolIndex].value = false;
+            }
+
+            NextNode(0);
         }
-        */
     }
 }

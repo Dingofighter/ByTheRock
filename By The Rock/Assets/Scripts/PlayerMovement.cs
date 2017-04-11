@@ -1,75 +1,77 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     Animator animator;
-    DialogueHandler dialogueHandler;
     Transform cam;
     public Transform spearPre;
     Transform spear;
 
-
     bool isWalking = false;
     bool isCrouching = false;
-    bool canMove = true;
+
+    bool unload;
+    string unloadName;
 
     bool holdingSpear;
 
-	// Use this for initialization
-	void Start () {
+    private readonly int NONE = 0;
+    private readonly int FOREST = 1;
+    private readonly int VILLAGE = 2;
+
+    // Use this for initialization
+    void Start()
+    {
         animator = GetComponent<Animator>();
-        dialogueHandler = FindObjectOfType<DialogueHandler>();
         cam = Camera.main.transform;
+        Object.DontDestroyOnLoad(this);
+        GameManager.instance.currScene = FOREST;
+        GameManager.instance.currSecondScene = NONE;
     }
 
     public bool getCrouching()
     {
         return isCrouching;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (GameManager.instance.paused) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (!GameManager.instance.talking)
         {
-            spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
-            spear.GetComponent<Rigidbody>().detectCollisions = false;
-            spear.GetComponent<Rigidbody>().useGravity = false;
-            holdingSpear = true;
-            spear.GetComponentInChildren<Rigidbody>().detectCollisions = false;
-            spear.GetComponentInChildren<Rigidbody>().useGravity = false;
-        }
+            if (Input.GetMouseButtonDown(0) && GameManager.instance.shoulderView)
+            {
+                spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
+                spear.GetComponent<Rigidbody>().detectCollisions = false;
+                spear.GetComponent<Rigidbody>().useGravity = false;
+                holdingSpear = true;
+                spear.GetComponentInChildren<Rigidbody>().detectCollisions = false;
+                spear.GetComponentInChildren<Rigidbody>().useGravity = false;
+            }
 
-        if (holdingSpear)
-        {
-            spear.transform.position = new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f);
-            spear.transform.rotation = Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0));
-        }
+            if (holdingSpear)
+            {
+                spear.transform.position = new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f);
+                spear.transform.rotation = Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0));
+            }
 
-        if (!Input.GetMouseButton(0) && holdingSpear)
-        {
-            holdingSpear = false;
-            spear.GetComponent<Rigidbody>().useGravity = true;
-            spear.GetComponent<Rigidbody>().detectCollisions = true;
-            spear.GetComponentInChildren<Rigidbody>().detectCollisions = true;
-            spear.GetComponentInChildren<Rigidbody>().useGravity = true;
-            spear.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 85 + transform.up * 10, ForceMode.Impulse);
-            spear.GetComponent<Spear>().isThrown = true;
-        }
+            if ((!Input.GetMouseButton(0) || !GameManager.instance.shoulderView) && holdingSpear)
+            {
+                holdingSpear = false;
+                spear.GetComponent<Rigidbody>().useGravity = true;
+                spear.GetComponent<Rigidbody>().detectCollisions = true;
+                spear.GetComponentInChildren<Rigidbody>().detectCollisions = true;
+                spear.GetComponentInChildren<Rigidbody>().useGravity = true;
+                spear.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 85 + transform.up * 10, ForceMode.Impulse);
+                spear.GetComponent<Spear>().isThrown = true;
+            }
 
-
-
-
-
-
-        
-        canMove = !dialogueHandler.inDialogue;
-
-        if (canMove)
-        {
             float vertical = Input.GetAxis("Vertical");
             float horizontal = Input.GetAxis("Horizontal");
 
@@ -117,20 +119,41 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetFloat("Forward", 0);
             animator.SetFloat("Turn", 0);
         }
-    }
 
-
-    void onKeyDown()
-    {
-
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Dialogue")
+        if (unload)
         {
-            dialogueHandler.StartDialogue(other.GetComponentInParent<Dialogue>());
+            unload = false;
+            SceneManager.UnloadScene(unloadName);
         }
-        
+    }
+
+    void OnTriggerEnter(Collider c)
+    {
+        if (c.gameObject.tag == "loadInWall" && GameManager.instance.currSecondScene == NONE)
+        {
+            GameManager.instance.currSecondScene = VILLAGE;
+            SceneManager.LoadSceneAsync("AdditiveTest", LoadSceneMode.Additive);
+        }
+        if (c.gameObject.tag == "loadInWallRevert" && GameManager.instance.currSecondScene == VILLAGE)
+        {
+            GameManager.instance.currSecondScene = NONE;
+            unload = true;
+            unloadName = "AdditiveTest";
+        }
+        if (c.gameObject.tag == "loadOutWall" && GameManager.instance.currScene == FOREST)
+        {
+            Debug.Log("unloading");
+            GameManager.instance.currScene = VILLAGE;
+            GameManager.instance.currSecondScene = NONE;
+            unload = true;
+            unloadName = "AITest";
+            //SceneManager.UnloadScene("AITest");
+            Debug.Log("unloaded");
+        }
+        if (c.gameObject.tag == "loadOutWallRevert" && GameManager.instance.currScene == VILLAGE)
+        {
+            GameManager.instance.currSecondScene = FOREST;
+            SceneManager.LoadSceneAsync("AITest", LoadSceneMode.Additive);
+        }
     }
 }
