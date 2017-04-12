@@ -113,7 +113,7 @@ public class orcMovement : MonoBehaviour {
                 spear.GetComponent<Rigidbody>().AddForce(transform.forward * Vector3.Distance(transform.position, enemy.position) * 10 + transform.up * (enemy.position.y - transform.position.y) * 10 - transform.right * 5, ForceMode.Impulse);
                 spear.GetComponent<Spear>().isThrown = true;
                 //spearTimer = 0;
-                //shouldThrow = false;
+                shouldThrow = false;
             }
             else if (spearTimer > 120)
             {

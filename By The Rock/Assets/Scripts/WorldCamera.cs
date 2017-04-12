@@ -71,7 +71,6 @@ public class WorldCamera : MonoBehaviour {
 
             if (shoulderZoom)
             {
-                GameManager.instance.shoulderView = true;
                 target.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                 distance = Mathf.Clamp(desiredDistance, distanceMin, 1.5f);
 
@@ -112,7 +111,7 @@ public class WorldCamera : MonoBehaviour {
             int cameraSpeed = 25;
             if (GameManager.instance.talking) cameraSpeed = 5;
             
-            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed);
+            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed)/* + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f),Random.Range(-0.1f, 0.1f))*/;
 
             shoulderDistance = 50;
             RaycastHit rayHit;
@@ -122,9 +121,12 @@ public class WorldCamera : MonoBehaviour {
                 shoulderDistance = Vector3.Distance(transform.position, rayHit.point);
             }
 
+            shoulderZoom = GameManager.instance.crouching;
+            GameManager.instance.shoulderView = shoulderZoom;
+
             if (Input.GetButtonDown("AimMode") && !GameManager.instance.talking)
             {
-                shoulderZoom = !shoulderZoom;
+                //shoulderZoom = !shoulderZoom;
             }
         }
     }

@@ -19,8 +19,8 @@ public class PlayerInteraction : MonoBehaviour {
     void OnTriggerStay(Collider c)
     {
         if (GameManager.instance.paused) return;
-
-        if (Input.GetButtonDown("Interact"))
+        
+        if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
         {
             if (c.gameObject.tag == "Interact1")
             {
@@ -38,6 +38,11 @@ public class PlayerInteraction : MonoBehaviour {
                 //transform.LookAt(new Vector3(transform.right.x, c.transform.position.y, transform.forward.z));
                 transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentInParent<Dialogue>());
+            }
+            if (c.gameObject.tag == "spear")
+            {
+                Destroy(c.GetComponentInParent<Spear>().gameObject);
+                PlayerMovement.gotSpear = true;
             }
         }
     }

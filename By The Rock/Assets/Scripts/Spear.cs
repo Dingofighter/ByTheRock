@@ -41,6 +41,13 @@ public class Spear : MonoBehaviour {
             //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z));
         }
 
+        if (hitSomething || hitSomethingForward)
+        {
+            rigidbodyY.useGravity = false;
+            //rigidbodyY.detectCollisions = false;
+            rigidbodyY.velocity = Vector3.zero;
+        }
+
     }
 
     void OnCollisionEnter(Collision c)

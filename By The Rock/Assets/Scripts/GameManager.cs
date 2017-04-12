@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public int currScene;
     public int currSecondScene;
     public bool secondSceneLoaded;
+    public bool crouching;
 
     void Awake()
     {
