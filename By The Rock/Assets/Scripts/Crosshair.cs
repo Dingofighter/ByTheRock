@@ -8,7 +8,7 @@ public class Crosshair : MonoBehaviour {
     void OnGUI()
     {
         //if not paused
-        if (Time.timeScale != 0 && GameManager.instance.shoulderView)
+        if (Time.timeScale != 0 && GameManager1.instance.shoulderView)
         {
             
             //Debug.Log(WorldCamera.shoulderDistance);
