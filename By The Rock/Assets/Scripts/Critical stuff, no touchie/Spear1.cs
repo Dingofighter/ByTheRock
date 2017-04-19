@@ -83,7 +83,7 @@ public class Spear1 : MonoBehaviour {
         if (c.gameObject.tag == "enemy" && isThrown && canDamage)
         {
             canDamage = false;
-            c.GetComponentInParent<Movement1>().takeDamage(1);
+            c.GetComponentInParent<Movement1>().takeDamage(GameManager1.instance.dmg);
             transform.SetParent(c.transform);
         }
         if (c.gameObject.tag == "FriendOrc" && isThrown)
