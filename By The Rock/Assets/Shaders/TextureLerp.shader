@@ -1,7 +1,7 @@
 ﻿// Modified Unity version - WipeShader - mgear - http://unitycoder.com/blog/
 // ORIGINAL GLSL SHADER "Postpro" WAS MADE BY: iq (2009)
 
-Shader "Test"
+Shader "TextureLerp"
 {
 	Properties
 	{
