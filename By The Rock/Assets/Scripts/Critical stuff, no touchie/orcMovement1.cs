@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class orcMovement : MonoBehaviour {
+public class orcMovement1 : MonoBehaviour {
 
     int counter;
     int counterIdleMax;
@@ -24,6 +24,7 @@ public class orcMovement : MonoBehaviour {
     Transform spear;
     int spearTimer;
     Transform enemy;
+    bool playerAlive;
 
     Renderer rend;
     public Color color;
@@ -49,7 +50,7 @@ public class orcMovement : MonoBehaviour {
         agent.speed = walkSpeed;
         agent.acceleration = acceleration;
 
-        player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<PlayerMovement1>().transform;
         
         checkForPlayer();
 
@@ -85,7 +86,7 @@ public class orcMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.paused) return;
+        if (GameManager1.instance.paused) return;
         
         if (shouldThrow)
         {
@@ -94,9 +95,9 @@ public class orcMovement : MonoBehaviour {
             if (spearTimer == 1)
             {
                 agent.SetDestination(transform.position);
-                enemy = FindObjectOfType<Movement>().transform;
+                enemy = FindObjectOfType<Movement1>().transform;
                 transform.LookAt(enemy.position);
-                enemy.GetComponent<Movement>().standStill();
+                enemy.GetComponent<Movement1>().standStill();
 
                 spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
                 spear.GetComponent<Rigidbody>().detectCollisions = false;
@@ -104,16 +105,20 @@ public class orcMovement : MonoBehaviour {
                 spear.GetComponentInChildren<Rigidbody>().detectCollisions = false;
                 spear.GetComponentInChildren<Rigidbody>().useGravity = false;
             }
-            else if (spearTimer > 60)
+            else if (spearTimer == 60)
             {
                 spear.GetComponent<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().detectCollisions = true;
                 spear.GetComponentInChildren<Rigidbody>().detectCollisions = true;
                 spear.GetComponentInChildren<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().AddForce(transform.forward * Vector3.Distance(transform.position, enemy.position) * 10 + transform.up * (enemy.position.y - transform.position.y) * 10 - transform.right * 5, ForceMode.Impulse);
-                spear.GetComponent<Spear>().isThrown = true;
-                spearTimer = 0;
+                spear.GetComponent<Spear1>().isThrown = true;
+                //spearTimer = 0;
                 shouldThrow = false;
+            }
+            else if (spearTimer > 120)
+            {
+                spearTimer = 0;
             }
             return;
         }
@@ -193,7 +198,7 @@ public class orcMovement : MonoBehaviour {
             maxMoveCounter++;
         }
 
-        checkForPlayer();
+        if (playerAlive) checkForPlayer();
     }
 
   /*  void OnTriggerExit(Collider c)

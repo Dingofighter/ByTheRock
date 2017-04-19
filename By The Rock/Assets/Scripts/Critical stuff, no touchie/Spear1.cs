@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spear : MonoBehaviour {
+public class Spear1 : MonoBehaviour {
 
     public bool isThrown = false;
     private bool hitSomething = false;
     private bool hitSomethingForward = false;
     bool stuck;
+    bool canDamage = true;
+    int deathCounter;
 
     float distToGround;
 
@@ -46,6 +48,7 @@ public class Spear : MonoBehaviour {
         {
             if (!stuck)
             {
+                gameObject.layer = 2;
                 stuck = true;
                 transform.position += transform.up * 0.4f;
             }
@@ -53,6 +56,15 @@ public class Spear : MonoBehaviour {
             rigidbodyY.constraints = RigidbodyConstraints.FreezeAll;
             //rigidbodyY.detectCollisions = false;
             rigidbodyY.velocity = Vector3.zero;
+        }
+
+        if (stuck)
+        {
+            deathCounter++;
+            if (deathCounter > 100)
+            {
+                Destroy(gameObject);
+            }
         }
 
     }
@@ -63,18 +75,20 @@ public class Spear : MonoBehaviour {
         {
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
+       
     }
 
     void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "enemy" && isThrown)
+        if (c.gameObject.tag == "enemy" && isThrown && canDamage)
         {
-            c.GetComponentInParent<Movement>().takeDamage(1);
+            canDamage = false;
+            c.GetComponentInParent<Movement1>().takeDamage(1);
             transform.SetParent(c.transform);
         }
         if (c.gameObject.tag == "FriendOrc" && isThrown)
         {
-            c.GetComponentInParent<orcMovement>().hitByPlayer();
+            c.GetComponentInParent<orcMovement1>().hitByPlayer();
         }
     }
 }

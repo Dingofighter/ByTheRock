@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class WorldCamera : MonoBehaviour {
+public class WorldCamera1 : MonoBehaviour {
     
     public Transform target;
     public float height = 1.5f;
@@ -45,8 +45,10 @@ public class WorldCamera : MonoBehaviour {
 
     void LateUpdate()
     {
-        if (target && !GameManager.instance.paused)
+        if (target && !GameManager1.instance.paused)
         {
+            shoulderZoom = GameManager1.instance.shoulderView;
+
             x += Input.GetAxis("Mouse X") * xSpeed * 0.05f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
@@ -56,7 +58,7 @@ public class WorldCamera : MonoBehaviour {
 
             y = ClampAngle(y, yMinLimit, yMaxLimit);
 
-            if (!GameManager.instance.talking)
+            if (!GameManager1.instance.talking)
             {
                 //Debug.Log(y.ToString() + " " + x.ToString());
                 rotation = Quaternion.Euler(y, x, 0);
@@ -68,7 +70,7 @@ public class WorldCamera : MonoBehaviour {
 
             Vector3 position = new Vector3(0, 0, 0);
             Vector3 cameraTargetPosition;
-
+            
             if (shoulderZoom)
             {
                 target.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
@@ -82,12 +84,12 @@ public class WorldCamera : MonoBehaviour {
             else
             {
                 // Collision Detection
-                GameManager.instance.shoulderView = false;
+                GameManager1.instance.shoulderView = false;
                 position = target.position - (rotation * Vector3.forward * distance) + Vector3.up * height;
                 cameraTargetPosition = new Vector3(target.position.x, target.position.y + height, target.position.z);
             }
 
-            if (GameManager.instance.talking)
+            if (GameManager1.instance.talking)
             {
                 Vector3 angles = transform.eulerAngles;
                 x = angles.y;
@@ -105,11 +107,11 @@ public class WorldCamera : MonoBehaviour {
                 distance = Vector3.Distance(target.position, position);
             }
 
-            if (GameManager.instance.talking) transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+            if (GameManager1.instance.talking) transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
             else transform.rotation = rotation;
 
             int cameraSpeed = 25;
-            if (GameManager.instance.talking) cameraSpeed = 5;
+            if (GameManager1.instance.talking) cameraSpeed = 5;
             
             transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed)/* + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f),Random.Range(-0.1f, 0.1f))*/;
 
@@ -121,10 +123,10 @@ public class WorldCamera : MonoBehaviour {
                 shoulderDistance = Vector3.Distance(transform.position, rayHit.point);
             }
 
-            shoulderZoom = GameManager.instance.crouching;
-            GameManager.instance.shoulderView = shoulderZoom;
+            //Debug.Log(GameManager1.instance.shoulderView);
+            
 
-            if (Input.GetButtonDown("AimMode") && !GameManager.instance.talking)
+            if (Input.GetButtonDown("AimMode") && !GameManager1.instance.talking)
             {
                 //shoulderZoom = !shoulderZoom;
             }
