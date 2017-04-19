@@ -1,4 +1,4 @@
-﻿Shader "Hidden/GlobalFog"
+﻿Shader "GlobalFog"
 {
 	Properties
 	{
