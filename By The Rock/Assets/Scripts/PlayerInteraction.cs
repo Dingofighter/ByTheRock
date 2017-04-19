@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour {
             }
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
             {
-                FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentInParent<Dialogue>());
+                FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
             }
         }
     }
