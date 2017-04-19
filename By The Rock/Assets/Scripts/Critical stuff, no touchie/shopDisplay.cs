@@ -17,8 +17,10 @@ public class shopDisplay : MonoBehaviour {
     {
         string buy1 = "1: buy shot speed upgrade ($100)";
         string buy2 = "2: buy damage upgrade ($500)";
+        string buy3 = "3: buy super speed ($3000)";
         if (GameManager1.instance.bought1) buy1 = ":(";
         if (GameManager1.instance.bought2) buy2 = ":(";
+        if (GameManager1.instance.bought3) buy3 = ":(";
 
         Debug.Log(GameManager1.instance.inShop);
         if (GameManager1.instance.inShop) transform.parent.gameObject.SetActive(true);
@@ -27,6 +29,6 @@ public class shopDisplay : MonoBehaviour {
         
         
 
-        shopLabel.text = "E: leave shop\n" + buy1 + "\n2" + buy2;
+        shopLabel.text = "E: leave shop\n" + buy1 + "\n2" + buy2 + "\n2" + buy3;
     }
 }

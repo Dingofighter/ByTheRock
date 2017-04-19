@@ -39,7 +39,7 @@ public class PlayerMovement1 : MonoBehaviour
         GameManager1.instance.currSecondScene = NONE;
         gotSpear = true;
         shootDelay = 20;
-        //rend = 
+        
     }
 
     public bool getCrouching()
@@ -62,11 +62,17 @@ public class PlayerMovement1 : MonoBehaviour
                 GameManager1.instance.currentCash -= 100;
                 shootDelay = 15;
             }
-            if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager1.instance.currentCash >= 500 && !GameManager1.instance.bought2)
+            if (Input.GetKeyDown(KeyCode.Alpha2) && GameManager1.instance.currentCash >= 500 && !GameManager1.instance.bought2)
             {
-                GameManager1.instance.bought1 = true;
+                GameManager1.instance.bought2 = true;
                 GameManager1.instance.currentCash -= 500;
                 GameManager1.instance.dmg = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3) && GameManager1.instance.currentCash >= 3000 && !GameManager1.instance.bought3)
+            {
+                GameManager1.instance.bought3 = true;
+                GameManager1.instance.currentCash -= 3000;
+                shootDelay = 8;
             }
         }
 
