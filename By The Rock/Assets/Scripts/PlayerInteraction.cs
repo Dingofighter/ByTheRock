@@ -24,7 +24,8 @@ public class PlayerInteraction : MonoBehaviour {
         {
             if (c.gameObject.tag == "Interact1")
             {
-                Destroy(c.gameObject);
+                if (GameManager.instance.itemID1 == 0) GameManager.instance.changeItem(0, 1);
+                else GameManager.instance.changeItem(0, -1);
             }
             if (c.gameObject.tag == "Interact2")
             {
@@ -41,7 +42,7 @@ public class PlayerInteraction : MonoBehaviour {
             }
             if (c.gameObject.tag == "spear")
             {
-                Destroy(c.GetComponentInParent<Spear>().gameObject);
+                //Destroy(c.GetComponentInParent<Spear>().gameObject);
                 PlayerMovement.gotSpear = true;
             }
         }

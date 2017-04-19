@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && chargingSpear)
             {
                 holdingSpear = false;
-                gotSpear = false;
+                //gotSpear = false;
                 chargingSpear = false;
                 spear.GetComponent<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().detectCollisions = true;
