@@ -9,6 +9,7 @@ public class DialogueHandler : MonoBehaviour {
     public Text dialogueText;
     public Text dialogueNameText;
     public Button choiceButtonPrefab;
+    public float displayTimePerChar = 0.3f;
     public Vector3 optionsPosition;
     public Vector3 optionsOffset;
     public bool inDialogue = false;
@@ -17,6 +18,8 @@ public class DialogueHandler : MonoBehaviour {
     private List<Button> choiceButtons;
     Dialogue currentDialogue;
     Node currentNode;
+    private bool dialogueChosen = false;
+    private float autoClearTime;
 
     // Use this for initialization
     void Start () {
@@ -63,18 +66,59 @@ public class DialogueHandler : MonoBehaviour {
                 NextNode(0);
             }
         }
-	}
 
-    public void StartDialogue(Dialogue dialogue)
+        if (inDialogue && currentDialogue.walkAndTalk)
+        {
+            if (Time.time >= autoClearTime)
+            {
+                NextNode(0);
+            }
+        }
+    }
+
+    public void StartDialogue(Dialogue[] dialogues)
     {
+        foreach (Dialogue dialogue in dialogues)
+        {
+            dialogueChosen = true;
+            for (int i = 0; i < dialogue.numFlagsRequired; i++)
+            {
+                if (dialogue.boolValueIndex[i] == 0)
+                {
+                    if (AllFlags.Instance.flags[dialogue.boolIndex[i]].value == false)
+                    {
+                        dialogueChosen = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (AllFlags.Instance.flags[dialogue.boolIndex[i]].value == true)
+                    {
+                        dialogueChosen = false;
+                        break;
+                    }
+                }
+            }
+            if (dialogueChosen)
+            {
+                currentDialogue = dialogue;
+                break;
+            }
+        }
+
+        if (!dialogueChosen) return;
+
         if (GameManager.instance.talking) return;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        GameManager.instance.talking = true;
+
+        if (!currentDialogue.walkAndTalk)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            GameManager.instance.talking = true;
+        }
         inDialogue = true;
-        currentDialogue = dialogue;
         currentNode = currentDialogue.GetNode(0);
-        NextNode(0);
     }
 
     void NextNode(int option)
@@ -100,35 +144,51 @@ public class DialogueHandler : MonoBehaviour {
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
             dialogueNameText.text = tempNode.actorName;
             dialogueText.text = tempNode.dialogueLine;
+
+            if (currentDialogue.walkAndTalk)
+            {
+                autoClearTime = Time.time + (tempNode.dialogueLine.Length * displayTimePerChar);
+            }
         }
         else if (currentNode is PlayerChoiceNode)
         {
             isChoice = true;
             PlayerChoiceNode tempNode = (PlayerChoiceNode)currentNode;
-            dialogueNameText.text = "Ougrah";
 
             for (int i = 0; i < tempNode.optionLines.Count; i++)
             {
                 // Spawn buttons with offset
-                Button choiceButton = (Button) Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
+                Button choiceButton = (Button)Instantiate(choiceButtonPrefab, optionsPosition - (optionsOffset * i), Quaternion.identity);
                 choiceButton.transform.SetParent(dialogueText.transform.parent);
                 choiceButton.GetComponentInChildren<Text>().text = tempNode.optionLines[i];
                 choiceButtons.Add(choiceButton);
             }
         }
-        /*
-        currentLine = currentDialogue.GetLine(currentLine).nextLine - 1;
-        if (currentLine < 0)
+        else if (currentNode is CheckVariableNode)
         {
-            inDialogue = false;
-            dialogueNameText.text = "";
-            dialogueText.text = "";
+            CheckVariableNode tempNode = (CheckVariableNode)currentNode;
+            if (AllFlags.Instance.flags[tempNode.boolIndex].value)
+            {
+                NextNode(0);
+            }
+            else
+            {
+                NextNode(1);
+            }
         }
-        else
+        else if (currentNode is SetVariableNode)
         {
-            dialogueNameText.text = currentDialogue.GetLine(currentLine).name;
-            dialogueText.text = currentDialogue.GetLine(currentLine).line;
+            SetVariableNode tempNode = (SetVariableNode)currentNode;
+            if (tempNode.boolValueIndex == 0)
+            {
+                AllFlags.Instance.flags[tempNode.boolIndex].value = true;
+            }
+            else
+            {
+                AllFlags.Instance.flags[tempNode.boolIndex].value = false;
+            }
+
+            NextNode(0);
         }
-        */
     }
 }

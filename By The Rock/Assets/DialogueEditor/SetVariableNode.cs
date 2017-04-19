@@ -26,7 +26,7 @@ public class SetVariableNode : Node {
     public string[] boolValues = { "True", "False" };
 
     // Variables displayed in node
-    public int variableTypeIndex = 0;
+    public int variableTypeIndex = 1;
     public bool valueComparison = false;
     public int attributeIndex = 0;
     public int intModifierIndex = 0;
@@ -50,10 +50,21 @@ public class SetVariableNode : Node {
         selectedNodeStyle = selectedStyle;
         defaultOnClickInPoint = OnClickInPoint;
         OnRemoveNode = OnClickRemoveNode;
+
+        // Load all flags from AllFlags asset into bools list
+        AllFlags allFlags = (AllFlags)AssetDatabase.LoadAssetAtPath("Assets/Resources/AllFlags.asset", typeof(AllFlags));
+        bools = new string[allFlags.flags.Count];
+        for (int i = 0; i < bools.Length; i++)
+        {
+            bools[i] = allFlags.flags[i].description;
+        }
     }
 
-    public void Load(int inPoints)
+    public void Load(int boolIndex, int boolValueIndex, int inPoints)
     {
+        this.boolIndex = boolIndex;
+        this.boolValueIndex = boolValueIndex;
+
         for (int i = 0; i < inPoints - 1; i++)
         {
             AddInPoint();

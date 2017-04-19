@@ -220,9 +220,6 @@ public class NodeBasedEditor : EditorWindow {
 
     private void Save()
     {
-
-        // Create an instance of container class
-        dialogue = CreateInstance<DialogueContainer>();
         // Show file browser
         string assetPath = EditorUtility.SaveFilePanel("Select asset", "Assets/Dialogues", "DialogueName", "asset");
         if (assetPath != "")
@@ -234,8 +231,37 @@ public class NodeBasedEditor : EditorWindow {
         {
             return;
         }
-        // Create an asset file from container class instance
-        AssetDatabase.CreateAsset(dialogue, assetPath);
+
+        // Try to load asset at specified path
+        dialogue = (DialogueContainer)AssetDatabase.LoadAssetAtPath(assetPath, typeof(DialogueContainer));
+
+        if (dialogue != null)
+        {
+            // If asset exists, delete all sub-assets and clear lists
+            Object[] subAssets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+            for (int i = 0; i < subAssets.Length; i++)
+            {
+                if (subAssets[i] is DialogueContainer)
+                {
+                    // Don't destroy DialogueContainer
+                }
+                else
+                {
+                    DestroyImmediate(subAssets[i], true);
+                }
+            }
+
+            dialogue.nodes.Clear();
+            dialogue.connections.Clear();
+        }
+        else
+        {
+            // Create an instance of container class
+            dialogue = CreateInstance<DialogueContainer>();
+            // Create an asset file from container class instance
+            AssetDatabase.CreateAsset(dialogue, assetPath);
+        }
+        
         // Loop through all nodes and connections in current dialogue and add them as subassets to created asset file
         foreach (Node node in nodes)
         {
@@ -306,6 +332,22 @@ public class NodeBasedEditor : EditorWindow {
                 newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count);
                 nodes.Add(newNode);
             }
+            else if (node is CheckVariableNode)
+            {
+                CheckVariableNode newNode = CreateInstance<CheckVariableNode>();
+                newNode.Init(node.id, node.rect.position, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                CheckVariableNode tempNode = (CheckVariableNode)node;
+                newNode.Load(tempNode.boolIndex, node.inPoints.Count);
+                nodes.Add(newNode);
+            }
+            else if (node is SetVariableNode)
+            {
+                SetVariableNode newNode = CreateInstance<SetVariableNode>();
+                newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                SetVariableNode tempNode = (SetVariableNode)node;
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
+                nodes.Add(newNode);
+            }
 
             // Make sure currentHighestID is updated to avoid multiple nodes with same id
             if (node.id > currentHighestID)
@@ -373,6 +415,22 @@ public class NodeBasedEditor : EditorWindow {
                 newNode.Init(node.id, node.rect.position, PlayerChoiceNode.width, PlayerChoiceNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 PlayerChoiceNode tempNode = (PlayerChoiceNode)node;
                 newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count);
+                nodes.Add(newNode);
+            }
+            else if (node is CheckVariableNode)
+            {
+                CheckVariableNode newNode = CreateInstance<CheckVariableNode>();
+                newNode.Init(node.id, node.rect.position, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                CheckVariableNode tempNode = (CheckVariableNode)node;
+                newNode.Load(tempNode.boolIndex, node.inPoints.Count);
+                nodes.Add(newNode);
+            }
+            else if (node is SetVariableNode)
+            {
+                SetVariableNode newNode = CreateInstance<SetVariableNode>();
+                newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
+                SetVariableNode tempNode = (SetVariableNode)node;
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
                 nodes.Add(newNode);
             }
 

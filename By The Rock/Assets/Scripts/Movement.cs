@@ -3,21 +3,23 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
-
     int counter;
     int counterIdleMax;
     bool invincibility;
     int invincibilityTimer;
+    int maxMoveCounter;
 
     bool run;
     Vector3 playerPosition;
     bool walking;
 
+    NavMeshAgent agent;
     Vector3 targetPosition;
     Vector3 lastPosition;
     Vector3 spawnPosition;
     float currAngle;
     float currDist;
+    bool still;
 
     Renderer rend;
     public Color color;
@@ -28,7 +30,7 @@ public class Movement : MonoBehaviour
     public float maxDist;
     public float minDist;
     public float walkSpeed;
-    float currWalkSpeed;
+    public float acceleration;
 
     public int health;
 
@@ -42,8 +44,9 @@ public class Movement : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.material.color = color;
 
-        currWalkSpeed = walkSpeed;
-
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = walkSpeed;
+        agent.acceleration = acceleration;
     }
 
     public void takeDamage(int i)
@@ -57,17 +60,28 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public void standStill()
+    {
+        still = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (GameManager.instance.paused) return;
 
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (still) return;
         
         if (!run)
         {
             counter++;
-            if ((transform.position == targetPosition && walking) || (!walking && counter > counterIdleMax))
+            if (((agent.velocity == Vector3.zero || maxMoveCounter >= 200) && walking) || (!walking && counter > counterIdleMax))
             {
                 walking = !walking;
                 if (invincibility)
@@ -86,6 +100,7 @@ public class Movement : MonoBehaviour
                         rend.material.color = colorEdge;
                         transform.Rotate(new Vector3(0, 1, 0) * 180);
                         targetPosition = lastPosition;
+                        agent.SetDestination(lastPosition);
                     }
                     else
                     {
@@ -97,12 +112,13 @@ public class Movement : MonoBehaviour
 
                         transform.Rotate(new Vector3(0, 1, 0) * currAngle);
 
+                        agent.SetDestination(new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist));
                         targetPosition = new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist);
-                        //targetPosition = new Vector3(transform.position.x + Mathf.Sin(currAngle) * currDist, transform.position.y, transform.position.z + Mathf.Cos(currAngle) * currDist);
                     }
                 }
                 else
                 {
+                    maxMoveCounter = 0;
                     if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
                     {
                         rend.material.color = colorEdge;
@@ -112,73 +128,62 @@ public class Movement : MonoBehaviour
 
             }
 
-            if (walking)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, currWalkSpeed);
-            }
-
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, 0.2f);
-            if (transform.position == targetPosition)
+            if (agent.velocity == Vector3.zero || maxMoveCounter >= 200)
             {
+                maxMoveCounter = 0;
                 run = false;
+                agent.acceleration = acceleration;
+                agent.speed = walkSpeed;
                 spawnPosition = transform.position;
+
+                targetPosition = transform.position;
+                agent.SetDestination(transform.position);
             }
+        }
+
+        if (walking || run)
+        {
+            maxMoveCounter++;
         }
 
         if (invincibility)
         {
-            currWalkSpeed = 0.1f;
+            agent.acceleration = acceleration * 1.5f;
+            agent.speed = walkSpeed * 1.5f;
             rend.material.color = colorHit;
             invincibilityTimer++;
             if (invincibilityTimer > 50)
             {
-                currWalkSpeed = walkSpeed;
+                rend.material.color = color;
+                agent.acceleration = acceleration;
+                agent.speed = walkSpeed;
                 rend.material.color = color;
                 invincibility = false;
                 invincibilityTimer = 0;
             }
         }
-
-        //transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 3000);
-        //transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.forward.x * 100, transform.position.y, transform.forward.z * 100), 0.01f);
-
     }
 
     void OnTriggerStay(Collider c)
     {
-        
-        if (c.gameObject.tag == "Player" && !run && !c.GetComponent<PlayerMovement>().getCrouching())
+        if (c.gameObject.tag == "Player" && !run && !c.GetComponent<PlayerMovement>().getCrouching() && !still)
         {
+            maxMoveCounter = 0;
             rend.material.color = colorRun;
             run = true;
             playerPosition = c.gameObject.transform.position;
 
-            //Vector3 v = transform.position - playerPosition;
-            //v.Normalize();
-            //float angle = Mathf.Atan2(v.z, v.x) * Mathf.Rad2Deg; 
-
-            //Vector3.RotateTowards(transform.position, playerPosition, 2, 2);
-            //currAngle = Vector3.Angle(playerPosition, transform.position);
-
-            //Debug.Log(angle.ToString());
-
             transform.LookAt(playerPosition);
             transform.Rotate(new Vector3(0, 180, 0));
 
-            //transform.Rotate(new Vector3(0, 1, 0) * (currAngle));
+            agent.acceleration = acceleration * 2;
+            agent.speed = walkSpeed * 2;
 
-            //transform.rotation = Quaternion.Euler(0, -currAngle, 0) * transform.rotation;
-
-            //transform.eulerAngles = new Vector3(currAngle, 0, 0);
-
-            targetPosition = new Vector3(transform.forward.x * 30, transform.position.y, transform.forward.z * 30);// transform.position.x + Mathf.Sin(currAngle) * 30, transform.position.y, transform.position.z + Mathf.Cos(currAngle) * 30);
-            //targetPosition = new Vector3(transform.position.x - playerPosition.x, transform.position.y, transform.position.z - playerPosition.z);
-
+            agent.SetDestination(new Vector3(transform.forward.x * 30, transform.position.y, transform.forward.z * 30));
+            targetPosition = new Vector3(transform.forward.x * 30, transform.position.y, transform.forward.z * 30);
         }
     }
-
-
 }

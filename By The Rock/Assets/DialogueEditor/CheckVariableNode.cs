@@ -27,7 +27,7 @@ public class CheckVariableNode : Node {
     public string[] bools = { "TestBool1", "TestBool2" };
 
     // Variables displayed in node
-    public int variableTypeIndex = 0;
+    public int variableTypeIndex = 1;
     public bool valueComparison = false;
     public int attributeIndex = 0;
     public int intComparatorIndex = 0;
@@ -52,10 +52,20 @@ public class CheckVariableNode : Node {
         selectedNodeStyle = selectedStyle;
         defaultOnClickInPoint = OnClickInPoint;
         OnRemoveNode = OnClickRemoveNode;
+
+        // Load all flags from AllFlags asset into bools list
+        AllFlags allFlags = (AllFlags) AssetDatabase.LoadAssetAtPath("Assets/Resources/AllFlags.asset", typeof(AllFlags));
+        bools = new string[allFlags.flags.Count];
+        for(int i = 0; i < bools.Length; i++)
+        {
+            bools[i] = allFlags.flags[i].description;
+        }
     }
 
-    public void Load(int inPoints)
+    public void Load(int boolIndex, int inPoints)
     {
+        this.boolIndex = boolIndex;
+
         for (int i = 0; i < inPoints - 1; i++)
         {
             AddInPoint();

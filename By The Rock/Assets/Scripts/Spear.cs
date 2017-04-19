@@ -6,6 +6,7 @@ public class Spear : MonoBehaviour {
     public bool isThrown = false;
     private bool hitSomething = false;
     private bool hitSomethingForward = false;
+    bool stuck;
 
     float distToGround;
 
@@ -21,7 +22,6 @@ public class Spear : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        
 
         Debug.DrawRay(transform.position, transform.forward * (distToGround + 0.1f), Color.magenta);
         if (Physics.Raycast(transform.position, transform.forward, distToGround + 0.1f) && isThrown && !hitSomething && !hitSomethingForward)
@@ -42,13 +42,39 @@ public class Spear : MonoBehaviour {
             //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z));
         }
 
+        if (hitSomething || hitSomethingForward)
+        {
+            if (!stuck)
+            {
+                stuck = true;
+                transform.position += transform.up * 0.4f;
+            }
+            rigidbodyY.useGravity = false;
+            rigidbodyY.constraints = RigidbodyConstraints.FreezeAll;
+            //rigidbodyY.detectCollisions = false;
+            rigidbodyY.velocity = Vector3.zero;
+        }
+
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+       if (c.gameObject.tag == "tree")
+        {
+            Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
+        }
     }
 
     void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "enemy" && isThrown)
         {
-            c.GetComponent<Movement>().takeDamage(1);
+            c.GetComponentInParent<Movement>().takeDamage(1);
+            transform.SetParent(c.transform);
+        }
+        if (c.gameObject.tag == "FriendOrc" && isThrown)
+        {
+            c.GetComponentInParent<orcMovement>().hitByPlayer();
         }
     }
 }
