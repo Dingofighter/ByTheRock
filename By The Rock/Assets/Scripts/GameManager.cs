@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
     public int currSecondScene;
     public bool secondSceneLoaded;
 
+    public FMOD.Studio.System _fmodSS;
+
     void Awake()
     {
         //Check if instance already exists
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour {
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+        FmodInitialize();
     }
 
     public void Update()
@@ -59,6 +62,13 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = 0f;
             paused = true;
         }
+    }
+
+    private void FmodInitialize()
+    {
+        _fmodSS = FMODUnity.RuntimeManager.StudioSystem; //Script enabler
+        FMOD.Studio.CPU_USAGE _fmodCPU;
+        _fmodSS.getCPUUsage(out _fmodCPU); //Shows cpu usage
     }
 
 }

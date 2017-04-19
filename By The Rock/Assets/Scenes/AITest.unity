@@ -127,6 +127,73 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 497dff903eb8479479d54f12dd8d06ed, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &210445403 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 439856, guid: b19c3bc4318c1dd4c8f8e965f8b3069e, type: 2}
+  m_PrefabInternal: {fileID: 1011820905}
+--- !u!1 &240444236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 240444237}
+  - 114: {fileID: 240444238}
+  m_Layer: 0
+  m_Name: Brushwood Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240444237
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 240444236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.84, y: 16.018353, z: 44.48476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1207855732}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+--- !u!114 &240444238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 240444236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfed0af0dfa2a0a4ab2343f01fe09b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BPM100: 1
+  BPM90: 1
+  BPM80: 1
+  BPM70: 1
+  BPM60: 1
+  GLADE: 1
+--- !u!1 &474966981 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 133594, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
+  m_PrefabInternal: {fileID: 1251980978}
+--- !u!114 &474966984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 474966981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1001 &505142695
 Prefab:
   m_ObjectHideFlags: 0
@@ -324,7 +391,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!1001 &892903373
 Prefab:
   m_ObjectHideFlags: 0
@@ -476,7 +543,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &1018933556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +663,67 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f186f87c693c0494791fc08d5740d69b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1207855731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1207855732}
+  - 65: {fileID: 1207855734}
+  - 114: {fileID: 1207855733}
+  m_Layer: 0
+  m_Name: BPM100
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1207855732
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1207855731}
+  m_LocalRotation: {x: 0, y: -0.36950353, z: 0, w: 0.9292293}
+  m_LocalPosition: {x: -1.8, y: -17.5, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: -43.37, z: 0}
+  m_Children: []
+  m_Father: {fileID: 240444237}
+  m_RootOrder: 0
+--- !u!114 &1207855733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1207855731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f702eb8bb9244f746baf03324e1d98c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MusicEmitter: {fileID: 0}
+  _BrushwoodManager: {fileID: 0}
+  _player: {fileID: 0}
+  _box: {fileID: 0}
+  _passage: 0
+  _passageReverse: 0
+  _triggerID: 0
+  _special: 1
+--- !u!65 &1207855734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1207855731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.40847152, y: 8.242584, z: 33.90207}
+  m_Center: {x: 0.0223459, y: 2.406579, z: 3.562201}
 --- !u!1001 &1251980978
 Prefab:
   m_ObjectHideFlags: 0
@@ -639,9 +767,85 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1852981488}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8185526, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1274722371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1274722372}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274722372
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274722371}
+  m_LocalRotation: {x: 0, y: -0.33676663, z: 0, w: 0.94158816}
+  m_LocalPosition: {x: -3.09, y: -1.4816475, z: 58.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: -39.36, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!1 &1442111294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1442111295}
+  - 114: {fileID: 1442111296}
+  m_Layer: 0
+  m_Name: MusicEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1442111295
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442111294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 210445403}
+  m_RootOrder: 1
+--- !u!114 &1442111296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442111294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8413f9c620405844f9127a343a090f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EventMusic: event:/Music/Forest
+  _PlayEvent: 1
+  _StopEvent: 0
+  _HasTriggered: 0
+  _AllowFadeout: 1
+  _isQuitting: 0
+  _TriggerOnce: 0
 --- !u!1 &1634805608
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +921,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 14
 --- !u!4 &1852981488 stripped
 Transform:
   m_PrefabParentObject: {fileID: 412502, guid: f186f87c693c0494791fc08d5740d69b, type: 2}
