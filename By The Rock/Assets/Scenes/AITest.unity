@@ -124,6 +124,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 11481402, guid: 9314a8351626e104b88bd7a79ff754b1, type: 2}
+      propertyPath: itemID1
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481402, guid: 9314a8351626e104b88bd7a79ff754b1, type: 2}
+      propertyPath: itemID2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481402, guid: 9314a8351626e104b88bd7a79ff754b1, type: 2}
+      propertyPath: itemID3
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481402, guid: 9314a8351626e104b88bd7a79ff754b1, type: 2}
+      propertyPath: itemID4
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9314a8351626e104b88bd7a79ff754b1, type: 2}
   m_IsPrefabParent: 0
@@ -1125,6 +1141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: a62830a15e8b8344fb833c338ac3bc95, type: 2}
+  numFlagsRequired: 0
+  walkAndTalk: 0
+  boolIndex: 
+  boolValueIndex: 
 --- !u!23 &1738018182
 MeshRenderer:
   m_ObjectHideFlags: 0
