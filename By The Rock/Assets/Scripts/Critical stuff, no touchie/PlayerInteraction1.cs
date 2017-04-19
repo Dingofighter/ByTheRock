@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerInteraction : MonoBehaviour {
+public class PlayerInteraction1 : MonoBehaviour {
     
 
 	// Use this for initialization
@@ -18,20 +18,19 @@ public class PlayerInteraction : MonoBehaviour {
 
     void OnTriggerStay(Collider c)
     {
-        if (GameManager.instance.paused) return;
+        if (GameManager1.instance.paused) return;
         
-        if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
+        if (Input.GetButtonDown("Interact") && !GameManager1.instance.crouching)
         {
             if (c.gameObject.tag == "Interact1")
             {
-                if (GameManager.instance.itemID1 == 0) GameManager.instance.changeItem(0, 1);
-                else GameManager.instance.changeItem(0, -1);
+                Destroy(c.gameObject);
             }
             if (c.gameObject.tag == "Interact2")
             {
                 c.gameObject.transform.position += new Vector3(0, 1, 0);
             }
-            if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
+            if (c.gameObject.tag == "Dialogue" && !GameManager1.instance.shoulderView)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
@@ -42,8 +41,13 @@ public class PlayerInteraction : MonoBehaviour {
             }
             if (c.gameObject.tag == "spear")
             {
-                //Destroy(c.GetComponentInParent<Spear>().gameObject);
-                PlayerMovement.gotSpear = true;
+                Destroy(c.GetComponentInParent<Spear1>().gameObject);
+                PlayerMovement1.gotSpear = true;
+            }
+            if (c.gameObject.tag == "shop")
+            {
+                GameManager1.instance.toggleShop();
+               
             }
         }
     }
