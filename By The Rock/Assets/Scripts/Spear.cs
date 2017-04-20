@@ -6,6 +6,7 @@ public class Spear : MonoBehaviour {
     public bool isThrown = false;
     private bool hitSomething = false;
     private bool hitSomethingForward = false;
+    bool stuck;
 
     float distToGround;
 
@@ -41,6 +42,19 @@ public class Spear : MonoBehaviour {
             //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z));
         }
 
+        if (hitSomething || hitSomethingForward)
+        {
+            if (!stuck)
+            {
+                stuck = true;
+                transform.position += transform.up * 0.4f;
+            }
+            rigidbodyY.useGravity = false;
+            rigidbodyY.constraints = RigidbodyConstraints.FreezeAll;
+            //rigidbodyY.detectCollisions = false;
+            rigidbodyY.velocity = Vector3.zero;
+        }
+
     }
 
     void OnCollisionEnter(Collision c)
@@ -56,6 +70,7 @@ public class Spear : MonoBehaviour {
         if (c.gameObject.tag == "enemy" && isThrown)
         {
             c.GetComponentInParent<Movement>().takeDamage(1);
+            transform.SetParent(c.transform);
         }
         if (c.gameObject.tag == "FriendOrc" && isThrown)
         {
