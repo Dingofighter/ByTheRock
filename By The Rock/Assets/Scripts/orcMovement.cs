@@ -49,7 +49,7 @@ public class orcMovement : MonoBehaviour {
         agent.speed = walkSpeed;
         agent.acceleration = acceleration;
 
-        player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<PlayerController>().transform;
         
         checkForPlayer();
 
@@ -87,6 +87,7 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
         
+        /*
         if (shouldThrow)
         {
             spearTimer++;
@@ -121,6 +122,7 @@ public class orcMovement : MonoBehaviour {
             }
             return;
         }
+        */
 
         if (!run)
         {
