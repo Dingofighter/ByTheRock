@@ -10,6 +10,7 @@ public class WorldCamera : MonoBehaviour {
     public float aimRight = 1.3f;
     public float talkHeight = 1f;
     public float talkRight = 1f;
+    public float talkForward = 1f;
     public float distance = 5.0f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
@@ -92,7 +93,7 @@ public class WorldCamera : MonoBehaviour {
                 Vector3 angles = transform.eulerAngles;
                 x = angles.y;
                 y = angles.x;
-                position = target.position - (rotation * Vector3.forward * distance) + transform.right * talkHeight + Vector3.up * talkRight;
+                position = target.position - (rotation * Vector3.forward * distance * talkForward) + transform.right * talkRight + Vector3.up * talkHeight;
             }
 
 
