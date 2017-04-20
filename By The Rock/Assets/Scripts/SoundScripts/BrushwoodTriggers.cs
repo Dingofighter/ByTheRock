@@ -13,6 +13,10 @@ public class BrushwoodTriggers : MonoBehaviour
     public int _passage = 0, _passageReverse = 0;
     public int _triggerID = 0;
     public bool _special = false;
+    public float _dist = 0;
+
+    private float checkx = 0, checkz = 0;
+    private Vector3 _pos;
 
 
     public void Start()
@@ -26,6 +30,21 @@ public class BrushwoodTriggers : MonoBehaviour
 
     }
 
+    public void Update()
+    {
+        _pos = _box.transform.position - _player.transform.position;
+        _pos = Quaternion.Euler(0, _box.transform.rotation.eulerAngles.y, 0) * _pos;
+
+        checkx = Mathf.Max(0, (_pos.x < 0 ? -_pos.x : _pos.x) - _box.size.z / 2);
+        checkz = Mathf.Max(0, (_pos.z < 0 ? -_pos.z : _pos.z) - _box.size.x / 2);
+        _dist = Mathf.Sqrt(checkx * checkx + checkz * checkz);
+
+        if (_dist <= 5)
+            _MusicEmitter._EventInstance.setParameterValue("Distance", 10);
+        else
+            _MusicEmitter._EventInstance.setParameterValue("Distance", 0);
+    }
+
 
 
     private void OnTriggerExit(Collider _col)
@@ -36,21 +55,17 @@ public class BrushwoodTriggers : MonoBehaviour
             Vector3 pos = _box.transform.position - _player.transform.position;
             pos = Quaternion.Euler(0, -_box.transform.rotation.eulerAngles.y, 0) * pos;
 
-            Debug.Log(pos.x);
+            
 
             if (pos.x < 0)
             {
                 if (_BrushwoodManager.getBool(_triggerID))
                 {
-                    if (_special)
-                    {
-                        _MusicEmitter._EventInstance.setParameterValue("ODDEVEN", _MusicEmitter._EventData.bar % 2 - 1 == -1 ? 1 : _MusicEmitter._EventData.beat - 1);
-                        _MusicEmitter._EventInstance.setParameterValue("Beat", _MusicEmitter._EventData.beat - 1 == 0 ? 4 : _MusicEmitter._EventData.beat - 1);
-                    }
 
                     _MusicEmitter._EventInstance.setParameterValue(_paramBool, 0);
                     _MusicEmitter._EventInstance.setParameterValue(_paramBincrement, _passage);
                     _BrushwoodManager.setBool(_triggerID);
+
                 }
             }
             else
