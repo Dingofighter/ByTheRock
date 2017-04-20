@@ -23,17 +23,26 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
         anim = GetComponent<Animator>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    void Update()
+    {
+        if (GameManager.instance.paused || GameManager.instance.talking)
+        {
+            return;
+        }
+
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
-        
+
+        if (Input.GetButton("Walk"))
+        {
+            vertical = 1f;
+        }
+
         //Calculate camera relative direction
         camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 movement = vertical * camForward + horizontal * cam.right;
@@ -45,7 +54,13 @@ public class PlayerController : MonoBehaviour {
 
         anim.SetFloat("Speed", Mathf.Abs(vertical) + Mathf.Abs(horizontal));
         charController.Move(movement * speed * Time.deltaTime);
-	}
+
+        if (unload)
+        {
+            unload = false;
+            SceneManager.UnloadScene(unloadName);
+        }
+    }
 
     void OnTriggerEnter(Collider c)
     {

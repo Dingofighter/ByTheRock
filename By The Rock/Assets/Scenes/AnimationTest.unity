@@ -400,7 +400,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439856, guid: b19c3bc4318c1dd4c8f8e965f8b3069e, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b19c3bc4318c1dd4c8f8e965f8b3069e, type: 2}
@@ -442,7 +442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470342, guid: b554cb0e90769ea4b8cc2562fbba6688, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b554cb0e90769ea4b8cc2562fbba6688, type: 2}
@@ -489,6 +489,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1009842126 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 137206, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+  m_PrefabInternal: {fileID: 1517657192}
+--- !u!114 &1009842127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009842126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: fcc5c83fcfd44d04e8750e769e864885, type: 2}
+  numFlagsRequired: 0
+  walkAndTalk: 1
+  boolIndex: 
+  boolValueIndex: 
 --- !u!1 &1018933553
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,24 +734,55 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 219392015}
-    - target: {fileID: 11495452, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
-      propertyPath: height
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495452, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
-      propertyPath: talkForward
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495452, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
-      propertyPath: talkHeight
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495452, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
-      propertyPath: talkRight
-      value: 0.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 024b6d6c806619e4cb78ac48283ff7e7, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1517657192
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 435334, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 137206, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+      propertyPath: m_Name
+      value: Boxperson WalkTalk
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11427770, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1634805608
 GameObject:
@@ -906,7 +957,7 @@ Transform:
   m_Children:
   - {fileID: 596440215}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1001 &1911321297
 Prefab:
   m_ObjectHideFlags: 0
