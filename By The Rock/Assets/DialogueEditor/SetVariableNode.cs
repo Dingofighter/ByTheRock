@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
 
 [Serializable]
@@ -13,10 +15,6 @@ public class SetVariableNode : Node {
     public static int heightIncrease = 55;
 
     public int currentHeight = defaultHeight;
-
-    public GUIStyle defaultInPointStyle;
-
-    public Action<ConnectionPoint> defaultOnClickInPoint;
 
     public string[] variableTypes = { "Attribute", "Bool" };
     public string[] attributes = { "Aggressive", "Kind" };
@@ -35,6 +33,11 @@ public class SetVariableNode : Node {
 
     public int boolIndex = 0;
     public int boolValueIndex = 0;
+
+#if UNITY_EDITOR
+    public GUIStyle defaultInPointStyle;
+
+    public Action<ConnectionPoint> defaultOnClickInPoint;
 
     public void Init(int id, Vector2 position, int width, int height, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle inPointStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickInPoint, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode)
     {
@@ -205,4 +208,5 @@ public class SetVariableNode : Node {
             OnRemoveNode(this);
         }
     }
+#endif
 }

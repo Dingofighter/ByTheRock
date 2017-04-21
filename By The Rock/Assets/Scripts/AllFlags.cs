@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 
 public class AllFlags : ScriptableObject {
@@ -47,6 +49,7 @@ public class AllFlags : ScriptableObject {
         }
     }
 
+#if UNITY_EDITOR
     [MenuItem("Assets/Create/AllFlags")]
     private static void CreateAllConditionsAsset()
     {
@@ -60,4 +63,5 @@ public class AllFlags : ScriptableObject {
 
         instance.flags = new List<Flag>();
     }
+#endif
 }

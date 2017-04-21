@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
 
 [Serializable]
@@ -15,10 +17,6 @@ public class CheckVariableNode : Node {
     public static int outPointOffset = 115;
 
     public int currentHeight = defaultHeight;
-
-    public GUIStyle defaultInPointStyle;
-
-    public Action<ConnectionPoint> defaultOnClickInPoint;
 
     public string[] variableTypes = { "Attribute", "Bool" };
     public string[] attributes = { "Aggressive", "Kind" };
@@ -36,6 +34,11 @@ public class CheckVariableNode : Node {
 
     public int boolIndex = 0;
     public int boolComparatorIndex = 0;
+
+#if UNITY_EDITOR
+    public GUIStyle defaultInPointStyle;
+
+    public Action<ConnectionPoint> defaultOnClickInPoint;
 
     public void Init(int id, Vector2 position, int width, int height, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle inPointStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickInPoint, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode)
     {
@@ -214,7 +217,7 @@ public class CheckVariableNode : Node {
         genericMenu.AddItem(new GUIContent("Remove Node"), false, () => OnClickRemoveNode());
         genericMenu.ShowAsContext();
     }
-
+    
     public override void OnClickRemoveNode()
     {
         if (OnRemoveNode != null)
@@ -222,4 +225,13 @@ public class CheckVariableNode : Node {
             OnRemoveNode(this);
         }
     }
+#endif
 }
+/*
+#else
+    public override void OnClickRemoveNode(){}
+    public override void ProcessContextMenu(){}
+    public override bool ProcessEvents(Event e){ return true; }
+    public override void Drag(Vector2 delta){}
+    public override void Draw(){}
+*/

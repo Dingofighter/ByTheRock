@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
 using System.Collections.Generic;
 
@@ -15,14 +17,15 @@ public class PlayerChoiceNode : Node {
 
     public int currentHeight = defaultHeight;
 
+    // Variables displayed in node
+    public List<string> optionLines = new List<string>();
+
+#if UNITY_EDITOR
     public GUIStyle defaultInPointStyle;
     public GUIStyle defaultOutPointStyle;
 
     public Action<ConnectionPoint> defaultOnClickInPoint;
     public Action<ConnectionPoint> defaultOnClickOutPoint;
-
-    // Variables displayed in node
-    public List<string> optionLines = new List<string>();
 
     public void Init(int id, Vector2 position, int width, int height, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle inPointStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickInPoint, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode)
     {
@@ -195,4 +198,5 @@ public class PlayerChoiceNode : Node {
             OnRemoveNode(this);
         }
     }
+#endif
 }
