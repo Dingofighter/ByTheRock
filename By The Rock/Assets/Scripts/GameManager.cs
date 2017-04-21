@@ -52,13 +52,13 @@ public class GameManager : MonoBehaviour {
         SaveLoad.Load();
 
         
+        /*
+        changeItem(1, Game.current.invSlot2);
+        changeItem(2, Game.current.invSlot3);
+        changeItem(3, Game.current.invSlot4);
+        */
 
         //game = new Game();
-        
-        itemID1 = Game.current.invSlot1;
-        itemID2 = Game.current.invSlot2;
-        itemID3 = Game.current.invSlot3;
-        itemID4 = Game.current.invSlot4;
 
         //game.loadValues();
 
@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour {
         if (!started)
         {
             invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 250, invCanvas.transform.position.y, invCanvas.transform.position.z);
+            changeItem(0, Game.current.invSlot1);
+            changeItem(1, Game.current.invSlot2);
+            changeItem(2, Game.current.invSlot3);
+            changeItem(3, Game.current.invSlot4);
             started = true;
         }
 
@@ -106,6 +110,9 @@ public class GameManager : MonoBehaviour {
     public void changeItem(int slot, int itemID)
     {
         if (slot == 0) itemID1 = itemID;
+        if (slot == 1) itemID2 = itemID;
+        if (slot == 2) itemID3 = itemID;
+        if (slot == 3) itemID4 = itemID;
         Debug.Log(itemID1);
         invCanvas.GetComponent<itemManager>().addItem(slot, itemID);
 

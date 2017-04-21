@@ -54,7 +54,7 @@ public class orcMovement1 : MonoBehaviour {
         
         checkForPlayer();
 
-        //shouldThrow = true;
+        shouldThrow = true;
     }
 
     void checkForPlayer()
@@ -113,8 +113,8 @@ public class orcMovement1 : MonoBehaviour {
                 spear.GetComponentInChildren<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().AddForce(transform.forward * Vector3.Distance(transform.position, enemy.position) * 10 + transform.up * (enemy.position.y - transform.position.y) * 10 - transform.right * 5, ForceMode.Impulse);
                 spear.GetComponent<Spear1>().isThrown = true;
-                //spearTimer = 0;
-                shouldThrow = false;
+                spearTimer = 0;
+                //shouldThrow = false;
             }
             else if (spearTimer > 120)
             {

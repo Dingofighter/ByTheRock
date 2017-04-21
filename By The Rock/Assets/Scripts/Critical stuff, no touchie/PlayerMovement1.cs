@@ -9,6 +9,8 @@ public class PlayerMovement1 : MonoBehaviour
     Transform cam;
     public Transform spearPre;
     Transform spear;
+    public Transform allyPre;
+    Transform ally;
 
     bool isWalking = false;
     bool isCrouching = false;
@@ -74,6 +76,13 @@ public class PlayerMovement1 : MonoBehaviour
                 GameManager1.instance.currentCash -= 3000;
                 shootDelay = 8;
             }
+            if (Input.GetKeyDown(KeyCode.Alpha4) && GameManager1.instance.currentCash >= 2000 && !GameManager1.instance.bought4)
+            {
+                GameManager1.instance.bought4 = true;
+                GameManager1.instance.currentCash -= 2000;
+                ally = (Transform)Instantiate(allyPre, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z) + (transform.right * 1.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
+            }
+
         }
 
 

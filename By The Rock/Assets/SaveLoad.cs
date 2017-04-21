@@ -28,6 +28,7 @@ public class SaveLoad
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/invSaves.sav", FileMode.Open);
             SaveLoad.savedGames = (List<Game>)bf.Deserialize(file);
+            Game.current = savedGames[0];
             Debug.Log("loaded " + Game.current.invSlot1);
             file.Close();
         }
