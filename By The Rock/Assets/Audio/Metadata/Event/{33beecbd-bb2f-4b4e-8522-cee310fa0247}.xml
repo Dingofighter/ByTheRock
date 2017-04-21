@@ -8,9 +8,10 @@
             <value>Olika ambience med fåglar beroende på vilket område man är i skogen
 
 Lägen:
+0 Små fåglar då och då
 0.5 Spår1
-1.5 Spår2
-2.5 Spår3
+1.5 Spår2 kortare loop
+2.5 Spår3 kortare loop
 3.5 Spår4
 
 </value>
@@ -153,6 +154,9 @@ Lägen:
         <property name="seekSpeed">
             <value>0.19999998807907104</value>
         </property>
+        <relationship name="modulators">
+            <destination>{4317d0ee-5627-4ae7-a05e-ff42851893ec}</destination>
+        </relationship>
         <relationship name="modules">
             <destination>{a67bcfc9-1398-42ba-8793-940bcec82a4d}</destination>
             <destination>{69e2088e-9126-4ede-9e88-55f0f3d7fd32}</destination>
@@ -206,6 +210,9 @@ Lägen:
         <property name="isCutoff">
             <value>true</value>
         </property>
+        <property name="start">
+            <value>0.050000000000000003</value>
+        </property>
         <property name="length">
             <value>1.4000000000000001</value>
         </property>
@@ -217,6 +224,9 @@ Lägen:
         </property>
         <relationship name="modulators">
             <destination>{9bd8ed1a-9658-41a7-8aac-019e9e26fa33}</destination>
+        </relationship>
+        <relationship name="fadeInCurve">
+            <destination>{782f3162-ec0a-4993-a5f3-0b01d9524dae}</destination>
         </relationship>
         <relationship name="audioFile">
             <destination>{e2e64078-0e95-4a77-a321-1a1426e95be4}</destination>
@@ -379,7 +389,7 @@ Lägen:
             <value>true</value>
         </property>
         <property name="triggerProbability">
-            <value>70.5</value>
+            <value>89.5</value>
         </property>
         <property name="length">
             <value>6</value>
@@ -451,6 +461,11 @@ Lägen:
             <destination>{5652b6a6-4db3-4368-a2d6-43b330d391af}</destination>
         </relationship>
     </object>
+    <object class="RandomizerModulator" id="{4317d0ee-5627-4ae7-a05e-ff42851893ec}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>cursorPosition</value>
+        </property>
+    </object>
     <object class="AutomationCurve" id="{f926c19c-7c3a-4e1b-83b9-4a70e7bd62f0}">
         <relationship name="automationPoints">
             <destination>{a3f5bdc8-9593-462d-b3f3-a00ec8dfdb7b}</destination>
@@ -506,6 +521,14 @@ Lägen:
         <property name="amount">
             <value>82.5</value>
         </property>
+    </object>
+    <object class="FadeCurve" id="{782f3162-ec0a-4993-a5f3-0b01d9524dae}">
+        <relationship name="startPoint">
+            <destination>{82382f93-70a1-49d2-acf2-f1528de121be}</destination>
+        </relationship>
+        <relationship name="endPoint">
+            <destination>{b09c89f7-264c-41cd-907a-ccee2a07a317}</destination>
+        </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{bf12fe59-b1f9-4218-babd-86d0a8968191}">
         <relationship name="effects">
@@ -731,6 +754,25 @@ Lägen:
         </property>
         <property name="maximumDistance">
             <value>80</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{82382f93-70a1-49d2-acf2-f1528de121be}">
+        <property name="position">
+            <value>0.050000000000000003</value>
+        </property>
+        <property name="value">
+            <value>0</value>
+        </property>
+        <property name="curveShape">
+            <value>-0.2547189</value>
+        </property>
+    </object>
+    <object class="AutomationPoint" id="{b09c89f7-264c-41cd-907a-ccee2a07a317}">
+        <property name="position">
+            <value>0.10000000000000001</value>
+        </property>
+        <property name="value">
+            <value>1</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{4113d59d-5e6b-4afa-9914-d62e71ebf9e4}"/>

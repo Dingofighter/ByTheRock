@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.09.00">
     <object class="Event" id="{fa3e9926-c3b9-418a-a613-b8f97d301c87}">
         <property name="name">
-            <value>BreakingTwiggs</value>
+            <value>BreakingTwiggsScattersound</value>
         </property>
         <property name="outputFormat">
             <value>2</value>
@@ -80,8 +80,11 @@
         </relationship>
     </object>
     <object class="DistanceParameter" id="{00ffed8e-4961-4f16-85b6-a02c8c02b9d3}">
+        <property name="minimum">
+            <value>1</value>
+        </property>
         <property name="maximum">
-            <value>60</value>
+            <value>40</value>
         </property>
     </object>
     <object class="EventMixerMaster" id="{cab84880-ebe3-455b-adbb-ebbcfbd5ae88}">
@@ -120,11 +123,8 @@
         <property name="maximumTimeBetweenSounds">
             <value>10000</value>
         </property>
-        <property name="minimumScatterDistance">
-            <value>6</value>
-        </property>
         <property name="maximumScatterDistance">
-            <value>60</value>
+            <value>40</value>
         </property>
         <property name="pitchRandomization">
             <value>6</value>
@@ -170,6 +170,9 @@
         <relationship name="sounds">
             <destination>{16568d93-d7b4-44c6-858d-9d7312d86b79}</destination>
             <destination>{c1c93df4-6c29-4bdc-be82-17b132efbe9b}</destination>
+            <destination>{96794c5d-de85-47f4-ae0a-4f51d82eb995}</destination>
+            <destination>{152bc756-06e4-4673-9509-f5d01abb229d}</destination>
+            <destination>{2a328da7-27ee-42ca-97bf-f0e46b602a3a}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{e05df4c6-09b2-4725-9032-8cad0836461f}">
@@ -181,7 +184,7 @@
     <object class="MixerBusFader" id="{7a91112f-294d-4230-bce5-0b774300d8e3}"/>
     <object class="SpatialiserEffect" id="{448accea-cff0-4544-9f95-14387ca30894}">
         <property name="minimumDistance">
-            <value>6</value>
+            <value>4</value>
         </property>
         <property name="maximumDistance">
             <value>60</value>
@@ -195,6 +198,30 @@
     <object class="SingleSound" id="{c1c93df4-6c29-4bdc-be82-17b132efbe9b}">
         <relationship name="audioFile">
             <destination>{20ecaa1b-6b70-468e-b77d-056b41d97a84}</destination>
+        </relationship>
+    </object>
+    <object class="SingleSound" id="{96794c5d-de85-47f4-ae0a-4f51d82eb995}">
+        <property name="volume">
+            <value>-16.5</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{411bf859-59b7-4245-bd9a-2a76a4fd8a33}</destination>
+        </relationship>
+    </object>
+    <object class="SingleSound" id="{152bc756-06e4-4673-9509-f5d01abb229d}">
+        <property name="volume">
+            <value>-19</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{b2809375-98fe-476e-9cf2-1731eb2ac13c}</destination>
+        </relationship>
+    </object>
+    <object class="SingleSound" id="{2a328da7-27ee-42ca-97bf-f0e46b602a3a}">
+        <property name="volume">
+            <value>-11</value>
+        </property>
+        <relationship name="audioFile">
+            <destination>{1443ca20-00c5-4ef6-941a-0f349bb383a2}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{6ac5c45e-b02a-44b4-bbb1-608868d05a91}"/>
