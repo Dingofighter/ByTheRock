@@ -30,8 +30,14 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        if (GameManager.instance.paused || GameManager.instance.talking)
+        if (GameManager.instance.paused)
         {
+            return;
+        }
+
+        if (GameManager.instance.talking)
+        {
+            anim.SetFloat("Speed", 0);
             return;
         }
 

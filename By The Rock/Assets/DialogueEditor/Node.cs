@@ -11,6 +11,9 @@ public abstract class Node : ScriptableObject {
     public bool isDragged;
     public bool isSelected;
 
+    public List<int> nextNodesID;
+
+#if UNITY_EDITOR
     public List<ConnectionPoint> inPoints = new List<ConnectionPoint>();
     public List<ConnectionPoint> outPoints = new List<ConnectionPoint>();
 
@@ -19,8 +22,6 @@ public abstract class Node : ScriptableObject {
     public GUIStyle selectedNodeStyle;
 
     public Action<Node> OnRemoveNode;
-
-    public List<int> nextNodesID;
 
     public void OnEnable()
     {
@@ -40,4 +41,5 @@ public abstract class Node : ScriptableObject {
     public abstract void ProcessContextMenu();
 
     public abstract void OnClickRemoveNode();
+#endif
 }
