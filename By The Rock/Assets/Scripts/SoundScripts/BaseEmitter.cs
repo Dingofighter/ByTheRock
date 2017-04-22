@@ -11,6 +11,8 @@ public class BaseEmitter : MonoBehaviour {
 
     public FMOD.Studio.EventDescription _EventDescription = null;
     public FMOD.Studio.EventInstance _EventInstance = null;
+    public FMOD.ATTRIBUTES_3D _3dAttributes;
+    public FMOD.Studio.PLAYBACK_STATE _playbackState;
 
     public bool _HasTriggered = false;
     public bool _AllowFadeout = true;
@@ -24,14 +26,14 @@ public class BaseEmitter : MonoBehaviour {
     public float _OverrideMaxDistance = -1.0f;
 
     // Use this for initialization
-    void Start ()
+    protected virtual void Start ()
     {
         HandleGameEvent(FMODUnity.EmitterGameEvent.ObjectStart);
     }
 
+
     public void Play()
     {
-
         if (_HasTriggered && _TriggerOnce)
             return;
 
@@ -95,6 +97,7 @@ public class BaseEmitter : MonoBehaviour {
             _EventInstance.setProperty(FMOD.Studio.EVENT_PROPERTY.MINIMUM_DISTANCE, _OverrideMinDistance);
             _EventInstance.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, _OverrideMaxDistance);
         }
+        
 
         /*_EventCallback = new FMOD.Studio.EVENT_CALLBACK(StudioEventCallback);
 _EventInstance.setCallback(_EventCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT);*/
@@ -104,7 +107,6 @@ _EventInstance.setCallback(_EventCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMEL
 
         _HasTriggered = true;
     }
-
 
 
     void GetEvent()

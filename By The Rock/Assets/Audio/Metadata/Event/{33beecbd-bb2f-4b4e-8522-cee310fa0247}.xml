@@ -50,7 +50,6 @@ Lägen:
         </relationship>
         <relationship name="parameters">
             <destination>{bdeb7863-cfdc-430f-bcf3-a6f70739e914}</destination>
-            <destination>{16e0da5f-3661-4b77-aa3b-de79ded411a4}</destination>
         </relationship>
         <relationship name="banks">
             <destination>{8cd31ab7-493e-4e63-8709-c3e20f81059e}</destination>
@@ -152,7 +151,7 @@ Lägen:
             <value>4</value>
         </property>
         <property name="seekSpeed">
-            <value>0.19999998807907104</value>
+            <value>0.29999998211860657</value>
         </property>
         <relationship name="modulators">
             <destination>{4317d0ee-5627-4ae7-a05e-ff42851893ec}</destination>
@@ -169,11 +168,6 @@ Lägen:
             <destination>{cc373a06-6f05-4d07-ae18-e47569f2602a}</destination>
             <destination>{16ce1952-b639-480e-a718-3be4836ab24e}</destination>
         </relationship>
-    </object>
-    <object class="DistanceParameter" id="{16e0da5f-3661-4b77-aa3b-de79ded411a4}">
-        <property name="maximum">
-            <value>80</value>
-        </property>
     </object>
     <object class="EventMixerMaster" id="{b2cd4836-7143-4fcb-85c1-fd260a3af305}">
         <relationship name="modulators">
@@ -210,11 +204,8 @@ Lägen:
         <property name="isCutoff">
             <value>true</value>
         </property>
-        <property name="start">
-            <value>0.050000000000000003</value>
-        </property>
         <property name="length">
-            <value>1.4000000000000001</value>
+            <value>1.4500000000000002</value>
         </property>
         <property name="startOffset">
             <value>26</value>
@@ -388,9 +379,6 @@ Lägen:
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
-        <property name="triggerProbability">
-            <value>89.5</value>
-        </property>
         <property name="length">
             <value>6</value>
         </property>
@@ -452,7 +440,7 @@ Lägen:
             <value>0</value>
         </property>
         <property name="length">
-            <value>6.5</value>
+            <value>6</value>
         </property>
         <relationship name="timeline">
             <destination>{fb67ab66-0bc2-42c8-b6d3-554b85e592e1}</destination>
@@ -470,6 +458,7 @@ Lägen:
         <relationship name="automationPoints">
             <destination>{a3f5bdc8-9593-462d-b3f3-a00ec8dfdb7b}</destination>
             <destination>{eb5372b4-7f60-43a4-b836-659443836184}</destination>
+            <destination>{79be385b-1983-4ae5-ae65-2ada8057cf8b}</destination>
         </relationship>
     </object>
     <object class="AutomationCurve" id="{7de1c3fb-0630-48d9-a621-c14c88b2ba00}">
@@ -505,7 +494,6 @@ Lägen:
     <object class="MixerBusEffectChain" id="{dca1a4a0-4eef-4434-b321-153be4593683}">
         <relationship name="effects">
             <destination>{e71fb4ab-b5c1-4a07-9c9c-bdd550aeb5df}</destination>
-            <destination>{01fe3208-f2d1-4f5f-af22-ff02f7bfbcc4}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{7f50e6b4-afd1-4c0f-9105-d3b1e7f6e89e}">
@@ -652,6 +640,17 @@ Lägen:
             <value>-60</value>
         </property>
     </object>
+    <object class="AutomationPoint" id="{79be385b-1983-4ae5-ae65-2ada8057cf8b}">
+        <property name="position">
+            <value>0.013245033112582781</value>
+        </property>
+        <property name="value">
+            <value>-15.6382618</value>
+        </property>
+        <property name="curveShape">
+            <value>-0.163500041</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{bf996942-38d5-4ecd-8152-ada5156fb5fe}">
         <property name="position">
             <value>0.99425758818703858</value>
@@ -748,17 +747,9 @@ Lägen:
         </property>
     </object>
     <object class="MixerBusFader" id="{e71fb4ab-b5c1-4a07-9c9c-bdd550aeb5df}"/>
-    <object class="SpatialiserEffect" id="{01fe3208-f2d1-4f5f-af22-ff02f7bfbcc4}">
-        <property name="minimumDistance">
-            <value>0</value>
-        </property>
-        <property name="maximumDistance">
-            <value>80</value>
-        </property>
-    </object>
     <object class="AutomationPoint" id="{82382f93-70a1-49d2-acf2-f1528de121be}">
         <property name="position">
-            <value>0.050000000000000003</value>
+            <value>0</value>
         </property>
         <property name="value">
             <value>0</value>
@@ -769,7 +760,7 @@ Lägen:
     </object>
     <object class="AutomationPoint" id="{b09c89f7-264c-41cd-907a-ccee2a07a317}">
         <property name="position">
-            <value>0.10000000000000001</value>
+            <value>0.050000000000000003</value>
         </property>
         <property name="value">
             <value>1</value>
