@@ -25,16 +25,17 @@ public class Dialogue : MonoBehaviour {
         {
             boolValueIndex = new List<int>();
         }
-
+        
         if (nodes == null)
         {
             nodes = new Dictionary<int, Node>();
         }
-
+        
         foreach(Node node in dialogue.nodes)
         {
             nodes.Add(node.id, node);
         }
+        
 	}
 	
 	// Update is called once per frame
