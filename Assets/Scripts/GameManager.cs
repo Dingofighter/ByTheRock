@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour {
 
     bool started;
     int invTimer;
-    
+
+    public FMOD.Studio.System _fmodSS;
+
     void Awake()
     {
         //Check if instance already exists
@@ -45,8 +47,8 @@ public class GameManager : MonoBehaviour {
 
         rt = invCanvas.GetComponent<RectTransform>();
         rt.anchoredPosition = rt.anchoredPosition;
+        FmodInitialize();
 
-        
     }
 
     public void Update()
@@ -114,6 +116,13 @@ public class GameManager : MonoBehaviour {
         {
             showingInventory = true;
         }
+    }
+
+    private void FmodInitialize()
+    {
+        _fmodSS = FMODUnity.RuntimeManager.StudioSystem; //Script enabler
+        FMOD.Studio.CPU_USAGE _fmodCPU;
+        _fmodSS.getCPUUsage(out _fmodCPU); //Shows cpu usage
     }
 
 }
