@@ -16,7 +16,7 @@ public class ScatterManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        _player = FindObjectOfType<PlayerMovement>().GetComponent<Transform>();
+        _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
     }
 	
 	// Update is called once per frame
