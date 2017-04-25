@@ -9,6 +9,7 @@ public class Spear1 : MonoBehaviour {
     bool stuck;
     bool canDamage = true;
     int deathCounter;
+    int aliveCounter;
 
     float distToGround;
 
@@ -69,6 +70,12 @@ public class Spear1 : MonoBehaviour {
             {
                 Destroy(gameObject);
             }
+        }
+
+        aliveCounter++;
+        if (aliveCounter > 1000)
+        {
+            Destroy(gameObject);
         }
 
     }

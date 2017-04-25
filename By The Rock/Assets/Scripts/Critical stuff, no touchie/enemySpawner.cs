@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public class enemySpawner : MonoBehaviour {
 
     public Transform enemyPre;
+    public Transform bossPre;
     List<Transform> enemies;
+    Transform boss;
 
     public int wave = 0;
     int counter;
@@ -22,6 +24,7 @@ public class enemySpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (GameManager1.instance.paused) return;
         if (!GameManager1.instance.playerDead && !GameManager1.instance.inShop) counter++;
         if (counter > counterMax)
         {
@@ -35,11 +38,18 @@ public class enemySpawner : MonoBehaviour {
 
     void addEnemies(int num)
     {
-        float x = -1.5f * (num/2);
-        for (int i = 0; i < num; i++)
+        if (wave == 10)
         {
-            enemies.Add((Transform)Instantiate(enemyPre, new Vector3(transform.position.x + x, transform.position.y, transform.position.z - 6), Quaternion.identity));
-            x += 1.5f;
+            boss = (Transform)Instantiate(bossPre, new Vector3(transform.position.x, transform.position.y, transform.position.z - 6), Quaternion.identity);
+        }
+        else
+        {
+            float x = -1.5f * (num / 2);
+            for (int i = 0; i < num; i++)
+            {
+                enemies.Add((Transform)Instantiate(enemyPre, new Vector3(transform.position.x + x, transform.position.y, transform.position.z - 6), Quaternion.identity));
+                x += 1.5f;
+            }
         }
     }
 	
