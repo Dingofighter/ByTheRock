@@ -38,14 +38,21 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _EmissionMap
+          name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ParallaxMap
+          name: _OcclusionMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -66,14 +73,14 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _OcclusionMap
+          name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _MetallicGlossMap
+          name: _DetailTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -90,7 +97,15 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: 0.5
+        second: 0.395
+      data:
+        first:
+          name: _Shininess
+        second: 0.01
+      data:
+        first:
+          name: _WindQuality
+        second: 0
       data:
         first:
           name: _Parallax
@@ -102,7 +117,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -127,6 +142,26 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _Occlusion
+        second: 0
+      data:
+        first:
+          name: _BaseLight
+        second: 0.826
+      data:
+        first:
+          name: _AO
+        second: 0
+      data:
+        first:
+          name: _SquashAmount
+        second: 1
+      data:
+        first:
+          name: _Cull
+        second: 2
     m_Colors:
       data:
         first:
@@ -136,3 +171,19 @@ Material:
         first:
           name: _Color
         second: {r: 0.459, g: 0.5294118, b: 0.19784501, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _TreeInstanceColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TreeInstanceScale
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _HueVariation
+        second: {r: 1, g: 0.5, b: 0, a: 0.1}
