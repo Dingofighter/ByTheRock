@@ -38,7 +38,7 @@ public class FishMovement : MonoBehaviour {
 
         //Debug.Log(transform.rotation.eulerAngles);
         //Debug.Log(splash.transform.rotation.eulerAngles);
-        Debug.Log(transform.position.y);
+        //Debug.Log(transform.position.y);
 
         // if (transform.rotation.eulerAngles.x > 315 && transform.rotation.eulerAngles.x < 325)
         if (transform.position.y > (waterHeight - 0.1) && transform.position.y < (waterHeight + 0.1))
