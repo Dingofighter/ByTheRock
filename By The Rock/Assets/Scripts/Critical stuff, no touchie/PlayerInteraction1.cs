@@ -37,7 +37,7 @@ public class PlayerInteraction1 : MonoBehaviour {
                 //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
                 //transform.LookAt(new Vector3(transform.right.x, c.transform.position.y, transform.forward.z));
                 transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
-                FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentInParent<Dialogue>());
+                FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
             }
             if (c.gameObject.tag == "spear")
             {

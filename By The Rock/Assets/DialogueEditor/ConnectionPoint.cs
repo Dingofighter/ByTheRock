@@ -15,14 +15,14 @@ public class ConnectionPoint {
 
     public Node node;
 
-    public GUIStyle style;
-
-    public Action<ConnectionPoint> OnClickConnectionPoint;
-
     public int index;
 
     public int startOffset;
-    
+
+#if UNITY_EDITOR
+    public GUIStyle style;
+    public Action<ConnectionPoint> OnClickConnectionPoint;
+
     public ConnectionPoint(Node node, ConnectionPointType type, GUIStyle style, Action<ConnectionPoint> OnClickConnectionPoint, int index, int startOffset)
     {
         this.node = node;
@@ -57,4 +57,5 @@ public class ConnectionPoint {
             }
         }
     }
+#endif
 }

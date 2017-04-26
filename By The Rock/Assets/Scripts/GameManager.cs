@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour {
 
     bool started;
     int invTimer;
-    
+
+    public FMOD.Studio.System _fmodSS;
+
     void Awake()
     {
         //Check if instance already exists
@@ -42,14 +44,13 @@ public class GameManager : MonoBehaviour {
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
-
         rt = invCanvas.GetComponent<RectTransform>();
         rt.anchoredPosition = rt.anchoredPosition;
 
-        
+        FmodInitialize();
     }
 
-    public void Update()
+public void Update()
     {
 
         if (!started)
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour {
         if (showingInventory)
         {
             invTimer++;
+            if (itemID1 == -1 && itemID2 == -1 && itemID3 == -1 && itemID4 == -1) invTimer = 127;
             if (invTimer <= 25) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x + 10, invCanvas.transform.position.y, invCanvas.transform.position.z);
             else if (invTimer > 100 && invTimer <= 125) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 10, invCanvas.transform.position.y, invCanvas.transform.position.z);
             else if (invTimer > 126) { showingInventory = false; invTimer = 0; }
@@ -83,8 +85,10 @@ public class GameManager : MonoBehaviour {
     public void changeItem(int slot, int itemID)
     {
         if (slot == 0) itemID1 = itemID;
+        Debug.Log(itemID1);
         invCanvas.GetComponent<itemManager>().addItem(slot, itemID);
     }
+
 
     public void TogglePause()
     {
@@ -112,6 +116,13 @@ public class GameManager : MonoBehaviour {
         {
             showingInventory = true;
         }
+    }
+
+    private void FmodInitialize()
+    {
+        _fmodSS = FMODUnity.RuntimeManager.StudioSystem; //Script enabler
+        FMOD.Studio.CPU_USAGE _fmodCPU;
+        _fmodSS.getCPUUsage(out _fmodCPU); //Shows cpu usage
     }
 
 }

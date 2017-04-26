@@ -24,7 +24,7 @@ public class PlayerInteraction : MonoBehaviour {
         {
             if (c.gameObject.tag == "Interact1")
             {
-                if (GameManager.instance.itemID1 == 0) GameManager.instance.changeItem(0, 1);
+                if (GameManager.instance.itemID1 == -1) GameManager.instance.changeItem(0, 0);
                 else GameManager.instance.changeItem(0, -1);
             }
             if (c.gameObject.tag == "Interact2")
@@ -37,7 +37,10 @@ public class PlayerInteraction : MonoBehaviour {
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
                 //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
                 //transform.LookAt(new Vector3(transform.right.x, c.transform.position.y, transform.forward.z));
-                transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
+                if (!c.transform.parent.GetComponent<Dialogue>().walkAndTalk)
+                {
+                    transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
+                }
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
             }
             if (c.gameObject.tag == "spear")

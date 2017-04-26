@@ -20,6 +20,8 @@ public class PlayerMovement1 : MonoBehaviour
     bool chargingSpear;
     public static bool gotSpear;
     int shootDelay;
+    int spearDamage;
+    Renderer rend;
 
     private readonly int NONE = 0;
     private readonly int FOREST = 1;
@@ -37,6 +39,7 @@ public class PlayerMovement1 : MonoBehaviour
         GameManager1.instance.currSecondScene = NONE;
         gotSpear = true;
         shootDelay = 20;
+        //rend = 
     }
 
     public bool getCrouching()
@@ -53,11 +56,17 @@ public class PlayerMovement1 : MonoBehaviour
             {
                 GameManager1.instance.toggleShop();
             }
-            if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager1.instance.currentCash > 100 && !GameManager1.instance.bought1)
+            if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager1.instance.currentCash >= 100 && !GameManager1.instance.bought1)
             {
                 GameManager1.instance.bought1 = true;
                 GameManager1.instance.currentCash -= 100;
                 shootDelay = 15;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager1.instance.currentCash >= 500 && !GameManager1.instance.bought2)
+            {
+                GameManager1.instance.bought1 = true;
+                GameManager1.instance.currentCash -= 500;
+                GameManager1.instance.dmg = 2;
             }
         }
 
@@ -99,6 +108,7 @@ public class PlayerMovement1 : MonoBehaviour
                 spear.GetComponentInChildren<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 85 + transform.up * 10, ForceMode.Impulse);
                 spear.GetComponent<Spear1>().isThrown = true;
+                //if (GameManager1.instance.dmg == 2) spear.gameObject.renderer.mater
             }
 
             /*

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DoubleSided
+  m_Name: DoubleSidedTest
   m_Shader: {fileID: 4800000, guid: 36d8e9af6a90acb4db5d107fec3c64c4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -100,6 +100,10 @@ Material:
         second: 0.5
       data:
         first:
+          name: _LinesSize
+        second: 1
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -138,10 +142,6 @@ Material:
         first:
           name: _BumpFlipMode
         second: 0
-      data:
-        first:
-          name: _LinesSize
-        second: 1
     m_Colors:
       data:
         first:
