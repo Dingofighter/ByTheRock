@@ -20,6 +20,8 @@ public class DialogueLineNode : Node {
     public string actorName = "Name";
     public string dialogueLine = "Line";
 
+    
+
 #if UNITY_EDITOR
     public GUIStyle defaultInPointStyle;
 
@@ -41,7 +43,7 @@ public class DialogueLineNode : Node {
         OnRemoveNode = OnClickRemoveNode;
     }
 
-    public void Load(string actorName, string dialogueLine, int inPoints)
+    public void Load(string actorName, string dialogueLine, int inPoints, string bank, int day, int clip, int chara)
     {
         this.actorName = actorName;
         this.dialogueLine = dialogueLine;
@@ -49,6 +51,13 @@ public class DialogueLineNode : Node {
         {
             AddInPoint();
         }
+        this.DayBank = bank;
+        this.Day = day;
+        this.Clip = clip;
+        this.Char = chara;
+        this.Fmod.CharSelect = chara;
+        this.Fmod.DiaSelect = day;
+        this.Fmod.VoxSelect = clip;
     }
 
     public override void Draw()
@@ -83,7 +92,17 @@ public class DialogueLineNode : Node {
             AddInPoint();
         }
 
+        
+
         GUILayout.EndArea();
+
+
+
+        Fmod.FMODAddon(rect, "", style, currentHeight);
+        DayBank = Fmod.setEvent();
+        Char = Fmod.setChar();
+        Day = Fmod.setDialogue();
+        Clip = Fmod.setClip();
     }
 
     public void AddInPoint()

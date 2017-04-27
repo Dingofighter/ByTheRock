@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
 
-public class DialogueHandler : MonoBehaviour {
+public class DialogueHandler : BaseEmitter {
 
     public Text dialogueText;
     public Text dialogueNameText;
@@ -20,9 +20,11 @@ public class DialogueHandler : MonoBehaviour {
     Node currentNode;
     private bool dialogueChosen = false;
     private float autoClearTime;
+    public Transform interact;
 
     // Use this for initialization
-    void Start () {
+    protected override void Start () {
+
         dialogueNameText.text = "";
         dialogueText.text = "";
 
@@ -74,6 +76,13 @@ public class DialogueHandler : MonoBehaviour {
                 NextNode(0);
             }
         }
+
+        if (inDialogue)
+        {
+
+        }
+
+    
     }
 
     public void StartDialogue(Dialogue[] dialogues)
@@ -131,6 +140,8 @@ public class DialogueHandler : MonoBehaviour {
             inDialogue = false;
             GameManager.instance.talking = false;
             Cursor.lockState = CursorLockMode.Locked;
+            if (_EventInstance != null)
+                _EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             return;
         }
 
@@ -142,8 +153,12 @@ public class DialogueHandler : MonoBehaviour {
         {
             isChoice = false;
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
+            setFmodParams(tempNode.DayBank, tempNode.Char, tempNode.Day, tempNode.Clip);
+            base.Start();
+            _EventInstance.start();
             dialogueNameText.text = tempNode.actorName;
             dialogueText.text = tempNode.dialogueLine;
+
 
             if (currentDialogue.walkAndTalk)
             {
@@ -190,5 +205,61 @@ public class DialogueHandler : MonoBehaviour {
 
             NextNode(0);
         }
+    }
+
+    void setFmodParams(string bank, int charac, int dia, int vc)
+    {
+        if (_EventInstance != null)
+            _EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        System.Guid thing;
+
+        FMOD.Studio.Util.ParseID(bank, out thing);
+        var gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+
+        if (gm._fmodSS.getEventByID(thing, out _EventDescription) != FMOD.RESULT.OK)
+            Debug.Log("Event not found");
+
+        if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)
+            Debug.Log("Instance not created because fuck you slask");
+
+
+        
+
+        float c = charac + 0.2f;
+        float d = dia + 0.2f;
+        float v = vc + 0.2f;
+
+        Params = new FMODUnity.ParamRef[3];
+
+        Debug.Log("sLASK1");
+        //base.Start();
+        Debug.Log("sLASK2");
+
+        
+
+        //_3dAttributes.position.x = -20;// interact.transform.position.x;
+        //_3dAttributes.position.y = -3;// interact.transform.position.y;
+        //_3dAttributes.position.z = 25; //interact.transform.position.z;
+        //_EventInstance.set3DAttributes(_3dAttributes);
+
+        _EventInstance.setParameterValue("CHAR", c);
+        _EventInstance.setParameterValue("Dialogues", d);
+        _EventInstance.setParameterValue("VoiceClip", v);
+
+        /*Params[0].Name = "CHAR";
+        Params[1].Name = "Dialogues";
+        Params[2].Name = "VocieClip";
+
+        Params[0].Value = c;
+        Params[1].Value = d;
+        Params[2].Value = v;**/
+
+        //Transform p = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+
+        _3dAttributes.position.x = -20;// interact.transform.position.x;
+        _3dAttributes.position.y = -3;// interact.transform.position.y;
+        _3dAttributes.position.z = 25; //interact.transform.position.z;
+        _EventInstance.set3DAttributes(_3dAttributes);
     }
 }

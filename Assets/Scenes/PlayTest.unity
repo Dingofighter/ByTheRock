@@ -2886,6 +2886,30 @@ Prefab:
       propertyPath: m_TargetDisplay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11492168, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
+      propertyPath: _TriggerOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492168, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
+      propertyPath: _EventMusic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492168, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
+      propertyPath: _PlayEvent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492168, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
+      propertyPath: preload
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492168, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
+      propertyPath: _OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492168, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
+      propertyPath: _isQuitting
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 799884cf35335634a87dd457297c2b8c, type: 2}
   m_IsPrefabParent: 0
@@ -5600,6 +5624,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11485402, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: _EventMusic
+      value: event:/Sounds/Forest/River
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
   m_IsPrefabParent: 0
@@ -7669,6 +7697,7 @@ MonoBehaviour:
   _AllowFadeout: 1
   _isQuitting: 0
   _TriggerOnce: 0
+  preload: 0
   Params: []
   _OverrideAttenuation: 0
   _OverrideMinDistance: -1

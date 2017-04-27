@@ -216,9 +216,6 @@ Lägen:
         <relationship name="modulators">
             <destination>{9bd8ed1a-9658-41a7-8aac-019e9e26fa33}</destination>
         </relationship>
-        <relationship name="fadeInCurve">
-            <destination>{782f3162-ec0a-4993-a5f3-0b01d9524dae}</destination>
-        </relationship>
         <relationship name="audioFile">
             <destination>{e2e64078-0e95-4a77-a321-1a1426e95be4}</destination>
         </relationship>
@@ -506,17 +503,6 @@ Lägen:
         <property name="nameOfPropertyBeingModulated">
             <value>startOffset</value>
         </property>
-        <property name="amount">
-            <value>82.5</value>
-        </property>
-    </object>
-    <object class="FadeCurve" id="{782f3162-ec0a-4993-a5f3-0b01d9524dae}">
-        <relationship name="startPoint">
-            <destination>{82382f93-70a1-49d2-acf2-f1528de121be}</destination>
-        </relationship>
-        <relationship name="endPoint">
-            <destination>{b09c89f7-264c-41cd-907a-ccee2a07a317}</destination>
-        </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{bf12fe59-b1f9-4218-babd-86d0a8968191}">
         <relationship name="effects">
@@ -527,9 +513,6 @@ Lägen:
     <object class="RandomizerModulator" id="{8ae8b4a6-4e58-4e31-b075-e2e2bca8f483}">
         <property name="nameOfPropertyBeingModulated">
             <value>startOffset</value>
-        </property>
-        <property name="amount">
-            <value>98.5</value>
         </property>
     </object>
     <object class="MixerBusEffectChain" id="{21e3339d-fba0-457e-9559-6c7fe3841460}">
@@ -547,9 +530,6 @@ Lägen:
     <object class="RandomizerModulator" id="{a0495e88-23fe-46e6-b700-fa9ac968e48f}">
         <property name="nameOfPropertyBeingModulated">
             <value>startOffset</value>
-        </property>
-        <property name="amount">
-            <value>100</value>
         </property>
     </object>
     <object class="MixerBusEffectChain" id="{be3cfc77-8655-461c-99b5-abf09aab8eda}">
@@ -747,25 +727,6 @@ Lägen:
         </property>
     </object>
     <object class="MixerBusFader" id="{e71fb4ab-b5c1-4a07-9c9c-bdd550aeb5df}"/>
-    <object class="AutomationPoint" id="{82382f93-70a1-49d2-acf2-f1528de121be}">
-        <property name="position">
-            <value>0</value>
-        </property>
-        <property name="value">
-            <value>0</value>
-        </property>
-        <property name="curveShape">
-            <value>-0.2547189</value>
-        </property>
-    </object>
-    <object class="AutomationPoint" id="{b09c89f7-264c-41cd-907a-ccee2a07a317}">
-        <property name="position">
-            <value>0.050000000000000003</value>
-        </property>
-        <property name="value">
-            <value>1</value>
-        </property>
-    </object>
     <object class="MixerBusFader" id="{4113d59d-5e6b-4afa-9914-d62e71ebf9e4}"/>
     <object class="MixerBusFader" id="{744ae094-3f89-4039-b7d5-8f75fac33a2c}"/>
     <object class="MixerBusFader" id="{fa70610b-3d77-4bcd-87d3-97cf134e38d5}"/>

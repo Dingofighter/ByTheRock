@@ -61,9 +61,11 @@ public class SetVariableNode : Node {
         {
             bools[i] = allFlags.flags[i].description;
         }
+
+
     }
 
-    public void Load(int boolIndex, int boolValueIndex, int inPoints)
+    public void Load(int boolIndex, int boolValueIndex, int inPoints, string bank, int day, int clip, int chara)
     {
         this.boolIndex = boolIndex;
         this.boolValueIndex = boolValueIndex;
@@ -72,6 +74,14 @@ public class SetVariableNode : Node {
         {
             AddInPoint();
         }
+
+        this.DayBank = bank;
+        this.Day = day;
+        this.Clip = clip;
+        this.Char = chara;
+        this.Fmod.CharSelect = chara;
+        this.Fmod.DiaSelect = day;
+        this.Fmod.VoxSelect = clip;
     }
 
     public override void Draw()
@@ -126,6 +136,12 @@ public class SetVariableNode : Node {
         }
 
         GUILayout.EndArea();
+
+        Fmod.FMODAddon(rect, "", style, currentHeight);
+        DayBank = Fmod.setEvent();
+        Char = Fmod.setChar();
+        Day = Fmod.setDialogue();
+        Clip = Fmod.setClip();
     }
 
     public void AddInPoint()

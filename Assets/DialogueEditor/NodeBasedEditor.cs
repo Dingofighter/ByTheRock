@@ -322,7 +322,7 @@ public class NodeBasedEditor : EditorWindow {
                 DialogueLineNode newNode = CreateInstance<DialogueLineNode>();
                 newNode.Init(node.id, node.rect.position, DialogueLineNode.width, DialogueLineNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 DialogueLineNode tempNode = (DialogueLineNode)node;
-                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count);
+                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
             else if (node is PlayerChoiceNode)
@@ -330,7 +330,7 @@ public class NodeBasedEditor : EditorWindow {
                 PlayerChoiceNode newNode = CreateInstance<PlayerChoiceNode>();
                 newNode.Init(node.id, node.rect.position, PlayerChoiceNode.width, PlayerChoiceNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 PlayerChoiceNode tempNode = (PlayerChoiceNode)node;
-                newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count);
+                newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
             else if (node is CheckVariableNode)
@@ -338,7 +338,7 @@ public class NodeBasedEditor : EditorWindow {
                 CheckVariableNode newNode = CreateInstance<CheckVariableNode>();
                 newNode.Init(node.id, node.rect.position, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 CheckVariableNode tempNode = (CheckVariableNode)node;
-                newNode.Load(tempNode.boolIndex, node.inPoints.Count);
+                newNode.Load(tempNode.boolIndex, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
             else if (node is SetVariableNode)
@@ -346,7 +346,7 @@ public class NodeBasedEditor : EditorWindow {
                 SetVariableNode newNode = CreateInstance<SetVariableNode>();
                 newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 SetVariableNode tempNode = (SetVariableNode)node;
-                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
 
@@ -407,7 +407,7 @@ public class NodeBasedEditor : EditorWindow {
                 DialogueLineNode newNode = CreateInstance<DialogueLineNode>();
                 newNode.Init(node.id, node.rect.position, DialogueLineNode.width, DialogueLineNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 DialogueLineNode tempNode = (DialogueLineNode)node;
-                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count);
+                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
             else if (node is PlayerChoiceNode)
@@ -415,7 +415,7 @@ public class NodeBasedEditor : EditorWindow {
                 PlayerChoiceNode newNode = CreateInstance<PlayerChoiceNode>();
                 newNode.Init(node.id, node.rect.position, PlayerChoiceNode.width, PlayerChoiceNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 PlayerChoiceNode tempNode = (PlayerChoiceNode)node;
-                newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count);
+                newNode.Load(tempNode.optionLines, node.inPoints.Count, node.outPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
             else if (node is CheckVariableNode)
@@ -423,7 +423,7 @@ public class NodeBasedEditor : EditorWindow {
                 CheckVariableNode newNode = CreateInstance<CheckVariableNode>();
                 newNode.Init(node.id, node.rect.position, CheckVariableNode.width, CheckVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 CheckVariableNode tempNode = (CheckVariableNode)node;
-                newNode.Load(tempNode.boolIndex, node.inPoints.Count);
+                newNode.Load(tempNode.boolIndex, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
             else if (node is SetVariableNode)
@@ -431,7 +431,7 @@ public class NodeBasedEditor : EditorWindow {
                 SetVariableNode newNode = CreateInstance<SetVariableNode>();
                 newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 SetVariableNode tempNode = (SetVariableNode)node;
-                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char);
                 nodes.Add(newNode);
             }
 
@@ -518,6 +518,7 @@ public class NodeBasedEditor : EditorWindow {
         // Create menu to show under mouse when right clicking empty space
         GenericMenu genericMenu = new GenericMenu();
         genericMenu.AddItem(new GUIContent("Add Start Node"), false, () => OnClickAddStartNode(mousePosition));
+        //genericMenu.AddItem(new GUIContent("Add FMOD, Linus Sux"), false, () => OnClickAddFMODNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Dialogue Line Node"), false, () => OnClickAddDialogueLineNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Player Choice Node"), false, () => OnClickAddPlayerChoiceNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Check Variable Node"), false, () => OnClickAddCheckVariableNode(mousePosition));
@@ -562,6 +563,20 @@ public class NodeBasedEditor : EditorWindow {
 
         nodes.Add(node);
     }
+
+    /*private void OnClickAddFMODNode(Vector2 mousePosition)
+    {
+        if (nodes == null)
+        {
+            nodes = new List<Node>();
+        }
+
+        currentHighestID++;
+        FmodDialogue node = CreateInstance<FmodDialogue>();
+        node.Init(currentHighestID, mousePosition, FmodDialogue.width, FmodDialogue.defaultHeight, nodeStyle, selectedNodeStyle, OnClickRemoveNode);
+
+        nodes.Add(node);
+    }*/
 
     private void OnClickAddDialogueLineNode(Vector2 mousePosition)
     {

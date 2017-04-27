@@ -46,7 +46,7 @@ public class PlayerChoiceNode : Node {
         optionLines.Add("Option " + optionLines.Count);
     }
 
-    public void Load(List<String> optionLines, int inPoints, int outPoints)
+    public void Load(List<String> optionLines, int inPoints, int outPoints, string bank, int day, int clip, int chara)
     {
         for (int i = 0; i < inPoints - 1; i++)
         {
@@ -58,6 +58,14 @@ public class PlayerChoiceNode : Node {
         }
 
         this.optionLines = optionLines;
+
+        this.DayBank = bank;
+        this.Day = day;
+        this.Clip = clip;
+        this.Char = chara;
+        this.Fmod.CharSelect = chara;
+        this.Fmod.DiaSelect = day;
+        this.Fmod.VoxSelect = clip;
     }
 
     public override void Draw()
@@ -97,6 +105,12 @@ public class PlayerChoiceNode : Node {
         GUILayout.EndHorizontal();
 
         GUILayout.EndArea();
+
+        Fmod.FMODAddon(rect, "", style, currentHeight);
+        DayBank = Fmod.setEvent();
+        Char = Fmod.setChar();
+        Day = Fmod.setDialogue();
+        Clip = Fmod.setClip();
     }
 
     public void AddOption()

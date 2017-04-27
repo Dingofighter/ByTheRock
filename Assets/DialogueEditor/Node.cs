@@ -11,7 +11,15 @@ public abstract class Node : ScriptableObject {
     public bool isDragged;
     public bool isSelected;
 
+    public string DayBank;
+    public int Day;
+    public int Clip;
+    public int Char;
+
     public List<int> nextNodesID;
+
+    [NonSerialized]
+    public FmodDialogue Fmod = new FmodDialogue();
 
 #if UNITY_EDITOR
     public List<ConnectionPoint> inPoints = new List<ConnectionPoint>();

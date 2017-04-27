@@ -16,7 +16,7 @@ public class Dialogue : MonoBehaviour {
     public List<int> boolValueIndex;
 
     // Use this for initialization
-    void Start () {
+     void Start () {
         if (boolIndex == null)
         {
             boolIndex = new List<int>();
@@ -52,4 +52,6 @@ public class Dialogue : MonoBehaviour {
     {
         return nodes.Count;
     }
+
+    
 }
