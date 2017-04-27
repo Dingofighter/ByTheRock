@@ -3,6 +3,7 @@ Shader "DoubleSided" {
 		_Color("Main Color", Color) = (1,1,1,1)
 		_MainTex("Base (RGB)", 2D) = "white" {}
 	_BumpMap("Normalmap", 2D) = "bump" {}
+	_Cutoff("Base Alpha cutoff", Range(0, .9)) = .5
 	}
 
 		SubShader{
@@ -11,7 +12,8 @@ Shader "DoubleSided" {
 		Cull Off
 
 		CGPROGRAM
-#pragma surface surf Lambert addshadow
+
+#pragma surface surf Lambert addshadow alphatest:_Cutoff
 
 
 	sampler2D _MainTex;
