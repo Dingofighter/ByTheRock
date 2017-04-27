@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour {
         {
             invTimer = 0;
             showingInventory = true;
+            
+            
             Debug.Log("pressed");
             ShowInventory();
         }

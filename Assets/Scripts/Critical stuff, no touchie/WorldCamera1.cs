@@ -60,7 +60,8 @@ public class WorldCamera1 : MonoBehaviour {
 
             if (!GameManager1.instance.talking)
             {
-                //Debug.Log(y.ToString() + " " + x.ToString());
+                //
+                Debug.Log(y.ToString() + " " + x.ToString());
                 rotation = Quaternion.Euler(y, x, 0);
             }
             else
