@@ -64,7 +64,7 @@ public class WorldCamera : MonoBehaviour {
             }
             else
             {
-                rotation = Quaternion.Euler(13, target.rotation.x+180, 0);
+                rotation = Quaternion.Euler(13, target.eulerAngles.y, 0);
             }
 
             Vector3 position = new Vector3(0, 0, 0);
