@@ -53,7 +53,7 @@ public class orcMovement : MonoBehaviour {
         
         checkForPlayer();
 
-        shouldThrow = true;
+        //shouldThrow = true;
     }
 
     void checkForPlayer()
