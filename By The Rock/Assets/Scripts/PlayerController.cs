@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour {
             transform.rotation = Quaternion.LookRotation(movement.normalized);
         }
 
+        if (!charController.isGrounded) movement += Physics.gravity;
+
         anim.SetFloat("Speed", Mathf.Abs(vertical) + Mathf.Abs(horizontal));
         charController.Move(movement * speed * Time.deltaTime);
 
