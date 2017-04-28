@@ -169,7 +169,7 @@ public class Movement : MonoBehaviour
 
     void OnTriggerStay(Collider c)
     {
-        if (c.gameObject.tag == "Player" && !run && !c.GetComponent<PlayerMovement>().getCrouching() && !still)
+        if (c.gameObject.tag == "Player" && !run && !still)
         {
             maxMoveCounter = 0;
             rend.material.color = colorRun;
