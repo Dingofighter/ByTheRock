@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour {
     private Transform cam;
     private Animator anim;
 
+    private int idleCounter;
+    private bool turnRight;
+    private bool turnLeft;
+
     private Vector3 camForward;
 
 
@@ -53,13 +57,34 @@ public class PlayerController : MonoBehaviour {
         camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 movement = vertical * camForward + horizontal * cam.right;
 
+
+
         if (movement != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(movement.normalized);
         }
 
+        if (!charController.isGrounded) movement += Physics.gravity;
+
         anim.SetFloat("Speed", Mathf.Abs(vertical) + Mathf.Abs(horizontal));
         charController.Move(movement * speed * Time.deltaTime);
+
+        idleCounter++;
+        anim.SetInteger("idleCounter", idleCounter);
+        if (idleCounter >= 305) idleCounter = -150;
+        if (!(Mathf.Abs(vertical) + Mathf.Abs(horizontal) == 0) || GameManager.instance.talking) idleCounter = 0;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            turnRight = !turnRight;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            turnLeft = !turnLeft;
+        }
+
+        anim.SetBool("turnRight", turnRight);
+        anim.SetBool("turnLeft", turnLeft);
 
         if (unload)
         {

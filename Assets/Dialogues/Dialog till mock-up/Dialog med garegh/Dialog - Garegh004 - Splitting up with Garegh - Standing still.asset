@@ -9,177 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7f262a43f0cff14e9e759c355644ce2, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh - Walking
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 11449878}
-  - {fileID: 11424320}
-  - {fileID: 11490568}
-  - {fileID: 11467424}
-  - {fileID: 11472064}
-  - {fileID: 11432392}
-  connections:
-  - {fileID: 11425608}
-  - {fileID: 11434364}
-  - {fileID: 11418498}
-  - {fileID: 11426408}
-  - {fileID: 11480934}
---- !u!114 &11418498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
   m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
   m_EditorClassIdentifier: 
-  inPoint:
-    rect:
-      serializedVersion: 2
-      x: 804
-      y: 429
-      width: 10
-      height: 20
-    type: 0
-    node: {fileID: 11467424}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  outPoint:
-    rect:
-      serializedVersion: 2
-      x: 713
-      y: 428
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11490568}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
---- !u!114 &11424320
+  nodes:
+  - {fileID: 11479206}
+  - {fileID: 11410376}
+  - {fileID: 11451756}
+  - {fileID: 11430114}
+  - {fileID: 11455082}
+  - {fileID: 11436922}
+  connections:
+  - {fileID: 11480656}
+  - {fileID: 11469674}
+  - {fileID: 11467924}
+  - {fileID: 11430392}
+  - {fileID: 11471964}
+--- !u!114 &11410376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -200,6 +45,11 @@ MonoBehaviour:
   id: 1
   isDragged: 0
   isSelected: 0
+  DayBank: '{adc96b33-ea8e-4527-a960-14fa573a4b8e}'
+  Day: 3
+  Clip: 1
+  Char: 2
+  _fmod: 1
   nextNodesID: 02000000
   inPoints:
   - rect:
@@ -209,7 +59,7 @@ MonoBehaviour:
       width: 10
       height: 20
     type: 0
-    node: {fileID: 11424320}
+    node: {fileID: 11410376}
     index: 0
     startOffset: 0
     style:
@@ -281,7 +131,7 @@ MonoBehaviour:
       width: 10
       height: 20
     type: 1
-    node: {fileID: 11424320}
+    node: {fileID: 11410376}
     index: 0
     startOffset: 0
     style:
@@ -589,317 +439,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11425608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
-  m_EditorClassIdentifier: 
-  inPoint:
-    rect:
-      serializedVersion: 2
-      x: 232
-      y: 428
-      width: 10
-      height: 20
-    type: 0
-    node: {fileID: 11424320}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  outPoint:
-    rect:
-      serializedVersion: 2
-      x: 165
-      y: 426
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11449878}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
---- !u!114 &11426408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
-  m_EditorClassIdentifier: 
-  inPoint:
-    rect:
-      serializedVersion: 2
-      x: 1084
-      y: 430
-      width: 10
-      height: 20
-    type: 0
-    node: {fileID: 11472064}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  outPoint:
-    rect:
-      serializedVersion: 2
-      x: 998
-      y: 429
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11467424}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
---- !u!114 &11432392
+--- !u!114 &11430114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -908,907 +448,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40c6e3d66d13674478ef808fa0256e13, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: 1363
-    y: 410
-    width: 200
-    height: 180
-  title: Dialogue Line Node
-  id: 5
-  isDragged: 0
-  isSelected: 1
-  nextNodesID: ffffffff
-  inPoints:
-  - rect:
-      serializedVersion: 2
-      x: 1361
-      y: 430
-      width: 10
-      height: 20
-    type: 0
-    node: {fileID: 11432392}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  outPoints:
-  - rect:
-      serializedVersion: 2
-      x: 1555
-      y: 430
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11432392}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  style:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 7126082630596479001, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 12
-      m_Right: 12
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  defaultNodeStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 12
-      m_Right: 12
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  selectedNodeStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 7126082630596479001, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 12
-      m_Right: 12
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  currentHeight: 180
-  actorName: Garegh
-  dialogueLine: "Fine. I\u2019ll see you back at the feast."
-  defaultInPointStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &11434364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
-  m_EditorClassIdentifier: 
-  inPoint:
-    rect:
-      serializedVersion: 2
-      x: 519
-      y: 428
-      width: 10
-      height: 20
-    type: 0
-    node: {fileID: 11490568}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  outPoint:
-    rect:
-      serializedVersion: 2
-      x: 426
-      y: 428
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11424320}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
---- !u!114 &11449878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dcd43e1d562db44e84801ab927945ba, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
-  m_EditorClassIdentifier: 
-  rect:
-    serializedVersion: 2
-    x: -27
-    y: 406
-    width: 200
-    height: 70
-  title: Start Node
-  id: 0
-  isDragged: 0
-  isSelected: 0
-  nextNodesID: 01000000
-  inPoints: []
-  outPoints:
-  - rect:
-      serializedVersion: 2
-      x: 165
-      y: 426
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11449878}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  style:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 12
-      m_Right: 12
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  defaultNodeStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 12
-      m_Right: 12
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  selectedNodeStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 7126082630596479001, guid: 0000000000000000d000000000000000,
-        type: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 12
-      m_Right: 12
-      m_Top: 12
-      m_Bottom: 12
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
-  currentHeight: 70
-  defaultInPointStyle:
-    m_Name: 
-    m_Normal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Focused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnNormal:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnHover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnActive:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_OnFocused:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-    m_Border:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Margin:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Padding:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Overflow:
-      m_Left: 0
-      m_Right: 0
-      m_Top: 0
-      m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
-    m_Alignment: 0
-    m_WordWrap: 0
-    m_RichText: 1
-    m_TextClipping: 0
-    m_ImagePosition: 0
-    m_ContentOffset: {x: 0, y: 0}
-    m_FixedWidth: 0
-    m_FixedHeight: 0
-    m_StretchWidth: 1
-    m_StretchHeight: 0
---- !u!114 &11467424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c6e3d66d13674478ef808fa0256e13, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
@@ -1820,6 +460,11 @@ MonoBehaviour:
   id: 3
   isDragged: 0
   isSelected: 0
+  DayBank: '{adc96b33-ea8e-4527-a960-14fa573a4b8e}'
+  Day: 3
+  Clip: 2
+  Char: 2
+  _fmod: 1
   nextNodesID: 04000000
   inPoints:
   - rect:
@@ -1829,7 +474,7 @@ MonoBehaviour:
       width: 10
       height: 20
     type: 0
-    node: {fileID: 11467424}
+    node: {fileID: 11430114}
     index: 0
     startOffset: 0
     style:
@@ -1901,7 +546,7 @@ MonoBehaviour:
       width: 10
       height: 20
     type: 1
-    node: {fileID: 11467424}
+    node: {fileID: 11430114}
     index: 0
     startOffset: 0
     style:
@@ -2209,7 +854,162 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11472064
+--- !u!114 &11430392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  inPoint:
+    rect:
+      serializedVersion: 2
+      x: 1084
+      y: 430
+      width: 10
+      height: 20
+    type: 0
+    node: {fileID: 11455082}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  outPoint:
+    rect:
+      serializedVersion: 2
+      x: 998
+      y: 429
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11430114}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+--- !u!114 &11436922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2218,28 +1018,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40c6e3d66d13674478ef808fa0256e13, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
-    x: 1086
+    x: 1363
     y: 410
     width: 200
     height: 180
   title: Dialogue Line Node
-  id: 4
+  id: 5
   isDragged: 0
   isSelected: 0
-  nextNodesID: 05000000
+  DayBank: '{adc96b33-ea8e-4527-a960-14fa573a4b8e}'
+  Day: 3
+  Clip: 3
+  Char: 2
+  _fmod: 1
+  nextNodesID: ffffffff
   inPoints:
   - rect:
       serializedVersion: 2
-      x: 1084
+      x: 1361
       y: 430
       width: 10
       height: 20
     type: 0
-    node: {fileID: 11472064}
+    node: {fileID: 11436922}
     index: 0
     startOffset: 0
     style:
@@ -2306,12 +1111,12 @@ MonoBehaviour:
   outPoints:
   - rect:
       serializedVersion: 2
-      x: 1278
+      x: 1555
       y: 430
       width: 10
       height: 20
     type: 1
-    node: {fileID: 11472064}
+    node: {fileID: 11436922}
     index: 0
     startOffset: 0
     style:
@@ -2556,8 +1361,8 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   currentHeight: 180
-  actorName: Ougrah
-  dialogueLine: "That\u2019s none of your business."
+  actorName: Garegh
+  dialogueLine: "Fine. I\u2019ll see you back at the feast."
   defaultInPointStyle:
     m_Name: 
     m_Normal:
@@ -2619,162 +1424,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
---- !u!114 &11480934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh - Walking
-  m_EditorClassIdentifier: 
-  inPoint:
-    rect:
-      serializedVersion: 2
-      x: 1361
-      y: 430
-      width: 10
-      height: 20
-    type: 0
-    node: {fileID: 11432392}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
-  outPoint:
-    rect:
-      serializedVersion: 2
-      x: 1278
-      y: 430
-      width: 10
-      height: 20
-    type: 1
-    node: {fileID: 11472064}
-    index: 0
-    startOffset: 0
-    style:
-      m_Name: 
-      m_Normal:
-        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Hover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Active:
-        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
-          type: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Focused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnNormal:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnHover:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnActive:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_OnFocused:
-        m_Background: {fileID: 0}
-        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
-      m_Border:
-        m_Left: 4
-        m_Right: 4
-        m_Top: 12
-        m_Bottom: 12
-      m_Margin:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Padding:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Overflow:
-        m_Left: 0
-        m_Right: 0
-        m_Top: 0
-        m_Bottom: 0
-      m_Font: {fileID: 0}
-      m_FontSize: 0
-      m_FontStyle: 0
-      m_Alignment: 0
-      m_WordWrap: 0
-      m_RichText: 1
-      m_TextClipping: 0
-      m_ImagePosition: 0
-      m_ContentOffset: {x: 0, y: 0}
-      m_FixedWidth: 0
-      m_FixedHeight: 0
-      m_StretchWidth: 1
-      m_StretchHeight: 0
---- !u!114 &11490568
+--- !u!114 &11451756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2783,7 +1433,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40c6e3d66d13674478ef808fa0256e13, type: 3}
-  m_Name: Dialog - Garegh003 - Splitting up with Garegh
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
   m_EditorClassIdentifier: 
   rect:
     serializedVersion: 2
@@ -2795,6 +1445,11 @@ MonoBehaviour:
   id: 2
   isDragged: 0
   isSelected: 0
+  DayBank: '{adc96b33-ea8e-4527-a960-14fa573a4b8e}'
+  Day: 3
+  Clip: 1
+  Char: 1
+  _fmod: 1
   nextNodesID: 03000000
   inPoints:
   - rect:
@@ -2804,7 +1459,7 @@ MonoBehaviour:
       width: 10
       height: 20
     type: 0
-    node: {fileID: 11490568}
+    node: {fileID: 11451756}
     index: 0
     startOffset: 0
     style:
@@ -2876,7 +1531,7 @@ MonoBehaviour:
       width: 10
       height: 20
     type: 1
-    node: {fileID: 11490568}
+    node: {fileID: 11451756}
     index: 0
     startOffset: 0
     style:
@@ -3184,3 +1839,1378 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+--- !u!114 &11455082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c6e3d66d13674478ef808fa0256e13, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: 1086
+    y: 410
+    width: 200
+    height: 180
+  title: Dialogue Line Node
+  id: 4
+  isDragged: 0
+  isSelected: 0
+  DayBank: '{adc96b33-ea8e-4527-a960-14fa573a4b8e}'
+  Day: 3
+  Clip: 2
+  Char: 1
+  _fmod: 1
+  nextNodesID: 05000000
+  inPoints:
+  - rect:
+      serializedVersion: 2
+      x: 1084
+      y: 430
+      width: 10
+      height: 20
+    type: 0
+    node: {fileID: 11455082}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  outPoints:
+  - rect:
+      serializedVersion: 2
+      x: 1278
+      y: 430
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11455082}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 12
+      m_Right: 12
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  defaultNodeStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 12
+      m_Right: 12
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  selectedNodeStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 7126082630596479001, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 12
+      m_Right: 12
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  currentHeight: 180
+  actorName: Ougrah
+  dialogueLine: "That\u2019s none of your business."
+  defaultInPointStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 4
+      m_Right: 4
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!114 &11467924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  inPoint:
+    rect:
+      serializedVersion: 2
+      x: 804
+      y: 429
+      width: 10
+      height: 20
+    type: 0
+    node: {fileID: 11430114}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  outPoint:
+    rect:
+      serializedVersion: 2
+      x: 713
+      y: 428
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11451756}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+--- !u!114 &11469674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  inPoint:
+    rect:
+      serializedVersion: 2
+      x: 519
+      y: 428
+      width: 10
+      height: 20
+    type: 0
+    node: {fileID: 11451756}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  outPoint:
+    rect:
+      serializedVersion: 2
+      x: 426
+      y: 428
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11410376}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+--- !u!114 &11471964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  inPoint:
+    rect:
+      serializedVersion: 2
+      x: 1361
+      y: 430
+      width: 10
+      height: 20
+    type: 0
+    node: {fileID: 11436922}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  outPoint:
+    rect:
+      serializedVersion: 2
+      x: 1278
+      y: 430
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11455082}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+--- !u!114 &11479206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcd43e1d562db44e84801ab927945ba, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  rect:
+    serializedVersion: 2
+    x: -27
+    y: 406
+    width: 200
+    height: 70
+  title: Start Node
+  id: 0
+  isDragged: 0
+  isSelected: 0
+  DayBank: 
+  Day: 0
+  Clip: 0
+  Char: 0
+  _fmod: 0
+  nextNodesID: 01000000
+  inPoints: []
+  outPoints:
+  - rect:
+      serializedVersion: 2
+      x: 165
+      y: 426
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11479206}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 12
+      m_Right: 12
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  defaultNodeStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: -3453378117783705200, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 12
+      m_Right: 12
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  selectedNodeStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 7126082630596479001, guid: 0000000000000000d000000000000000,
+        type: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 12
+      m_Right: 12
+      m_Top: 12
+      m_Bottom: 12
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  currentHeight: 70
+  defaultInPointStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!114 &11480656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0747c87605e87542b5147c95ee209d1, type: 3}
+  m_Name: Dialog - Garegh004 - Splitting up with Garegh - Standing still
+  m_EditorClassIdentifier: 
+  inPoint:
+    rect:
+      serializedVersion: 2
+      x: 232
+      y: 428
+      width: 10
+      height: 20
+    type: 0
+    node: {fileID: 11410376}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: -137945306764144326, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 7748859771797447999, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0
+  outPoint:
+    rect:
+      serializedVersion: 2
+      x: 165
+      y: 426
+      width: 10
+      height: 20
+    type: 1
+    node: {fileID: 11479206}
+    index: 0
+    startOffset: 0
+    style:
+      m_Name: 
+      m_Normal:
+        m_Background: {fileID: 5361632866341858327, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Hover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Active:
+        m_Background: {fileID: 4979192565147231929, guid: 0000000000000000d000000000000000,
+          type: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Focused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnNormal:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnHover:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnActive:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_OnFocused:
+        m_Background: {fileID: 0}
+        m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Border:
+        m_Left: 4
+        m_Right: 4
+        m_Top: 12
+        m_Bottom: 12
+      m_Margin:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Padding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Overflow:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+      m_Font: {fileID: 0}
+      m_FontSize: 0
+      m_FontStyle: 0
+      m_Alignment: 0
+      m_WordWrap: 0
+      m_RichText: 1
+      m_TextClipping: 0
+      m_ImagePosition: 0
+      m_ContentOffset: {x: 0, y: 0}
+      m_FixedWidth: 0
+      m_FixedHeight: 0
+      m_StretchWidth: 1
+      m_StretchHeight: 0

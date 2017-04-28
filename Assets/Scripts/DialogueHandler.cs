@@ -20,7 +20,11 @@ public class DialogueHandler : BaseEmitter {
     Node currentNode;
     private bool dialogueChosen = false;
     private float autoClearTime;
-    public Transform interact;
+
+    private Transform _player;
+    private Transform _interact;
+    public Vector3 _pos;
+    private bool walkietalkie = false;
 
     // Use this for initialization
     protected override void Start () {
@@ -82,7 +86,9 @@ public class DialogueHandler : BaseEmitter {
 
         }
 
-    
+        if (walkietalkie)
+            updatePosition();
+
     }
 
     public void StartDialogue(Dialogue[] dialogues)
@@ -154,6 +160,7 @@ public class DialogueHandler : BaseEmitter {
             isChoice = false;
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
             setFmodParams(tempNode.DayBank, tempNode.Char, tempNode.Day, tempNode.Clip);
+            updatePosition(tempNode.Char);
             base.Start();
             _EventInstance.start();
             dialogueNameText.text = tempNode.actorName;
@@ -162,8 +169,11 @@ public class DialogueHandler : BaseEmitter {
 
             if (currentDialogue.walkAndTalk)
             {
+                walkietalkie = true;
                 autoClearTime = Time.time + (tempNode.dialogueLine.Length * displayTimePerChar);
             }
+            else
+                walkietalkie = false;
         }
         else if (currentNode is PlayerChoiceNode)
         {
@@ -205,12 +215,17 @@ public class DialogueHandler : BaseEmitter {
 
             NextNode(0);
         }
+
+
     }
 
     void setFmodParams(string bank, int charac, int dia, int vc)
     {
         if (_EventInstance != null)
+        {
             _EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _EventInstance.release();
+        }
 
         System.Guid thing;
 
@@ -223,43 +238,32 @@ public class DialogueHandler : BaseEmitter {
         if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)
             Debug.Log("Instance not created because fuck you slask");
 
-
-        
-
         float c = charac + 0.2f;
         float d = dia + 0.2f;
-        float v = vc + 0.2f;
-
-        Params = new FMODUnity.ParamRef[3];
-
-        Debug.Log("sLASK1");
-        //base.Start();
-        Debug.Log("sLASK2");
-
-        
-
-        //_3dAttributes.position.x = -20;// interact.transform.position.x;
-        //_3dAttributes.position.y = -3;// interact.transform.position.y;
-        //_3dAttributes.position.z = 25; //interact.transform.position.z;
-        //_EventInstance.set3DAttributes(_3dAttributes);
+        float v = vc + 0.2f;        
 
         _EventInstance.setParameterValue("CHAR", c);
         _EventInstance.setParameterValue("Dialogues", d);
         _EventInstance.setParameterValue("VoiceClip", v);
 
-        /*Params[0].Name = "CHAR";
-        Params[1].Name = "Dialogues";
-        Params[2].Name = "VocieClip";
-
-        Params[0].Value = c;
-        Params[1].Value = d;
-        Params[2].Value = v;**/
-
-        //Transform p = FindObjectOfType<PlayerController>().GetComponent<Transform>();
-
-        _3dAttributes.position.x = -20;// interact.transform.position.x;
-        _3dAttributes.position.y = -3;// interact.transform.position.y;
-        _3dAttributes.position.z = 25; //interact.transform.position.z;
-        _EventInstance.set3DAttributes(_3dAttributes);
+        _player = FindObjectOfType<PlayerInteraction>().GetComponent<Transform>();
     }
+
+    void updatePosition(int charac = 1)
+    {
+            if (charac > 1.3f)
+            {
+                _interact = _player.GetComponent<PlayerInteraction>().getCollisionTransform();
+                _pos = _interact.transform.position;
+            }
+            else
+            {
+                _pos = _player.transform.position;
+            }
+
+            _3dAttributes.position.x = _pos.x;// interact.transform.position.x;
+            _3dAttributes.position.y = _pos.y;// interact.transform.position.y;
+            _3dAttributes.position.z = _pos.z; //interact.transform.position.z;
+            _EventInstance.set3DAttributes(_3dAttributes);
+        }
 }

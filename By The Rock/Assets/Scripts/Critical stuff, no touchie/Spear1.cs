@@ -9,9 +9,11 @@ public class Spear1 : MonoBehaviour {
     bool stuck;
     bool canDamage = true;
     int deathCounter;
+    int aliveCounter;
 
     float distToGround;
 
+    Renderer rend;
     private Rigidbody rigidbodyY;
 
 	// Use this for initialization
@@ -20,7 +22,10 @@ public class Spear1 : MonoBehaviour {
         rigidbodyY = GetComponent<Rigidbody>();
 
         distToGround = GetComponent<Collider>().bounds.extents.y;
-	}
+
+        rend = GetComponent<Renderer>();
+        if (GameManager1.instance.dmg == 2) rend.material.color = Color.red;
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -65,6 +70,12 @@ public class Spear1 : MonoBehaviour {
             {
                 Destroy(gameObject);
             }
+        }
+
+        aliveCounter++;
+        if (aliveCounter > 1000)
+        {
+            Destroy(gameObject);
         }
 
     }

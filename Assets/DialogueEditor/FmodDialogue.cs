@@ -23,7 +23,7 @@ public class FmodDialogue : GUIDrawer {
 
     string[] Days = new string[4] { "1","2","3","4" };
     string[] Char = new string[3] { "Ougrah", "Garegh", "Hania" };
-    string[] Dia1 = new string[8] {"NULL", "IG1", "IG4", "IG5", "D1", "D3", "D4", "D5" };
+    string[] Dia1 = new string[8] {"NULL", "IG5", "IG4", "IG1", "D1", "D3", "D4", "D5" };
     string[] Voxs = new string[21] {"NULL", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
 
     public int DaySelect;
@@ -109,6 +109,15 @@ public class FmodDialogue : GUIDrawer {
     {
         return DiaSelect;
     }
+
+    public int getBool()
+    {
+        if (fmod)
+            return 1;
+        else
+            return 0;
+    }
 #endif
+
 
 }

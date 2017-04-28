@@ -43,7 +43,7 @@ public class DialogueLineNode : Node {
         OnRemoveNode = OnClickRemoveNode;
     }
 
-    public void Load(string actorName, string dialogueLine, int inPoints, string bank, int day, int clip, int chara)
+    public void Load(string actorName, string dialogueLine, int inPoints, string bank, int day, int clip, int chara, int yes)
     {
         this.actorName = actorName;
         this.dialogueLine = dialogueLine;
@@ -55,9 +55,23 @@ public class DialogueLineNode : Node {
         this.Day = day;
         this.Clip = clip;
         this.Char = chara;
+        this._fmod = yes;
+        int daynr = 1;
+
+        if (bank == "{adc96b33-ea8e-4527-a960-14fa573a4b8e}" || bank == "")
+            daynr = 1;
+
+
+
+
+        this.Fmod.DaySelect = daynr;
         this.Fmod.CharSelect = chara;
         this.Fmod.DiaSelect = day;
         this.Fmod.VoxSelect = clip;
+        if (_fmod > 0)
+            this.Fmod.fmod = true;
+        else
+            this.Fmod.fmod = false;
     }
 
     public override void Draw()
@@ -96,13 +110,14 @@ public class DialogueLineNode : Node {
 
         GUILayout.EndArea();
 
-
+        
 
         Fmod.FMODAddon(rect, "", style, currentHeight);
         DayBank = Fmod.setEvent();
         Char = Fmod.setChar();
         Day = Fmod.setDialogue();
         Clip = Fmod.setClip();
+        _fmod = Fmod.getBool();
     }
 
     public void AddInPoint()
