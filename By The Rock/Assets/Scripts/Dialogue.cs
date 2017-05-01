@@ -35,7 +35,6 @@ public class Dialogue : MonoBehaviour {
         {
             nodes.Add(node.id, node);
         }
-        
 	}
 	
 	// Update is called once per frame

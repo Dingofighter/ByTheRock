@@ -27,6 +27,7 @@ public class NodeBasedEditor : EditorWindow {
 
     private float menuBarHeight = 20f;
     private int currentHighestID = 0;
+    private string lastSavedName = "DialogueName";
 
     // Show in Unity menu
 	[MenuItem("Window/Dialogue Editor")]
@@ -35,22 +36,6 @@ public class NodeBasedEditor : EditorWindow {
         // Create editor window and set title
         NodeBasedEditor window = GetWindow<NodeBasedEditor>();
         window.titleContent = new GUIContent("Dialogue Editor");
-    }
-
-    //Show boolasset-create
-    [MenuItem("Assets/Create/Bool List")]
-    private static void createBoolList()
-    {
-        // Create an instance of container class
-        BoolList boolList = CreateInstance<BoolList>();
-        AssetDatabase.CreateAsset(boolList, "Assets/BoolList.asset");
-    }
-
-    //Show attribute-create
-    [MenuItem("Assets/Create/Attribute List")]
-    private static void createAttributeList()
-    {
-        
     }
 
     private void OnEnable()
@@ -202,31 +187,25 @@ public class NodeBasedEditor : EditorWindow {
         }
         GUILayout.FlexibleSpace();
 
-        if (GUILayout.Button("Create Bool", EditorStyles.toolbarButton))
+        if (GUILayout.Button("Edit Flags", EditorStyles.toolbarButton))
         {
-            CreateBool();
+            Selection.activeObject = Resources.Load("AllFlags");
         }
 
         GUILayout.EndHorizontal();
         GUILayout.EndArea();
     }
 
-    private void CreateBool()
-    {
-        string boolName = EditorUtility.SaveFilePanel("Select asset", "Assets", "boolName", "asset");
-        boolName = boolName.Replace(Application.dataPath, "");
-
-        Debug.Log(boolName);
-    }
-
     private void Save()
     {
         // Show file browser
-        string assetPath = EditorUtility.SaveFilePanel("Select asset", "Assets/Dialogues", "DialogueName", "asset");
+        string assetPath = EditorUtility.SaveFilePanel("Select asset", "Assets/Resources/Dialogues", lastSavedName, "asset");
         if (assetPath != "")
         {
             // Make selected path relative instead of absolute
             assetPath = assetPath.Replace(Application.dataPath, "Assets");
+            string[] splitAssetPath = assetPath.Split('/');
+            lastSavedName = splitAssetPath[splitAssetPath.Length - 1];
         }
         else
         {
@@ -271,20 +250,25 @@ public class NodeBasedEditor : EditorWindow {
             {
                 node.nextNodesID.Add(-1);
             }
+            node.name = "zzzNode";
             AssetDatabase.AddObjectToAsset(node, dialogue);
             // Reimport immediately to make sure changes are shown
             AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(node));
+
             dialogue.nodes.Add(node);
         }
         foreach (Connection connection in connections)
         {
             // Set value of nextNodeID to id of connected node
             connection.outPoint.node.nextNodesID[connection.outPoint.index] = connection.inPoint.node.id;
+            connection.name = "zzzConnection";
             AssetDatabase.AddObjectToAsset(connection, dialogue);
             // Reimport immediately to make sure changes are shown
             AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(connection));
             dialogue.connections.Add(connection);
         }
+
+        EditorUtility.SetDirty(dialogue);
 
         // Immediately load newly created save to avoid any further changes made to existing nodes being automatically saved
         LoadSpecific(assetPath);
@@ -293,11 +277,13 @@ public class NodeBasedEditor : EditorWindow {
     private void Load()
     {
         // Show file browser
-        string assetPath = EditorUtility.OpenFilePanel("Select asset", "Assets/Dialogues", "asset");
+        string assetPath = EditorUtility.OpenFilePanel("Select asset", "Assets/Resources/Dialogues", "asset");
         if (assetPath != "")
         {
             // Make selected path relative instead of absolute
             assetPath = assetPath.Replace(Application.dataPath, "Assets");
+            string[] splitAssetPath = assetPath.Split('/');
+            lastSavedName = splitAssetPath[splitAssetPath.Length - 1];
         }
         else
         {

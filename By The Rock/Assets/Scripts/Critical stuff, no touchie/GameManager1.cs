@@ -20,6 +20,8 @@ public class GameManager1 : MonoBehaviour {
 
     public bool bought1;
     public bool bought2;
+    public bool bought3;
+    public bool bought4;
     public int dmg = 1;
 
     void Awake()
