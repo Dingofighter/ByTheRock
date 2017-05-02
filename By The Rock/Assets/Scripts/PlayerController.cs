@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public float speed;
 
@@ -26,11 +27,12 @@ public class PlayerController : MonoBehaviour {
     private readonly int VILLAGE = 2;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
         anim = GetComponent<Animator>();
-	}
+    }
 
     void Update()
     {
@@ -121,6 +123,13 @@ public class PlayerController : MonoBehaviour {
         {
             GameManager.instance.currSecondScene = FOREST;
             SceneManager.LoadSceneAsync("AITest", LoadSceneMode.Additive);
+        }
+    }
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.tag == "Butterfly")
+        {
+            Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
     }
 }
