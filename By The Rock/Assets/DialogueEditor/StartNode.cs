@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
 
 [Serializable]
@@ -20,7 +22,7 @@ public class StartNode : Node {
 
     // Variables displayed in node
 
-
+#if UNITY_EDITOR
     public void Init(int id, Vector2 position, int width, int height, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode)
     {
         this.id = id;
@@ -129,4 +131,5 @@ public class StartNode : Node {
             OnRemoveNode(this);
         }
     }
+#endif
 }

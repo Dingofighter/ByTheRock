@@ -8,17 +8,34 @@ public class Dialogue : MonoBehaviour {
 
     public Dictionary<int, Node> nodes;
 
-	// Use this for initialization
-	void Start () {
+    public int numFlagsRequired;
+
+    public bool walkAndTalk;
+
+    public List<int> boolIndex;
+    public List<int> boolValueIndex;
+
+    // Use this for initialization
+    void Start () {
+        if (boolIndex == null)
+        {
+            boolIndex = new List<int>();
+        }
+        if (boolValueIndex == null)
+        {
+            boolValueIndex = new List<int>();
+        }
+        
         if (nodes == null)
         {
             nodes = new Dictionary<int, Node>();
         }
-
+        
         foreach(Node node in dialogue.nodes)
         {
             nodes.Add(node.id, node);
         }
+        
 	}
 	
 	// Update is called once per frame

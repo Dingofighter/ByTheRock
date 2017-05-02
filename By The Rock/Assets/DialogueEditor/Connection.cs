@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
 
 [Serializable]
@@ -7,6 +9,8 @@ public class Connection : ScriptableObject{
 
     public ConnectionPoint inPoint;
     public ConnectionPoint outPoint;
+
+#if UNITY_EDITOR
     public Action<Connection> OnClickRemoveConnection;
 
     public void OnEnable()
@@ -28,7 +32,7 @@ public class Connection : ScriptableObject{
         outPoint = outPointNode.outPoints[outPointIndex];
         this.OnClickRemoveConnection = OnClickRemoveConnection;
     }
-	
+
     public void Draw()
     {
         Handles.DrawBezier(
@@ -49,4 +53,5 @@ public class Connection : ScriptableObject{
             }
         }
     }
+#endif
 }

@@ -8,7 +8,7 @@ public class DialogueContainer : ScriptableObject {
 
     public List<Node> nodes;
     public List<Connection> connections;
-
+    
     public void OnEnable()
     {
         if (nodes == null)
@@ -19,5 +19,7 @@ public class DialogueContainer : ScriptableObject {
         {
             connections = new List<Connection>();
         }
+
+        hideFlags = HideFlags.None;
     }
 }

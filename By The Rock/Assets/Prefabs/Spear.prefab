@@ -20,6 +20,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &171936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 433624}
+  - 135: {fileID: 13569526}
+  m_Layer: 0
+  m_Name: hitBox
+  m_TagString: spear
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433624
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 436040}
+  m_RootOrder: 0
 --- !u!4 &436040
 Transform:
   m_ObjectHideFlags: 1
@@ -27,10 +56,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103660}
   m_LocalRotation: {x: 0.6424534, y: 0, z: 0, w: 0.7663248}
-  m_LocalPosition: {x: 13.14, y: 2.115, z: 18.707}
+  m_LocalPosition: {x: 8.35, y: 2.115, z: 18.707}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 79.95, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 433624}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2357664
@@ -93,6 +123,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isThrown: 0
+--- !u!135 &13569526
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.37
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13616748
 CapsuleCollider:
   m_ObjectHideFlags: 1

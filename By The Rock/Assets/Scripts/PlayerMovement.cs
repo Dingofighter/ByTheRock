@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     string unloadName;
 
     bool holdingSpear;
+    bool chargingSpear;
+    public static bool gotSpear;
 
     private readonly int NONE = 0;
     private readonly int FOREST = 1;
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         Object.DontDestroyOnLoad(this);
         GameManager.instance.currScene = FOREST;
         GameManager.instance.currSecondScene = NONE;
+        gotSpear = true;
     }
 
     public bool getCrouching()
@@ -45,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!GameManager.instance.talking)
         {
-            if (Input.GetMouseButtonDown(0) && GameManager.instance.shoulderView)
+            if (GameManager.instance.crouching && !holdingSpear && gotSpear)
             {
                 spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
                 spear.GetComponent<Rigidbody>().detectCollisions = false;
@@ -55,21 +58,46 @@ public class PlayerMovement : MonoBehaviour
                 spear.GetComponentInChildren<Rigidbody>().useGravity = false;
             }
 
+            /*
+            if (Input.GetMouseButtonDown(0) && GameManager.instance.shoulderView)
+            {
+                spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
+                spear.GetComponent<Rigidbody>().detectCollisions = false;
+                spear.GetComponent<Rigidbody>().useGravity = false;
+                holdingSpear = true;
+                spear.GetComponentInChildren<Rigidbody>().detectCollisions = false;
+                spear.GetComponentInChildren<Rigidbody>().useGravity = false;
+            }
+            */
+
             if (holdingSpear)
             {
                 spear.transform.position = new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f);
-                spear.transform.rotation = Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0));
+                spear.transform.rotation = Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y + Time.deltaTime*2, 0));
+                if (Input.GetMouseButtonDown(0))
+                {
+                    chargingSpear = true;
+                }
             }
 
-            if ((!Input.GetMouseButton(0) || !GameManager.instance.shoulderView) && holdingSpear)
+            if (Input.GetMouseButtonUp(0) && chargingSpear)
             {
                 holdingSpear = false;
+                //gotSpear = false;
+                chargingSpear = false;
                 spear.GetComponent<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().detectCollisions = true;
                 spear.GetComponentInChildren<Rigidbody>().detectCollisions = true;
                 spear.GetComponentInChildren<Rigidbody>().useGravity = true;
                 spear.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 85 + transform.up * 10, ForceMode.Impulse);
                 spear.GetComponent<Spear>().isThrown = true;
+            }
+
+            if (!GameManager.instance.shoulderView && holdingSpear)
+            {
+                holdingSpear = false;
+                chargingSpear = false;
+                Destroy(spear.gameObject);
             }
 
             float vertical = Input.GetAxis("Vertical");
@@ -99,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Crouch"))
             {
                 isCrouching = !isCrouching;
+                GameManager.instance.crouching = !GameManager.instance.crouching;
             }
 
             // Lower forward speed when walking
