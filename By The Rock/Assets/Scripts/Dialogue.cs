@@ -33,9 +33,10 @@ public class Dialogue : MonoBehaviour {
         
         foreach(Node node in dialogue.nodes)
         {
+            Debug.Log("adding node " + gameObject.name);
             nodes.Add(node.id, node);
+            Debug.Log(nodes.Count);
         }
-        
 	}
 	
 	// Update is called once per frame
@@ -45,6 +46,11 @@ public class Dialogue : MonoBehaviour {
 
     public Node GetNode(int nodeID)
     {
+        if (nodes == null)
+        {
+            Debug.Log("OH NO " + gameObject.name);
+        }
+
         return nodes[nodeID];
     }
 

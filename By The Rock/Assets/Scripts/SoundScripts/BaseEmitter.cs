@@ -14,10 +14,12 @@ public class BaseEmitter : MonoBehaviour {
     public FMOD.ATTRIBUTES_3D _3dAttributes;
     public FMOD.Studio.PLAYBACK_STATE _playbackState;
 
+
     public bool _HasTriggered = false;
     public bool _AllowFadeout = true;
     public bool _isQuitting = false;
     public bool _TriggerOnce = false;
+    public bool preload = false;
 
     public FMODUnity.ParamRef[] Params = new FMODUnity.ParamRef[0];
 
@@ -28,6 +30,21 @@ public class BaseEmitter : MonoBehaviour {
     // Use this for initialization
     protected virtual void Start ()
     {
+        FMODUnity.RuntimeUtils.EnforceLibraryOrder();
+        if (preload)
+        {
+            GetEvent();
+            _EventDescription.loadSampleData();
+            FMODUnity.RuntimeManager.StudioSystem.update();
+            FMOD.Studio.LOADING_STATE loadingState;
+            _EventDescription.getSampleLoadingState(out loadingState);
+            while (loadingState == FMOD.Studio.LOADING_STATE.LOADING)
+            {
+                System.Threading.Thread.Sleep(1);
+                _EventDescription.getSampleLoadingState(out loadingState);
+            }
+        }
+            
         HandleGameEvent(FMODUnity.EmitterGameEvent.ObjectStart);
     }
 
@@ -122,6 +139,11 @@ _EventInstance.setCallback(_EventCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMEL
             if (_EventInstance != null && _EventInstance.isValid())
                 FMODUnity.RuntimeManager.DetachInstanceFromGameObject(_EventInstance);
         }
+
+        if (preload)
+        {
+            _EventDescription.unloadSampleData();
+        }
     }
 
     public void Stop()
@@ -154,5 +176,16 @@ _EventInstance.setCallback(_EventCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMEL
         {
             _EventInstance.setParameterValue(name, value);
         }
+    }
+
+    public bool IsPlaying()
+    {
+        if (_EventInstance != null && _EventInstance.isValid())
+        {
+            FMOD.Studio.PLAYBACK_STATE playbackState;
+            _EventInstance.getPlaybackState(out playbackState);
+            return (playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED);
+        }
+        return false;
     }
 }

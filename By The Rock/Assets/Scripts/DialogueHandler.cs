@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
 
-public class DialogueHandler : MonoBehaviour {
+public class DialogueHandler : BaseEmitter {
 
     public Text dialogueText;
     public Text dialogueNameText;
@@ -21,8 +21,14 @@ public class DialogueHandler : MonoBehaviour {
     private bool dialogueChosen = false;
     private float autoClearTime;
 
+    private Transform _player;
+    private Transform _interact;
+    public Vector3 _pos;
+    private bool walkietalkie = false;
+
     // Use this for initialization
-    void Start () {
+    protected override void Start () {
+
         dialogueNameText.text = "";
         dialogueText.text = "";
 
@@ -74,6 +80,15 @@ public class DialogueHandler : MonoBehaviour {
                 NextNode(0);
             }
         }
+
+        if (inDialogue)
+        {
+
+        }
+
+        if (walkietalkie)
+            updatePosition();
+
     }
 
     public void StartDialogue(Dialogue[] dialogues)
@@ -118,6 +133,7 @@ public class DialogueHandler : MonoBehaviour {
             GameManager.instance.talking = true;
         }
         inDialogue = true;
+        Debug.Log("currentDialogue: " + currentDialogue);
         currentNode = currentDialogue.GetNode(0);
     }
 
@@ -131,6 +147,8 @@ public class DialogueHandler : MonoBehaviour {
             inDialogue = false;
             GameManager.instance.talking = false;
             Cursor.lockState = CursorLockMode.Locked;
+            if (_EventInstance != null)
+                _EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             return;
         }
 
@@ -142,13 +160,20 @@ public class DialogueHandler : MonoBehaviour {
         {
             isChoice = false;
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
+            setFmodParams(tempNode.DayBank, tempNode.Char, tempNode.Day, tempNode.Clip);
+            updatePosition(tempNode.Char);
+            base.Start();
+            _EventInstance.start();
             dialogueNameText.text = tempNode.actorName;
             dialogueText.text = tempNode.dialogueLine;
 
             if (currentDialogue.walkAndTalk)
             {
+                walkietalkie = true;
                 autoClearTime = Time.time + (tempNode.dialogueLine.Length * displayTimePerChar);
             }
+            else
+                walkietalkie = false;
         }
         else if (currentNode is PlayerChoiceNode)
         {
@@ -191,4 +216,61 @@ public class DialogueHandler : MonoBehaviour {
             NextNode(0);
         }
     }
+
+    void setFmodParams(string bank, int charac, int dia, int vc)
+    {
+        if (_EventInstance != null)
+        {
+            _EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _EventInstance.release();
+        }
+
+        System.Guid thing;
+
+        FMOD.Studio.Util.ParseID(bank, out thing);
+        var gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+
+        if (gm._fmodSS == null)
+        {
+            Debug.Log("SHIT FMOD");
+            return;
+        }
+
+        if (gm._fmodSS.getEventByID(thing, out _EventDescription) != FMOD.RESULT.OK)
+            Debug.Log("Event not found");
+
+        Debug.Log(_EventDescription);
+
+        if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)
+            Debug.Log("Instance not created because fuck you slask");
+
+        float c = charac + 0.2f;
+        float d = dia + 0.2f;
+        float v = vc + 0.2f;        
+
+        _EventInstance.setParameterValue("CHAR", c);
+        _EventInstance.setParameterValue("Dialogues", d);
+        _EventInstance.setParameterValue("VoiceClip", v);
+
+        _player = FindObjectOfType<PlayerInteraction>().GetComponent<Transform>();
+    }
+
+    void updatePosition(int charac = 1)
+    {
+            if (charac > 1.3f)
+            {
+            Debug.Log(_player);
+                _interact = _player.GetComponent<PlayerInteraction>().getCollisionTransform();
+                _pos = _interact.transform.position;
+            }
+            else
+            {
+                _pos = _player.transform.position;
+            }
+
+            _3dAttributes.position.x = _pos.x;// interact.transform.position.x;
+            _3dAttributes.position.y = _pos.y;// interact.transform.position.y;
+            _3dAttributes.position.z = _pos.z; //interact.transform.position.z;
+            _EventInstance.set3DAttributes(_3dAttributes);
+        }
 }

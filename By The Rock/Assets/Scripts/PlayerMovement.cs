@@ -158,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
+
         if (c.gameObject.tag == "loadInWall" && GameManager.instance.currSecondScene == NONE)
         {
             GameManager.instance.currSecondScene = VILLAGE;

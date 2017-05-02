@@ -14,7 +14,7 @@ public class AreaTrigger : MonoBehaviour {
     void Start ()
     {
         _BBE = FindObjectOfType<BigBirdEmitter>().GetComponent<BigBirdEmitter>();
-        _player = FindObjectOfType<PlayerMovement>().GetComponent<Transform>();
+        _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         _box = gameObject.GetComponent<BoxCollider>();
         _ME = FindObjectOfType<MusicEmitter>().GetComponent<MusicEmitter>();
     }
@@ -55,7 +55,6 @@ public class AreaTrigger : MonoBehaviour {
                 }
 
             }
-            Debug.Log(pos.z);
         }
     }
 }

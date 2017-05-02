@@ -12,7 +12,7 @@ public class RiverEmitter : BaseEmitter
     public Vector3[] _Pos; //x & z
     public float _Length;
     private Transform _Player;
-    private Vector3[] _EndPoints;
+    public Vector3[] _EndPoints;
     public float _MinDist = 0, _MaxDist = 0;
     public float _TotalLength;
     public Vector3 bluePoint;
@@ -24,7 +24,7 @@ public class RiverEmitter : BaseEmitter
         base.Start();
 
         _TotalLength = 0;
-        _Player = FindObjectOfType<PlayerMovement>().GetComponent<Transform>();
+        _Player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         _Pos = new Vector3[_Points.Length];
         
         for (int i = 0; i < _Points.Length; i++)

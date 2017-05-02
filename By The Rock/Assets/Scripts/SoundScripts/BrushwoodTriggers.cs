@@ -29,7 +29,7 @@ public class BrushwoodTriggers : MonoBehaviour
     {
         _MusicEmitter = FindObjectOfType<MusicEmitter>().GetComponent<MusicEmitter>();
         _BrushwoodManager = GetComponentInParent<BrushwoodManager>();
-        _player = FindObjectOfType<PlayerMovement>().GetComponent<Transform>();
+        _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         _box = GetComponent<BoxCollider>();
         _paramBincrement = "SmallPassage";
         _paramBool = "Bool";
