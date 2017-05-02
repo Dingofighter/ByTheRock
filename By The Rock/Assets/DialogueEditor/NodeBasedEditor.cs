@@ -308,7 +308,7 @@ public class NodeBasedEditor : EditorWindow {
                 DialogueLineNode newNode = CreateInstance<DialogueLineNode>();
                 newNode.Init(node.id, node.rect.position, DialogueLineNode.width, DialogueLineNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 DialogueLineNode tempNode = (DialogueLineNode)node;
-                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count);
+                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char, tempNode._fmod);
                 nodes.Add(newNode);
             }
             else if (node is PlayerChoiceNode)
@@ -332,7 +332,7 @@ public class NodeBasedEditor : EditorWindow {
                 SetVariableNode newNode = CreateInstance<SetVariableNode>();
                 newNode.Init(node.id, node.rect.position, SetVariableNode.width, SetVariableNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 SetVariableNode tempNode = (SetVariableNode)node;
-                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count);
+                newNode.Load(tempNode.boolIndex, tempNode.boolValueIndex, node.inPoints.Count );
                 nodes.Add(newNode);
             }
 
@@ -393,7 +393,7 @@ public class NodeBasedEditor : EditorWindow {
                 DialogueLineNode newNode = CreateInstance<DialogueLineNode>();
                 newNode.Init(node.id, node.rect.position, DialogueLineNode.width, DialogueLineNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 DialogueLineNode tempNode = (DialogueLineNode)node;
-                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count);
+                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char, tempNode._fmod);
                 nodes.Add(newNode);
             }
             else if (node is PlayerChoiceNode)

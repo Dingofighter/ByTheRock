@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class PlayerInteraction : MonoBehaviour {
-    
+
+    Transform inter;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,8 @@ public class PlayerInteraction : MonoBehaviour {
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
                 //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
                 //transform.LookAt(new Vector3(transform.right.x, c.transform.position.y, transform.forward.z));
+                inter = c.gameObject.transform;
+
                 if (!c.transform.parent.GetComponent<Dialogue>().walkAndTalk)
                 {
                     transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
@@ -49,5 +52,10 @@ public class PlayerInteraction : MonoBehaviour {
                 PlayerMovement.gotSpear = true;
             }
         }
+    }
+
+    public Transform getCollisionTransform()
+    {
+        return inter;
     }
 }

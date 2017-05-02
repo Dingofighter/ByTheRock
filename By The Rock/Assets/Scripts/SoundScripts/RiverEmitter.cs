@@ -24,7 +24,7 @@ public class RiverEmitter : BaseEmitter
         base.Start();
 
         _TotalLength = 0;
-        _Player = FindObjectOfType<PlayerMovement>().GetComponent<Transform>();
+        _Player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         _Pos = new Vector3[_Points.Length];
         
         for (int i = 0; i < _Points.Length; i++)

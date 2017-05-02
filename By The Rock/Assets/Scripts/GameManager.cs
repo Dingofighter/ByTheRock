@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
         //game.loadValues();
 
 
-        //FmodInitialize();
+        FmodInitialize();
     }
 
     public void Update()

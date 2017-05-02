@@ -779,6 +779,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f186f87c693c0494791fc08d5740d69b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1065136110 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 183054, guid: b19c3bc4318c1dd4c8f8e965f8b3069e, type: 2}
+  m_PrefabInternal: {fileID: 744884569}
+--- !u!114 &1065136113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065136110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8413f9c620405844f9127a343a090f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EventMusic: event:/Music/Forest
+  _PlayEvent: 1
+  _StopEvent: 2
+  _playbackState: 0
+  _HasTriggered: 0
+  _AllowFadeout: 1
+  _isQuitting: 0
+  _TriggerOnce: 0
+  Params: []
+  _OverrideAttenuation: 0
+  _OverrideMinDistance: -1
+  _OverrideMaxDistance: -1
 --- !u!1001 &1251980978
 Prefab:
   m_ObjectHideFlags: 0
@@ -978,6 +1005,48 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 11427770, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 76860971447d5e3439cf320f00b3cff1, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1584474487
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -59.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -30.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461580, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bbb6a10f73fce8f44a96b2b35ef2c1e2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1634805608
 GameObject:
@@ -3378,7 +3447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 8a8e698efcb4b2a469daddcd826d3b1f, type: 2}
+  dialogue: {fileID: 11400000, guid: 7f5236d897495c642be028a3148a1674, type: 2}
   numFlagsRequired: 0
   walkAndTalk: 0
   boolIndex: 
