@@ -628,7 +628,7 @@ GameObject:
   - 65: {fileID: 640096265}
   m_Layer: 0
   m_Name: Butterfly
-  m_TagString: Untagged
+  m_TagString: Butterfly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -644,6 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5770ed395db82f4bb10550f058f9d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxStillTime: 200
+  speed: 0.1
 --- !u!54 &640096260
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -657,7 +659,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &640096261
 MeshRenderer:
@@ -669,7 +671,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19f6ecafc91e49944b86c5f4d4bbaf43, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -711,12 +713,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 640096258}
   m_LocalRotation: {x: 0.6152825, y: -0.34846452, z: 0.34846458, w: 0.61528236}
-  m_LocalPosition: {x: -16.84, y: -3.41, z: 22.78}
+  m_LocalPosition: {x: 0.081, y: -0.09, z: 1.172}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 90, y: -59.05, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 23
 --- !u!65 &640096265
 BoxCollider:
   m_ObjectHideFlags: 0
