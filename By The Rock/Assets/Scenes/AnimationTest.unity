@@ -166,6 +166,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 189868, guid: 860df454628a25a42ad96228153c460d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 860df454628a25a42ad96228153c460d, type: 2}
   m_IsPrefabParent: 0
@@ -909,7 +913,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 107120, guid: 4143aabf4a36d5f4cac93d4d6882b329, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9540496, guid: 4143aabf4a36d5f4cac93d4d6882b329, type: 2}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some transforms are animated by both a Humanoid animation
+        clip and a Generic animation clip. Only the Humanoid clip will be applied
+        on those transforms.\n\tTransform 'ougrah_rigg:hip_ctrl'\n\tTransform 'ougrah_rigg:right_shoulder_org_jnt'\n\tTransform
+        'ougrah_rigg:right_ball_jnt'\n\tTransform 'ougrah_rigg:right_elbow_org_jnt'\n\tTransform
+        'ougrah_rigg:left_knee_jnt'\n\tTransform 'ougrah_rigg:left_elbow_org_jnt'\n\tTransform
+        'ougrah_rigg:left_shoulder_org_jnt'\n\tTransform 'ougrah_rigg:left_wrist_org_jnt'\n\tTransform
+        'ougrah_rigg:c_head_jnt'\n\tTransform 'ougrah_rigg:c_spine_02_jnt'\n\tand
+        more ...\n\tFrom animation clip 'OuJog'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4143aabf4a36d5f4cac93d4d6882b329, type: 2}
