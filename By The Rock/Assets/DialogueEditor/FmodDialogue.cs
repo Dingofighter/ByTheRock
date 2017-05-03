@@ -4,6 +4,7 @@ using UnityEditor;
 #endif
 using System;
 
+#if UNITY_EDITOR
 [Serializable]
 public class FmodDialogue : GUIDrawer {
 
@@ -34,7 +35,7 @@ public class FmodDialogue : GUIDrawer {
     public string VoiceClip = "VoiceClip", Character = "CHAR";
     public string Dialogues = "Dialogues", Ingame = "In-game";
 
-#if UNITY_EDITOR
+
 
     public void FMODAddon(Rect rect, string title, GUIStyle style, int height)
     {
@@ -117,7 +118,8 @@ public class FmodDialogue : GUIDrawer {
         else
             return 0;
     }
-#endif
+
 
 
 }
+#endif
