@@ -671,14 +671,16 @@ ModelImporter:
     resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: '
-
-      Imported file ''Ougrah_jog_ver3'' conversion failed: Transform ''c_hip_jnt''
-      for human bone ''Hips'' not found
-
-
-'
-    animationImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'ougrah_rigg:c_spine_02_jnt' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:c_spine_03_jnt'
+      has scale animation that will be discarded.\n\t'ougrah_rigg:c_spine_04_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:c_spine_04_jnt'
+      has scale animation that will be discarded.\n\t'ougrah_rigg:left_ball_jnt' is
+      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:right_ball_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -711,7 +713,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.043824583
+        functionName: PlayStep
+        data: 
+        objectReferenceParameter: {fileID: 107120, guid: 4143aabf4a36d5f4cac93d4d6882b329,
+          type: 2}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.56087816
+        functionName: PlayStep
+        data: 
+        objectReferenceParameter: {fileID: 107120, guid: 4143aabf4a36d5f4cac93d4d6882b329,
+          type: 2}
+        floatParameter: 0
+        intParameter: 2
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
