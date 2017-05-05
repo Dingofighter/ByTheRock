@@ -20,6 +20,7 @@ public class DialogueHandler : BaseEmitter {
     Node currentNode;
     private bool dialogueChosen = false;
     private float autoClearTime;
+    public bool firstFrame = false;
 
     private Transform _player;
     private Transform _interact;
@@ -40,7 +41,7 @@ public class DialogueHandler : BaseEmitter {
 	
 	// Update is called once per frame
 	void Update () {
-        if (inDialogue && Input.GetButtonDown("Interact") && !GameManager.instance.paused)
+        if (inDialogue && !firstFrame && Input.GetButtonDown("Interact") && !GameManager.instance.paused)
         {
             // If player choice, check if button clicked
             if (isChoice)
@@ -89,6 +90,8 @@ public class DialogueHandler : BaseEmitter {
         if (walkietalkie && voiceSetup)
             updatePosition();
 
+        firstFrame = false;
+
     }
 
     public void StartDialogue(Dialogue[] dialogues)
@@ -133,11 +136,14 @@ public class DialogueHandler : BaseEmitter {
             GameManager.instance.talking = true;
         }
         inDialogue = true;
+        firstFrame = true;
         currentNode = currentDialogue.GetNode(0);
+        NextNode(0);
     }
 
     void NextNode(int option)
     {
+        print("NextNode");
         //Remove dialogue if last
         if (!currentDialogue.nodes.ContainsKey(currentNode.nextNodesID[option]))
         {
