@@ -5,11 +5,12 @@ public class PlayerInteraction : MonoBehaviour {
 
     Transform inter;
 
+    DialogueHandler dialogueHandler;
+
 	// Use this for initialization
 	void Start () {
-        
-	
-	}
+        dialogueHandler = FindObjectOfType<DialogueHandler>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +21,32 @@ public class PlayerInteraction : MonoBehaviour {
     void OnTriggerStay(Collider c)
     {
         if (GameManager.instance.paused) return;
-        
+
+        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered && !GameManager.instance.shoulderView)
+        {
+            dialogueHandler.StartDialogue(c.GetComponentsInParent<Dialogue>());
+            if (dialogueHandler.firstFrame)
+            {
+                //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
+                //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
+                //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
+                //transform.LookAt(new Vector3(transform.right.x, c.transform.position.y, transform.forward.z));
+                inter = c.gameObject.transform;
+
+                if (!c.transform.parent.GetComponent<Dialogue>().walkAndTalk)
+                {
+                    if (c.transform.parent.GetComponent<Dialogue>().rotationTarget != null)
+                    {
+                        transform.rotation = Quaternion.Euler(0, c.transform.parent.GetComponent<Dialogue>().rotationTarget.eulerAngles.y + 180, 0);
+                    }
+                    else
+                    {
+                        transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
+                    }
+                }
+            }
+        }
+
         if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
         {
             if (c.gameObject.tag == "Interact1")
