@@ -584,6 +584,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 439856}
   - 114: {fileID: 11481402}
+  - 114: {fileID: 11416560}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -809,6 +810,29 @@ MonoBehaviour:
   imgItem1: {fileID: 21300000, guid: 60353a6cb06f41a4a96c0d7c2609c34f, type: 3}
   textItem0: saak
   textItem1: bebe
+--- !u!114 &11416560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8413f9c620405844f9127a343a090f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EventMusic: event:/Music/Forest
+  _PlayEvent: 1
+  _StopEvent: 2
+  _playbackState: 0
+  _HasTriggered: 0
+  _AllowFadeout: 1
+  _isQuitting: 0
+  _TriggerOnce: 0
+  Params: []
+  _OverrideAttenuation: 0
+  _OverrideMinDistance: -1
+  _OverrideMaxDistance: -1
 --- !u!114 &11422636
 MonoBehaviour:
   m_ObjectHideFlags: 1

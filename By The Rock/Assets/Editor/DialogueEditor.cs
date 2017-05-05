@@ -42,6 +42,9 @@ public class DialogueEditor : Editor
         boolValueIndex = targetDialogue.boolValueIndex;
 
         targetDialogue.walkAndTalk = EditorGUILayout.Toggle("Walk and Talk", targetDialogue.walkAndTalk);
+        targetDialogue.autoTriggered = EditorGUILayout.Toggle("Auto-triggered", targetDialogue.autoTriggered);
+
+        targetDialogue.rotationTarget = (Transform)EditorGUILayout.ObjectField(targetDialogue.rotationTarget, typeof(Transform), true);
 
         EditorGUILayout.LabelField("Flags needed to start this dialogue:");
 

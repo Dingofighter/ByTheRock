@@ -442,7 +442,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4c5ea6ee8b9d4444e8b2efe9e838c4a6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -661,6 +661,8 @@ GameObject:
   - 222: {fileID: 695954266}
   - 114: {fileID: 695954265}
   - 114: {fileID: 695954264}
+  - 95: {fileID: 695954268}
+  - 114: {fileID: 695954267}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -783,6 +785,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 695954262}
+--- !u!114 &695954267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695954262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2214091fb37c38649aca2fcca1a19ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthIncrease: 0
+  heightIncrease: 10
+--- !u!95 &695954268
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695954262}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a67a5413babb6834fb186466785c76f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &696708880
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1025,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4c5ea6ee8b9d4444e8b2efe9e838c4a6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1024,6 +1056,8 @@ GameObject:
   - 114: {fileID: 736351353}
   - 114: {fileID: 736351352}
   - 114: {fileID: 736351355}
+  - 95: {fileID: 736351356}
+  - 114: {fileID: 736351357}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1146,6 +1180,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccd34657b151b449772b6cb739b113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &736351356
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736351350}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a67a5413babb6834fb186466785c76f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &736351357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736351350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2214091fb37c38649aca2fcca1a19ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthIncrease: 0
+  heightIncrease: 10
 --- !u!1 &770767094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1475,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4c5ea6ee8b9d4444e8b2efe9e838c4a6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1643,6 +1707,8 @@ GameObject:
   - 114: {fileID: 1306490677}
   - 114: {fileID: 1306490676}
   - 114: {fileID: 1306490679}
+  - 95: {fileID: 1306490681}
+  - 114: {fileID: 1306490680}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1765,6 +1831,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6d83fb30680ec41b9c58287cbf8ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1306490680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306490674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2214091fb37c38649aca2fcca1a19ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthIncrease: 0
+  heightIncrease: 10
+--- !u!95 &1306490681
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306490674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a67a5413babb6834fb186466785c76f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1349827010
 GameObject:
   m_ObjectHideFlags: 0

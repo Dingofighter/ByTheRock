@@ -24,7 +24,7 @@ public class butterflyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-      
+        if (GameManager.instance.paused) return;
 
         if (moving)
         {

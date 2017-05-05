@@ -20,10 +20,10 @@ public abstract class Node : ScriptableObject {
 
     public List<int> nextNodesID;
 
+#if UNITY_EDITOR
     [NonSerialized]
     public FmodDialogue Fmod = new FmodDialogue();
 
-#if UNITY_EDITOR
     public List<ConnectionPoint> inPoints = new List<ConnectionPoint>();
     public List<ConnectionPoint> outPoints = new List<ConnectionPoint>();
 

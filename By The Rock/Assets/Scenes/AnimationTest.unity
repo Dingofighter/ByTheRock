@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 867c28fbd1d66d149871169d0fbca8dd, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -164,6 +164,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433734, guid: 860df454628a25a42ad96228153c460d, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 189868, guid: 860df454628a25a42ad96228153c460d, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -910,6 +914,17 @@ Prefab:
     - target: {fileID: 107120, guid: 4143aabf4a36d5f4cac93d4d6882b329, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9540496, guid: 4143aabf4a36d5f4cac93d4d6882b329, type: 2}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some transforms are animated by both a Humanoid animation
+        clip and a Generic animation clip. Only the Humanoid clip will be applied
+        on those transforms.\n\tTransform 'ougrah_rigg:hip_ctrl'\n\tTransform 'ougrah_rigg:right_shoulder_org_jnt'\n\tTransform
+        'ougrah_rigg:right_ball_jnt'\n\tTransform 'ougrah_rigg:right_elbow_org_jnt'\n\tTransform
+        'ougrah_rigg:left_knee_jnt'\n\tTransform 'ougrah_rigg:left_elbow_org_jnt'\n\tTransform
+        'ougrah_rigg:left_shoulder_org_jnt'\n\tTransform 'ougrah_rigg:left_wrist_org_jnt'\n\tTransform
+        'ougrah_rigg:c_head_jnt'\n\tTransform 'ougrah_rigg:c_spine_02_jnt'\n\tand
+        more ...\n\tFrom animation clip 'OuJog'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4143aabf4a36d5f4cac93d4d6882b329, type: 2}
