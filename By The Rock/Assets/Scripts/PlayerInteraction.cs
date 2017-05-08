@@ -49,7 +49,7 @@ public class PlayerInteraction : MonoBehaviour {
 
         if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
         {
-            if (c.gameObject.tag == "Interact1")
+            if (c.gameObject.tag == "mossa")
             {
                 if (GameManager.instance.itemID1 == -1) GameManager.instance.changeItem(0, 0);
                 else GameManager.instance.changeItem(0, -1);

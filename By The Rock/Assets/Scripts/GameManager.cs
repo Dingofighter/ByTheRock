@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     public bool crouching;
     public bool showingInventory;
 
+    readonly int MOSSA = 0; 
+
     public int itemID1 = -1;
     public int itemID2 = -1;
     public int itemID3 = -1;
