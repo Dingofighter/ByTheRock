@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
         if (!charController.isGrounded) movement += Physics.gravity;
 
         anim.SetFloat("Speed", Mathf.Abs(vertical) + Mathf.Abs(horizontal));
+        if (Mathf.Abs(vertical) + Mathf.Abs(horizontal) > 0.1 && GameManager.instance.showingInventory) GameManager.instance.CloseInventory();
         charController.Move(movement * speed * Time.deltaTime);
 
         idleCounter++;

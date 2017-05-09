@@ -98,6 +98,12 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
+        if (Vector3.Distance(player.position, transform.position) < 1)
+        {
+            agent.SetDestination(transform.position);
+            return;
+        }
+
         if (state == FOLLOW)
         {
             if (!run)
