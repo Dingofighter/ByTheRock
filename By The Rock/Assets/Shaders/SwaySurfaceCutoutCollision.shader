@@ -101,7 +101,9 @@
 			// The wind's effect is based on vertex y-position in object space
 			// such that at y=0 (where the plant's roots are) there is no
 			// wind effect, and at y=_PlantHeight, there is maximum wind effect.
+			v.vertex = mul(_Object2World, v.vertex);
 			float height_factor = v.vertex.y / _PlantHeight;
+			v.vertex = mul(_World2Object, v.vertex);
 
 			// Convert to world coordinates, apply calculated changes, then convert back to local object space
 			v.vertex = mul(_Object2World, v.vertex);
