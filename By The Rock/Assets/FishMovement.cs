@@ -33,7 +33,7 @@ public class FishMovement : MonoBehaviour {
         
         
         //transform.position -= transform.forward * 0.2f * Mathf.Sin(Time.time * 3);
-        transform.Rotate(-Vector3.up * Time.deltaTime*rotateSpeed);
+        transform.Rotate(-Vector3.forward * Time.deltaTime*rotateSpeed);
 
 
         //Debug.Log(transform.rotation.eulerAngles);
@@ -49,7 +49,7 @@ public class FishMovement : MonoBehaviour {
         }
 
         //transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y+100, transform.rotation.z, transform.rotation.w);
-        transform.position -= transform.right * moveSpeed;
+        transform.position += transform.right* moveSpeed;
        // transform.rotation
 
     }

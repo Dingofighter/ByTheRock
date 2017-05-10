@@ -7,8 +7,20 @@ public class PlayerInteraction : MonoBehaviour {
 
     DialogueHandler dialogueHandler;
 
-	// Use this for initialization
-	void Start () {
+    readonly int INGET = -1;
+    readonly int SVAMP1 = 0;
+    readonly int SVAMP2 = 1;
+    readonly int SVAMP3 = 2;
+    readonly int SVAMP4 = 3;
+    readonly int SVAMP5 = 4;
+    readonly int MOSSA = 5;
+    readonly int VATTEN = 6;
+    readonly int BARK = 7;
+    readonly int ORT = 8;
+
+
+    // Use this for initialization
+    void Start () {
         dialogueHandler = FindObjectOfType<DialogueHandler>();
     }
 	
@@ -49,17 +61,40 @@ public class PlayerInteraction : MonoBehaviour {
 
         if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
         {
+            
             if (c.gameObject.tag == "Mossa")
             {
-                GameManager.instance.changeItem(0, 0, false);
+                GameManager.instance.changeItem(0, MOSSA, false);
                 //if (GameManager.instance.itemID1 == -1) GameManager.instance.changeItem(0, 0);
                 //else GameManager.instance.changeItem(0, -1);
                 Destroy(c.transform.gameObject);
             }
-            if (c.gameObject.tag == "Interact2")
+            if (c.gameObject.tag == "Vatten")
             {
-                c.gameObject.transform.position += new Vector3(0, 1, 0);
+                GameManager.instance.changeItem(1, VATTEN, false);
+                Destroy(c.transform.gameObject);
             }
+            if (c.gameObject.tag == "Bark")
+            {
+                GameManager.instance.changeItem(2, BARK, false);
+                Destroy(c.transform.gameObject);
+            }
+            if (c.gameObject.tag == "Ort")
+            {
+                GameManager.instance.changeItem(3, ORT, false);
+                Destroy(c.transform.gameObject);
+            }
+
+            if (c.gameObject.tag == "Svamp")
+            {
+                if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                {
+                    GameManager.instance.changeItem(1, GameManager.instance.itemID2 + 1, false);
+                }
+                Destroy(c.transform.gameObject);
+            }
+
+
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
