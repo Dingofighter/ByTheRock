@@ -2,6 +2,7 @@
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_BumpMap("Normal Map", 2D) = "bump" {}
 			_WindPower("Wind Power", Float) = 0.02
 			_WindSpeed("Wind Speed", Float) = 5.0
 			_WindDirectionX("Wind Direction X", Float) = 1.0
@@ -25,9 +26,12 @@
 		#pragma target 3.0
 
 		sampler2D _MainTex;
+		sampler2D _BumpMap;
 
 		struct Input {
 			float2 uv_MainTex;
+			float2 uv_BumpMap;
+			float3 worldPos;
 		};
 
 		half _Glossiness;
@@ -112,6 +116,7 @@
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
+			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 		}
 		ENDCG
 	}

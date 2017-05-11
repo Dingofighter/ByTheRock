@@ -1,7 +1,7 @@
-﻿Shader "Custom/SwaySurfaceCutout" {
+﻿Shader "Custom/SwaySurfaceCutoutCollisionFade" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
-		_MainTex("Albedo (RGB) Alpha (A)", 2D) = "white" {}
+		_MainTex("Color (RGB) Alpha (A)", 2D) = "white" {}
 		_BumpMap("Normal Map", 2D) = "bump" {}
 			_WindPower("Wind Power", Float) = 0.02
 			_WindSpeed("Wind Speed", Float) = 5.0
@@ -14,6 +14,11 @@
 			_PlantHeight("Plant Height", Float) = 1.0
 
 			_Cutoff("Base Alpha cutoff", Range(0,.9)) = .5
+
+				_HeightMin("Height Min", Float) = -1
+				_HeightMax("Height Max", Float) = 5
+				_ColorMin("Tint Color At Min", Color) = (1,1,1,1)
+				_ColorMax("Tint Color At Max", Color) = (0,0,0,1)
 	}
 	SubShader {
 		Tags{ "RenderType" = "Opaque" }
@@ -29,6 +34,10 @@
 
 		sampler2D _MainTex;
 		sampler2D _BumpMap;
+		fixed4 _ColorMin;
+		fixed4 _ColorMax;
+		float _HeightMin;
+		float _HeightMax;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -112,11 +121,24 @@
 			v.vertex = mul(_Object2World, v.vertex);
 			v.vertex.xyz += lerp(0, wind_offset + deformation_offset, height_factor);
 			v.vertex = mul(_World2Object, v.vertex);
+
+			/* COLLISION DETECTION */
+			v.vertex = mul(_Object2World, v.vertex);
+			float d = distance(_PlayerPos, v.vertex.xyz);
+			if (d < 1)
+			{
+				v.vertex.xyz += 0.2f;
+			}
+			v.vertex = mul(_World2Object, v.vertex);
 		}
 
 		void surf (Input IN, inout SurfaceOutput o) {
+			// Tint based on height
+			float3 localPos = IN.worldPos - mul(_Object2World, float4(0, 0, 0, 1)).xyz;
+			float h = (_HeightMax - localPos.y) / (_HeightMax - _HeightMin);
+			fixed4 tintColor = lerp(_ColorMax.rgba, _ColorMin.rgba, h);
 			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * tintColor;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
