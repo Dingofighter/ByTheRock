@@ -19,12 +19,12 @@ public class FmodDialogue : GUIDrawer {
 
     int[] DayNR = new int[4] {1,2,3,4};
     int[] CharNR = new int[3] { 1, 2, 3 };
-    int[] DiaNR = new int[8] {0, -5, -4, -1, 1, 3, 4, 5 };
+    int[] DiaNR = new int[17] {0, -7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     int[] VoxNR = new int[21] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
     string[] Days = new string[4] { "1","2","3","4" };
     string[] Char = new string[3] { "Ougrah", "Garegh", "Hania" };
-    string[] Dia1 = new string[8] {"NULL", "IG5", "IG4", "IG1", "D1", "D3", "D4", "D5" };
+    string[] Dia1 = new string[17] {"NULL", "IG7", "IG6", "IG5", "IG4", "IG3", "IG2", "IG1", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9"};
     string[] Voxs = new string[21] {"NULL", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
 
     public int DaySelect;
@@ -87,13 +87,14 @@ public class FmodDialogue : GUIDrawer {
     {
         switch (DaySelect)
         {
+            default:
             case 1:
-            case 2:
-            case 3:
-            case 4:
                 return "{adc96b33-ea8e-4527-a960-14fa573a4b8e}";
+            case 2:
+                return "{ec2b7e59-a661-4d03-ad85-02e09b398893}";
+            case 3:
+                return "{908af9b4-cc7f-4aac-9641-181b4819b8bf}";
         }
-        return "{adc96b33-ea8e-4527-a960-14fa573a4b8e}";
     }
 
     public int setChar()
