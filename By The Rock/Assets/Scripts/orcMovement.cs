@@ -101,14 +101,14 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
+        anim.SetFloat("Speed", Mathf.Abs(agent.velocity.z) + Mathf.Abs(agent.velocity.x) + Mathf.Abs(agent.velocity.y));
+
         if (Vector3.Distance(player.position, transform.position) < 1)
         {
             agent.SetDestination(transform.position);
             return;
         }
-
-        anim.SetFloat("Speed", agent.velocity.z);
-
+        
         if (state == FOLLOW)
         {
             if (!run)

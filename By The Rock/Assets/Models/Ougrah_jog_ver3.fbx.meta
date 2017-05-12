@@ -641,7 +641,7 @@ ModelImporter:
     4300030: ougrah_rigg:ougrah_belt_buckle
     4300032: ougrah_rigg:ougrah_betl_pouch
     4300034: ougrah_rigg:Ougroaha_Tongue
-    7400000: OuJog
+    7400000: OuJogOld
     9500000: //RootNode
     13700000: ougrah_rigg:left_Ougroaha_Eyeball
     13700002: ougrah_rigg:left_Ougroaha_FootClaws
@@ -671,14 +671,16 @@ ModelImporter:
     resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: '
-
-      Imported file ''Ougrah_jog_ver3'' conversion failed: Transform ''c_hip_jnt''
-      for human bone ''Hips'' not found
-
-
-'
-    animationImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'ougrah_rigg:c_spine_02_jnt' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:c_spine_03_jnt'
+      has scale animation that will be discarded.\n\t'ougrah_rigg:c_spine_04_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:c_spine_04_jnt'
+      has scale animation that will be discarded.\n\t'ougrah_rigg:left_ball_jnt' is
+      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:right_ball_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -689,7 +691,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: OuJog
+      name: OuJogOld
       takeName: Take 001
       firstFrame: 79
       lastFrame: 104

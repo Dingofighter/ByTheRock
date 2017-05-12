@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private bool interacting;
     private int interactTimer;
+    private bool crouching;
 
     GameObject itemToDestroy;
     int itemToAdd;
@@ -67,8 +68,11 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.talking)
         {
             anim.SetFloat("Speed", 0);
+            anim.SetBool("talking", true);
             return;
         }
+
+        anim.SetBool("talking", false);
 
         if (interacting)
         {
@@ -121,13 +125,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            turnRight = !turnRight;
+            //turnRight = !turnRight;
+            crouching = !crouching;
+            
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             turnLeft = !turnLeft;
         }
 
+        anim.SetBool("crouching", crouching);
         anim.SetBool("turnRight", turnRight);
         anim.SetBool("turnLeft", turnLeft);
 

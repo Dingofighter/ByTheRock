@@ -13,7 +13,7 @@ public class SaveLoad
     public static void Save()
     {
         SaveLoad.savedGames.Add(Game.current);
-        Debug.Log("saved " + Game.current.invSlot1);
+        Debug.Log("saved " + Game.current.invSlot1 + " " + Game.current.invSlot2 + " " + Game.current.invSlot3 + " " + Game.current.invSlot4);
         BinaryFormatter bf = new BinaryFormatter();
         //Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
         FileStream file = File.Create(Application.persistentDataPath + "/invSaves.sav"); //you can call it anything you want
@@ -29,7 +29,7 @@ public class SaveLoad
             FileStream file = File.Open(Application.persistentDataPath + "/invSaves.sav", FileMode.Open);
             SaveLoad.savedGames = (List<Game>)bf.Deserialize(file);
             Game.current = savedGames[0];
-            Debug.Log("loaded " + Game.current.invSlot1);
+            Debug.Log("loaded " + Game.current.invSlot1 + " " + Game.current.invSlot2 + " " + Game.current.invSlot3 + " " + Game.current.invSlot4);
             file.Close();
         }
     }

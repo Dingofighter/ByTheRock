@@ -61,7 +61,12 @@ public class GameManager : MonoBehaviour {
         Game.current = new Game();
         SaveLoad.Load();
 
-        
+        itemID1 = Game.current.invSlot1;
+        itemID2 = Game.current.invSlot2;
+        itemID3 = Game.current.invSlot3;
+        itemID4 = Game.current.invSlot4;
+
+
         /*
         changeItem(1, Game.current.invSlot2);
         changeItem(2, Game.current.invSlot3);

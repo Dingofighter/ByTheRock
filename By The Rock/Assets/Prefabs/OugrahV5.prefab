@@ -434,10 +434,9 @@ GameObject:
   - 95: {fileID: 9576084}
   - 143: {fileID: 14373712}
   - 114: {fileID: 11419012}
-  - 114: {fileID: 11497032}
   m_Layer: 0
   m_Name: OugrahV5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3910,7 +3909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &165970
 GameObject:
   m_ObjectHideFlags: 1
@@ -6809,7 +6808,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.749, y: -0.09724951, z: -7.071991}
+  m_LocalPosition: {x: -2.659, y: -2.519, z: -4.878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -10602,7 +10601,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107098}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 02cff618c866dee4cb2d9e65b4f77d9d, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 7e3d79b0e9d62df4ead0fc2d43de021a, type: 3}
   m_Controller: {fileID: 9100000, guid: 5008382acf9031742b48482dd69e8717, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -10622,18 +10621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e4077295112a14ba085eb408a0a257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
---- !u!114 &11497032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9095220600ade439f805451346a488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: 3.5
 --- !u!137 &13705746
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
