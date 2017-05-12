@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(Dialogue))]
 [CanEditMultipleObjects]
@@ -33,7 +34,7 @@ public class DialogueEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        Dialogue targetDialogue = (Dialogue)target;
+        Dialogue targetDialogue = (target as Dialogue);
 
         targetDialogue.dialogue = (DialogueContainer)EditorGUILayout.ObjectField(targetDialogue.dialogue, typeof(DialogueContainer), false);
 
@@ -41,6 +42,9 @@ public class DialogueEditor : Editor
         boolValueIndex = targetDialogue.boolValueIndex;
 
         targetDialogue.walkAndTalk = EditorGUILayout.Toggle("Walk and Talk", targetDialogue.walkAndTalk);
+        targetDialogue.autoTriggered = EditorGUILayout.Toggle("Auto-triggered", targetDialogue.autoTriggered);
+
+        targetDialogue.rotationTarget = (Transform)EditorGUILayout.ObjectField(targetDialogue.rotationTarget, typeof(Transform), true);
 
         EditorGUILayout.LabelField("Flags needed to start this dialogue:");
 
@@ -81,5 +85,10 @@ public class DialogueEditor : Editor
 
         targetDialogue.boolIndex = boolIndex;
         targetDialogue.boolValueIndex = boolValueIndex;
+
+        if (GUI.changed)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
     }
 }

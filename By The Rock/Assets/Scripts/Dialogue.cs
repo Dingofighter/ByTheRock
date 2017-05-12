@@ -11,6 +11,9 @@ public class Dialogue : MonoBehaviour {
     public int numFlagsRequired;
 
     public bool walkAndTalk;
+    public bool autoTriggered;
+
+    public Transform rotationTarget;
 
     public List<int> boolIndex;
     public List<int> boolValueIndex;
@@ -35,7 +38,6 @@ public class Dialogue : MonoBehaviour {
         {
             nodes.Add(node.id, node);
         }
-        
 	}
 	
 	// Update is called once per frame

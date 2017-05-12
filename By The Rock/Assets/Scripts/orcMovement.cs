@@ -34,6 +34,12 @@ public class orcMovement : MonoBehaviour {
     public float minDist;
     public float walkSpeed;
     public float acceleration;
+    public int state;
+
+    readonly int FOLLOW = 0;
+    readonly int TARGET = 1;
+    readonly int WAIT = 2;
+    
 
     // Use this for initialization
     void Start()
@@ -51,9 +57,14 @@ public class orcMovement : MonoBehaviour {
 
         player = FindObjectOfType<PlayerController>().transform;
         
-        checkForPlayer();
+        if (state == FOLLOW) checkForPlayer();
+        if (state == TARGET)
+        {
+            targetPosition = player.position;
+            agent.SetDestination(targetPosition);
+        }
 
-        shouldThrow = true;
+        //shouldThrow = true;
     }
 
     void checkForPlayer()
@@ -86,120 +97,102 @@ public class orcMovement : MonoBehaviour {
     void Update()
     {
         if (GameManager.instance.paused) return;
-        
-        /*
-        if (shouldThrow)
+
+        if (state == FOLLOW)
         {
-            spearTimer++;
-
-            if (spearTimer == 1)
+            if (!run)
             {
-                agent.SetDestination(transform.position);
-                enemy = FindObjectOfType<Movement>().transform;
-                transform.LookAt(enemy.position);
-                enemy.GetComponent<Movement>().standStill();
-
-                spear = (Transform)Instantiate(spearPre, new Vector3(transform.position.x, transform.position.y + 1.01f, transform.position.z) + (transform.right * 0.4f), Quaternion.Euler(new Vector3(79.95f, transform.eulerAngles.y, 0)));
-                spear.GetComponent<Rigidbody>().detectCollisions = false;
-                spear.GetComponent<Rigidbody>().useGravity = false;
-                spear.GetComponentInChildren<Rigidbody>().detectCollisions = false;
-                spear.GetComponentInChildren<Rigidbody>().useGravity = false;
-            }
-            else if (spearTimer == 60)
-            {
-                spear.GetComponent<Rigidbody>().useGravity = true;
-                spear.GetComponent<Rigidbody>().detectCollisions = true;
-                spear.GetComponentInChildren<Rigidbody>().detectCollisions = true;
-                spear.GetComponentInChildren<Rigidbody>().useGravity = true;
-                spear.GetComponent<Rigidbody>().AddForce(transform.forward * Vector3.Distance(transform.position, enemy.position) * 10 + transform.up * (enemy.position.y - transform.position.y) * 10 - transform.right * 5, ForceMode.Impulse);
-                spear.GetComponent<Spear>().isThrown = true;
-                //spearTimer = 0;
-                shouldThrow = false;
-            }
-            else if (spearTimer > 120)
-            {
-                spearTimer = 0;
-            }
-            return;
-        }
-        */
-
-        if (!run)
-        {
-            counter++;
-            if (((agent.velocity == Vector3.zero || maxMoveCounter >= 200) && walking) || (!walking && counter > counterIdleMax))
-            {
-                walking = !walking;
-                counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
-                counter = 0;
-                if (walking)
+                counter++;
+                if (((agent.velocity == Vector3.zero || maxMoveCounter >= 200) && walking) || (!walking && counter > counterIdleMax))
                 {
-                    if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
+                    walking = !walking;
+                    counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
+                    counter = 0;
+                    if (walking)
                     {
-                        rend.material.color = colorEdge;
-                        transform.Rotate(new Vector3(0, 1, 0) * 180);
-                        targetPosition = lastPosition;
-                        agent.SetDestination(lastPosition);
+                        if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
+                        {
+                            rend.material.color = colorEdge;
+                            transform.Rotate(new Vector3(0, 1, 0) * 180);
+                            targetPosition = lastPosition;
+                            agent.SetDestination(lastPosition);
+                        }
+                        else
+                        {
+                            lastPosition = targetPosition;
+                            currAngle = Random.Range(0, 360);
+                            currDist = Random.Range(minDist, maxDist);
+
+                            rend.material.color = color;
+
+                            transform.Rotate(new Vector3(0, 1, 0) * currAngle);
+
+                            agent.SetDestination(new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist));
+                            targetPosition = new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist);
+                        }
                     }
                     else
                     {
-                        lastPosition = targetPosition;
-                        currAngle = Random.Range(0, 360);
-                        currDist = Random.Range(minDist, maxDist);
-
-                        rend.material.color = color;
-
-                        transform.Rotate(new Vector3(0, 1, 0) * currAngle);
-
-                        agent.SetDestination(new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist));
-                        targetPosition = new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist);
+                        maxMoveCounter = 0;
+                        if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
+                        {
+                            rend.material.color = colorEdge;
+                        }
+                        else rend.material.color = color;
                     }
+
                 }
-                else
+
+            }
+            else
+            {
+                if (agent.velocity == Vector3.zero || maxMoveCounter >= 200 || Vector3.Distance(player.position, transform.position) < 4)
                 {
                     maxMoveCounter = 0;
-                    if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
+                    if (Vector3.Distance(player.position, transform.position) > 4)
                     {
-                        rend.material.color = colorEdge;
+                        //Debug.Log("STILL AWAY WAAH");
+                        transform.LookAt(playerPosition);
+                        agent.SetDestination(player.position);
+                        targetPosition = playerPosition;
                     }
-                    else rend.material.color = color;
+                    else
+                    {
+                        //Debug.Log("I'm here");
+                        run = false;
+                        agent.acceleration = acceleration;
+                        agent.speed = walkSpeed;
+                        spawnPosition = transform.position;
+
+                        targetPosition = transform.position;
+                        agent.SetDestination(transform.position);
+                    }
                 }
-
             }
-
         }
-        else
+        else if (state == TARGET)
         {
-            if (agent.velocity == Vector3.zero || maxMoveCounter >= 200 || Vector3.Distance(player.position, transform.position) < 4)
+            if (agent.velocity == Vector3.zero || maxMoveCounter > 1000)
             {
                 maxMoveCounter = 0;
-                if (Vector3.Distance(player.position, transform.position) > 4)
-                {
-                    //Debug.Log("STILL AWAY WAAH");
-                    transform.LookAt(playerPosition);
-                    agent.SetDestination(player.position);
-                    targetPosition = playerPosition;
-                }
-                else
-                {
-                    //Debug.Log("I'm here");
-                    run = false;
-                    agent.acceleration = acceleration;
-                    agent.speed = walkSpeed;
-                    spawnPosition = transform.position;
-
-                    targetPosition = transform.position;
-                    agent.SetDestination(transform.position);
-                }
+                state = WAIT;
             }
+        } 
+        else if (state == WAIT)
+        {
+            agent.SetDestination(transform.position);
+            state = FOLLOW;
         }
-
-        if (walking || run)
+        
+        if (state == FOLLOW || state == TARGET && (walking || run))
         {
             maxMoveCounter++;
         }
 
-        checkForPlayer();
+        if (state == FOLLOW)
+        {
+            checkForPlayer();
+        }
     }
 
   /*  void OnTriggerExit(Collider c)
