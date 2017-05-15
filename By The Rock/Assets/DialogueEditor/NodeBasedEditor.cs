@@ -308,7 +308,7 @@ public class NodeBasedEditor : EditorWindow {
                 DialogueLineNode newNode = CreateInstance<DialogueLineNode>();
                 newNode.Init(node.id, node.rect.position, DialogueLineNode.width, DialogueLineNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 DialogueLineNode tempNode = (DialogueLineNode)node;
-                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char, tempNode._fmod);
+                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char, tempNode._fmod, tempNode.Dia);
                 nodes.Add(newNode);
             }
             else if (node is PlayerChoiceNode)
@@ -393,7 +393,7 @@ public class NodeBasedEditor : EditorWindow {
                 DialogueLineNode newNode = CreateInstance<DialogueLineNode>();
                 newNode.Init(node.id, node.rect.position, DialogueLineNode.width, DialogueLineNode.defaultHeight, nodeStyle, selectedNodeStyle, inPointStyle, outPointStyle, OnClickInPoint, OnClickOutPoint, OnClickRemoveNode);
                 DialogueLineNode tempNode = (DialogueLineNode)node;
-                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char, tempNode._fmod);
+                newNode.Load(tempNode.actorName, tempNode.dialogueLine, node.inPoints.Count, tempNode.DayBank, tempNode.Day, tempNode.Clip, tempNode.Char, tempNode._fmod, tempNode.Dia);
                 nodes.Add(newNode);
             }
             else if (node is PlayerChoiceNode)
