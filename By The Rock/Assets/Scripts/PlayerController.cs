@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 movement = vertical * camForward + horizontal * cam.right;
 
-
+        movement = Vector3.ClampMagnitude(movement, 1);
 
         if (movement != Vector3.zero)
         {
