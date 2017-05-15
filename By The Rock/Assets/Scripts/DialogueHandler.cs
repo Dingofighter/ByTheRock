@@ -249,7 +249,7 @@ public class DialogueHandler : BaseEmitter {
 
         if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)  
         {
-            Debug.Log("Instance not created because fuck you slask");
+            Debug.Log("Instance not created because fuck you slask... gee that was harsh :|");
             voiceSetup = false;
             return;
         }
@@ -262,7 +262,7 @@ public class DialogueHandler : BaseEmitter {
         _EventInstance.setParameterValue("Dialogues", d);
         _EventInstance.setParameterValue("VoiceClip", v);
 
-        _player = FindObjectOfType<PlayerInteraction>().GetComponent<Transform>();
+        _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         voiceSetup = true;
     }
 
@@ -270,7 +270,7 @@ public class DialogueHandler : BaseEmitter {
     {
             if (charac > 1.3f)
             {
-                _interact = _player.GetComponent<PlayerInteraction>().getCollisionTransform();
+                _interact = _player.GetComponent<PlayerController>().getCollisionTransform();
                 _pos = _interact.transform.position;
             }
             else
