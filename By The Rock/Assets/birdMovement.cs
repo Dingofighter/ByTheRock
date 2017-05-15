@@ -16,10 +16,10 @@ public class birdMovement : MonoBehaviour {
         if (GameManager.instance.paused) return;
 
         timer++;
-        transform.position -= transform.right * 0.07f;
+        transform.position -= transform.forward * 0.07f;
         if (timer >= 6000)
         {
-            transform.position += transform.right * 0.07f * 6000;
+            transform.position += transform.forward * 0.07f * 6000;
             timer = 0;
         }
 	}

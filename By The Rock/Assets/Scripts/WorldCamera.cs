@@ -23,6 +23,8 @@ public class WorldCamera : MonoBehaviour {
 
     public static float shoulderDistance;
 
+    public int lerpSpeed;
+
     float desiredDistance = 5.0f;
     
     float x = 0.0f;
@@ -109,7 +111,7 @@ public class WorldCamera : MonoBehaviour {
             if (GameManager.instance.talking) transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
             else transform.rotation = rotation;
 
-            int cameraSpeed = 25;
+            int cameraSpeed = lerpSpeed;
             if (GameManager.instance.talking) cameraSpeed = 5;
             
             transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed)/* + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f),Random.Range(-0.1f, 0.1f))*/;
