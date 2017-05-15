@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     RectTransform rt;
     public bool paused;
     public bool talking;
+    public bool givingItem;
     public bool shoulderView;
     public int currScene;
     public int currSecondScene;

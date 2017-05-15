@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
         anim = GetComponent<Animator>();
+        
         dialogueHandler = FindObjectOfType<DialogueHandler>();
     }
 
@@ -69,9 +70,23 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetFloat("Speed", 0);
             anim.SetBool("talking", true);
+            if (interacting)
+            {
+                interactTimer++;
+
+                if (interactTimer > 30)
+                {
+                    interacting = false;
+                    interactTimer = 0;
+                    GameManager.instance.givingItem = false;
+                    anim.SetBool("interacting", false);
+                }
+                else
+                return;
+            }
             return;
         }
-
+        
         anim.SetBool("talking", false);
 
         if (interacting)
@@ -252,6 +267,39 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 }
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
+
+                if (c.transform.parent.gameObject.tag == "Hania")
+                {
+                    Debug.Log("talk han");
+                    if (GameManager.instance.itemID1 == MOSSA)
+                    {
+                        GameManager.instance.changeItem(0, INGET, false);
+                        GameManager.instance.givingItem = true;
+                        interacting = true;
+                        anim.SetBool("interacting", true);
+                    }
+                    if (GameManager.instance.itemID2 == VATTEN)
+                    {
+                        GameManager.instance.changeItem(1, INGET, false);
+                        GameManager.instance.givingItem = true;
+                        interacting = true;
+                        anim.SetBool("interacting", true);
+                    }
+                    if (GameManager.instance.itemID3 == BARK)
+                    {
+                        GameManager.instance.changeItem(2, INGET, false);
+                        GameManager.instance.givingItem = true;
+                        interacting = true;
+                        anim.SetBool("interacting", true);
+                    }
+                    if (GameManager.instance.itemID4 == ORT)
+                    {
+                        GameManager.instance.changeItem(3, INGET, false);
+                        GameManager.instance.givingItem = true;
+                        interacting = true;
+                        anim.SetBool("interacting", true);
+                    }
+                }
             }
         }
     }
