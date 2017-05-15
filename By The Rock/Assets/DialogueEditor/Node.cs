@@ -17,6 +17,7 @@ public abstract class Node : ScriptableObject {
     public int Clip;
     public int Char;
     public int _fmod;
+    public int Dia;
 
     public List<int> nextNodesID;
 

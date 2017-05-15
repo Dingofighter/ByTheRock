@@ -119,7 +119,10 @@ public class FmodDialogue : GUIDrawer {
             return 0;
     }
 
-
+    public int getDay()
+    {
+        return DaySelect;
+    }
 
 }
 #endif

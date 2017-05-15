@@ -41,7 +41,7 @@ public class DialogueLineNode : Node {
         OnRemoveNode = OnClickRemoveNode;
     }
 
-    public void Load(string actorName, string dialogueLine, int inPoints, string bank, int day, int clip, int chara, int yes)
+    public void Load(string actorName, string dialogueLine, int inPoints, string bank, int day, int clip, int chara, int yes, int dia)
     {
         this.actorName = actorName;
         this.dialogueLine = dialogueLine;
@@ -54,15 +54,14 @@ public class DialogueLineNode : Node {
         this.Clip = clip;
         this.Char = chara;
         this._fmod = yes;
-        int daynr = 1;
+        this.Dia = dia;
 
-        if (bank == "{adc96b33-ea8e-4527-a960-14fa573a4b8e}" || bank == "")
-            daynr = 1;
+        if (dia < 1)
+        {
+            dia = 1;
+        }
 
-
-
-
-        this.Fmod.DaySelect = daynr;
+        this.Fmod.DaySelect = dia;
         this.Fmod.CharSelect = chara;
         this.Fmod.DiaSelect = day;
         this.Fmod.VoxSelect = clip;
@@ -114,6 +113,7 @@ public class DialogueLineNode : Node {
         Day = Fmod.setDialogue();
         Clip = Fmod.setClip();
         _fmod = Fmod.getBool();
+        Dia = Fmod.getDay();
     }
 
     public void AddInPoint()
