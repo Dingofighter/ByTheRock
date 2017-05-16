@@ -108,6 +108,18 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (crouching || anim.GetCurrentAnimatorStateInfo(0).IsName("Crouch Up") || anim.GetCurrentAnimatorStateInfo(0).IsName("Crouch Idle"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //turnRight = !turnRight;
+                crouching = !crouching;
+                anim.SetBool("crouching", crouching);
+
+            }
+            return;
+        }
+
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -142,7 +154,7 @@ public class PlayerController : MonoBehaviour
         {
             //turnRight = !turnRight;
             crouching = !crouching;
-            
+
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {

@@ -870,6 +870,10 @@ MonoBehaviour:
   img2: {fileID: 11465256}
   img3: {fileID: 11433868}
   img4: {fileID: 11433806}
+  imgBar1: {fileID: 11441336}
+  imgBar2: {fileID: 11465146}
+  imgBar3: {fileID: 11422636}
+  imgBar4: {fileID: 11445718}
   text1: {fileID: 11468738}
   text2: {fileID: 11465192}
   text3: {fileID: 11407772}
@@ -883,7 +887,7 @@ MonoBehaviour:
   imgItem6: {fileID: 21300000, guid: 8a4ca4c6f72bb4f4cb4e30d55b282a38, type: 3}
   imgItem7: {fileID: 21300000, guid: 89b1067e68f65d34f90647d2b6418e34, type: 3}
   imgItem8: {fileID: 21300000, guid: f906895e192e86c489471e4cd9222cc9, type: 3}
-  textItem0: Mushroom x1
+  textItem0: Mushroom
   textItem1: Mushroom x2
   textItem2: Mushroom x3
   textItem3: Mushroom x4
@@ -937,7 +941,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3c958962aa9d73143ba74d5eca597619, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1253,7 +1257,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1402d50d1bbb8ce449cdbbafb36c4ad3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1342,7 +1346,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1402d50d1bbb8ce449cdbbafb36c4ad3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1714,7 +1718,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b26b468bf173eb348a4e57a7ba2968a6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1963,6 +1967,7 @@ MonoBehaviour:
   invCanvas: {fileID: 188578}
   paused: 0
   talking: 0
+  givingItem: 0
   shoulderView: 0
   currScene: 0
   currSecondScene: 0
