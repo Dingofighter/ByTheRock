@@ -95,9 +95,6 @@
         <property name="maxVoices">
             <value>1</value>
         </property>
-        <property name="volume">
-            <value>7</value>
-        </property>
         <property name="polyphony">
             <value>1</value>
         </property>
@@ -108,7 +105,7 @@
             <value>6000</value>
         </property>
         <property name="minimumScatterDistance">
-            <value>20</value>
+            <value>6</value>
         </property>
         <property name="maximumScatterDistance">
             <value>40</value>
@@ -147,7 +144,6 @@
             <destination>{d3cd3736-99b3-4b59-863c-adaa86d608d8}</destination>
             <destination>{75193816-868b-4843-a739-7ea696664e13}</destination>
             <destination>{0a1cd74b-386b-4b8b-950a-7d0484e5b849}</destination>
-            <destination>{b30c7119-c1a5-4d14-a158-d68b2ad32bc0}</destination>
         </relationship>
     </object>
     <object class="MixerBusEffectChain" id="{9855b029-0fe0-48ff-a236-af10fc81a6e8}">
@@ -159,7 +155,7 @@
     <object class="MixerBusFader" id="{05b4d4b6-fb2e-401f-88db-591bda3d64aa}"/>
     <object class="SpatialiserEffect" id="{caf3640d-62ba-4273-9ac5-1c78378a2b88}">
         <property name="minimumDistance">
-            <value>15</value>
+            <value>5.80000019</value>
         </property>
         <property name="maximumDistance">
             <value>40</value>
@@ -178,11 +174,6 @@
     <object class="SingleSound" id="{0a1cd74b-386b-4b8b-950a-7d0484e5b849}">
         <relationship name="audioFile">
             <destination>{296c72b7-0355-4b1c-b944-86b6c172f282}</destination>
-        </relationship>
-    </object>
-    <object class="SingleSound" id="{b30c7119-c1a5-4d14-a158-d68b2ad32bc0}">
-        <relationship name="audioFile">
-            <destination>{8bed9c6a-bbd2-4be3-bccf-19a209573891}</destination>
         </relationship>
     </object>
     <object class="MixerBusFader" id="{291b465d-e92e-418b-9572-f3578374e1f3}"/>

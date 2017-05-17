@@ -379,9 +379,6 @@ Lägen:
         <property name="triggerProbabilityEnabled">
             <value>true</value>
         </property>
-        <property name="triggerProbability">
-            <value>90.5</value>
-        </property>
         <property name="length">
             <value>6</value>
         </property>
@@ -402,13 +399,15 @@ Lägen:
             <destination>{2cae84de-35bc-4324-8e68-1fee54f6a121}</destination>
             <destination>{f8b36c13-fee8-452a-947c-3c73b57f74af}</destination>
             <destination>{1867d7ee-6431-4f3c-888b-f0a46d7d8878}</destination>
-            <destination>{363a8e0c-8e58-4a9b-bbfe-f687e61ca0d0}</destination>
             <destination>{1706fa31-6db0-45dd-b965-8f0ea497e472}</destination>
             <destination>{ee6fb44a-670c-433a-b70c-0d05f4a97906}</destination>
             <destination>{7a24eb8d-a31d-44d8-8210-b3bacb0ed650}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{3474d8dd-9956-484f-8a39-5678cb13b76b}">
+        <property name="volume">
+            <value>4</value>
+        </property>
         <property name="name">
             <value>SmallBirds</value>
         </property>
@@ -578,11 +577,6 @@ Lägen:
             <destination>{445aed98-f2cc-41ab-8cd8-3b849fab92a1}</destination>
         </relationship>
     </object>
-    <object class="SingleSound" id="{363a8e0c-8e58-4a9b-bbfe-f687e61ca0d0}">
-        <relationship name="audioFile">
-            <destination>{36669cbd-bab3-4016-be1f-29f057b46e0c}</destination>
-        </relationship>
-    </object>
     <object class="SingleSound" id="{1706fa31-6db0-45dd-b965-8f0ea497e472}">
         <relationship name="audioFile">
             <destination>{eec4f945-af94-4950-9209-e2b8dd55d8bb}</destination>
@@ -615,7 +609,7 @@ Lägen:
             <value>0.79737489745693191</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>3</value>
         </property>
         <property name="curveShape">
             <value>0.596206486</value>
@@ -634,7 +628,7 @@ Lägen:
             <value>0.013245033112582781</value>
         </property>
         <property name="value">
-            <value>-41.0347824</value>
+            <value>-15.6382618</value>
         </property>
         <property name="curveShape">
             <value>-0.163500041</value>
@@ -656,7 +650,7 @@ Lägen:
             <value>1.3158326497128794</value>
         </property>
         <property name="value">
-            <value>0.413912773</value>
+            <value>4</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{7a0bbd2b-3205-4642-969f-90a2aba538a9}">
@@ -664,7 +658,7 @@ Lägen:
             <value>1.8014766201804759</value>
         </property>
         <property name="value">
-            <value>0.413912773</value>
+            <value>4</value>
         </property>
         <property name="curveShape">
             <value>0.207482636</value>
@@ -732,7 +726,7 @@ Lägen:
             <value>2.8876127973748975</value>
         </property>
         <property name="value">
-            <value>0</value>
+            <value>4.60782528</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{e71fb4ab-b5c1-4a07-9c9c-bdd550aeb5df}"/>
