@@ -13,24 +13,38 @@ public class Interactable : MonoBehaviour {
 
     private bool canInteract;
 
-    public List<int> setBoolIndex;
-    public List<int> setBoolValueIndex;
+    public int setBoolIndex;
+    public int setBoolValueIndex;
 
     // Use this for initialization
     void Start () {
-	
-	}
+        if (boolIndex == null)
+        {
+            boolIndex = new List<int>();
+        }
+        if (boolValueIndex == null)
+        {
+            boolValueIndex = new List<int>();
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+    }
 
     public void Interact()
     {
         if (setFlag)
         {
-
+            if (setBoolValueIndex == 0)
+            {
+                AllFlags.Instance.flags[setBoolIndex].value = true;
+            }
+            else
+            {
+                AllFlags.Instance.flags[setBoolIndex].value = false;
+            }
         }
     }
 

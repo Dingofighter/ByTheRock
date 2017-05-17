@@ -12,8 +12,8 @@ public class InteractableEditor : Editor
     List<int> boolIndex;
     List<int> boolValueIndex;
     public string[] boolValues = { "True", "False" };
-    List<int> setBoolIndex;
-    List<int> setBoolValueIndex;
+    int setBoolIndex;
+    int setBoolValueIndex;
 
     void OnEnable()
     {
@@ -82,6 +82,22 @@ public class InteractableEditor : Editor
         targetInteractable.boolValueIndex = boolValueIndex;
 
         targetInteractable.setFlag = GUILayout.Toggle(targetInteractable.setFlag, "Set flag when interacted with");
+
+        if (targetInteractable.setFlag)
+        {
+            setBoolIndex = targetInteractable.setBoolIndex;
+            setBoolValueIndex = targetInteractable.setBoolValueIndex;
+
+            GUILayout.BeginHorizontal();
+
+            setBoolIndex = EditorGUILayout.Popup(setBoolIndex, bools);
+            setBoolValueIndex = EditorGUILayout.Popup(setBoolValueIndex, boolValues);
+
+            GUILayout.EndHorizontal();
+
+            targetInteractable.setBoolIndex = setBoolIndex;
+            targetInteractable.setBoolValueIndex = setBoolValueIndex;
+        }
 
         if (GUI.changed)
         {
