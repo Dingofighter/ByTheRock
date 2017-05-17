@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool interacting;
     private int interactTimer;
     private bool crouching;
+    private bool turnAround;
 
     GameObject itemToDestroy;
     int itemToAdd;
@@ -173,6 +174,13 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.instance.currSecondScene = FOREST;
             SceneManager.LoadSceneAsync("AITest", LoadSceneMode.Additive);
+        }
+
+        /*INV WALL*/
+        if (c.gameObject.tag == "TurnAroundWall")
+        {
+            print("TURN AROUND");
+            turnAround = true;
         }
     }
 
