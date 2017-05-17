@@ -30,28 +30,27 @@ public class squirrelMovement : MonoBehaviour {
 
         if (timer < treeLength)
         {
-            //transform.position += transform.forward * runSpeed;
-            //transform.Rotate(new Vector3(0, 0, spinSpeed));
-            //transform.position -= transform.right * runSpeed;
+            transform.position += transform.forward * runSpeed;
+            transform.Rotate(new Vector3(0, 0, spinSpeed));
+            transform.position -= transform.right * runSpeed;
             
         }
         else if (timer == treeLength + (timeDown - 1))
         {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x + 180, transform.eulerAngles.y, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x + 180, transform.eulerAngles.y + 180, transform.eulerAngles.z);
             //transform.Rotate(new Vector3(180, 0, 0));
         }
         else if (timer <= treeLength + timeDown) { }
         else if (timer < treeLength*2 + timeDown)
         {
-            /*
             transform.position += transform.forward * runSpeed;
-            transform.Rotate(new Vector3(0, 0, +spinSpeed));
-            transform.position += transform.right * runSpeed;*/
+            transform.Rotate(new Vector3(0, 0, spinSpeed));
+            transform.position -= transform.right * runSpeed;
         }
         else if (timer < treeLength * 2 + timeDown + timeUp)
         {
-            //transform.position = Vector3.Lerp(transform.position, startPosition, 0.1f);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, startRotation, 0.1f);
+            transform.position = Vector3.Lerp(transform.position, startPosition, 0.1f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, startRotation, 0.1f);
         }
         else if (timer == treeLength*2 + timeDown + timeUp)
         {

@@ -63,22 +63,91 @@ public class itemManager : MonoBehaviour {
 	
 	}
 
-    public void addItem(int slot, int itemID)
+    public void addItem(int itemID)
     {
-        if (itemID == -1)
-        {
-            images[slot].gameObject.SetActive(false);
-            imgBars[slot].gameObject.SetActive(false);
-            texts[slot].text = "";
-            
-        }
-        else
-        {
-            images[slot].gameObject.SetActive(true);
-            images[slot].sprite = imgItems[itemID];
-            imgBars[slot].gameObject.SetActive(true);
-            texts[slot].text = imgTexts[itemID];
-            texts[slot].fontSize = 40 - texts[slot].text.Length;
-        }
+        Debug.Log("adding item " + GameManager.instance.itemID1 + " " + GameManager.instance.itemID2 + " " + GameManager.instance.itemID3 + " " + GameManager.instance.itemID4);
+        int slot = 0;
+
+        if (GameManager.instance.itemID1 == -1) { slot = 0; GameManager.instance.itemID1 = itemID; Game.current.invSlot1 = itemID; }
+        else if (GameManager.instance.itemID2 == -1) { slot = 1; GameManager.instance.itemID2 = itemID; Game.current.invSlot2 = itemID; }
+        else if (GameManager.instance.itemID3 == -1) { slot = 2; GameManager.instance.itemID3 = itemID; Game.current.invSlot3 = itemID; }
+        else if (GameManager.instance.itemID4 == -1) { slot = 3; GameManager.instance.itemID4 = itemID; Game.current.invSlot4 = itemID; }
+        else return;
+
+        Debug.Log("adding item " + itemID + " on slot " + slot);
+        images[slot].gameObject.SetActive(true);
+        images[slot].sprite = imgItems[itemID];
+        imgBars[slot].gameObject.SetActive(true);
+        texts[slot].text = imgTexts[itemID];
+        texts[slot].fontSize = 40 - texts[slot].text.Length;
+        
     }
+
+    public void removeItem(int itemID)
+    {
+
+        int slot = 0;
+
+        if (GameManager.instance.itemID1 == itemID)
+        {
+            GameManager.instance.itemID1 = GameManager.instance.itemID2;
+            images[0].sprite = images[1].sprite;
+            texts[0].text = texts[1].text;
+            texts[0].fontSize = texts[1].fontSize;
+
+
+
+
+
+
+
+
+
+
+            GameManager.instance.itemID2 = GameManager.instance.itemID3;
+            GameManager.instance.itemID3 = GameManager.instance.itemID4;
+            GameManager.instance.itemID4 = -1;
+            Game.current.invSlot1 = Game.current.invSlot2;
+            Game.current.invSlot2 = Game.current.invSlot3;
+            Game.current.invSlot3 = Game.current.invSlot4;
+            Game.current.invSlot4 = -1;
+            if (GameManager.instance.itemID1 == -1) slot = 0;
+            else if (GameManager.instance.itemID2 == -1) slot = 1;
+            else if (GameManager.instance.itemID3 == -1) slot = 2;
+            else if (GameManager.instance.itemID4 == -1) slot = 3;
+
+        }
+        else if (GameManager.instance.itemID2 == itemID)
+        {
+            GameManager.instance.itemID2 = GameManager.instance.itemID3;
+            GameManager.instance.itemID3 = GameManager.instance.itemID4;
+            GameManager.instance.itemID4 = -1;
+            Game.current.invSlot2 = Game.current.invSlot3;
+            Game.current.invSlot3 = Game.current.invSlot4;
+            Game.current.invSlot4 = -1;
+            if (GameManager.instance.itemID2 == -1) slot = 1;
+            else if (GameManager.instance.itemID3 == -1) slot = 2;
+            else if (GameManager.instance.itemID4 == -1) slot = 3;
+
+        }
+        else if (GameManager.instance.itemID3 == itemID)
+        {
+            GameManager.instance.itemID3 = GameManager.instance.itemID4;
+            GameManager.instance.itemID4 = -1;
+            Game.current.invSlot3 = Game.current.invSlot4;
+            Game.current.invSlot4 = -1;
+            if (GameManager.instance.itemID3 == -1) slot = 2;
+            else if (GameManager.instance.itemID4 == -1) slot = 3;
+        }
+        else if (GameManager.instance.itemID4 == itemID) { slot = 3; GameManager.instance.itemID4 = -1; Game.current.invSlot4 = -1; }
+        else return;
+
+        Debug.Log("removing item " + itemID + " from slot " + slot);
+
+        images[slot].gameObject.SetActive(false);
+        imgBars[slot].gameObject.SetActive(false);
+        texts[slot].text = "";
+
+    }
+
 }

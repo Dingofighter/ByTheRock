@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     GameObject itemToDestroy;
     int itemToAdd;
-    int slotToAddTo;
+    bool removeMushroom;
 
     // Use this for initialization
     void Start()
@@ -94,7 +94,16 @@ public class PlayerController : MonoBehaviour
             interactTimer++;
             if (interactTimer == 40)
             {
-                GameManager.instance.changeItem(slotToAddTo, itemToAdd, false);
+                if (removeMushroom)
+                {
+                    removeFromInv(SVAMP1);
+                    removeFromInv(SVAMP2);
+                    removeFromInv(SVAMP3);
+                    removeFromInv(SVAMP4);
+                    removeMushroom = false;
+                }
+
+                GameManager.instance.changeItem(itemToAdd, false, false);
                 Destroy(itemToDestroy);
             }
 
@@ -237,35 +246,49 @@ public class PlayerController : MonoBehaviour
 
             if (c.gameObject.tag == "Mossa")
             {
-                pickUp(0, MOSSA, c.transform.gameObject);
+                pickUp(MOSSA, c.transform.gameObject);
             }
             if (c.gameObject.tag == "Vatten")
             {
-                pickUp(1, VATTEN, c.transform.gameObject);
+                pickUp(VATTEN, c.transform.gameObject);
             }
             if (c.gameObject.tag == "Bark")
             {
-                pickUp(2, BARK, c.transform.gameObject);
+                pickUp(BARK, c.transform.gameObject);
             }
             if (c.gameObject.tag == "Ort")
             {
-                pickUp(3, ORT, c.transform.gameObject);
+                pickUp(ORT, c.transform.gameObject);
             }
             if (c.gameObject.tag == "Svamp")
             {
-                if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                if (GameManager.instance.itemID1 >= INGET && GameManager.instance.itemID1 <= SVAMP4)
                 {
-                    itemToAdd = GameManager.instance.itemID2 + 1;
-                    slotToAddTo = 1;
-                    //GameManager.instance.changeItem(1, GameManager.instance.itemID2 + 1, false);
+                    int temp = GameManager.instance.itemID1;
+                    removeMushroom = true;
+                    pickUp(temp + 1, c.transform.gameObject);
                 }
-                itemToDestroy = c.transform.gameObject;
-                //Destroy(c.transform.gameObject);
-                interacting = true;
-                anim.SetBool("interacting", true);
+                else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                {
+                    int temp = GameManager.instance.itemID2;
+                    removeMushroom = true;
+                    pickUp(temp + 1, c.transform.gameObject);
+                }
+                else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
+                {
+                    int temp = GameManager.instance.itemID3;
+                    removeMushroom = true;
+                    pickUp(temp + 1, c.transform.gameObject);
+                }
+                else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
+                {
+                    int temp = GameManager.instance.itemID4;
+                    removeMushroom = true;
+                    pickUp(temp + 1, c.transform.gameObject);
+                }
+                else return;
             }
-
-
+            
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
@@ -283,46 +306,40 @@ public class PlayerController : MonoBehaviour
                 if (c.transform.parent.gameObject.tag == "Hania")
                 {
                     Debug.Log("talk han");
-                    if (GameManager.instance.itemID1 == MOSSA)
-                    {
-                        GameManager.instance.changeItem(0, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
-                    if (GameManager.instance.itemID2 == VATTEN)
-                    {
-                        GameManager.instance.changeItem(1, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
-                    if (GameManager.instance.itemID3 == BARK)
-                    {
-                        GameManager.instance.changeItem(2, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
-                    if (GameManager.instance.itemID4 == ORT)
-                    {
-                        GameManager.instance.changeItem(3, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
+                    if (currentlyHolding(MOSSA)) removeFromInv(MOSSA);
+                    if (currentlyHolding(VATTEN)) removeFromInv(VATTEN);
+                    if (currentlyHolding(BARK)) removeFromInv(BARK);
+                    if (currentlyHolding(ORT)) removeFromInv(ORT);
                 }
             }
         }
     }
 
-    void pickUp(int slot, int itemID, GameObject item)
+    void pickUp(int itemID, GameObject item)
     {
-        slotToAddTo = slot;
         itemToAdd = itemID;
         itemToDestroy = item;
         interacting = true;
         anim.SetBool("interacting", true);
+    }
+
+    void removeFromInv(int itemID)
+    {
+        GameManager.instance.changeItem(itemID, false, true);
+        if (!removeMushroom)
+        {
+            GameManager.instance.givingItem = true;
+            interacting = true;
+            anim.SetBool("interacting", true);
+        }
+    }
+
+    bool currentlyHolding(int itemID)
+    {
+        return (GameManager.instance.itemID1 == itemID ||
+            GameManager.instance.itemID2 == itemID ||
+            GameManager.instance.itemID3 == itemID ||
+            GameManager.instance.itemID4 == itemID);
     }
 
     void OnCollisionEnter(Collision c)
