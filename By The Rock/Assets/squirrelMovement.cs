@@ -8,6 +8,7 @@ public class squirrelMovement : MonoBehaviour {
     public int timeDown;
     public int timeUp;
     public float spinSpeed;
+    public float runSpeed;
 
     Vector3 startPosition;
     Quaternion startRotation;
@@ -29,21 +30,22 @@ public class squirrelMovement : MonoBehaviour {
 
         if (timer < treeLength)
         {
-            transform.position += transform.forward * 0.1f;
+            transform.position += transform.forward * runSpeed;
             transform.Rotate(new Vector3(0, 0, spinSpeed));
-            transform.position += transform.right * 0.1f;
+            transform.position -= transform.right * runSpeed;
             
         }
         else if (timer == treeLength + (timeDown - 1))
         {
-            transform.Rotate(new Vector3(180, 0, 0));
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x + 180, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+            //transform.Rotate(new Vector3(180, 0, 0));
         }
         else if (timer <= treeLength + timeDown) { }
         else if (timer < treeLength*2 + timeDown)
         {
-            transform.position += transform.forward * 0.1f;
-            transform.Rotate(new Vector3(0, 0, -spinSpeed));
-            transform.position += transform.right * 0.1f;
+            transform.position += transform.forward * runSpeed;
+            transform.Rotate(new Vector3(0, 0, spinSpeed));
+            transform.position -= transform.right * runSpeed;
         }
         else if (timer < treeLength * 2 + timeDown + timeUp)
         {

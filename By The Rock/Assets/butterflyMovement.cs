@@ -59,7 +59,6 @@ public class butterflyMovement : MonoBehaviour {
     {
         if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
         {
-            Debug.Log("Collision detected!!!!");
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
         else
@@ -73,12 +72,10 @@ public class butterflyMovement : MonoBehaviour {
        
         if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
         {
-            Debug.Log("Collision detected!!!!");
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
         else
         {
-            Debug.Log("bang");
             moving = false;
         }
     }

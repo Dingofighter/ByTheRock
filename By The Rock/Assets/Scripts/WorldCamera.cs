@@ -30,6 +30,9 @@ public class WorldCamera : MonoBehaviour {
     float x = 0.0f;
     float y = 0.0f;
 
+    int talkTimer;
+    bool talkStill;
+
     Quaternion rotation;
 
     private bool shoulderZoom;
@@ -108,13 +111,25 @@ public class WorldCamera : MonoBehaviour {
                 distance = Vector3.Distance(target.position, position);
             }
 
-            if (GameManager.instance.talking) transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+            if (GameManager.instance.talking)
+            {
+                if (!talkStill)
+                {
+                    talkTimer++;
+                    if (talkTimer >= 43)
+                    {
+                        talkStill = true;
+                        talkTimer = 0;
+                    }
+                    transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+                }
+            }
             else transform.rotation = rotation;
 
             int cameraSpeed = lerpSpeed;
             if (GameManager.instance.talking) cameraSpeed = 5;
             
-            transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed)/* + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f),Random.Range(-0.1f, 0.1f))*/;
+            if (!talkStill) transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * cameraSpeed)/* + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f),Random.Range(-0.1f, 0.1f))*/;
 
             shoulderDistance = 50;
             RaycastHit rayHit;
@@ -123,6 +138,8 @@ public class WorldCamera : MonoBehaviour {
             {
                 shoulderDistance = Vector3.Distance(transform.position, rayHit.point);
             }
+
+            if (talkStill && !GameManager.instance.talking) talkStill = false;
 
             shoulderZoom = GameManager.instance.crouching;
             GameManager.instance.shoulderView = shoulderZoom;
