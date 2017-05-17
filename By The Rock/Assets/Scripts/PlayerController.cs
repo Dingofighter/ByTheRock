@@ -257,6 +257,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(MOSSA, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Vatten")
@@ -264,6 +265,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(VATTEN, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Bark")
@@ -271,6 +273,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(BARK, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Ort")
@@ -278,6 +281,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(ORT, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Svamp")
@@ -289,24 +293,28 @@ public class PlayerController : MonoBehaviour
                         int temp = GameManager.instance.itemID1;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID2;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID3;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID4;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else return;
                 }
