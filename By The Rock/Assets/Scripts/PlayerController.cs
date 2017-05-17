@@ -108,7 +108,8 @@ public class PlayerController : MonoBehaviour
                 Destroy(itemToDestroy);
             }
 
-            if (interactTimer > 130)
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("interacting") && interactTimer > 40)
+            //if (interactTimer > 130)
             {
                 interacting = false;
                 interactTimer = 0;
@@ -157,7 +158,11 @@ public class PlayerController : MonoBehaviour
 
         idleCounter++;
         anim.SetInteger("idleCounter", idleCounter);
-        if (idleCounter >= 305) idleCounter = -150;
+        if (idleCounter >= 305)
+        {
+            idleCounter = -150;
+            anim.SetBool("otherIdle", !anim.GetBool("otherIdle"));
+        }
         if (!(Mathf.Abs(vertical) + Mathf.Abs(horizontal) == 0) || GameManager.instance.talking) idleCounter = 0;
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -330,7 +335,16 @@ public class PlayerController : MonoBehaviour
 
                 if (!c.transform.parent.GetComponent<Dialogue>().walkAndTalk)
                 {
-                    transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
+                    Vector3 tempAngles = transform.eulerAngles;
+                    transform.LookAt(c.transform);
+                    transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+
+                    tempAngles = c.transform.eulerAngles;
+                    c.transform.LookAt(transform);
+                    c.transform.eulerAngles = new Vector3(tempAngles.x, c.transform.eulerAngles.y, c.transform.eulerAngles.z);
+
+                    Debug.Log("turned");
+                    //transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 }
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
 
