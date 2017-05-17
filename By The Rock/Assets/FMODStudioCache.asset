@@ -37,6 +37,21 @@ MonoBehaviour:
   StringsBankRef: {fileID: 11438174}
   stringsBankWriteTime: 636299416740038375
   cacheVersion: 2
+--- !u!114 &11400090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntensity
+  Min: 0
+  Max: 60
+  Default: 0
 --- !u!114 &11400112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,6 +629,25 @@ MonoBehaviour:
   - {fileID: 11420996}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11404990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: \\hsnas6\StudentHome\2015\b15rebro\Documents\GitHub\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636288030765940950
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 28095136
+  Exists: 1
 --- !u!114 &11405016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,6 +1100,21 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0.56
+--- !u!114 &11408462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Twiggs
+  Min: 0
+  Max: 1
+  Default: 0.55
 --- !u!114 &11408574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,6 +1190,21 @@ MonoBehaviour:
   Min: -1
   Max: 10
   Default: -1
+--- !u!114 &11409462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bool
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11409468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1334,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Surface
   Min: 0
@@ -1411,6 +1475,21 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &11412452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bool
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11412682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,7 +1514,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Birds
   Min: 0
@@ -2503,6 +2582,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11423348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11423562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2639,7 +2733,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Surface
   Min: 0
@@ -2798,6 +2892,21 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &11425966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11425998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2837,7 +2946,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Surface
   Min: 0
@@ -3295,6 +3404,25 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11429976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: \\hsnas6\StudentHome\2015\b15rebro\Documents\GitHub\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636288030765940950
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 28095136
+  Exists: 1
 --- !u!114 &11430218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3495,6 +3623,21 @@ MonoBehaviour:
   Name: GlHi
   Min: 0
   Max: 2
+  Default: 0
+--- !u!114 &11431764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Birds
+  Min: 0
+  Max: 4
   Default: 0
 --- !u!114 &11431770
 MonoBehaviour:
@@ -4125,6 +4268,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11436728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11437160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,7 +4556,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: SmallPassage
   Min: -1
@@ -4413,7 +4571,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: event:/Sounds/Forest/Birds_SmallAmbienceScatter
   guid: 92335795b0dc6c499871851d5a85396b
@@ -4939,7 +5097,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: GlHi
   Min: 0
@@ -5534,6 +5692,21 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &11449682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bool
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11449688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5759,6 +5932,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11451704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11451744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5789,6 +5977,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11452026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: WindIntensity
+  Min: 0
+  Max: 3
+  Default: 0.56
 --- !u!114 &11452052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6035,6 +6238,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11453514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 10
+  Default: 0
 --- !u!114 &11453692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6266,6 +6484,36 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0.56
+--- !u!114 &11455488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Birds
+  Min: 0
+  Max: 4
+  Default: 0
+--- !u!114 &11455704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11455962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6516,6 +6764,21 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &11457742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11457754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6576,6 +6839,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11458114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: WindIntensity
+  Min: 0
+  Max: 3
+  Default: 0.56
 --- !u!114 &11458212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6636,6 +6914,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11458850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bool
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11459056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6651,6 +6944,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11459072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Twiggs
+  Min: 0
+  Max: 1
+  Default: 0.55
 --- !u!114 &11459076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6888,7 +7196,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: WindIntensity
   Min: 0
@@ -7059,6 +7367,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11462774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SmallPassage
+  Min: -1
+  Max: 13
+  Default: -1
 --- !u!114 &11462930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7073,6 +7396,21 @@ MonoBehaviour:
   Name: Birds
   Min: 0
   Max: 4
+  Default: 0
+--- !u!114 &11462968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
   Default: 0
 --- !u!114 &11462998
 MonoBehaviour:
@@ -7636,6 +7974,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0.55
+--- !u!114 &11468362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Birds
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &11468442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7651,6 +8004,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11468476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Twiggs
+  Min: 0
+  Max: 1
+  Default: 0.55
 --- !u!114 &11468506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7906,6 +8274,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11471144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 10
+  Default: 0
 --- !u!114 &11471148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7941,6 +8324,21 @@ MonoBehaviour:
   Name: RiverIntensity
   Min: 0
   Max: 42
+  Default: 0
+--- !u!114 &11471220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
   Default: 0
 --- !u!114 &11471286
 MonoBehaviour:
@@ -8076,6 +8474,21 @@ MonoBehaviour:
   Name: Run
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &11472962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GlHi
+  Min: 0
+  Max: 2
   Default: 0
 --- !u!114 &11473234
 MonoBehaviour:
@@ -8361,6 +8774,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11475118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SmallPassage
+  Min: -1
+  Max: 13
+  Default: -1
 --- !u!114 &11475176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9355,6 +9783,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11484612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntensity
+  Min: 0
+  Max: 60
+  Default: 0
 --- !u!114 &11484906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9894,6 +10337,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11489558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: WindIntensity
+  Min: 0
+  Max: 3
+  Default: 0.56
 --- !u!114 &11489732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10335,12 +10793,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Birds
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &11494848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SmallPassage
+  Min: -1
+  Max: 13
+  Default: -1
 --- !u!114 &11494870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10656,6 +11129,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11497234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11497278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10700,6 +11188,21 @@ MonoBehaviour:
   Name: ODDEVEN
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &11497914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntensity
+  Min: 0
+  Max: 60
   Default: 0
 --- !u!114 &11498246
 MonoBehaviour:
@@ -10828,6 +11331,21 @@ MonoBehaviour:
   Min: -1
   Max: 10
   Default: -1
+--- !u!114 &11498926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Birds
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &11498948
 MonoBehaviour:
   m_ObjectHideFlags: 0
