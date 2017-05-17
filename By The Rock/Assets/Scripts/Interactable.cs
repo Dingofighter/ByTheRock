@@ -9,7 +9,12 @@ public class Interactable : MonoBehaviour {
     public List<int> boolIndex;
     public List<int> boolValueIndex;
 
+    public bool setFlag;
+
     private bool canInteract;
+
+    public List<int> setBoolIndex;
+    public List<int> setBoolValueIndex;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +25,14 @@ public class Interactable : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void Interact()
+    {
+        if (setFlag)
+        {
+
+        }
+    }
 
     public bool CheckInteractable()
     {
