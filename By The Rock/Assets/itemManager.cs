@@ -91,22 +91,17 @@ public class itemManager : MonoBehaviour {
         if (GameManager.instance.itemID1 == itemID)
         {
             GameManager.instance.itemID1 = GameManager.instance.itemID2;
-            images[0].sprite = images[1].sprite;
-            texts[0].text = texts[1].text;
-            texts[0].fontSize = texts[1].fontSize;
-
-
-
-
-
-
-
-
-
-
             GameManager.instance.itemID2 = GameManager.instance.itemID3;
             GameManager.instance.itemID3 = GameManager.instance.itemID4;
             GameManager.instance.itemID4 = -1;
+
+            for (int i = 0; i < 3; i++)
+            {
+                images[i].sprite = images[i + 1].sprite;
+                texts[i].text = texts[i + 1].text;
+                texts[i].fontSize = texts[i + 1].fontSize;
+            }
+
             Game.current.invSlot1 = Game.current.invSlot2;
             Game.current.invSlot2 = Game.current.invSlot3;
             Game.current.invSlot3 = Game.current.invSlot4;
@@ -122,6 +117,14 @@ public class itemManager : MonoBehaviour {
             GameManager.instance.itemID2 = GameManager.instance.itemID3;
             GameManager.instance.itemID3 = GameManager.instance.itemID4;
             GameManager.instance.itemID4 = -1;
+
+            for (int i = 1; i < 3; i++)
+            {
+                images[i].sprite = images[i + 1].sprite;
+                texts[i].text = texts[i + 1].text;
+                texts[i].fontSize = texts[i + 1].fontSize;
+            }
+
             Game.current.invSlot2 = Game.current.invSlot3;
             Game.current.invSlot3 = Game.current.invSlot4;
             Game.current.invSlot4 = -1;
@@ -134,6 +137,11 @@ public class itemManager : MonoBehaviour {
         {
             GameManager.instance.itemID3 = GameManager.instance.itemID4;
             GameManager.instance.itemID4 = -1;
+            
+            images[2].sprite = images[3].sprite;
+            texts[2].text = texts[3].text;
+            texts[2].fontSize = texts[3].fontSize;
+            
             Game.current.invSlot3 = Game.current.invSlot4;
             Game.current.invSlot4 = -1;
             if (GameManager.instance.itemID3 == -1) slot = 2;
