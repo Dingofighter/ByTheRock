@@ -2,6 +2,7 @@
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex("Color (RGB) Alpha (A)", 2D) = "white" {}
+		_BumpMap("Normal Map", 2D) = "bump" {}
 			_WindPower("Wind Power", Float) = 0.02
 			_WindSpeed("Wind Speed", Float) = 5.0
 			_WindDirectionX("Wind Direction X", Float) = 1.0
@@ -27,9 +28,11 @@
 		#pragma target 3.0
 
 		sampler2D _MainTex;
+		sampler2D _BumpMap;
 
 		struct Input {
 			float2 uv_MainTex;
+			float2 uv_BumpMap;
 			float3 worldPos;
 		};
 
@@ -101,7 +104,9 @@
 			// The wind's effect is based on vertex y-position in object space
 			// such that at y=0 (where the plant's roots are) there is no
 			// wind effect, and at y=_PlantHeight, there is maximum wind effect.
+			v.vertex = mul(_Object2World, v.vertex);
 			float height_factor = v.vertex.y / _PlantHeight;
+			v.vertex = mul(_World2Object, v.vertex);
 
 			// Convert to world coordinates, apply calculated changes, then convert back to local object space
 			v.vertex = mul(_Object2World, v.vertex);
@@ -123,6 +128,7 @@
 			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
+			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 		}
 		ENDCG
 	}

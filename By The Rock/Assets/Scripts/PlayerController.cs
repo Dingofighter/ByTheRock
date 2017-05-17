@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool interacting;
     private int interactTimer;
     private bool crouching;
+    private bool turnAround;
 
     GameObject itemToDestroy;
     int itemToAdd;
@@ -141,7 +142,7 @@ public class PlayerController : MonoBehaviour
         camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 movement = vertical * camForward + horizontal * cam.right;
 
-
+        movement = Vector3.ClampMagnitude(movement, 1);
 
         if (movement != Vector3.zero)
         {
@@ -210,6 +211,13 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.currSecondScene = FOREST;
             SceneManager.LoadSceneAsync("AITest", LoadSceneMode.Additive);
         }
+
+        /*INV WALL*/
+        if (c.gameObject.tag == "TurnAroundWall")
+        {
+            print("TURN AROUND");
+            turnAround = true;
+        }
     }
 
     void OnTriggerStay(Collider c)
@@ -246,47 +254,62 @@ public class PlayerController : MonoBehaviour
 
             if (c.gameObject.tag == "Mossa")
             {
-                pickUp(MOSSA, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(MOSSA, c.transform.gameObject);
+                }
             }
             if (c.gameObject.tag == "Vatten")
             {
-                pickUp(VATTEN, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(VATTEN, c.transform.gameObject);
+                }
             }
             if (c.gameObject.tag == "Bark")
             {
-                pickUp(BARK, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(BARK, c.transform.gameObject);
+                }
             }
             if (c.gameObject.tag == "Ort")
             {
-                pickUp(ORT, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(ORT, c.transform.gameObject);
+                }
             }
             if (c.gameObject.tag == "Svamp")
             {
-                if (GameManager.instance.itemID1 >= INGET && GameManager.instance.itemID1 <= SVAMP4)
+                if (c.GetComponent<Interactable>().CheckInteractable())
                 {
-                    int temp = GameManager.instance.itemID1;
-                    removeMushroom = true;
-                    pickUp(temp + 1, c.transform.gameObject);
+                    if (GameManager.instance.itemID1 >= INGET && GameManager.instance.itemID1 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID1;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                    }
+                    else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID2;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                    }
+                    else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID3;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                    }
+                    else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID4;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                    }
+                    else return;
                 }
-                else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
-                {
-                    int temp = GameManager.instance.itemID2;
-                    removeMushroom = true;
-                    pickUp(temp + 1, c.transform.gameObject);
-                }
-                else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
-                {
-                    int temp = GameManager.instance.itemID3;
-                    removeMushroom = true;
-                    pickUp(temp + 1, c.transform.gameObject);
-                }
-                else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
-                {
-                    int temp = GameManager.instance.itemID4;
-                    removeMushroom = true;
-                    pickUp(temp + 1, c.transform.gameObject);
-                }
-                else return;
             }
             
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
