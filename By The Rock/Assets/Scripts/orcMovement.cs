@@ -105,7 +105,7 @@ public class orcMovement : MonoBehaviour {
         if (GameManager.instance.paused) return;
 
         idleCounter++;
-        if (idleCounter >= 155) idleCounter = 0;
+        if (idleCounter >= 270) idleCounter = 0;
         anim.SetInteger("idleCounter", idleCounter);
 
         anim.SetFloat("Speed", (Mathf.Abs(agent.velocity.z) + Mathf.Abs(agent.velocity.x) + Mathf.Abs(agent.velocity.y))/10);

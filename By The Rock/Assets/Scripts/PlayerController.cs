@@ -108,7 +108,8 @@ public class PlayerController : MonoBehaviour
                 Destroy(itemToDestroy);
             }
 
-            if (interactTimer > 130)
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("interacting") && interactTimer > 40)
+            //if (interactTimer > 130)
             {
                 interacting = false;
                 interactTimer = 0;
@@ -157,7 +158,11 @@ public class PlayerController : MonoBehaviour
 
         idleCounter++;
         anim.SetInteger("idleCounter", idleCounter);
-        if (idleCounter >= 305) idleCounter = -150;
+        if (idleCounter >= 305)
+        {
+            idleCounter = -150;
+            anim.SetBool("otherIdle", !anim.GetBool("otherIdle"));
+        }
         if (!(Mathf.Abs(vertical) + Mathf.Abs(horizontal) == 0) || GameManager.instance.talking) idleCounter = 0;
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -257,6 +262,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(MOSSA, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Vatten")
@@ -264,6 +270,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(VATTEN, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Bark")
@@ -271,6 +278,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(BARK, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Ort")
@@ -278,6 +286,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(ORT, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Svamp")
@@ -289,24 +298,28 @@ public class PlayerController : MonoBehaviour
                         int temp = GameManager.instance.itemID1;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID2;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID3;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID4;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
                     }
                     else return;
                 }
@@ -322,7 +335,16 @@ public class PlayerController : MonoBehaviour
 
                 if (!c.transform.parent.GetComponent<Dialogue>().walkAndTalk)
                 {
-                    transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
+                    Vector3 tempAngles = transform.eulerAngles;
+                    transform.LookAt(c.transform);
+                    transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+
+                    tempAngles = c.transform.eulerAngles;
+                    c.transform.LookAt(transform);
+                    c.transform.eulerAngles = new Vector3(tempAngles.x, c.transform.eulerAngles.y, c.transform.eulerAngles.z);
+
+                    Debug.Log("turned");
+                    //transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 }
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
 
