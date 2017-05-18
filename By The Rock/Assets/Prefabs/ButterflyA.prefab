@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -0.83, z: -14.26}
+  m_LocalPosition: {x: -0.1, y: -1.7, z: -9.6}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -284,6 +284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStillTime: 200
+  minStillTime: 30
+  waitForPlayer: 1
   speed: 0.03
 --- !u!114 &11498010
 MonoBehaviour:
