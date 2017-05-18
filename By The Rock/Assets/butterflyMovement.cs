@@ -6,9 +6,13 @@ public class butterflyMovement : MonoBehaviour {
     bool moving;
     int stillTimer;
     public int maxStillTime = 200;
+    public int minStillTime = 30;
+    public bool waitForPlayer = false;
     int stillTime;
     int currAngle;
     public float speed;
+
+    Transform player;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +21,9 @@ public class butterflyMovement : MonoBehaviour {
         currAngle = Random.Range(0, 360);
         transform.Rotate(new Vector3(0, 0, 1) * currAngle);
         transform.eulerAngles = new Vector3(50, transform.eulerAngles.y, transform.eulerAngles.z);
-        stillTime = Random.Range(30, maxStillTime);
+        stillTime = Random.Range(minStillTime, maxStillTime);
+
+        player = FindObjectOfType<PlayerController>().transform;
 
     }
 	
@@ -33,7 +39,12 @@ public class butterflyMovement : MonoBehaviour {
         }
         else
         {
-            stillTimer++;
+            if (!waitForPlayer) stillTimer++;
+            
+            if (Vector3.Distance(player.position, transform.position) < 4)
+            {
+                stillTimer = stillTime;
+            }
             
             if (stillTimer >= stillTime)
             {
@@ -44,7 +55,7 @@ public class butterflyMovement : MonoBehaviour {
                 transform.Rotate(new Vector3(0, 0, 1) * currAngle);
                 // transform.rotation = new Quaternion(/*transform.rotation.x*/1, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 transform.eulerAngles = new Vector3(50, transform.eulerAngles.y, transform.eulerAngles.z);
-                stillTime = Random.Range(30, maxStillTime);
+                stillTime = Random.Range(minStillTime, maxStillTime);
             }
         }
 
@@ -59,7 +70,6 @@ public class butterflyMovement : MonoBehaviour {
     {
         if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
         {
-            Debug.Log("Collision detected!!!!");
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
         else
@@ -73,12 +83,10 @@ public class butterflyMovement : MonoBehaviour {
        
         if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
         {
-            Debug.Log("Collision detected!!!!");
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
         else
         {
-            Debug.Log("bang");
             moving = false;
         }
     }

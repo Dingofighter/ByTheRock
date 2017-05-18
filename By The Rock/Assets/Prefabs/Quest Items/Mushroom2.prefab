@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2392392}
   - 95: {fileID: 9597680}
   - 65: {fileID: 6539366}
+  - 114: {fileID: 11451032}
   m_Layer: 0
   m_Name: Mushroom2
   m_TagString: Svamp
@@ -94,6 +95,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11451032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bad5cb7a2bb8394c99ef2fcb5c3dc2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFlagsRequired: 0
+  boolIndex: 
+  boolValueIndex: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
