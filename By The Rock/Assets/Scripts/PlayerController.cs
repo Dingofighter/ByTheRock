@@ -44,10 +44,11 @@ public class PlayerController : MonoBehaviour
     private bool interacting;
     private int interactTimer;
     private bool crouching;
+    private bool turnAround;
 
     GameObject itemToDestroy;
     int itemToAdd;
-    int slotToAddTo;
+    bool removeMushroom;
 
     // Use this for initialization
     void Start()
@@ -94,17 +95,39 @@ public class PlayerController : MonoBehaviour
             interactTimer++;
             if (interactTimer == 40)
             {
-                GameManager.instance.changeItem(slotToAddTo, itemToAdd, false);
+                if (removeMushroom)
+                {
+                    removeFromInv(SVAMP1);
+                    removeFromInv(SVAMP2);
+                    removeFromInv(SVAMP3);
+                    removeFromInv(SVAMP4);
+                    removeMushroom = false;
+                }
+
+                GameManager.instance.changeItem(itemToAdd, false, false);
                 Destroy(itemToDestroy);
             }
 
-            if (interactTimer > 130)
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("interacting") && interactTimer > 40)
+            //if (interactTimer > 130)
             {
                 interacting = false;
                 interactTimer = 0;
                 anim.SetBool("interacting", false);
             }
             else
+            return;
+        }
+
+        if (crouching || anim.GetCurrentAnimatorStateInfo(0).IsName("Crouch Up") || anim.GetCurrentAnimatorStateInfo(0).IsName("Crouch Idle"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //turnRight = !turnRight;
+                crouching = !crouching;
+                anim.SetBool("crouching", crouching);
+
+            }
             return;
         }
 
@@ -120,7 +143,7 @@ public class PlayerController : MonoBehaviour
         camForward = Vector3.Scale(cam.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 movement = vertical * camForward + horizontal * cam.right;
 
-
+        movement = Vector3.ClampMagnitude(movement, 1);
 
         if (movement != Vector3.zero)
         {
@@ -135,14 +158,18 @@ public class PlayerController : MonoBehaviour
 
         idleCounter++;
         anim.SetInteger("idleCounter", idleCounter);
-        if (idleCounter >= 305) idleCounter = -150;
+        if (idleCounter >= 305)
+        {
+            idleCounter = -150;
+            anim.SetBool("otherIdle", !anim.GetBool("otherIdle"));
+        }
         if (!(Mathf.Abs(vertical) + Mathf.Abs(horizontal) == 0) || GameManager.instance.talking) idleCounter = 0;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             //turnRight = !turnRight;
             crouching = !crouching;
-            
+
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -189,6 +216,13 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.currSecondScene = FOREST;
             SceneManager.LoadSceneAsync("AITest", LoadSceneMode.Additive);
         }
+
+        /*INV WALL*/
+        if (c.gameObject.tag == "TurnAroundWall")
+        {
+            print("TURN AROUND");
+            turnAround = true;
+        }
     }
 
     void OnTriggerStay(Collider c)
@@ -225,35 +259,72 @@ public class PlayerController : MonoBehaviour
 
             if (c.gameObject.tag == "Mossa")
             {
-                pickUp(0, MOSSA, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(MOSSA, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
+                }
             }
             if (c.gameObject.tag == "Vatten")
             {
-                pickUp(1, VATTEN, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(VATTEN, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
+                }
             }
             if (c.gameObject.tag == "Bark")
             {
-                pickUp(2, BARK, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(BARK, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
+                }
             }
             if (c.gameObject.tag == "Ort")
             {
-                pickUp(3, ORT, c.transform.gameObject);
+                if (c.GetComponent<Interactable>().CheckInteractable())
+                {
+                    pickUp(ORT, c.transform.gameObject);
+                    c.GetComponent<Interactable>().Interact();
+                }
             }
             if (c.gameObject.tag == "Svamp")
             {
-                if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                if (c.GetComponent<Interactable>().CheckInteractable())
                 {
-                    itemToAdd = GameManager.instance.itemID2 + 1;
-                    slotToAddTo = 1;
-                    //GameManager.instance.changeItem(1, GameManager.instance.itemID2 + 1, false);
+                    if (GameManager.instance.itemID1 >= INGET && GameManager.instance.itemID1 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID1;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
+                    }
+                    else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID2;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
+                    }
+                    else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID3;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
+                    }
+                    else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
+                    {
+                        int temp = GameManager.instance.itemID4;
+                        removeMushroom = true;
+                        pickUp(temp + 1, c.transform.gameObject);
+                        c.GetComponent<Interactable>().Interact();
+                    }
+                    else return;
                 }
-                itemToDestroy = c.transform.gameObject;
-                //Destroy(c.transform.gameObject);
-                interacting = true;
-                anim.SetBool("interacting", true);
             }
-
-
+            
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
@@ -264,53 +335,56 @@ public class PlayerController : MonoBehaviour
 
                 if (!c.transform.parent.GetComponent<Dialogue>().walkAndTalk)
                 {
-                    transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
+                    Vector3 tempAngles = transform.eulerAngles;
+                    transform.LookAt(c.transform);
+                    transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+
+                    tempAngles = c.transform.eulerAngles;
+                    c.transform.LookAt(transform);
+                    c.transform.eulerAngles = new Vector3(tempAngles.x, c.transform.eulerAngles.y, c.transform.eulerAngles.z);
+
+                    Debug.Log("turned");
+                    //transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 }
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
 
                 if (c.transform.parent.gameObject.tag == "Hania")
                 {
                     Debug.Log("talk han");
-                    if (GameManager.instance.itemID1 == MOSSA)
-                    {
-                        GameManager.instance.changeItem(0, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
-                    if (GameManager.instance.itemID2 == VATTEN)
-                    {
-                        GameManager.instance.changeItem(1, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
-                    if (GameManager.instance.itemID3 == BARK)
-                    {
-                        GameManager.instance.changeItem(2, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
-                    if (GameManager.instance.itemID4 == ORT)
-                    {
-                        GameManager.instance.changeItem(3, INGET, false);
-                        GameManager.instance.givingItem = true;
-                        interacting = true;
-                        anim.SetBool("interacting", true);
-                    }
+                    if (currentlyHolding(MOSSA)) removeFromInv(MOSSA);
+                    if (currentlyHolding(VATTEN)) removeFromInv(VATTEN);
+                    if (currentlyHolding(BARK)) removeFromInv(BARK);
+                    if (currentlyHolding(ORT)) removeFromInv(ORT);
                 }
             }
         }
     }
 
-    void pickUp(int slot, int itemID, GameObject item)
+    void pickUp(int itemID, GameObject item)
     {
-        slotToAddTo = slot;
         itemToAdd = itemID;
         itemToDestroy = item;
         interacting = true;
         anim.SetBool("interacting", true);
+    }
+
+    void removeFromInv(int itemID)
+    {
+        GameManager.instance.changeItem(itemID, false, true);
+        if (!removeMushroom)
+        {
+            GameManager.instance.givingItem = true;
+            interacting = true;
+            anim.SetBool("interacting", true);
+        }
+    }
+
+    bool currentlyHolding(int itemID)
+    {
+        return (GameManager.instance.itemID1 == itemID ||
+            GameManager.instance.itemID2 == itemID ||
+            GameManager.instance.itemID3 == itemID ||
+            GameManager.instance.itemID4 == itemID);
     }
 
     void OnCollisionEnter(Collision c)

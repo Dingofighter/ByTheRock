@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 86769276ab70dbd4cb2179df9d89d3d2
-timeCreated: 1494424322
+guid: ef2f7ce01e5c31f4f940bd20bbb5da43
+timeCreated: 1495039716
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -355,17 +355,25 @@ ModelImporter:
     100694: ougrah_rigg:root_jnt
     100696: ougrah_rigg:slider_ctrl
     100698: ougrah_rigg:slider_ctrl 1
-    100700: ougrah_rigg:spine_curve
-    100702: ougrah_rigg:spine_ikHandle
-    100704: ougrah_rigg:torso_ctrl
-    100706: ougrah_rigg:torso_ctrl_grp
-    100708: ougrah_rigg:transform1
-    100710: ougrah_rigg:transform2
-    100712: ougrah_rigg:transform3
-    100714: ougrah_rigg:transform4
-    100716: ougrah_rigg:transform5
-    100718: ougrah_rigg:transform6
-    100720: ougrah_rigg:transform7
+    100700: ougrah_rigg:Spear1:SparShaft
+    100702: ougrah_rigg:Spear1:SpearBinding
+    100704: ougrah_rigg:Spear1:SpearGuard
+    100706: ougrah_rigg:Spear1:SpearTip
+    100708: ougrah_rigg:Spear2
+    100710: ougrah_rigg:spear_ctrl
+    100712: ougrah_rigg:spear_ctrl_grp
+    100714: ougrah_rigg:spear_jnt
+    100716: ougrah_rigg:spine_curve
+    100718: ougrah_rigg:spine_ikHandle
+    100720: ougrah_rigg:torso_ctrl
+    100722: ougrah_rigg:torso_ctrl_grp
+    100724: ougrah_rigg:transform1
+    100726: ougrah_rigg:transform2
+    100728: ougrah_rigg:transform3
+    100730: ougrah_rigg:transform4
+    100732: ougrah_rigg:transform5
+    100734: ougrah_rigg:transform6
+    100736: ougrah_rigg:transform7
     400000: //RootNode
     400002: ougrah_rigg:baseCurve2
     400004: ougrah_rigg:breath_ctrl
@@ -716,17 +724,25 @@ ModelImporter:
     400694: ougrah_rigg:root_jnt
     400696: ougrah_rigg:slider_ctrl
     400698: ougrah_rigg:slider_ctrl 1
-    400700: ougrah_rigg:spine_curve
-    400702: ougrah_rigg:spine_ikHandle
-    400704: ougrah_rigg:torso_ctrl
-    400706: ougrah_rigg:torso_ctrl_grp
-    400708: ougrah_rigg:transform1
-    400710: ougrah_rigg:transform2
-    400712: ougrah_rigg:transform3
-    400714: ougrah_rigg:transform4
-    400716: ougrah_rigg:transform5
-    400718: ougrah_rigg:transform6
-    400720: ougrah_rigg:transform7
+    400700: ougrah_rigg:Spear1:SparShaft
+    400702: ougrah_rigg:Spear1:SpearBinding
+    400704: ougrah_rigg:Spear1:SpearGuard
+    400706: ougrah_rigg:Spear1:SpearTip
+    400708: ougrah_rigg:Spear2
+    400710: ougrah_rigg:spear_ctrl
+    400712: ougrah_rigg:spear_ctrl_grp
+    400714: ougrah_rigg:spear_jnt
+    400716: ougrah_rigg:spine_curve
+    400718: ougrah_rigg:spine_ikHandle
+    400720: ougrah_rigg:torso_ctrl
+    400722: ougrah_rigg:torso_ctrl_grp
+    400724: ougrah_rigg:transform1
+    400726: ougrah_rigg:transform2
+    400728: ougrah_rigg:transform3
+    400730: ougrah_rigg:transform4
+    400732: ougrah_rigg:transform5
+    400734: ougrah_rigg:transform6
+    400736: ougrah_rigg:transform7
     4300000: ougrah_rigg:Ougrah
     4300002: ougrah_rigg:Ougrah_Hair
     4300004: ougrah_rigg:Ougrah_Hair_Band
@@ -756,6 +772,10 @@ ModelImporter:
     4300052: ougrah_rigg:Ougroaha_HairSide_R
     4300054: ougrah_rigg:Ougroaha_HairSide_L
     4300056: ougrah_rigg:Ougroaha_Mouth
+    4300058: ougrah_rigg:Spear1:SparShaft
+    4300060: ougrah_rigg:Spear1:SpearTip
+    4300062: ougrah_rigg:Spear1:SpearBinding
+    4300064: ougrah_rigg:Spear1:SpearGuard
     7400000: OuIdle
     9500000: //RootNode
     13700000: ougrah_rigg:left_Ougrah_Eyeball
@@ -787,6 +807,10 @@ ModelImporter:
     13700052: ougrah_rigg:right_Ougrah_Eyeball
     13700054: ougrah_rigg:right_Ougrah_FootClaws
     13700056: ougrah_rigg:right_Ougrah_HandClaws
+    13700058: ougrah_rigg:Spear1:SparShaft
+    13700060: ougrah_rigg:Spear1:SpearBinding
+    13700062: ougrah_rigg:Spear1:SpearGuard
+    13700064: ougrah_rigg:Spear1:SpearTip
   materials:
     importMaterials: 1
     materialName: 0
@@ -1405,6 +1429,8 @@ ModelImporter:
         weight: 0
       - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:c_hip_jnt/ougrah_rigg:c_spine_01_jnt/ougrah_rigg:c_spine_02_jnt/ougrah_rigg:c_spine_03_jnt/ougrah_rigg:c_spine_04_jnt/ougrah_rigg:c_spine_05_jnt/ougrah_rigg:right_clavicle_jnt/ougrah_rigg:right_shoulder_org_jnt/ougrah_rigg:right_elbow_org_jnt/ougrah_rigg:right_underArm_org_jnt/ougrah_rigg:right_wrist_org_jnt/ougrah_rigg:right_hand_jnt/ougrah_rigg:right_thumbFinger_ctrl_grp/ougrah_rigg:right_thumbFinger_ctrl
         weight: 0
+      - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:c_hip_jnt/ougrah_rigg:c_spine_01_jnt/ougrah_rigg:c_spine_02_jnt/ougrah_rigg:c_spine_03_jnt/ougrah_rigg:spear_jnt
+        weight: 0
       - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:c_hip_jnt/ougrah_rigg:left_leg_jnt
         weight: 1
       - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:c_hip_jnt/ougrah_rigg:left_leg_jnt/ougrah_rigg:left_knee_jnt
@@ -1507,6 +1533,10 @@ ModelImporter:
         weight: 0
       - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:torso_ctrl_grp/ougrah_rigg:torso_ctrl/ougrah_rigg:cluster_07_grp/ougrah_rigg:cluster_07
         weight: 0
+      - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:torso_ctrl_grp/ougrah_rigg:torso_ctrl/ougrah_rigg:spear_ctrl_grp
+        weight: 0
+      - path: ougrah_rigg:master_ctrl_grp/ougrah_rigg:master_ctrl/ougrah_rigg:root_ctrl_grp/ougrah_rigg:root_ctrl/ougrah_rigg:root_jnt/ougrah_rigg:hip_ctrl_Grp/ougrah_rigg:hip_ctrl/ougrah_rigg:torso_ctrl_grp/ougrah_rigg:torso_ctrl/ougrah_rigg:spear_ctrl_grp/ougrah_rigg:spear_ctrl
+        weight: 0
       - path: ougrah_rigg:mesh
         weight: 0
       - path: ougrah_rigg:mesh/ougrah_rigg:left_Ougrah_Eyeball
@@ -1566,6 +1596,16 @@ ModelImporter:
       - path: ougrah_rigg:mesh/ougrah_rigg:right_Ougrah_FootClaws
         weight: 0
       - path: ougrah_rigg:mesh/ougrah_rigg:right_Ougrah_HandClaws
+        weight: 0
+      - path: ougrah_rigg:mesh/ougrah_rigg:Spear2
+        weight: 0
+      - path: ougrah_rigg:mesh/ougrah_rigg:Spear2/ougrah_rigg:Spear1:SparShaft
+        weight: 0
+      - path: ougrah_rigg:mesh/ougrah_rigg:Spear2/ougrah_rigg:Spear1:SpearBinding
+        weight: 0
+      - path: ougrah_rigg:mesh/ougrah_rigg:Spear2/ougrah_rigg:Spear1:SpearGuard
+        weight: 0
+      - path: ougrah_rigg:mesh/ougrah_rigg:Spear2/ougrah_rigg:Spear1:SpearTip
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
@@ -2045,8 +2085,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:spine_ikHandle
-      position: {x: -0.037149988, y: 1.2440455, z: -0.057165537}
-      rotation: {x: -0.025135282, y: -0.017891351, z: -0.707525, w: 0.7060145}
+      position: {x: -0.037149988, y: 1.2432612, z: -0.057165504}
+      rotation: {x: -0.02512257, y: -0.017880507, z: -0.7075255, w: 0.70601475}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:master_ctrl_grp
@@ -2070,7 +2110,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_arm_ikHandle
-      position: {x: -0.000058488662, y: 0.00013973932, z: -0.00092385826}
+      position: {x: -0.0000584831, y: 0.0001398217, z: -0.0009238462}
       rotation: {x: 0.056208804, y: 0.05908123, z: -0.72789854, w: 0.6808184}
       scale: {x: 0.08739105, y: 0.08739105, z: 0.08739105}
       transformModified: 1
@@ -2155,12 +2195,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_ball_ikHandle
-      position: {x: -0, y: 0, z: -2.9802322e-10}
-      rotation: {x: -0.33612385, y: 0.3539207, z: 0.6010383, w: 0.6328617}
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -0.3361239, y: 0.35392073, z: 0.6010383, w: 0.63286173}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_leg_iKhandle
-      position: {x: 0.00015915095, y: 0.0030833483, z: -0.0050247144}
+      position: {x: 0.00015915095, y: 0.0030833476, z: -0.0050247144}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
@@ -2170,8 +2210,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_toe_ikHandle
-      position: {x: -0.000053050517, y: -0.0010277828, z: 0.00468212}
-      rotation: {x: -0.4315203, y: 0.45436814, z: 0.53667164, w: 0.565087}
+      position: {x: -0.000053050517, y: -0.0010277826, z: 0.0046821204}
+      rotation: {x: -0.43152034, y: 0.45436814, z: 0.53667164, w: 0.565087}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_knee_ctrl_grp
@@ -2195,7 +2235,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:ikHandle1
-      position: {x: -0.00035907226, y: -0.0030197974, z: -0.00048059638}
+      position: {x: -0.00006141413, y: -0.0002773733, z: -0.00002945217}
       rotation: {x: 0.82207674, y: 0.5679925, z: 0.025703963, w: -0.03022691}
       scale: {x: 1.876216, y: 1.876216, z: -1.876216}
       transformModified: 1
@@ -2280,12 +2320,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_ball_ikHandle
-      position: {x: -5.9604643e-10, y: 0.000000011771917, z: -0.000000019073486}
+      position: {x: 0, y: 0, z: 0}
       rotation: {x: 0.632861, y: -0.60103893, z: 0.35392183, w: 0.33612266}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_leg_ikHandle
-      position: {x: -0.00015913486, y: 0.0030833944, z: -0.005024709}
+      position: {x: -0.0001591307, y: 0.0030833513, z: -0.0050247097}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
@@ -2295,7 +2335,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_toe_ikHandle
-      position: {x: 0.000053045747, y: -0.0010277983, z: 0.0046820943}
+      position: {x: 0.000053032636, y: -0.001027781, z: 0.0046821195}
       rotation: {x: 0.6484395, y: -0.6259693, z: 0.32036096, w: 0.2916461}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
@@ -2412,6 +2452,16 @@ ModelImporter:
     - name: ougrah_rigg:cluster_07
       position: {x: -0.000038921105, y: 0.058439586, z: -0.002445558}
       rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:spear_ctrl_grp
+      position: {x: 0.000038921105, y: -0.058439586, z: 0.002445558}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:spear_ctrl
+      position: {x: -3.8115176e-18, y: 0.0558, z: -0.008}
+      rotation: {x: -0.6523485, y: 0.22753459, z: -0.21567018, w: 0.6900404}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:c_hip_jnt
@@ -2681,17 +2731,17 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:left_shoulder_ik_jnt
       position: {x: -0.0051993118, y: -2.6645352e-17, z: -2.220446e-18}
-      rotation: {x: 0.004326129, y: 0.21606703, z: -0.009801439, w: 0.9763198}
+      rotation: {x: 0.004326281, y: 0.21606703, z: -0.009801188, w: 0.9763198}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_elbow_ik_jnt
       position: {x: -0.014324627, y: -1.7763568e-17, z: -2.7755575e-19}
-      rotation: {x: -0.000011225571, y: 0.37580347, z: 0.000008329433, w: 0.9266994}
+      rotation: {x: -0.0000108285685, y: 0.37580347, z: 0.000007469949, w: 0.9266994}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_wrist_ik_jnt
       position: {x: -0.010520207, y: 8.881784e-18, z: -1.3322676e-17}
-      rotation: {x: 0.0031017025, y: -0.29178023, z: -0.0149032865, w: 0.9563643}
+      rotation: {x: 0.0031012748, y: -0.29178023, z: -0.0149027575, w: 0.9563643}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_shoulder_org_jnt
@@ -2926,7 +2976,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:jaw_ctrl
       position: {x: -0.0033257764, y: -0.15919559, z: 0}
-      rotation: {x: 0.3415377, y: 0.00425095, z: 0.011697046, w: 0.9397857}
+      rotation: {x: 0.39874908, y: -0, z: -0, w: 0.9170601}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_ear_ctrl_grp
@@ -2936,7 +2986,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:left_ear_ctrl
       position: {x: -0, y: 1.110223e-18, z: 3.5527136e-17}
-      rotation: {x: 4.9303807e-32, y: -0, z: -7.70372e-33, w: 1}
+      rotation: {x: 4.9303807e-32, y: -0, z: -7.7037205e-33, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_ear_tip_ctrl_grp
@@ -2946,7 +2996,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:left_ear_tip_ctrl
       position: {x: 7.105427e-17, y: -1.7763568e-17, z: 0}
-      rotation: {x: 8.326673e-17, y: -1.110223e-16, z: 2.4980018e-16, w: 1}
+      rotation: {x: 8.326673e-17, y: -1.110223e-16, z: 2.4980015e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_eye_brow_ctrl_grp
@@ -3036,7 +3086,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:right_ear_ctrl
       position: {x: -0, y: -1.110223e-18, z: 0}
-      rotation: {x: -1.8588116e-16, y: 1.6653345e-16, z: -1.03556614e-16, w: 1}
+      rotation: {x: -1.8588114e-16, y: 1.6653345e-16, z: -1.03556614e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_ear_tip_ctrl_grp
@@ -3046,7 +3096,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:right_ear_tip_ctrl
       position: {x: 1.4210854e-16, y: -4.440892e-18, z: 0}
-      rotation: {x: -1.6653345e-16, y: -5.551115e-17, z: -1.3877788e-16, w: 1}
+      rotation: {x: -1.6653345e-16, y: -5.551115e-17, z: -1.3877789e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_eye_brow_ctrl_grp
@@ -3091,8 +3141,8 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:c_jaw_jnt
       position: {x: -0.00089086115, y: 1.2039162e-18, z: 0.001214809}
-      rotation: {x: -0.4988285, y: -0.000000037252896, z: 0.8667007, w: -0.000000029802315}
-      scale: {x: 1.0000006, y: 1.0000008, z: 1}
+      rotation: {x: -0.49882853, y: -0.000000018626448, z: 0.86670077, w: -0.00000011920926}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
       transformModified: 1
     - name: ougrah_rigg:c_jaw_tip_jnt
       position: {x: -0.004835266, y: -4.5605283e-17, z: 5.3290704e-17}
@@ -3217,7 +3267,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:c_hair_03_ctrl
       position: {x: 6.938894e-20, y: 0, z: 1.7763568e-17}
-      rotation: {x: 2.7755576e-17, y: -0, z: -0, w: 1}
+      rotation: {x: -0.07845911, y: 0, z: -0, w: 0.99691737}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:c_hair_04_ctrl_grp
@@ -3227,7 +3277,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:c_hair_04_ctrl
       position: {x: 6.938894e-20, y: 3.5527136e-17, z: 0}
-      rotation: {x: 2.7755576e-17, y: -0, z: -0, w: 1}
+      rotation: {x: -0.12186934, y: 0, z: -0, w: 0.99254614}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:c_hair_05_ctrl_grp
@@ -3297,7 +3347,7 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:right_hairBraid_03_ctrl
       position: {x: -0, y: 0, z: 3.5527136e-17}
-      rotation: {x: 2.7755576e-17, y: 2.7755576e-16, z: -2.5673907e-16, w: 1}
+      rotation: {x: 2.7755576e-17, y: 2.7755578e-16, z: -2.5673907e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:transform1
@@ -3316,45 +3366,45 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:c_hair_01_jnt
-      position: {x: -5.39005e-10, y: 1.4157999, z: -0.13646601}
-      rotation: {x: 0.21400657, y: -0.20146915, z: 0.6959525, w: 0.65518063}
-      scale: {x: 0.99999917, y: 0.99999934, z: 0.9999999}
+      position: {x: -1.6409609e-16, y: 1.4158003, z: -0.13646598}
+      rotation: {x: 0.2140066, y: -0.20146917, z: 0.6959525, w: 0.65518063}
+      scale: {x: 0.99999976, y: 0.9999996, z: 0.9999999}
       transformModified: 1
     - name: ougrah_rigg:c_hair_02_jnt
       position: {x: -0.051401906, y: 3.5527136e-17, z: -1.4210854e-16}
-      rotation: {x: -0.014529541, y: 0.093861416, z: -0.026432125, w: 0.9951283}
-      scale: {x: 1.0000011, y: 1.0000008, z: 1}
+      rotation: {x: -0.014529556, y: 0.093861505, z: -0.026432125, w: 0.9951283}
+      scale: {x: 1.0000001, y: 1.0000007, z: 0.9999999}
       transformModified: 1
     - name: ougrah_rigg:c_hair_03_jnt
       position: {x: -0.048670057, y: -1.3322676e-17, z: 1.4210854e-16}
-      rotation: {x: 0, y: 0.017310275, z: 0, w: 0.99985015}
-      scale: {x: 1.0000001, y: 1, z: 1}
+      rotation: {x: 0.000000007450581, y: 0.01731021, z: 0.000000059604645, w: 0.9998502}
+      scale: {x: 0.9999997, y: 0.9999994, z: 1}
       transformModified: 1
     - name: ougrah_rigg:c_hair_04_jnt
       position: {x: -0.05882648, y: 5.551115e-19, z: -1.4210854e-16}
-      rotation: {x: -0.000000007450581, y: -0.00044944137, z: -0.000000029802322,
-        w: 0.99999994}
-      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+      rotation: {x: -0.000000014901159, y: -0.00044938916, z: -0.000000029802319,
+        w: 0.9999999}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000002}
       transformModified: 1
     - name: ougrah_rigg:c_hair_05_jnt
       position: {x: -0.045439024, y: 5.551115e-19, z: -2.4158453e-15}
-      rotation: {x: 0.0000000037252903, y: 0.06100254, z: 0.000000029802322, w: 0.99813765}
-      scale: {x: 0.99999964, y: 0.9999993, z: 0.99999964}
+      rotation: {x: 0, y: 0.061002567, z: 0, w: 0.9981376}
+      scale: {x: 1.0000006, y: 1.0000005, z: 0.9999998}
       transformModified: 1
     - name: ougrah_rigg:c_hair_06_jnt
       position: {x: -0.056271806, y: -3.8857806e-18, z: 1.4210854e-16}
-      rotation: {x: 0, y: 0.030706462, z: 0.000000029802319, w: 0.9995284}
-      scale: {x: 1.0000002, y: 1, z: 0.9999998}
+      rotation: {x: 0.0000000037252903, y: 0.030706402, z: 0.000000030733645, w: 0.9995285}
+      scale: {x: 0.9999999, y: 0.9999993, z: 1.0000002}
       transformModified: 1
     - name: ougrah_rigg:c_hair_07_jnt
       position: {x: -0.03844656, y: -1.6653345e-18, z: 7.105427e-17}
-      rotation: {x: -0.0000000037252903, y: -0.020701557, z: -0.000000029802322, w: 0.9997858}
-      scale: {x: 0.99999994, y: 1.0000004, z: 1.0000004}
+      rotation: {x: 0, y: -0.020701516, z: -0.000000030267984, w: 0.9997858}
+      scale: {x: 0.9999995, y: 0.99999976, z: 1}
       transformModified: 1
     - name: ougrah_rigg:c_hair_null_jnt
       position: {x: -0.032057475, y: -3.8857806e-18, z: -2.1316282e-16}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1.0000005, y: 1, z: 1.0000004}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:left_braid_01_jnt
       position: {x: 0.0028175625, y: -0.0030276363, z: 0.0013464066}
@@ -3468,17 +3518,17 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:right_shoulder_ik_jnt
       position: {x: 0.005199309, y: -0.0000000015715746, z: -0.0000000020930293}
-      rotation: {x: 0.0032588593, y: 0.38730156, z: -0.03174231, w: 0.9214007}
+      rotation: {x: 0.0032588644, y: 0.3873, z: -0.031742174, w: 0.9214014}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_elbow_ik_jnt
       position: {x: 0.014324657, y: 0.00000006344331, z: 0.000000003193979}
-      rotation: {x: -0.000006946215, y: 0.000060259223, z: 0.0000040001883, w: 1}
+      rotation: {x: -0.0000069291937, y: 0.00006422275, z: 0.0000036418585, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_wrist_ik_jnt
       position: {x: 0.010444111, y: -6.9007666e-10, z: -9.988267e-10}
-      rotation: {x: -0.0017107542, y: -0.08101746, z: 0.0049635908, w: 0.99669886}
+      rotation: {x: -0.0017107659, y: -0.08101974, z: 0.0049637943, w: 0.9966987}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: ougrah_rigg:right_shoulder_org_jnt
@@ -3654,6 +3704,11 @@ ModelImporter:
       rotation: {x: -0.000000005820764, y: -0.000000059604623, z: -0.000000026077023,
         w: 1}
       scale: {x: 0.99999964, y: 0.9999996, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:spear_jnt
+      position: {x: -0.007768631, y: 0.00023328055, z: -0.0056634983}
+      rotation: {x: 0.014321154, y: 0.014321054, z: 0.70696175, w: 0.7069618}
+      scale: {x: 1.0000001, y: 0.9999994, z: 0.9999999}
       transformModified: 1
     - name: ougrah_rigg:left_leg_jnt
       position: {x: -0.00046741124, y: -0.004758469, z: -0.00096725737}
@@ -3854,6 +3909,31 @@ ModelImporter:
       transformModified: 1
     - name: ougrah_rigg:right_Ougrah_HandClaws
       position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:Spear2
+      position: {x: -0, y: 0, z: -0.04016779}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:Spear1:SparShaft
+      position: {x: -0, y: 0, z: 0.04016779}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:Spear1:SpearBinding
+      position: {x: -0, y: 0, z: 0.04016779}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:Spear1:SpearGuard
+      position: {x: -0, y: 0, z: 0.04016779}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: ougrah_rigg:Spear1:SpearTip
+      position: {x: -0, y: 0, z: 0.04016779}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
