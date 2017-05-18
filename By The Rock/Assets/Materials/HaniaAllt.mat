@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 864054e717ad8554fa0b34f9542735db, type: 3}
+          m_Texture: {fileID: 2800000, guid: b2b88537ca4716b4383f847f222042ed, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 00bf380989a1ac545bf35c0b5182ea27, type: 3}
+          m_Texture: {fileID: 2800000, guid: 78dfb20d91c00b4439fb838b05809eca, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -75,7 +75,7 @@ Material:
         first:
           name: _MetallicGlossMap
         second:
-          m_Texture: {fileID: 2800000, guid: 94866e35230e7a144925319e06666951, type: 3}
+          m_Texture: {fileID: 2800000, guid: a9b8f1f7de148f14a8699e8a4ba74260, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -91,10 +91,6 @@ Material:
         first:
           name: _Cutoff
         second: 0.5
-      data:
-        first:
-          name: _Parallax
-        second: 0.02
       data:
         first:
           name: _WindPower
@@ -131,6 +127,10 @@ Material:
         first:
           name: _PlantHeight
         second: 1
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
       data:
         first:
           name: _ZWrite
