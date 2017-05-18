@@ -11,6 +11,7 @@ public class orcMovement : MonoBehaviour {
     Vector3 playerPosition;
     bool walking;
     Transform player;
+    Animator anim;
 
     NavMeshAgent agent;
     Vector3 targetPosition;
@@ -20,8 +21,8 @@ public class orcMovement : MonoBehaviour {
     float currDist;
     bool shouldThrow;
 
-    public Transform spearPre;
-    Transform spear;
+    //public Transform spearPre;
+    //Transform spear;
     int spearTimer;
     Transform enemy;
 
@@ -36,6 +37,9 @@ public class orcMovement : MonoBehaviour {
     public float acceleration;
     public int state;
 
+    int idleCounter;
+    int talkTimer;
+
     readonly int FOLLOW = 0;
     readonly int TARGET = 1;
     readonly int WAIT = 2;
@@ -45,11 +49,11 @@ public class orcMovement : MonoBehaviour {
     void Start()
     {
 
-        counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
+        counterIdleMax = Mathf.RoundToInt(Random.Range(250, 400));
         spawnPosition = transform.position;
 
-        rend = GetComponent<Renderer>();
-        rend.material.color = color;
+        //rend = GetComponent<Renderer>();
+        //rend.material.color = color;
 
         agent = GetComponent<NavMeshAgent>();
         agent.speed = walkSpeed;
@@ -64,16 +68,18 @@ public class orcMovement : MonoBehaviour {
             agent.SetDestination(targetPosition);
         }
 
+        anim = GetComponent<Animator>();
+
         //shouldThrow = true;
     }
 
     void checkForPlayer()
     {
-        if (Vector3.Distance(player.position, transform.position) > 7)
+        if (Vector3.Distance(player.position, transform.position) > 200)
         {
             maxMoveCounter = 0;
             //Debug.Log("you're LEAVING MEEEE!! REEEEEEEEEEEEEEEEEEEEEEEEEEE");
-            rend.material.color = colorRun;
+            //rend.material.color = colorRun;
             run = true;
 
             playerPosition = player.position;
@@ -98,21 +104,46 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
+        idleCounter++;
+        if (idleCounter >= 155) idleCounter = 0;
+        anim.SetInteger("idleCounter", idleCounter);
+
+        anim.SetFloat("Speed", (Mathf.Abs(agent.velocity.z) + Mathf.Abs(agent.velocity.x) + Mathf.Abs(agent.velocity.y))/10);
+
+        if (Vector3.Distance(player.transform.position, transform.position) < 3 && GameManager.instance.talking)
+        {
+            anim.SetBool("talking", true);
+            talkTimer++;
+            if (talkTimer >= 100)
+            {
+                talkTimer = 0;
+                anim.SetBool("talkHands", !anim.GetBool("talkHands"));
+            }
+            return;
+        }
+        else anim.SetBool("talking", false);
+
+        if (Vector3.Distance(player.position, transform.position) < 1)
+        {
+            agent.SetDestination(transform.position);
+            return;
+        }
+        
         if (state == FOLLOW)
         {
             if (!run)
             {
                 counter++;
-                if (((agent.velocity == Vector3.zero || maxMoveCounter >= 200) && walking) || (!walking && counter > counterIdleMax))
+                if (((agent.velocity == Vector3.zero || maxMoveCounter >= 400) && walking) || (!walking && counter > counterIdleMax))
                 {
                     walking = !walking;
-                    counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
+                    counterIdleMax = Mathf.RoundToInt(Random.Range(250, 400));
                     counter = 0;
                     if (walking)
                     {
                         if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
                         {
-                            rend.material.color = colorEdge;
+                            //rend.material.color = colorEdge;
                             transform.Rotate(new Vector3(0, 1, 0) * 180);
                             targetPosition = lastPosition;
                             agent.SetDestination(lastPosition);
@@ -123,12 +154,12 @@ public class orcMovement : MonoBehaviour {
                             currAngle = Random.Range(0, 360);
                             currDist = Random.Range(minDist, maxDist);
 
-                            rend.material.color = color;
+                            //rend.material.color = color;
 
                             transform.Rotate(new Vector3(0, 1, 0) * currAngle);
 
-                            agent.SetDestination(new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist));
-                            targetPosition = new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y, transform.position.z + transform.forward.z * currDist);
+                            agent.SetDestination(new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y - 100, transform.position.z + transform.forward.z * currDist));
+                            targetPosition = new Vector3(transform.position.x + transform.forward.x * currDist, transform.position.y - 100, transform.position.z + transform.forward.z * currDist);
                         }
                     }
                     else
@@ -136,9 +167,9 @@ public class orcMovement : MonoBehaviour {
                         maxMoveCounter = 0;
                         if (Vector3.Distance(spawnPosition, transform.position) > outOfBoundsDist)
                         {
-                            rend.material.color = colorEdge;
+                            //rend.material.color = colorEdge;
                         }
-                        else rend.material.color = color;
+                        else { } //rend.material.color = color;
                     }
 
                 }

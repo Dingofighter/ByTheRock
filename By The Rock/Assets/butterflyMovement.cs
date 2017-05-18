@@ -50,11 +50,28 @@ public class butterflyMovement : MonoBehaviour {
 
 	}
 
-    void OnCollisionEnter(Collision c)
+    public bool getMoving()
+    {
+        return moving;
+    }
+
+    public void collide(Collision c)
     {
         if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
         {
-            Debug.Log("Collision detected!!!!");
+            Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
+        }
+        else
+        {
+            moving = false;
+        }
+    }
+
+    void OnCollisionEnter(Collision c)
+    {
+       
+        if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
+        {
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
         else

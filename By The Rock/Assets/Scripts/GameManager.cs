@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour {
     RectTransform rt;
     public bool paused;
     public bool talking;
+    public bool givingItem;
     public bool shoulderView;
     public int currScene;
     public int currSecondScene;
     public bool secondSceneLoaded;
     public bool crouching;
     public bool showingInventory;
-
+    public bool autoCloseInv;
+    
     public int itemID1 = -1;
     public int itemID2 = -1;
     public int itemID3 = -1;
@@ -31,6 +33,14 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        if (itemID1 == 0 && itemID2 == 0 && itemID3 == 0 && itemID4 == 0)
+        {
+            itemID1 = -1;
+            itemID2 = -1;
+            itemID3 = -1;
+            itemID4 = -1;
+        }
+
         //Check if instance already exists
         if (instance == null)
         {
@@ -52,7 +62,13 @@ public class GameManager : MonoBehaviour {
         Game.current = new Game();
         SaveLoad.Load();
 
-        
+        /*
+        itemID1 = Game.current.invSlot1;
+        itemID2 = Game.current.invSlot2;
+        itemID3 = Game.current.invSlot3;
+        itemID4 = Game.current.invSlot4;
+        */
+
         /*
         changeItem(1, Game.current.invSlot2);
         changeItem(2, Game.current.invSlot3);
@@ -69,15 +85,28 @@ public class GameManager : MonoBehaviour {
 
     public void Update()
     {
-        
 
         if (!started)
         {
-            invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 250, invCanvas.transform.position.y, invCanvas.transform.position.z);
-            changeItem(0, Game.current.invSlot1);
-            changeItem(1, Game.current.invSlot2);
-            changeItem(2, Game.current.invSlot3);
-            changeItem(3, Game.current.invSlot4);
+            bool remove = false;
+            invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 350, invCanvas.transform.position.y, invCanvas.transform.position.z);
+
+            if (Game.current.invSlot1 == -1) remove = true;
+            changeItem(Game.current.invSlot1, true, remove);
+            remove = false;
+            
+            if (Game.current.invSlot2 == -1) remove = true;
+            changeItem(Game.current.invSlot2, true, remove);
+            remove = false;
+            
+            if (Game.current.invSlot3 == -1) remove = true;
+            changeItem(Game.current.invSlot3, true, remove);
+            remove = false;
+
+            if (Game.current.invSlot4 == -1) remove = true;
+            changeItem(Game.current.invSlot4, true, remove);
+            remove = false;
+
             started = true;
         }
 
@@ -86,42 +115,63 @@ public class GameManager : MonoBehaviour {
             TogglePause();
         }
 
-        if (Input.GetButtonDown("Inventory") && !showingInventory)
+        if (Input.GetButtonDown("Inventory"))
         {
-            invTimer = 0;
-            showingInventory = true;
-            Debug.Log("pressed");
-            ShowInventory();
+            if (!showingInventory)
+            {
+                invTimer = 0;
+                showingInventory = true;
+                Debug.Log("pressed");
+                ShowInventory(false);
+            }
+            else
+            {
+                if (invTimer > 25 && invTimer <= 100) invTimer = 100;
+                autoCloseInv = true;
+            }
         }
 
         if (showingInventory)
         {
-            invTimer++;
+            if (autoCloseInv || invTimer < 100)
+            {
+                invTimer++;
+            }
             if (itemID1 == -1 && itemID2 == -1 && itemID3 == -1 && itemID4 == -1) invTimer = 127;
-            if (invTimer <= 25) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x + 10, invCanvas.transform.position.y, invCanvas.transform.position.z);
-            else if (invTimer > 100 && invTimer <= 125) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 10, invCanvas.transform.position.y, invCanvas.transform.position.z);
+            if (invTimer <= 25) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x + 14, invCanvas.transform.position.y, invCanvas.transform.position.z);
+            else if (invTimer > 100 && invTimer <= 125) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 14, invCanvas.transform.position.y, invCanvas.transform.position.z);
             else if (invTimer > 126)
             {
                 showingInventory = false;
                 invTimer = 0;
+                autoCloseInv = false;
                 SaveLoad.Save();
             }
         }
     }
 
-    public void changeItem(int slot, int itemID)
+    public void changeItem(int itemID, bool load, bool remove)
     {
+        if (itemID != -1 && !load) ShowInventory(true);
+
+        /*
         if (slot == 0) itemID1 = itemID;
         if (slot == 1) itemID2 = itemID;
         if (slot == 2) itemID3 = itemID;
         if (slot == 3) itemID4 = itemID;
-        Debug.Log(itemID1);
-        invCanvas.GetComponent<itemManager>().addItem(slot, itemID);
+        */
+        //Debug.Log(itemID1);
+        
+        if (!remove) invCanvas.GetComponent<itemManager>().addItem(itemID);
+        else invCanvas.GetComponent<itemManager>().removeItem(itemID);
 
+        /*
         Game.current.invSlot1 = itemID1;
         Game.current.invSlot2 = itemID2;
         Game.current.invSlot3 = itemID3;
         Game.current.invSlot4 = itemID4;
+        */
+         
         /*
         game.invSlot1 = itemID1;
         game.invSlot2 = itemID2;
@@ -129,7 +179,6 @@ public class GameManager : MonoBehaviour {
         game.invSlot4 = itemID4;
         game.updateValues();*/
     }
-
 
     public void TogglePause()
     {
@@ -151,12 +200,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void ShowInventory()
+    public void ShowInventory(bool automatic)
     {
         if (!showingInventory)
         {
+            if (automatic) autoCloseInv = true;
             showingInventory = true;
         }
+    }
+
+    public void CloseInventory()
+    {
+        if (showingInventory) autoCloseInv = true;
     }
 
     private void FmodInitialize()
