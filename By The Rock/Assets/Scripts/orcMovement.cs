@@ -75,7 +75,7 @@ public class orcMovement : MonoBehaviour {
 
     void checkForPlayer()
     {
-        if (Vector3.Distance(player.position, transform.position) > 200)
+        if (Vector3.Distance(player.position, transform.position) > 7)
         {
             maxMoveCounter = 0;
             //Debug.Log("you're LEAVING MEEEE!! REEEEEEEEEEEEEEEEEEEEEEEEEEE");

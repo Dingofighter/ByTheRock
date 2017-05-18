@@ -268,15 +268,30 @@ public class DialogueHandler : BaseEmitter {
 
     void updatePosition(int charac = 1)
     {
-            if (charac > 1.3f)
+        if (charac > 1.3f)
+        {
+            if (currentDialogue.autoTriggered)
+            {
+                if (currentDialogue.rotationTarget)
+                {
+                    _pos = currentDialogue.rotationTarget.position;
+                }
+                else
+                {
+                    _pos = _player.transform.position;
+                }
+            }
+            else
             {
                 _interact = _player.GetComponent<PlayerController>().getCollisionTransform();
                 _pos = _interact.transform.position;
             }
-            else
-            {
-                _pos = _player.transform.position;
-            }
+        }
+
+        else
+        {
+            _pos = _player.transform.position;
+        }
 
             _3dAttributes.position.x = _pos.x;// interact.transform.position.x;
             _3dAttributes.position.y = _pos.y;// interact.transform.position.y;
