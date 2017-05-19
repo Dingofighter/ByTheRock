@@ -43,6 +43,8 @@ public class orcMovement : MonoBehaviour {
     readonly int FOLLOW = 0;
     readonly int TARGET = 1;
     readonly int WAIT = 2;
+
+    public Transform runPositionTargetVeryYes;
     
 
     // Use this for initialization
@@ -127,6 +129,13 @@ public class orcMovement : MonoBehaviour {
         {
             agent.SetDestination(transform.position);
             return;
+        }
+
+        if (AllFlags.Instance.flags[1].value == true && !GameManager.instance.talking)
+        {
+            state = TARGET;
+            agent.SetDestination(runPositionTargetVeryYes.position);
+
         }
         
         if (state == FOLLOW)
