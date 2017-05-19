@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Transform cam;
     private Animator anim;
 
-    private int idleCounter;
+    private float idleCounter;
     private bool turnRight;
     private bool turnLeft;
 
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     readonly int ORT = 8;
 
     private bool interacting;
-    private int interactTimer;
+    private float interactTimer;
     private bool crouching;
     private bool turnAround;
 
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("talking", true);
             if (interacting)
             {
-                interactTimer++;
+                interactTimer += Time.deltaTime*60;
 
                 if (interactTimer > 30)
                 {
@@ -156,8 +156,9 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(vertical) + Mathf.Abs(horizontal) > 0.1 && GameManager.instance.showingInventory) GameManager.instance.CloseInventory();
         charController.Move(movement * speed * Time.deltaTime);
 
-        idleCounter++;
-        anim.SetInteger("idleCounter", idleCounter);
+        idleCounter += Time.deltaTime*60;
+        int temp = (int)idleCounter;
+        anim.SetInteger("idleCounter", temp);
         if (idleCounter >= 305)
         {
             idleCounter = -150;
