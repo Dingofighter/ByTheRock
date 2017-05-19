@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         
         dialogueHandler = FindObjectOfType<DialogueHandler>();
+
+        DontDestroyOnLoad(this);
     }
 
     void Update()

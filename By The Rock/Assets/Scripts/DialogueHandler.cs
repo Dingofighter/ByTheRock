@@ -37,6 +37,8 @@ public class DialogueHandler : BaseEmitter {
         {
             choiceButtons = new List<Button>();
         }
+
+        DontDestroyOnLoad(this);
     }
 	
 	// Update is called once per frame
@@ -191,7 +193,7 @@ public class DialogueHandler : BaseEmitter {
             for (int i = 0; i < tempNode.optionLines.Count; i++)
             {
                 // Spawn buttons with offset
-                Button choiceButton = (Button)Instantiate(choiceButtonPrefab, new Vector3((Screen.width / 2), (150 + optionsOffset.y * tempNode.optionLines.Count)) - (optionsOffset * i), Quaternion.identity);
+                Button choiceButton = (Button)Instantiate(choiceButtonPrefab, new Vector3((Screen.width / 2), (optionsPosition.y + optionsOffset.y * tempNode.optionLines.Count)) - (optionsOffset * i), Quaternion.identity);
                 choiceButton.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 12 * tempNode.optionLines[i].Length);
                 choiceButton.transform.SetParent(dialogueText.transform.parent);
                 choiceButton.GetComponentInChildren<Text>().text = tempNode.optionLines[i];
