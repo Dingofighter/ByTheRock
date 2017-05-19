@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.talking)
         {
             anim.SetFloat("Speed", 0);
-            anim.SetBool("talking", true);
+            //anim.SetBool("talking", true);
             if (interacting)
             {
                 interactTimer += Time.deltaTime*60;
@@ -88,7 +88,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        anim.SetBool("talking", false);
+        //anim.SetBool("talking", false);
+        GameManager.instance.farTalking = false;
 
         if (interacting)
         {
@@ -245,7 +246,12 @@ public class PlayerController : MonoBehaviour
                 {
                     if (c.transform.parent.GetComponent<Dialogue>().rotationTarget != null)
                     {
-                        transform.rotation = Quaternion.Euler(0, c.transform.parent.GetComponent<Dialogue>().rotationTarget.eulerAngles.y + 180, 0);
+                        Debug.Log("rotating");
+                        Vector3 tempAngles = transform.eulerAngles;
+                        transform.LookAt(c.transform.parent.GetComponent<Dialogue>().rotationTarget);
+                        transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+                        GameManager.instance.farTalking = true;
+                        //transform.rotation = Quaternion.Euler(0, c.transform.parent.GetComponent<Dialogue>().rotationTarget.eulerAngles.y + 180, 0);
                     }
                     else
                     {
@@ -326,7 +332,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
-            if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
+            if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView && !GameManager.instance.talking)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);

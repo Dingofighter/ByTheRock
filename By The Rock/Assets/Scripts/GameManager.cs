@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     RectTransform rt;
     public bool paused;
     public bool talking;
+    public bool farTalking;
     public bool givingItem;
     public bool shoulderView;
     public int currScene;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour {
     public bool crouching;
     public bool showingInventory;
     public bool autoCloseInv;
+    public bool fadeToBlack;
+    float fadeTimer;
     
     public int itemID1 = -1;
     public int itemID2 = -1;
@@ -85,6 +88,15 @@ public class GameManager : MonoBehaviour {
 
     public void Update()
     {
+
+        if (fadeToBlack)
+        {
+            fadeTimer += Time.deltaTime * 60;
+
+
+
+        }
+
 
         if (!started)
         {
