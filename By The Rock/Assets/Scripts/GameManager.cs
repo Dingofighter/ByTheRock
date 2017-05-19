@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     
     public GameObject canvas;
     public GameObject invCanvas;
+    public GameObject fadePanel;
     RectTransform rt;
     public bool paused;
     public bool talking;
@@ -20,7 +21,12 @@ public class GameManager : MonoBehaviour {
     public bool showingInventory;
     public bool autoCloseInv;
     public bool fadeToBlack;
+    public bool changeToDayTwo;
     float fadeTimer;
+
+    public Vector3 ouPosDayTwo;
+    public Vector3 haPosDayTwo;
+    public Vector3 sunRotationDayTwo;
     
     public int itemID1 = -1;
     public int itemID2 = -1;
@@ -91,10 +97,16 @@ public class GameManager : MonoBehaviour {
 
         if (fadeToBlack)
         {
-            fadeTimer += Time.deltaTime * 60;
+            fadeToBlack = false;
+            fadePanel.GetComponent<fadeManager>().startFade();
+        }
 
-
-
+        if (changeToDayTwo)
+        {
+            FindObjectOfType<PlayerController>().transform.position = ouPosDayTwo;
+            FindObjectOfType<TalkCheck>().transform.position = haPosDayTwo;
+            FindObjectOfType<lightHandler>().transform.eulerAngles = sunRotationDayTwo;
+            fadeToBlack = true;
         }
 
 

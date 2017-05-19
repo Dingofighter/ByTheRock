@@ -176,6 +176,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             turnLeft = !turnLeft;
+            Debug.Log("pressed to fade");
+            GameManager.instance.fadeToBlack = true;
         }
 
         anim.SetBool("crouching", crouching);
