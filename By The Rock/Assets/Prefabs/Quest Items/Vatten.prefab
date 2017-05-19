@@ -25,10 +25,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150162}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.515648, y: -54.5511, z: -28.294449}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.1444008, z: 0, w: 0.9895193}
+  m_LocalPosition: {x: 74.954, y: -56.547073, z: -5.884}
+  m_LocalScale: {x: 4.2260227, y: 1.5734266, z: 2.246612}
+  m_LocalEulerAnglesHint: {x: 0, y: -16.6052, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -38,7 +38,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -75,7 +75,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
+  m_Size: {x: 1.66, y: 1, z: 9.03}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11447672
 MonoBehaviour:
@@ -88,9 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bad5cb7a2bb8394c99ef2fcb5c3dc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numFlagsRequired: 0
-  boolIndex: 
-  boolValueIndex: 
+  numFlagsRequired: 1
+  boolIndex: 03000000
+  boolValueIndex: 00000000
   setFlag: 1
   setBoolIndex: 5
   setBoolValueIndex: 0
