@@ -8,7 +8,7 @@ using System;
 public class DialogueLineNode : Node {
 
     public static int width = 200;
-    public static int defaultHeight = 180;
+    public static int defaultHeight = 220;
     // Space between left side / top of box and contents of node
     public static int padding = 15;
     // Amount of height to add when adding inputs
@@ -19,6 +19,10 @@ public class DialogueLineNode : Node {
     // Variables displayed in node
     public string actorName = "Name";
     public string dialogueLine = "Line";
+    public bool unskippable = false;
+
+    public int animNR;
+    public string[] animations = { "None", "Talk", "Hands", "Give" };
 
 #if UNITY_EDITOR
     public GUIStyle defaultInPointStyle;
@@ -41,10 +45,11 @@ public class DialogueLineNode : Node {
         OnRemoveNode = OnClickRemoveNode;
     }
 
-    public void Load(string actorName, string dialogueLine, int inPoints, string bank, int day, int clip, int chara, int yes, int dia)
+    public void Load(string actorName, string dialogueLine, bool unskippable, int inPoints, string bank, int day, int clip, int chara, int yes, int dia, int animNR)
     {
         this.actorName = actorName;
         this.dialogueLine = dialogueLine;
+        this.unskippable = unskippable;
         for (int i = 0; i < inPoints - 1; i++)
         {
             AddInPoint();
@@ -69,6 +74,8 @@ public class DialogueLineNode : Node {
             this.Fmod.fmod = true;
         else
             this.Fmod.fmod = false;
+
+        this.animNR = animNR;
     }
 
     public override void Draw()
@@ -91,6 +98,8 @@ public class DialogueLineNode : Node {
         centerTextStyle.alignment = TextAnchor.MiddleCenter;
         /* Specify contents of node here */
         EditorGUILayout.TextField("ID: " + id.ToString(), centerTextStyle);
+        
+        unskippable = EditorGUILayout.Toggle("Unskippable", unskippable);
 
         EditorGUILayout.LabelField("ACTOR NAME");
         actorName = EditorGUILayout.TextField(actorName);
@@ -98,14 +107,14 @@ public class DialogueLineNode : Node {
         EditorGUILayout.LabelField("DIALOGUE LINE");
         dialogueLine = EditorGUILayout.TextArea(dialogueLine, GUILayout.Height(50), GUILayout.ExpandHeight(false));
 
+        animNR = EditorGUILayout.Popup(animNR, animations);
+
         if (GUILayout.Button("Add input"))
         {
             AddInPoint();
         }
 
         GUILayout.EndArea();
-
-        
 
         Fmod.FMODAddon(rect, "", style, currentHeight);
         DayBank = Fmod.setEvent();
