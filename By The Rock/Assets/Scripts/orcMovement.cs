@@ -3,9 +3,9 @@ using System.Collections;
 
 public class orcMovement : MonoBehaviour {
 
-    int counter;
+    float counter;
     int counterIdleMax;
-    int maxMoveCounter;
+    float maxMoveCounter;
 
     bool run;
     Vector3 playerPosition;
@@ -37,8 +37,8 @@ public class orcMovement : MonoBehaviour {
     public float acceleration;
     public int state;
 
-    int idleCounter;
-    int talkTimer;
+    float idleCounter;
+    float talkTimer;
 
     readonly int FOLLOW = 0;
     readonly int TARGET = 1;
@@ -77,7 +77,7 @@ public class orcMovement : MonoBehaviour {
 
     void checkForPlayer()
     {
-        if (Vector3.Distance(player.position, transform.position) > 200)
+        if (Vector3.Distance(player.position, transform.position) > 7)
         {
             maxMoveCounter = 0;
             //Debug.Log("you're LEAVING MEEEE!! REEEEEEEEEEEEEEEEEEEEEEEEEEE");
@@ -106,16 +106,42 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
-        idleCounter++;
+        idleCounter += Time.deltaTime*60;
         if (idleCounter >= 270) idleCounter = 0;
-        anim.SetInteger("idleCounter", idleCounter);
+        int temp = (int)idleCounter;
+        anim.SetInteger("idleCounter", temp);
 
         anim.SetFloat("Speed", (Mathf.Abs(agent.velocity.z) + Mathf.Abs(agent.velocity.x) + Mathf.Abs(agent.velocity.y))/10);
 
-        if (Vector3.Distance(player.transform.position, transform.position) < 3 && GameManager.instance.talking)
+        if (GameManager.instance.farTalking)
         {
-            anim.SetBool("talking", true);
-            talkTimer++;
+            if (Vector3.Distance(transform.position, player.position) > 5) agent.SetDestination(player.position + player.forward);
+            else
+            {
+                //anim.SetBool("talking", true);
+
+                Vector3 tempAngles = transform.eulerAngles;
+                transform.LookAt(player.transform);
+                transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+
+                talkTimer += Time.deltaTime * 60;
+                if (talkTimer >= 100)
+                {
+                    talkTimer = 0;
+                    anim.SetBool("talkHands", !anim.GetBool("talkHands"));
+                }
+                return;
+            }
+        }
+        else if (Vector3.Distance(player.transform.position, transform.position) < 3 && GameManager.instance.talking)
+        {
+            //anim.SetBool("talking", true);
+
+            Vector3 tempAngles = transform.eulerAngles;
+            transform.LookAt(player.transform);
+            transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+
+            talkTimer += Time.deltaTime * 60;
             if (talkTimer >= 100)
             {
                 talkTimer = 0;
@@ -123,7 +149,7 @@ public class orcMovement : MonoBehaviour {
             }
             return;
         }
-        else anim.SetBool("talking", false);
+        else { } //anim.SetBool("talking", false);
 
         if (Vector3.Distance(player.position, transform.position) < 1)
         {
@@ -135,14 +161,13 @@ public class orcMovement : MonoBehaviour {
         {
             state = TARGET;
             agent.SetDestination(runPositionTargetVeryYes.position);
-
         }
         
         if (state == FOLLOW)
         {
             if (!run)
             {
-                counter++;
+                counter += Time.deltaTime*60;
                 if (((agent.velocity == Vector3.zero || maxMoveCounter >= 400) && walking) || (!walking && counter > counterIdleMax))
                 {
                     walking = !walking;
@@ -226,7 +251,7 @@ public class orcMovement : MonoBehaviour {
         
         if (state == FOLLOW || state == TARGET && (walking || run))
         {
-            maxMoveCounter++;
+            maxMoveCounter += Time.deltaTime*60;
         }
 
         if (state == FOLLOW)
