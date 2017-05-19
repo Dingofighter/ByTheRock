@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.instance.paused) return;
 
-        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered && !GameManager.instance.shoulderView)
+        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered)
         {
             dialogueHandler.StartDialogue(c.GetComponentsInParent<Dialogue>());
             if (dialogueHandler.firstFrame)
