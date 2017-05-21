@@ -28,6 +28,10 @@ public class DialogueHandler : BaseEmitter {
     private bool walkietalkie = false;
     private bool voiceSetup = false;
 
+    Animator aOugrah;
+    Animator aGaregh;
+    Animator aHania;
+
     // Use this for initialization
     protected override void Start () {
         dialogueNameText.text = "";
@@ -37,6 +41,10 @@ public class DialogueHandler : BaseEmitter {
         {
             choiceButtons = new List<Button>();
         }
+
+        aOugrah = FindObjectOfType<PlayerController>().GetComponent<Animator>();
+        aGaregh = FindObjectOfType<orcMovement>().GetComponent<Animator>();
+        aHania = FindObjectOfType<TalkCheck>().GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -147,6 +155,9 @@ public class DialogueHandler : BaseEmitter {
         //Remove dialogue if last
         if (!currentDialogue.nodes.ContainsKey(currentNode.nextNodesID[option]))
         {
+            aOugrah.SetBool("talking", false);
+            aGaregh.SetBool("talking", false);
+             
             dialogueNameText.text = "";
             dialogueText.text = "";
             inDialogue = false;
@@ -163,6 +174,8 @@ public class DialogueHandler : BaseEmitter {
         //Check if currentNode is dialogueLine or playerLine
         if (currentNode is DialogueLineNode)
         {
+
+
             isChoice = false;
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
             setFmodParams(tempNode.DayBank, tempNode.Char, tempNode.Day, tempNode.Clip);
@@ -174,6 +187,23 @@ public class DialogueHandler : BaseEmitter {
             }
             dialogueNameText.text = tempNode.actorName;
             dialogueText.text = tempNode.dialogueLine;
+
+            if (tempNode.actorName == "Ougrah")
+            {
+                aOugrah.SetBool("talking", true);
+                aGaregh.SetBool("talking", false);
+                aHania.SetBool("talking", false);
+            }
+            if (tempNode.actorName == "Garegh")
+            {
+                aOugrah.SetBool("talking", false);
+                aGaregh.SetBool("talking", true);
+            }
+            if (tempNode.actorName == "Hania")
+            {
+                aOugrah.SetBool("talking", false);
+                aHania.SetBool("talking", true);
+            }
 
             if (currentDialogue.walkAndTalk)
             {
