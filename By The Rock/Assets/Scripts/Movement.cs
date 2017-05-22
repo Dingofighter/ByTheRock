@@ -33,11 +33,13 @@ public class Movement : MonoBehaviour
     public float acceleration;
 
     public int health;
+    private Animator anim;
 
     // Use this for initialization
     void Start()
     {
 
+        anim.GetComponent<Animator>();
         counterIdleMax = Mathf.RoundToInt(Random.Range(100, 250));
         spawnPosition = transform.position;
 
@@ -77,7 +79,7 @@ public class Movement : MonoBehaviour
         }
 
         if (still) return;
-        
+        Debug.Log("Not still!");
         if (!run)
         {
             counter++;

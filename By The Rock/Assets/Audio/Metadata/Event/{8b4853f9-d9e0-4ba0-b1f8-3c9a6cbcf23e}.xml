@@ -125,7 +125,7 @@
     </object>
     <object class="EventMixerGroup" id="{b83c94a4-95a7-44ba-9039-174c1fbdb3e5}">
         <property name="volume">
-            <value>3</value>
+            <value>9.5</value>
         </property>
         <property name="name">
             <value>Branch</value>
@@ -161,6 +161,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{95bb6722-85c5-480a-94df-9a6c1fa214b2}">
+        <property name="volume">
+            <value>7</value>
+        </property>
         <property name="name">
             <value>Leafs</value>
         </property>
@@ -177,6 +180,7 @@
     <object class="MixerBusEffectChain" id="{6de6dece-b755-4209-8a89-1349472b39b3}">
         <relationship name="effects">
             <destination>{baeec2d3-8eb3-4490-b383-f12369faf1df}</destination>
+            <destination>{aeabb885-33a1-4c88-8eff-7c5199f7cdac}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{581ccdf0-448d-46ce-b007-c2780854917d}"/>
@@ -270,6 +274,11 @@
     </object>
     <object class="MixerBusPanner" id="{4773b78b-1bbb-471d-8474-d078ba620549}"/>
     <object class="MixerBusFader" id="{baeec2d3-8eb3-4490-b383-f12369faf1df}"/>
+    <object class="ThreeEQEffect" id="{aeabb885-33a1-4c88-8eff-7c5199f7cdac}">
+        <property name="highGain">
+            <value>2.5</value>
+        </property>
+    </object>
     <object class="AutomationPoint" id="{e9fd63c6-d2b4-42cf-b0c0-032ba0c2f561}">
         <property name="position">
             <value>0.040000000000000001</value>
