@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   Path: 6576656e743a2f536f756e64732f466f726573742f427265616b696e6754776967677353636174746572736f756e64
   guid: 26993efab9c38a41a613b8f97d301c87
   Banks:
@@ -358,7 +358,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 11416464}
   - {fileID: 11451066}
-  - {fileID: 11470984}
+  - {fileID: 0}
   - {fileID: 11420586}
   MinDistance: 0
   MaxDistance: 0
@@ -407,12 +407,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  Name: CHAR
-  Min: 1
-  Max: 4
-  Default: 1
+  Path: 
+  lastModified: 0
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &11445108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,10 +425,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 566f696365436c6970
-  Min: 0
-  Max: 20
-  Default: 0
+  Path: 
+  guid: 00000000000000000000000000000000
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11445258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +464,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: 736e617073686f743a2f4469616c6f67756573
   guid: 6e04131399994d46947e420219834b74
@@ -547,10 +553,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: VoiceClip
-  Min: 0
-  Max: 20
-  Default: 0
+  Path: 
+  guid: 00000000000000000000000000000000
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11455378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +608,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Dialogues
   Min: -10
@@ -658,7 +669,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11496292}
+  - {fileID: 0}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &11470958
@@ -693,10 +704,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 536d616c6c50617373616765
-  Min: -1
-  Max: 13
-  Default: -1
+  Path: 
+  guid: 00000000000000000000000000000000
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11471688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,14 +754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: \\hsnas6\StudentHome\2015\a15gabka\Desktop\Github stuffier\ByTheRock\By The
-    Rock\Assets\Audio\Build\Desktop\Day1Bank.bank
-  lastModified: 636307097802262230
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 1627136
-  Exists: 1
+  Name: 
+  Min: 0
+  Max: 0
+  Default: 0
 --- !u!114 &11484080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +846,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 11492068}
   - {fileID: 11478664}
-  - {fileID: 11445108}
+  - {fileID: 0}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &11486010
@@ -908,10 +920,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Surface
-  Min: 0
-  Max: 5
-  Default: 0
+  Path: 
+  guid: 00000000000000000000000000000000
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11496292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,10 +940,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 53757266616365
-  Min: 0
-  Max: 5
-  Default: 0
+  Path: 
+  guid: 00000000000000000000000000000000
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11498290
 MonoBehaviour:
   m_ObjectHideFlags: 0
