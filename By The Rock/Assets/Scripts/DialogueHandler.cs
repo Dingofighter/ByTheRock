@@ -32,6 +32,8 @@ public class DialogueHandler : BaseEmitter {
     Animator aGaregh;
     Animator aHania;
 
+    bool unskippable = false;
+
     // Use this for initialization
     protected override void Start () {
         dialogueNameText.text = "";
@@ -44,12 +46,12 @@ public class DialogueHandler : BaseEmitter {
 
         aOugrah = FindObjectOfType<PlayerController>().GetComponent<Animator>();
         aGaregh = FindObjectOfType<orcMovement>().GetComponent<Animator>();
-        aHania = FindObjectOfType<TalkCheck>().GetComponent<Animator>();
+        //aHania = FindObjectOfType<TalkCheck>().GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (inDialogue && !firstFrame && Input.GetButtonDown("Interact") && !GameManager.instance.paused)
+        if (inDialogue && !firstFrame && Input.GetButtonDown("Interact") && !GameManager.instance.paused && !unskippable)
         {
             // If player choice, check if button clicked
             if (isChoice)
@@ -89,6 +91,21 @@ public class DialogueHandler : BaseEmitter {
                 NextNode(0);
             }
         }
+
+        if (_EventInstance != null)
+        {
+            _EventInstance.getPlaybackState(out _playbackState);
+
+            if (_playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+            {
+                NextNode(0);
+            }
+            else
+            {
+                //_EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            }
+        }
+        
 
         if (inDialogue)
         {
@@ -190,19 +207,102 @@ public class DialogueHandler : BaseEmitter {
 
             if (tempNode.actorName == "Ougrah")
             {
-                aOugrah.SetBool("talking", true);
+                switch (tempNode.animNR)
+                {
+                    case 0:
+                        aOugrah.SetBool("mouth", false);
+                        aOugrah.SetBool("talking", false);
+                        aOugrah.SetBool("give", false);
+                        break;
+                    case 1:
+                        aOugrah.SetBool("mouth", true);
+                        aOugrah.SetBool("talking", false);
+                        aOugrah.SetBool("give", false);
+                        break;
+                    case 2:
+                        aOugrah.SetBool("talking", true);
+                        aOugrah.SetBool("mouth", false);
+                        aOugrah.SetBool("give", false);
+                        break;
+                    case 3:
+                        aOugrah.SetBool("give", true);
+                        aOugrah.SetBool("mouth", false);
+                        aOugrah.SetBool("talking", false);
+                        break;
+                }
+                //aOugrah.SetBool("talking", true);
+
+                aGaregh.SetBool("mouth", false);
                 aGaregh.SetBool("talking", false);
+                aGaregh.SetBool("give", false);
+
+                /*aHania.SetBool("mouth", false);
                 aHania.SetBool("talking", false);
+                aHania.SetBool("give", false);*/
             }
-            if (tempNode.actorName == "Garegh")
+            else if (tempNode.actorName == "Garegh")
             {
+                switch (tempNode.animNR)
+                {
+                    case 0:
+                        aGaregh.SetBool("mouth", false);
+                        aGaregh.SetBool("talking", false);
+                        aGaregh.SetBool("give", false);
+                        break;
+                    case 1:
+                        aGaregh.SetBool("mouth", true);
+                        aGaregh.SetBool("talking", false);
+                        aGaregh.SetBool("give", false);
+                        break;
+                    case 2:
+                        aGaregh.SetBool("talking", true);
+                        aGaregh.SetBool("mouth", false);
+                        aGaregh.SetBool("give", false);
+                        break;
+                    case 3:
+                        aGaregh.SetBool("give", true);
+                        aGaregh.SetBool("mouth", false);
+                        aGaregh.SetBool("talking", false);
+                        break;
+                }
+
+                aOugrah.SetBool("mouth", false);
                 aOugrah.SetBool("talking", false);
-                aGaregh.SetBool("talking", true);
+                aOugrah.SetBool("give", false);
+
+                //aGaregh.SetBool("talking", true);
             }
-            if (tempNode.actorName == "Hania")
+            else if (tempNode.actorName == "Hania")
             {
+                switch (tempNode.animNR)
+                {
+                    case 0:
+                        aHania.SetBool("mouth", false);
+                        aHania.SetBool("talking", false);
+                        aHania.SetBool("give", false);
+                        break;
+                    case 1:
+                        aHania.SetBool("mouth", true);
+                        aHania.SetBool("talking", false);
+                        aHania.SetBool("give", false);
+                        break;
+                    case 2:
+                        aHania.SetBool("talking", true);
+                        aHania.SetBool("mouth", false);
+                        aHania.SetBool("give", false);
+                        break;
+                    case 3:
+                        aHania.SetBool("give", true);
+                        aHania.SetBool("mouth", false);
+                        aHania.SetBool("talking", false);
+                        break;
+                }
+
+                aOugrah.SetBool("mouth", false);
                 aOugrah.SetBool("talking", false);
-                aHania.SetBool("talking", true);
+                aOugrah.SetBool("give", false);
+
+                //aHania.SetBool("talking", true);
             }
 
             if (currentDialogue.walkAndTalk)
@@ -212,9 +312,19 @@ public class DialogueHandler : BaseEmitter {
             }
             else
                 walkietalkie = false;
+
+            if (tempNode.unskippable)
+            {
+                unskippable = true;
+            }
+            else
+            {
+                unskippable = false;
+            }
         }
         else if (currentNode is PlayerChoiceNode)
         {
+            unskippable = false;
             isChoice = true;
             PlayerChoiceNode tempNode = (PlayerChoiceNode)currentNode;
 
@@ -279,7 +389,7 @@ public class DialogueHandler : BaseEmitter {
 
         if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)  
         {
-            Debug.Log("Instance not created because fuck you slask... gee that was harsh :|");
+            Debug.Log("Instance not created because fuck you slask... gee that was harsh :|... slask wrote fuck yougrah slask");
             voiceSetup = false;
             return;
         }

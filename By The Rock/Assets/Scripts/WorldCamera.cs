@@ -107,8 +107,12 @@ public class WorldCamera : MonoBehaviour {
             Debug.DrawLine(cameraTargetPosition, position, Color.black);
             if (Physics.Linecast(cameraTargetPosition, position, out collisionHit))
             {
-                position = collisionHit.point;
-                distance = Vector3.Distance(target.position, position);
+                if (collisionHit.transform.tag != "Player" && collisionHit.transform.tag != "tree")
+                {
+                    position = collisionHit.point;
+                    distance = Vector3.Distance(target.position, position);
+                }
+                
             }
 
             if (GameManager.instance.talking)
