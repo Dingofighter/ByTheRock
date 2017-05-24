@@ -50,14 +50,23 @@ public class PlayerController : MonoBehaviour
     int itemToAdd;
     bool removeMushroom;
 
+    public GameObject buttonImg;
+
     // Use this for initialization
     void Start()
     {
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
         anim = GetComponent<Animator>();
-        
+
+        buttonImg.SetActive(false);
+
         dialogueHandler = FindObjectOfType<DialogueHandler>();
+    }
+
+    void LateUpdate()
+    {
+        buttonImg.transform.LookAt(cam);
     }
 
     void Update()
@@ -65,7 +74,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.paused)
         {
             return;
-        }
+        }  
 
         if (GameManager.instance.talking)
         {
@@ -229,11 +238,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider c)
+    {
+        buttonImg.SetActive(false);
+    }
+
     void OnTriggerStay(Collider c)
     {
         if (GameManager.instance.paused) return;
 
-        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered)
+        string s = c.gameObject.tag;
+
+        if (s == "Dialogue" && !GameManager.instance.talking)
+        {
+            buttonImg.transform.position = c.transform.position - c.transform.right * 0.7f + new Vector3(0, 1.3f, 0);
+            buttonImg.SetActive(true);
+        }
+        else if (s == "Mossa" || s == "Vatten" || s == "Bark" || s == "Ort" || s == "Svamp")
+        {
+            buttonImg.SetActive(true);
+            //c.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+
+        }
+        else
+        {
+            buttonImg.SetActive(false);
+        }
+
+        if (s == "Glow")
+        {
+            Debug.Log("glowgogw");
+            c.transform.parent.GetComponent<Renderer>().material.shader = Shader.Find("RimLightning Lerp");
+        }
+
+
+
+        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered && !GameManager.instance.shoulderView)
         {
             dialogueHandler.StartDialogue(c.GetComponentsInParent<Dialogue>());
             if (dialogueHandler.firstFrame)
