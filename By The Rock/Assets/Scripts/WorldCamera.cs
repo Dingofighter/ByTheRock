@@ -69,7 +69,7 @@ public class WorldCamera : MonoBehaviour {
             }
             else
             {
-                rotation = Quaternion.Euler(13, target.eulerAngles.y, 0);
+                rotation = Quaternion.Euler(13, target.eulerAngles.y - 50, 0);
             }
 
             Vector3 position = new Vector3(0, 0, 0);
@@ -107,8 +107,12 @@ public class WorldCamera : MonoBehaviour {
             Debug.DrawLine(cameraTargetPosition, position, Color.black);
             if (Physics.Linecast(cameraTargetPosition, position, out collisionHit))
             {
-                position = collisionHit.point;
-                distance = Vector3.Distance(target.position, position);
+                if (collisionHit.transform.tag != "Player" && collisionHit.transform.tag != "tree")
+                {
+                    position = collisionHit.point;
+                    distance = Vector3.Distance(target.position, position);
+                }
+                
             }
 
             if (GameManager.instance.talking)

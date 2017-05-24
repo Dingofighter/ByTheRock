@@ -25,6 +25,7 @@ public class ScatterSounds : BaseEmitter
 
         if (_playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
         {
+            _EventInstance.release();
             Destroy(gameObject);
         }
     }
