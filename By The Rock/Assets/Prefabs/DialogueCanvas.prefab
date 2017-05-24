@@ -93,12 +93,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4c5ea6ee8b9d4444e8b2efe9e838c4a6, type: 3}
-    m_FontSize: 26
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -191,11 +191,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0b42e35a9ad7ec147b3a0427e56ee9b1, type: 3}
-    m_FontSize: 22
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -241,6 +241,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f18bca8a90525841ae3710503d641ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _EventMusic: 
+  _PlayEvent: 0
+  _StopEvent: 0
+  _playbackState: 0
+  _HasTriggered: 0
+  _AllowFadeout: 1
+  _isQuitting: 0
+  _TriggerOnce: 0
+  Params: []
+  _OverrideAttenuation: 0
+  _OverrideMinDistance: -1
+  _OverrideMaxDistance: -1
   dialogueText: {fileID: 11472168}
   dialogueNameText: {fileID: 11407486}
   choiceButtonPrefab: {fileID: 11419110, guid: e7718a8bf756e204d84c47fe0bcd7da0, type: 2}
@@ -248,6 +260,8 @@ MonoBehaviour:
   optionsPosition: {x: 600, y: 200, z: 0}
   optionsOffset: {x: 0, y: 40, z: 0}
   inDialogue: 0
+  firstFrame: 0
+  _pos: {x: 0, y: 0, z: 0}
 --- !u!222 &22238664
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -337,8 +351,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275.7, y: 71.2}
-  m_SizeDelta: {x: 109.6, y: 33.5}
+  m_AnchoredPosition: {x: -236.5, y: 73}
+  m_SizeDelta: {x: 215.3, y: 47.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22492572
 RectTransform:

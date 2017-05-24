@@ -8,7 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: GrassMaterial
   m_Shader: {fileID: 4800000, guid: 1902925be899f6c4794040c4a1c39b50, type: 3}
-  m_ShaderKeywords: GRASS_HEIGHT_SMOOTHING GRASS_WIDTH_SMOOTHING SIMPLE_GRASS
+  m_ShaderKeywords: GRASS_HEIGHT_SMOOTHING GRASS_UNSHADED_LIGHTING GRASS_WIDTH_SMOOTHING
+    SIMPLE_GRASS
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -17,16 +18,16 @@ Material:
     m_TexEnvs:
       data:
         first:
-          name: _ColorMap
+          name: _Displacement
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Displacement
+          name: _ColorMap
         second:
-          m_Texture: {fileID: 8400000, guid: 341451773a1ea9441a7d8a273547c67a, type: 2}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -68,7 +69,7 @@ Material:
       data:
         first:
           name: _EdgeLength
-        second: 15.1
+        second: 23.5
       data:
         first:
           name: _MaxTessellation
@@ -76,15 +77,15 @@ Material:
       data:
         first:
           name: _LODStart
-        second: 20
+        second: 6.26
       data:
         first:
           name: _LODEnd
-        second: 100
+        second: 6.7
       data:
         first:
           name: _LODMax
-        second: 5
+        second: 1
       data:
         first:
           name: _GrassFadeStart
@@ -96,7 +97,7 @@ Material:
       data:
         first:
           name: _Disorder
-        second: 0.3
+        second: 0.48
       data:
         first:
           name: _TextureCutoff
@@ -108,23 +109,23 @@ Material:
       data:
         first:
           name: _Smoothness00
-        second: 0.5
+        second: 0
       data:
         first:
           name: _Softness00
-        second: 0.5
+        second: 1
       data:
         first:
           name: _Width00
-        second: 0.05
+        second: 0.045
       data:
         first:
           name: _MinHeight00
-        second: 0.8
+        second: 0.29
       data:
         first:
           name: _MaxHeight00
-        second: 1
+        second: 0.51
       data:
         first:
           name: _TextureAtlasWidth00
@@ -233,15 +234,15 @@ Material:
       data:
         first:
           name: _WindParams
-        second: {r: 0.3, g: 1.2, b: 0.15, a: 1.3}
+        second: {r: 0.3, g: 0.5, b: 0.15, a: 0.5}
       data:
         first:
           name: _Color00
-        second: {r: 0.5, g: 0.7, b: 0.3, a: 1}
+        second: {r: 0.5376211, g: 0.6102941, b: 0.1435986, a: 1}
       data:
         first:
           name: _SecColor00
-        second: {r: 0.2, g: 0.5, b: 0.15, a: 1}
+        second: {r: 0.30647048, g: 0.36764705, b: 0.097318344, a: 1}
       data:
         first:
           name: _SpecColor00

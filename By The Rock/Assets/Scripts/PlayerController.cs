@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
         buttonImg.SetActive(false);
 
         dialogueHandler = FindObjectOfType<DialogueHandler>();
+
+        DontDestroyOnLoad(this);
     }
 
     void LateUpdate()

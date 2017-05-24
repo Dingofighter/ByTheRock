@@ -8,7 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: FlowerMaterial
   m_Shader: {fileID: 4800000, guid: 1902925be899f6c4794040c4a1c39b50, type: 3}
-  m_ShaderKeywords: FOUR_GRASS_TYPES GRASS_WIDTH_SMOOTHING UNIFORM_DENSITY
+  m_ShaderKeywords: FOUR_GRASS_TYPES GRASS_IGNORE_GI_SPECULAR GRASS_UNSHADED_LIGHTING
+    GRASS_WIDTH_SMOOTHING UNIFORM_DENSITY
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -80,16 +81,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ColorMap
+          name: _Displacement
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 8400000, guid: 341451773a1ea9441a7d8a273547c67a, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Displacement
+          name: _ColorMap
         second:
-          m_Texture: {fileID: 8400000, guid: 341451773a1ea9441a7d8a273547c67a, type: 2}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -146,6 +147,10 @@ Material:
         second: 0.02
       data:
         first:
+          name: _EdgeLength
+        second: 20
+      data:
+        first:
           name: _ZWrite
         second: 1
       data:
@@ -176,10 +181,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _EdgeLength
-        second: 20
       data:
         first:
           name: _MaxTessellation
