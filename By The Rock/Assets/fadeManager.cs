@@ -12,7 +12,9 @@ public class fadeManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+        blackImage.enabled = false;
+
 	}
 	
 	// Update is called once per frame
@@ -20,6 +22,7 @@ public class fadeManager : MonoBehaviour {
 
         if (fading)
         {
+            blackImage.enabled = true;
             if (fadeTimer < 150)
             {
                 fadeTimer += Time.deltaTime * 60;
@@ -35,6 +38,7 @@ public class fadeManager : MonoBehaviour {
                     GameManager.instance.fadeToBlack = false;
                     GameManager.instance.changeToDayTwo = false;
                     faded = false;
+                    blackImage.enabled = false;
                 }
                 else
                 {

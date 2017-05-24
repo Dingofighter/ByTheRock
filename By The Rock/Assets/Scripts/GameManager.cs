@@ -94,6 +94,11 @@ public class GameManager : MonoBehaviour {
 
     public void Update()
     {
+        if (AllFlags.Instance.flags[16].value)
+        {
+            fadeToBlack = true;
+            AllFlags.Instance.flags[16].value = false;
+        }
 
         if (fadeToBlack)
         {

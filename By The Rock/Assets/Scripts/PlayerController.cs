@@ -375,9 +375,12 @@ public class PlayerController : MonoBehaviour
                     else return;
                 }
             }
-            
+
+            Debug.Log("interacting");
+
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView && !GameManager.instance.talking)
             {
+                Debug.Log("tlaking      ;");
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
                 //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
