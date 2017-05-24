@@ -44,7 +44,14 @@ public class orcMovement : MonoBehaviour {
     readonly int TARGET = 1;
     readonly int WAIT = 2;
 
+    bool moved;
+    bool movedBack;
+    bool walkedAway;
+
     public Transform runPositionTargetVeryYes;
+    public Vector3 hiddenPosition;
+    public Vector3 positionToTeleportTo;
+    public Vector3 finalWalkGoal;
     
 
     // Use this for initialization
@@ -105,6 +112,28 @@ public class orcMovement : MonoBehaviour {
     void Update()
     {
         if (GameManager.instance.paused) return;
+
+        /*if (boolArea2 && !moved)
+        {
+            moved = true;
+            transform.position = hiddenPosition;
+            state = WAIT;
+        }
+
+        if (boolRunBack && !movedBack)
+        {
+            movedBack = true;
+            transform.position = positionToTeleportTo;
+            state = WAIT;
+        }
+
+        if (boolWalkAway && !walkedAway)
+        {
+            walkedAway = true;
+            state = TARGET;
+            agent.SetDestination(finalWalkGoal);
+        }*/
+
 
         idleCounter += Time.deltaTime*60;
         if (idleCounter >= 270) idleCounter = 0;
@@ -246,7 +275,7 @@ public class orcMovement : MonoBehaviour {
         else if (state == WAIT)
         {
             agent.SetDestination(transform.position);
-            state = FOLLOW;
+            //state = FOLLOW;
         }
         
         if (state == FOLLOW || state == TARGET && (walking || run))
