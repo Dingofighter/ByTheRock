@@ -30,9 +30,9 @@ public class squirrelMovement : MonoBehaviour {
 
         if (timer < treeLength)
         {
-            transform.position += transform.forward * runSpeed;
-            transform.Rotate(new Vector3(0, 0, spinSpeed));
-            transform.position -= transform.right * runSpeed;
+            transform.position += transform.forward * runSpeed * Time.deltaTime*60;
+            transform.Rotate(new Vector3(0, 0, spinSpeed) * Time.deltaTime * 60);
+            transform.position -= transform.right * runSpeed * Time.deltaTime * 60;
             
         }
         else if (timer == treeLength + (timeDown - 1))
@@ -43,9 +43,9 @@ public class squirrelMovement : MonoBehaviour {
         else if (timer <= treeLength + timeDown) { }
         else if (timer < treeLength*2 + timeDown)
         {
-            transform.position += transform.forward * runSpeed;
-            transform.Rotate(new Vector3(0, 0, spinSpeed));
-            transform.position -= transform.right * runSpeed;
+            transform.position += transform.forward * runSpeed * Time.deltaTime * 60;
+            transform.Rotate(new Vector3(0, 0, spinSpeed) * Time.deltaTime * 60);
+            transform.position -= transform.right * runSpeed * Time.deltaTime * 60;
         }
         else if (timer < treeLength * 2 + timeDown + timeUp)
         {
