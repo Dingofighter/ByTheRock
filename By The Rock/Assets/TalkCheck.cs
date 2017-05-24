@@ -48,7 +48,7 @@ public class TalkCheck : MonoBehaviour {
         takingItem = GameManager.instance.givingItem;
 
         anim.SetBool("acceptingItem", takingItem);
-        anim.SetBool("talking", talking);
+        //anim.SetBool("talking", talking);
         anim.SetBool("talkWithHand", talkHand);
         
     }
