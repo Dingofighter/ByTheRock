@@ -6,13 +6,16 @@ public class cameraScript : MonoBehaviour {
     bool moving;
     float moveTimer;
 
-    public Vector3 goalPosition;
+    public Transform goalPosition;
     public float speed;
+
+    public GameObject film; 
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+
+        film.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,12 +23,15 @@ public class cameraScript : MonoBehaviour {
         if (moving)
         {
             moveTimer += Time.deltaTime * 60;
-            transform.position = Vector3.Lerp(transform.position, goalPosition, speed);
+            transform.position = Vector3.Lerp(transform.position, goalPosition.position, speed);
 
-            if (moveTimer > 350)
+            if (moveTimer > 380)
             {
+                FindObjectOfType<butterflyMovement>().startFlying();
+                transform.position = goalPosition.position;
                 moving = false;
                 Debug.Log("should play");
+                film.SetActive(true);
                 FindObjectOfType<movieHandler>().playMovie();
             }
         }

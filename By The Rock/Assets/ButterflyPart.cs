@@ -21,7 +21,7 @@ public class ButterflyPart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.paused) return;
+        //if (GameManager.instance.paused) return;
         if (!transform.parent.GetComponent<butterflyMovement>().getMoving()) return;
         flapTimer++;
         if (flyDirection)
