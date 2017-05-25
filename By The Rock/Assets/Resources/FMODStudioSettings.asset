@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: 4173736574735c417564696f5c42792074686520526f636b2e667370726f
-  SourceBankPath: 4173736574735c417564696f5c4275696c64
+  SourceProjectPath: Assets\Audio\By the Rock.fspro
+  SourceBankPath: Assets\Audio\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
@@ -40,7 +40,9 @@ MonoBehaviour:
     Value: 1
   - Platform: 2
     Value: 0
-  BankDirectorySettings: []
+  BankDirectorySettings:
+  - Platform: 2
+    Value: Desktop
   VirtualChannelSettings:
   - Platform: 1
     Value: 1024
@@ -52,5 +54,8 @@ MonoBehaviour:
   - Platform: 2
     Value: 32
   Plugins: []
-  MasterBank: 
-  Banks: []
+  MasterBank: Master Bank
+  Banks:
+  - Day2Bank
+  - Day3Bank
+  - Day1Bank

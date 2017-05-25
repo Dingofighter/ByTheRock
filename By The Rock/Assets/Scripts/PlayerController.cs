@@ -76,7 +76,15 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.paused)
         {
             return;
-        }  
+        }
+
+        if (GameManager.instance.itemID1 == SVAMP5 ||
+            GameManager.instance.itemID2 == SVAMP5 ||
+            GameManager.instance.itemID3 == SVAMP5 ||
+            GameManager.instance.itemID4 == SVAMP5)
+        {
+            AllFlags.Instance.flags[25].value = true;
+        }
 
         if (GameManager.instance.talking)
         {
