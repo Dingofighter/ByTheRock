@@ -27,7 +27,14 @@ public class TalkCheck : MonoBehaviour {
         maxHandTimer = Random.Range(100, 250);
         rend = GetComponent<Renderer>();
 
-    }
+        Renderer[] children;
+        children = GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in children)
+        {
+            r.material = bandageMaterial;
+        }
+
+    } 
 	
 	// Update is called once per frame
 	void Update () {

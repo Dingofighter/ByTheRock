@@ -1341,19 +1341,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4c5ea6ee8b9d4444e8b2efe9e838c4a6, type: 3}
-    m_FontSize: 300
+    m_Font: {fileID: 0}
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 300
+    m_MinSize: 10
+    m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test
+  m_Text: 
 --- !u!222 &978665214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1859,7 +1859,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 438180, guid: 122252bb2e74e7e41894bafbb4a487a4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.72
+      value: 3.85
       objectReference: {fileID: 0}
     - target: {fileID: 438180, guid: 122252bb2e74e7e41894bafbb4a487a4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1867,7 +1867,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438180, guid: 122252bb2e74e7e41894bafbb4a487a4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.69
+      value: 3.86
       objectReference: {fileID: 0}
     - target: {fileID: 438180, guid: 122252bb2e74e7e41894bafbb4a487a4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2301,15 +2301,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 402334, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.1
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 402334, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.7
+      value: -2.176
       objectReference: {fileID: 0}
     - target: {fileID: 402334, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -9.6
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 402334, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2330,6 +2330,18 @@ Prefab:
     - target: {fileID: 402334, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
       propertyPath: m_RootOrder
       value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440438, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
+      propertyPath: slaveMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440438, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
+      propertyPath: slaveDirectionDegrees
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440438, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
+      propertyPath: angleUp
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c28ee458a268fd84aa90528abcd42a7c, type: 2}
