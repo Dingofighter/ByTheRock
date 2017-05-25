@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Transform cam;
     private Animator anim;
 
-    private int idleCounter;
+    private float idleCounter;
     private bool turnRight;
     private bool turnLeft;
 
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     readonly int ORT = 8;
 
     private bool interacting;
-    private int interactTimer;
+    private float interactTimer;
     private bool crouching;
     private bool turnAround;
 
@@ -50,16 +50,25 @@ public class PlayerController : MonoBehaviour
     int itemToAdd;
     bool removeMushroom;
 
+    public GameObject buttonImg;
+
     // Use this for initialization
     void Start()
     {
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
         anim = GetComponent<Animator>();
-        
+
+        buttonImg.SetActive(false);
+
         dialogueHandler = FindObjectOfType<DialogueHandler>();
 
         DontDestroyOnLoad(this);
+    }
+
+    void LateUpdate()
+    {
+        buttonImg.transform.LookAt(cam);
     }
 
     void Update()
@@ -67,15 +76,15 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.paused)
         {
             return;
-        }
+        }  
 
         if (GameManager.instance.talking)
         {
             anim.SetFloat("Speed", 0);
-            anim.SetBool("talking", true);
+            //anim.SetBool("talking", true);
             if (interacting)
             {
-                interactTimer++;
+                interactTimer += Time.deltaTime*60;
 
                 if (interactTimer > 30)
                 {
@@ -90,7 +99,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        anim.SetBool("talking", false);
+        //anim.SetBool("talking", false);
+        GameManager.instance.farTalking = false;
 
         if (interacting)
         {
@@ -158,8 +168,9 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(vertical) + Mathf.Abs(horizontal) > 0.1 && GameManager.instance.showingInventory) GameManager.instance.CloseInventory();
         charController.Move(movement * speed * Time.deltaTime);
 
-        idleCounter++;
-        anim.SetInteger("idleCounter", idleCounter);
+        idleCounter += Time.deltaTime*60;
+        int temp = (int)idleCounter;
+        anim.SetInteger("idleCounter", temp);
         if (idleCounter >= 305)
         {
             idleCounter = -150;
@@ -176,6 +187,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             turnLeft = !turnLeft;
+            Debug.Log("pressed to fade");
+            GameManager.instance.fadeToBlack = true;
         }
 
         anim.SetBool("crouching", crouching);
@@ -227,11 +240,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider c)
+    {
+        buttonImg.SetActive(false);
+    }
+
     void OnTriggerStay(Collider c)
     {
         if (GameManager.instance.paused) return;
 
-        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered)
+        string s = c.gameObject.tag;
+
+        if (s == "Dialogue" && !GameManager.instance.talking)
+        {
+            buttonImg.transform.position = c.transform.position - c.transform.right * 0.7f + new Vector3(0, 1.3f, 0);
+            buttonImg.SetActive(true);
+        }
+        else if (s == "Mossa" || s == "Vatten" || s == "Bark" || s == "Ort" || s == "Svamp")
+        {
+            buttonImg.SetActive(true);
+            //c.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+
+        }
+        else
+        {
+            buttonImg.SetActive(false);
+        }
+
+        if (s == "Glow")
+        {
+            Debug.Log("glowgogw");
+            c.transform.parent.GetComponent<Renderer>().material.shader = Shader.Find("RimLightning Lerp");
+        }
+
+
+
+        if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered && !GameManager.instance.shoulderView)
         {
             dialogueHandler.StartDialogue(c.GetComponentsInParent<Dialogue>());
             if (dialogueHandler.firstFrame)
@@ -246,7 +290,12 @@ public class PlayerController : MonoBehaviour
                 {
                     if (c.transform.parent.GetComponent<Dialogue>().rotationTarget != null)
                     {
-                        transform.rotation = Quaternion.Euler(0, c.transform.parent.GetComponent<Dialogue>().rotationTarget.eulerAngles.y + 180, 0);
+                        Debug.Log("rotating");
+                        Vector3 tempAngles = transform.eulerAngles;
+                        transform.LookAt(c.transform.parent.GetComponent<Dialogue>().rotationTarget);
+                        transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+                        GameManager.instance.farTalking = true;
+                        //transform.rotation = Quaternion.Euler(0, c.transform.parent.GetComponent<Dialogue>().rotationTarget.eulerAngles.y + 180, 0);
                     }
                     else
                     {
@@ -327,7 +376,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
-            if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView)
+            if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView && !GameManager.instance.talking)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);

@@ -4,7 +4,7 @@ using System.Collections;
 public class butterflyMovement : MonoBehaviour {
 
     bool moving;
-    int stillTimer;
+    float stillTimer;
     public int maxStillTime = 200;
     public int minStillTime = 30;
     public bool waitForPlayer = false;
@@ -34,12 +34,12 @@ public class butterflyMovement : MonoBehaviour {
 
         if (moving)
         {
-            transform.position += transform.up * speed;
-            transform.Rotate(new Vector3(1, 0, 0) * 0.5f);
+            transform.position += transform.up * speed * Time.deltaTime*60;
+            transform.Rotate(new Vector3(1, 0, 0) * 0.5f * Time.deltaTime * 60);
         }
         else
         {
-            if (!waitForPlayer) stillTimer++;
+            if (!waitForPlayer) stillTimer += Time.deltaTime * 60;
             
             if (Vector3.Distance(player.position, transform.position) < 4)
             {

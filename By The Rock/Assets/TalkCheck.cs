@@ -11,7 +11,13 @@ public class TalkCheck : MonoBehaviour {
     bool talkHand;
     bool takingItem;
 
+    bool changedTexture;
+
     int maxHandTimer;
+
+    Renderer rend;
+
+    public Material bandageMaterial;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +25,21 @@ public class TalkCheck : MonoBehaviour {
         player = FindObjectOfType<PlayerController>().transform;
         anim = GetComponent<Animator>();
         maxHandTimer = Random.Range(100, 250);
+        rend = GetComponent<Renderer>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        /*
+        if (boolGivenMoss && !changedTexture)
+        {
+            rend.material = bandageMaterial;
+        }*/
+
+        rend.material = bandageMaterial;
+
 
         if (GameManager.instance.talking && Vector3.Distance(transform.position, player.position) < 10)
         {
@@ -48,7 +64,7 @@ public class TalkCheck : MonoBehaviour {
         takingItem = GameManager.instance.givingItem;
 
         anim.SetBool("acceptingItem", takingItem);
-        anim.SetBool("talking", talking);
+        //anim.SetBool("talking", talking);
         anim.SetBool("talkWithHand", talkHand);
         
     }
