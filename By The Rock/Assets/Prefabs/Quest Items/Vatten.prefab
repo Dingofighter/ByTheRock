@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &108176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 474880}
+  - 114: {fileID: 11484574}
+  m_Layer: 0
+  m_Name: Vatten dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &150162
 GameObject:
   m_ObjectHideFlags: 0
@@ -19,18 +35,62 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &159234
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 477800}
+  - 65: {fileID: 6511512}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Dialogue
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &451244
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150162}
-  m_LocalRotation: {x: 0, y: -0.1444008, z: 0, w: 0.9895193}
-  m_LocalPosition: {x: 74.954, y: -56.547073, z: -5.884}
-  m_LocalScale: {x: 4.2260227, y: 1.5734266, z: 2.246612}
-  m_LocalEulerAnglesHint: {x: 0, y: -16.6052, z: 0}
-  m_Children: []
+  m_LocalRotation: {x: 0, y: -0.23398574, z: 0, w: 0.9722401}
+  m_LocalPosition: {x: 76.34, y: -56.547073, z: -5.470001}
+  m_LocalScale: {x: 3.0849967, y: 1.1486014, z: 1.9056762}
+  m_LocalEulerAnglesHint: {x: 0, y: -27.0637, z: 0}
+  m_Children:
+  - {fileID: 474880}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &474880
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108176}
+  m_LocalRotation: {x: -0.012407798, y: -0.72114253, z: -0.019014247, w: 0.6924146}
+  m_LocalPosition: {x: 0.038908508, y: 0.05340583, z: 0.3766558}
+  m_LocalScale: {x: 12.805354, y: 1.9825996, z: 2.1494284}
+  m_LocalEulerAnglesHint: {x: -2.5565999, y: -92.317696, z: -0.4838}
+  m_Children:
+  - {fileID: 477800}
+  m_Father: {fileID: 451244}
+  m_RootOrder: 0
+--- !u!4 &477800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 474880}
   m_RootOrder: 0
 --- !u!23 &2310960
 MeshRenderer:
@@ -65,6 +125,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150162}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &6511512
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6574322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -88,12 +160,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bad5cb7a2bb8394c99ef2fcb5c3dc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numFlagsRequired: 1
-  boolIndex: 03000000
-  boolValueIndex: 00000000
+  numFlagsRequired: 3
+  boolIndex: 030000001a00000005000000
+  boolValueIndex: 000000000100000001000000
   setFlag: 1
-  setBoolIndex: 5
+  setBoolIndex: 26
   setBoolValueIndex: 0
+--- !u!114 &11484574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 782c08b0c1cb6ee459f8ed35894c263a, type: 2}
+  numFlagsRequired: 2
+  walkAndTalk: 1
+  autoTriggered: 1
+  rotationTarget: {fileID: 0}
+  boolIndex: 030000001a000000
+  boolValueIndex: 0000000000000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

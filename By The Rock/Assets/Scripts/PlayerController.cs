@@ -76,7 +76,15 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.paused)
         {
             return;
-        }  
+        }
+
+        if (GameManager.instance.itemID1 == SVAMP5 ||
+            GameManager.instance.itemID2 == SVAMP5 ||
+            GameManager.instance.itemID3 == SVAMP5 ||
+            GameManager.instance.itemID4 == SVAMP5)
+        {
+            AllFlags.Instance.flags[25].value = true;
+        }
 
         if (GameManager.instance.talking)
         {
@@ -375,9 +383,12 @@ public class PlayerController : MonoBehaviour
                     else return;
                 }
             }
-            
+
+            Debug.Log("interacting");
+
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView && !GameManager.instance.talking)
             {
+                Debug.Log("tlaking      ;");
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
                 //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);

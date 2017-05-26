@@ -20,25 +20,78 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &137988
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415278}
+  - 65: {fileID: 6565766}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Dialogue
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &168508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 469062}
+  - 114: {fileID: 11445116}
+  m_Layer: 0
+  m_Name: Vitlav dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137988}
+  m_LocalRotation: {x: -0.5567571, y: -0.28413144, z: -0.14424534, w: 0.7671272}
+  m_LocalPosition: {x: 16.573, y: -0.47, z: -0.008}
+  m_LocalScale: {x: 0.66908747, y: 0.5808956, z: 0.7863413}
+  m_LocalEulerAnglesHint: {x: -69.419, y: -51.5524, z: 15.6917}
+  m_Children: []
+  m_Father: {fileID: 469062}
+  m_RootOrder: 0
 --- !u!4 &440658
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107686}
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.01, y: -2.758, z: 1.77}
+  m_LocalRotation: {x: -0.5770763, y: -0.31164455, z: -0.25406447, w: 0.710853}
+  m_LocalPosition: {x: 34.11175, y: -52.834045, z: -4.195099}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -360}
-=======
-  m_LocalRotation: {x: -0.72226447, y: 0, z: 0, w: 0.69161695}
-  m_LocalPosition: {x: 29.06, y: -53, z: -14}
-  m_LocalScale: {x: 0.507269, y: 1, z: 1.0236417}
-  m_LocalEulerAnglesHint: {x: -87.516495, y: -180, z: -180}
->>>>>>> refs/remotes/origin/Karl2
-  m_Children: []
+  m_LocalEulerAnglesHint: {x: -78.177895, y: -47.001, z: -360.425}
+  m_Children:
+  - {fileID: 469062}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &469062
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168508}
+  m_LocalRotation: {x: 0.76913047, y: 0.32785606, z: -0.47600764, w: 0.27270055}
+  m_LocalPosition: {x: -20.220121, y: -16.549784, z: 57.64611}
+  m_LocalScale: {x: 3.8255248, y: 2.923742, z: 5.0457654}
+  m_LocalEulerAnglesHint: {x: 47.0214, y: -125.7298, z: -201.03639}
+  m_Children:
+  - {fileID: 415278}
+  m_Father: {fileID: 440658}
   m_RootOrder: 0
 --- !u!23 &2306836
 MeshRenderer:
@@ -85,6 +138,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.38, z: 0}
+--- !u!65 &6565766
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9566574
 Animator:
   serializedVersion: 3
@@ -113,12 +178,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bad5cb7a2bb8394c99ef2fcb5c3dc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numFlagsRequired: 2
-  boolIndex: 0300000008000000
-  boolValueIndex: 0000000001000000
+  numFlagsRequired: 3
+  boolIndex: 030000001b00000008000000
+  boolValueIndex: 000000000100000001000000
   setFlag: 1
-  setBoolIndex: 8
+  setBoolIndex: 27
   setBoolValueIndex: 0
+--- !u!114 &11445116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 206152c12ca29354f85f91503ec572e8, type: 2}
+  numFlagsRequired: 2
+  walkAndTalk: 1
+  autoTriggered: 1
+  rotationTarget: {fileID: 0}
+  boolIndex: 030000001b000000
+  boolValueIndex: 0000000000000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -40,13 +40,22 @@ public class orcMovement : MonoBehaviour {
     float idleCounter;
     float talkTimer;
 
+    bool ranBack;
+    bool moved;
+    bool movedBack;
+    bool tiemtoweitokethx;
+    bool walkedAway;
+
+    public Vector3 hiddenPosition;
+    public Vector3 positionToTeleportTo;
+    public Vector3 finalWalkGoal;
+
     readonly int FOLLOW = 0;
     readonly int TARGET = 1;
     readonly int WAIT = 2;
 
     public Transform runPositionTargetVeryYes;
     
-
     // Use this for initialization
     void Start()
     {
@@ -106,6 +115,34 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
+        if (AllFlags.Instance.flags[3].value && !moved)
+        {
+            moved = true;
+            transform.position = hiddenPosition;
+            state = WAIT;
+        }
+ 
+        
+        if (AllFlags.Instance.flags[25].value && !movedBack)
+        {
+            movedBack = true;
+            transform.position = positionToTeleportTo;
+            state = FOLLOW;
+        }
+
+        if (AllFlags.Instance.flags[19].value && !tiemtoweitokethx)
+        {
+            tiemtoweitokethx = true;
+            state = WAIT;
+        }
+
+        if (AllFlags.Instance.flags[23].value && !walkedAway)
+        {
+            walkedAway = true;
+            state = TARGET;
+            agent.SetDestination(finalWalkGoal);
+        }
+
         idleCounter += Time.deltaTime*60;
         if (idleCounter >= 270) idleCounter = 0;
         int temp = (int)idleCounter;
@@ -115,7 +152,12 @@ public class orcMovement : MonoBehaviour {
 
         if (GameManager.instance.farTalking)
         {
-            if (Vector3.Distance(transform.position, player.position) > 5) agent.SetDestination(player.position + player.forward);
+            Debug.Log("time to run boiiiiiii");
+            if (Vector3.Distance(transform.position, player.position) > 5)
+            {
+                agent.SetDestination(player.position + player.forward);
+                Debug.Log("far away oh no");
+            }
             else
             {
                 //anim.SetBool("talking", true);
@@ -157,8 +199,9 @@ public class orcMovement : MonoBehaviour {
             return;
         }
 
-        if (AllFlags.Instance.flags[1].value == true && !GameManager.instance.talking)
+        if (AllFlags.Instance.flags[1].value == true && !GameManager.instance.talking && !ranBack)
         {
+            ranBack = true;
             state = TARGET;
             agent.SetDestination(runPositionTargetVeryYes.position);
         }
@@ -246,7 +289,7 @@ public class orcMovement : MonoBehaviour {
         else if (state == WAIT)
         {
             agent.SetDestination(transform.position);
-            state = FOLLOW;
+            //state = FOLLOW;
         }
         
         if (state == FOLLOW || state == TARGET && (walking || run))

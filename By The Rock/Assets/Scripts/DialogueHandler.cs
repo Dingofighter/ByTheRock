@@ -94,7 +94,7 @@ public class DialogueHandler : BaseEmitter {
             }
         }
 
-        if (_EventInstance != null)
+        /*if (_EventInstance != null)
         {
             _EventInstance.getPlaybackState(out _playbackState);
 
@@ -106,7 +106,7 @@ public class DialogueHandler : BaseEmitter {
             {
                 //_EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             }
-        }
+        }*/
         
 
         if (inDialogue)
