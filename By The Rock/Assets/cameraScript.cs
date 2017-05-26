@@ -25,9 +25,14 @@ public class cameraScript : MonoBehaviour {
             moveTimer += Time.deltaTime * 60;
             transform.position = Vector3.Lerp(transform.position, goalPosition.position, speed);
 
-            if (moveTimer > 380)
+            if (moveTimer > 260)
             {
                 FindObjectOfType<butterflyMovement>().startFlying();
+            }
+
+            if (moveTimer > 380)
+            {
+                
                 transform.position = goalPosition.position;
                 moving = false;
                 Debug.Log("should play");

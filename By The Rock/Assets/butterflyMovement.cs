@@ -34,6 +34,12 @@ public class butterflyMovement : MonoBehaviour
 
     public float angleUp;
 
+    public Transform goalPosition;
+
+    public Vector3 angleFly;
+
+    public float marcusSpeed;
+
     bool begin;
 
 
@@ -104,10 +110,8 @@ public class butterflyMovement : MonoBehaviour
 
             {
 
-                Debug.Log(":(");
-                transform.position += transform.up * speed * Time.deltaTime * 60;
 
-                transform.Rotate(new Vector3(1, 0, 0) * 0.5f * Time.deltaTime * 60);
+                transform.position = Vector3.Lerp(transform.position, goalPosition.position, marcusSpeed);
 
             }
 
@@ -119,15 +123,20 @@ public class butterflyMovement : MonoBehaviour
 
                 {
 
+                    //transform.LookAt(goalPosition);
+                    //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 90);
+
+                    transform.eulerAngles = angleFly;
+
                     moving = true;
 
                     stillTimer = 0;
 
-                    transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
+                    //transform.eulerAngles = new Vector3(90, transform.eulerAngles.y, transform.eulerAngles.z);
 
-                    transform.Rotate(new Vector3(0, 0, 1) * slaveDirectionDegrees);
+                    //transform.Rotate(new Vector3(0, 0, 1) * slaveDirectionDegrees);
 
-                    transform.eulerAngles = new Vector3(angleUp, transform.eulerAngles.y, transform.eulerAngles.z);
+                    //transform.eulerAngles = new Vector3(angleUp, transform.eulerAngles.y, transform.eulerAngles.z);
 
                 }
 
@@ -204,9 +213,9 @@ public class butterflyMovement : MonoBehaviour
     public void startFlying()
 
     {
-        transform.Rotate(new Vector3(0, 0, 1) * slaveDirectionDegrees);
+        //transform.Rotate(new Vector3(0, 0, 1) * slaveDirectionDegrees);
 
-        transform.eulerAngles = new Vector3(angleUp, transform.eulerAngles.y, transform.eulerAngles.z);
+        //transform.eulerAngles = new Vector3(angleUp, transform.eulerAngles.y, transform.eulerAngles.z);
         begin = true;
 
     }

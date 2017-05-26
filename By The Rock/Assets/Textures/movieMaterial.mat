@@ -38,20 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _tex0
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _tex1
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -94,14 +80,28 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _SpecGlossMap
+          name: _DetailTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _DetailTex
+          name: _tex0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _tex1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -153,16 +153,16 @@ Material:
         second: 0.1
       data:
         first:
+          name: _Smoothness
+        second: 0.5
+      data:
+        first:
           name: _WindQuality
         second: 0
       data:
         first:
-          name: _animTimeParam
-        second: 10
-      data:
-        first:
-          name: _test
-        second: 10
+          name: PixelSnap
+        second: 0
       data:
         first:
           name: _Parallax
@@ -199,6 +199,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _EdgeLength
+        second: 10
       data:
         first:
           name: _WindPower
@@ -241,16 +245,48 @@ Material:
         second: 2
       data:
         first:
-          name: _EdgeLength
-        second: 10
-      data:
-        first:
           name: _InvFade
         second: 1
       data:
         first:
+          name: _animTimeParam
+        second: 10
+      data:
+        first:
+          name: _test
+        second: 10
+      data:
+        first:
           name: _Outline
         second: 0.005
+      data:
+        first:
+          name: _Stencil
+        second: 0
+      data:
+        first:
+          name: _StencilComp
+        second: 8
+      data:
+        first:
+          name: _StencilOp
+        second: 0
+      data:
+        first:
+          name: _StencilReadMask
+        second: 255
+      data:
+        first:
+          name: _StencilWriteMask
+        second: 255
+      data:
+        first:
+          name: _ColorMask
+        second: 15
+      data:
+        first:
+          name: _UseUIAlphaClip
+        second: 0
     m_Colors:
       data:
         first:
@@ -259,7 +295,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.9558824, g: 0.9277682, b: 0.9277682, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
           name: _SpecColor
