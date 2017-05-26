@@ -54,8 +54,10 @@ public class butterflyMovement : MonoBehaviour
     {
 
 
-
-        //moving = true;
+        if (!slaveMode)
+        {
+            moving = true;
+        }
 
         if (slaveMode)
 
@@ -82,9 +84,10 @@ public class butterflyMovement : MonoBehaviour
         stillTime = Random.Range(minStillTime, maxStillTime);
 
 
-
-        //player = FindObjectOfType<PlayerController>().transform;
-
+        if (!slaveMode)
+        {
+            player = FindObjectOfType<PlayerController>().transform;
+        }
 
 
     }
@@ -97,9 +100,10 @@ public class butterflyMovement : MonoBehaviour
     {
 
 
-
-        //if (GameManager.instance.paused) return;
-
+        if (!slaveMode)
+        {
+            if (GameManager.instance.paused) return;
+        }
 
 
         if (slaveMode)
@@ -111,7 +115,7 @@ public class butterflyMovement : MonoBehaviour
             {
 
 
-                transform.position = Vector3.Lerp(transform.position, goalPosition.position, marcusSpeed);
+                transform.position = Vector3.Lerp(transform.position, goalPosition.position, marcusSpeed * Time.deltaTime * 60);
 
             }
 

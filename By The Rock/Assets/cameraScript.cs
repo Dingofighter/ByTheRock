@@ -23,7 +23,7 @@ public class cameraScript : MonoBehaviour {
         if (moving)
         {
             moveTimer += Time.deltaTime * 60;
-            transform.position = Vector3.Lerp(transform.position, goalPosition.position, speed);
+            transform.position = Vector3.Lerp(transform.position, goalPosition.position, speed * Time.deltaTime * 60);
 
             if (moveTimer > 260)
             {
