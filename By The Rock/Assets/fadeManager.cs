@@ -22,7 +22,7 @@ public class fadeManager : MonoBehaviour {
 
         if (fading)
         {
-            blackImage.enabled = true;
+            blackImage.gameObject.SetActive(true);
             if (fadeTimer < 150)
             {
                 fadeTimer += Time.deltaTime * 60;

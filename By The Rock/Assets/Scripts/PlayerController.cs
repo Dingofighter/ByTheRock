@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     GameObject itemToDestroy;
     int itemToAdd;
     bool removeMushroom;
+    bool once;
 
     public GameObject buttonImg;
 
@@ -112,9 +113,10 @@ public class PlayerController : MonoBehaviour
 
         if (interacting)
         {
-            interactTimer++;
-            if (interactTimer == 40)
+            interactTimer += Time.deltaTime * 60;
+            if (interactTimer >= 40 && !once)
             {
+                once = true;
                 if (removeMushroom)
                 {
                     removeFromInv(SVAMP1);
@@ -430,6 +432,7 @@ public class PlayerController : MonoBehaviour
         itemToAdd = itemID;
         itemToDestroy = item;
         interacting = true;
+        once = false;
         anim.SetBool("interacting", true);
     }
 
@@ -440,6 +443,7 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.instance.givingItem = true;
             interacting = true;
+            once = false;
             anim.SetBool("interacting", true);
         }
     }

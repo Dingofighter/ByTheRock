@@ -33,10 +33,12 @@ public class GameManager : MonoBehaviour {
     public int itemID3 = -1;
     public int itemID4 = -1;
 
+    Vector3 invCanvasOrigPos;
+
     //Game game;
 
     bool started;
-    int invTimer;
+    float invTimer;
 
     public FMOD.Studio.System _fmodSS;
 
@@ -69,7 +71,15 @@ public class GameManager : MonoBehaviour {
         rt.anchoredPosition = rt.anchoredPosition;
 
         Game.current = new Game();
-        SaveLoad.Load();
+        
+        
+        
+        
+        
+        
+        
+        
+        //SaveLoad.Load();
 
         /*
         itemID1 = Game.current.invSlot1;
@@ -119,6 +129,7 @@ public class GameManager : MonoBehaviour {
         {
             bool remove = false;
             invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 350, invCanvas.transform.position.y, invCanvas.transform.position.z);
+            invCanvasOrigPos = invCanvas.transform.position;
 
             if (Game.current.invSlot1 == -1) remove = true;
             changeItem(Game.current.invSlot1, true, remove);
@@ -164,13 +175,23 @@ public class GameManager : MonoBehaviour {
         {
             if (autoCloseInv || invTimer < 100)
             {
-                invTimer++;
+                Debug.Log("raising invTimer");
+                invTimer += Time.deltaTime * 60;
             }
             if (itemID1 == -1 && itemID2 == -1 && itemID3 == -1 && itemID4 == -1) invTimer = 127;
-            if (invTimer <= 25) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x + 14, invCanvas.transform.position.y, invCanvas.transform.position.z);
-            else if (invTimer > 100 && invTimer <= 125) invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 14, invCanvas.transform.position.y, invCanvas.transform.position.z);
-            else if (invTimer > 126)
+            if (invTimer <= 25)
             {
+                Debug.Log("out");
+                invCanvas.transform.position = new Vector3(invCanvas.transform.position.x + 14 * Time.deltaTime * 60, invCanvas.transform.position.y, invCanvas.transform.position.z);
+            }
+            else if (invTimer > 105 && invTimer <= 130)
+            {
+                Debug.Log("in");
+                invCanvas.transform.position = new Vector3(invCanvas.transform.position.x - 14 * Time.deltaTime * 60, invCanvas.transform.position.y, invCanvas.transform.position.z);
+            }
+            else if (invTimer > 131)
+            {
+                invCanvas.transform.position = invCanvasOrigPos;
                 showingInventory = false;
                 invTimer = 0;
                 autoCloseInv = false;
