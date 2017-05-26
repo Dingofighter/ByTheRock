@@ -27,7 +27,11 @@ public class TalkCheck : MonoBehaviour {
         maxHandTimer = Random.Range(100, 250);
         rend = GetComponent<Renderer>();
 
-    }
+        Renderer[] children;
+        children = GetComponentsInChildren<Renderer>();
+        
+
+    } 
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,10 +39,12 @@ public class TalkCheck : MonoBehaviour {
         /*
         if (boolGivenMoss && !changedTexture)
         {
-            rend.material = bandageMaterial;
+            foreach (Renderer r in children)
+            {
+                r.material = bandageMaterial;
+            }
+            changedTexture = true
         }*/
-
-        rend.material = bandageMaterial;
 
 
         if (GameManager.instance.talking && Vector3.Distance(transform.position, player.position) < 10)

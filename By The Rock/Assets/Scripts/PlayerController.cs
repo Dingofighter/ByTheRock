@@ -251,6 +251,11 @@ public class PlayerController : MonoBehaviour
     void OnTriggerExit(Collider c)
     {
         buttonImg.SetActive(false);
+
+        if (c.gameObject.tag == "Glow")
+        {
+            c.transform.parent.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+        }
     }
 
     void OnTriggerStay(Collider c)

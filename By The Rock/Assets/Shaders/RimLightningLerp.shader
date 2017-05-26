@@ -15,7 +15,7 @@
 
 
 		CGPROGRAM
-#pragma surface surf Lambert
+#pragma surface surf Standard
 #pragma target 3.0
 			struct Input 
 		{
@@ -32,7 +32,7 @@
 	float _AnimTime;
 	float _Value;
 
-	void surf(Input IN, inout SurfaceOutput o) 
+	void surf(Input IN, inout SurfaceOutputStandard o) 
 	{
 		o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
 		o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
