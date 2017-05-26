@@ -115,14 +115,15 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
+        // Day1hadTalkedToHania
         if (AllFlags.Instance.flags[3].value && !moved)
         {
             moved = true;
             transform.position = hiddenPosition;
             state = WAIT;
         }
- 
-        
+
+        // Day2hasPickedUp5Mushrooms
         if (AllFlags.Instance.flags[25].value && !movedBack)
         {
             movedBack = true;
@@ -130,12 +131,14 @@ public class orcMovement : MonoBehaviour {
             state = FOLLOW;
         }
 
+        // Day2hadTalkedToGaregh
         if (AllFlags.Instance.flags[19].value && !tiemtoweitokethx)
         {
             tiemtoweitokethx = true;
             state = WAIT;
         }
 
+        // Day2hadTalkedToGareghSecondTime
         if (AllFlags.Instance.flags[23].value && !walkedAway)
         {
             walkedAway = true;
