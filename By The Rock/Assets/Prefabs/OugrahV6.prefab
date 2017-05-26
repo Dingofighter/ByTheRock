@@ -220,9 +220,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448158}
-  - 95: {fileID: 9597122}
   - 143: {fileID: 14350058}
-  - 114: {fileID: 11426326}
+  - 114: {fileID: 11490770}
   m_Layer: 0
   m_Name: OugrahV6
   m_TagString: Player
@@ -1113,7 +1112,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441170}
-  - 137: {fileID: 13702062}
+  - 137: {fileID: 13700204}
   m_Layer: 0
   m_Name: ougrah_rigg:Ougrah_Cloth_F
   m_TagString: Untagged
@@ -1756,6 +1755,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &130012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22410856}
+  - 222: {fileID: 22280992}
+  - 114: {fileID: 11410906}
+  - 23: {fileID: 2373480}
+  - 102: {fileID: 10226380}
+  m_Layer: 0
+  m_Name: buttonPrompt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &130042
 GameObject:
   m_ObjectHideFlags: 1
@@ -1781,6 +1799,21 @@ GameObject:
   - 4: {fileID: 464022}
   m_Layer: 0
   m_Name: ougrah_rigg:right_knee_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &130334
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 431868}
+  m_Layer: 0
+  m_Name: ougrah_rigg:transform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,40 +1951,6 @@ GameObject:
   - 4: {fileID: 428864}
   m_Layer: 0
   m_Name: ougrah_rigg:right_indexFinger_null_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &130012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22410856}
-  - 222: {fileID: 22280992}
-  - 114: {fileID: 11410906}
-  - 23: {fileID: 2373480}
-  - 102: {fileID: 10226380}
-  m_Layer: 0
-  m_Name: buttonPrompt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &130334
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 431868}
-  m_Layer: 0
-  m_Name: ougrah_rigg:transform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7274,7 +7273,7 @@ Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133530}
+  m_GameObject: {fileID: 130334}
   m_LocalRotation: {x: 0.014321107, y: 0.014321107, z: 0.70696175, w: 0.70696175}
   m_LocalPosition: {x: 0.03758132, y: 0.000038921105, z: 0.000076871365}
   m_LocalScale: {x: 0.04657835, y: 0.04657835, z: 0.04657835}
@@ -7489,17 +7488,15 @@ Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154544}
+  m_GameObject: {fileID: 115494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.85, y: -2.66, z: 3.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 52.001297}
   m_Children:
-  - {fileID: 448654}
-  - {fileID: 493922}
-  - {fileID: 439556}
   - {fileID: 22410856}
-  m_Father: {fileID: 0}
+  - {fileID: 461102}
+  m_Father: {fileID: 487394}
   m_RootOrder: 0
 --- !u!4 &438182
 Transform:
@@ -8919,7 +8916,7 @@ Transform:
   m_Children:
   - {fileID: 461346}
   m_Father: {fileID: 437326}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &461176
 Transform:
   m_ObjectHideFlags: 1
@@ -10857,7 +10854,7 @@ MonoBehaviour:
   m_Text: 
 --- !u!114 &11490770
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103228}
@@ -12382,8 +12379,8 @@ RectTransform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 171.25, z: 0}
   m_Children: []
-  m_Father: {fileID: 438180}
-  m_RootOrder: 3
+  m_Father: {fileID: 437326}
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.71}

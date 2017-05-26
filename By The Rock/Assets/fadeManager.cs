@@ -13,7 +13,7 @@ public class fadeManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        blackImage.enabled = false;
+    
 
 	}
 	

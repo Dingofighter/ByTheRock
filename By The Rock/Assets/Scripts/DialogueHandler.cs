@@ -53,8 +53,15 @@ public class DialogueHandler : BaseEmitter {
 	
 	// Update is called once per frame
 	void Update () {
+        if (inDialogue)
+        {
+            print("paused: " + GameManager.instance.paused);
+            print("unskippable: " + unskippable);
+            print("firstframe: " + firstFrame);
+        }
         if (inDialogue && !firstFrame && Input.GetButtonDown("Interact") && !GameManager.instance.paused && !unskippable)
         {
+            print("CLICK NEXT NODE PLEASE");
             // If player choice, check if button clicked
             if (isChoice)
             {
@@ -234,9 +241,9 @@ public class DialogueHandler : BaseEmitter {
                 }
                 //aOugrah.SetBool("talking", true);
 
-                aGaregh.SetBool("mouth", false);
+                //aGaregh.SetBool("mouth", false);
                 aGaregh.SetBool("talking", false);
-                aGaregh.SetBool("give", false);
+                //aGaregh.SetBool("give", false);
 
                 /*aHania.SetBool("mouth", false);
                 aHania.SetBool("talking", false);
@@ -268,9 +275,9 @@ public class DialogueHandler : BaseEmitter {
                         break;
                 }
 
-                aOugrah.SetBool("mouth", false);
+                //aOugrah.SetBool("mouth", false);
                 aOugrah.SetBool("talking", false);
-                aOugrah.SetBool("give", false);
+                //aOugrah.SetBool("give", false);
 
                 //aGaregh.SetBool("talking", true);
             }
@@ -300,9 +307,9 @@ public class DialogueHandler : BaseEmitter {
                         break;
                 }
 
-                aOugrah.SetBool("mouth", false);
+                //aOugrah.SetBool("mouth", false);
                 aOugrah.SetBool("talking", false);
-                aOugrah.SetBool("give", false);
+                //aOugrah.SetBool("give", false);
 
                 //aHania.SetBool("talking", true);
             }

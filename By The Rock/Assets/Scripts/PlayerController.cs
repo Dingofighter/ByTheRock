@@ -389,11 +389,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            Debug.Log("interacting");
-
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView && !GameManager.instance.talking)
             {
-                Debug.Log("tlaking      ;");
+                //Debug.Log("tlaking      ;");
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
                 //transform.LookAt(c.GetComponentInParent<Dialogue>().transform);
                 //transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
@@ -410,14 +408,14 @@ public class PlayerController : MonoBehaviour
                     c.transform.LookAt(transform);
                     c.transform.eulerAngles = new Vector3(tempAngles.x, c.transform.eulerAngles.y, c.transform.eulerAngles.z);
 
-                    Debug.Log("turned");
+                    //Debug.Log("turned");
                     //transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 }
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
 
                 if (c.transform.parent.gameObject.tag == "Hania")
                 {
-                    Debug.Log("talk han");
+                    //Debug.Log("talk han");
                     if (currentlyHolding(MOSSA)) removeFromInv(MOSSA);
                     if (currentlyHolding(VATTEN)) removeFromInv(VATTEN);
                     if (currentlyHolding(BARK)) removeFromInv(BARK);

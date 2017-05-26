@@ -25,7 +25,7 @@ public class WorldCamera : MonoBehaviour {
 
     public int lerpSpeed;
 
-    float desiredDistance = 5.0f;
+    float desiredDistance = 3.0f;
     
     float x = 0.0f;
     float y = 0.0f;

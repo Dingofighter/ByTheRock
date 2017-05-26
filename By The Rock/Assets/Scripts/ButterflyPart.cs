@@ -51,7 +51,6 @@ public class ButterflyPart : MonoBehaviour
     {
         if (c.gameObject.tag == "tree" || c.gameObject.tag == "Player")
         {
-            Debug.Log("Collision detected!!!!");
             Physics.IgnoreCollision(c.collider, GetComponent<Collider>());
         }
         else

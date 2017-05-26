@@ -115,6 +115,15 @@ public class orcMovement : MonoBehaviour {
     {
         if (GameManager.instance.paused) return;
 
+        // Day1HadMushroomDialogue
+        if (AllFlags.Instance.flags[1].value && !GameManager.instance.talking && !ranBack)
+        {
+            ranBack = true;
+            maxMoveCounter = 0;
+            state = TARGET;
+            agent.SetDestination(runPositionTargetVeryYes.position);
+        }
+
         // Day1hadTalkedToHania
         if (AllFlags.Instance.flags[3].value && !moved)
         {
@@ -141,9 +150,9 @@ public class orcMovement : MonoBehaviour {
         // Day2hadTalkedToGareghSecondTime
         if (AllFlags.Instance.flags[23].value && !walkedAway)
         {
-            movedBack = true;
-            transform.position = positionToTeleportTo;
-            state = WAIT;
+            walkedAway = true;
+            state = TARGET;
+            agent.SetDestination(finalWalkGoal);
         }
 
 		/*
@@ -164,11 +173,9 @@ public class orcMovement : MonoBehaviour {
 
         if (GameManager.instance.farTalking)
         {
-            Debug.Log("time to run boiiiiiii");
             if (Vector3.Distance(transform.position, player.position) > 5)
             {
                 agent.SetDestination(player.position + player.forward);
-                Debug.Log("far away oh no");
             }
             else
             {
@@ -211,12 +218,7 @@ public class orcMovement : MonoBehaviour {
             return;
         }
 
-        if (AllFlags.Instance.flags[1].value == true && !GameManager.instance.talking && !ranBack)
-        {
-            ranBack = true;
-            state = TARGET;
-            agent.SetDestination(runPositionTargetVeryYes.position);
-        }
+        
         
         if (state == FOLLOW)
         {
@@ -292,8 +294,9 @@ public class orcMovement : MonoBehaviour {
         }
         else if (state == TARGET)
         {
-            if (agent.velocity == Vector3.zero || maxMoveCounter > 1000)
+            if (agent.velocity == Vector3.zero && maxMoveCounter > 1000)
             {
+                Debug.Log("detta borde den inte ha gjort");
                 maxMoveCounter = 0;
                 state = WAIT;
             }
