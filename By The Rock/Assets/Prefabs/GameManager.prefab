@@ -688,6 +688,7 @@ GameObject:
   - 222: {fileID: 22243604}
   - 114: {fileID: 11461830}
   - 114: {fileID: 11415938}
+  - 114: {fileID: 11494030}
   m_Layer: 0
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -1419,6 +1420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccd34657b151b449772b6cb739b113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theCamera: {fileID: 0}
 --- !u!114 &11456952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1965,8 +1967,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 155240}
   invCanvas: {fileID: 188578}
+  fadePanel: {fileID: 188578}
   paused: 0
   talking: 0
+  farTalking: 0
   givingItem: 0
   shoulderView: 0
   currScene: 0
@@ -1975,6 +1979,11 @@ MonoBehaviour:
   crouching: 0
   showingInventory: 0
   autoCloseInv: 0
+  fadeToBlack: 0
+  changeToDayTwo: 0
+  ouPosDayTwo: {x: 0, y: 0, z: 0}
+  haPosDayTwo: {x: 0, y: 0, z: 0}
+  sunRotationDayTwo: {x: 0, y: 0, z: 0}
   itemID1: -1
   itemID2: -1
   itemID3: -1
@@ -2084,6 +2093,18 @@ MonoBehaviour:
   m_Text: 'Back to Menu
 
 '
+--- !u!114 &11494030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f005967c92c278b4a962cba08100f7b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackImage: {fileID: 0}
 --- !u!114 &11494624
 MonoBehaviour:
   m_ObjectHideFlags: 1

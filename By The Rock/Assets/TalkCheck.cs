@@ -29,10 +29,7 @@ public class TalkCheck : MonoBehaviour {
 
         Renderer[] children;
         children = GetComponentsInChildren<Renderer>();
-        foreach (Renderer r in children)
-        {
-            r.material = bandageMaterial;
-        }
+        
 
     } 
 	
@@ -42,10 +39,12 @@ public class TalkCheck : MonoBehaviour {
         /*
         if (boolGivenMoss && !changedTexture)
         {
-            rend.material = bandageMaterial;
+            foreach (Renderer r in children)
+            {
+                r.material = bandageMaterial;
+            }
+            changedTexture = true
         }*/
-
-        rend.material = bandageMaterial;
 
 
         if (GameManager.instance.talking && Vector3.Distance(transform.position, player.position) < 10)
