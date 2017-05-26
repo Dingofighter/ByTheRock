@@ -31,7 +31,7 @@ public class birdMovement : MonoBehaviour {
         */
 
         transform.position -= transform.forward * 0.1f;
-        transform.Rotate(new Vector3(0, 2, 0));
+        transform.Rotate(new Vector3(0, 0.3f, 0));
 
 	}
 }

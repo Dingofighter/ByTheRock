@@ -53,8 +53,15 @@ public class orcMovement : MonoBehaviour {
     readonly int FOLLOW = 0;
     readonly int TARGET = 1;
     readonly int WAIT = 2;
+	
+    bool moved;
+    bool movedBack;
+    bool walkedAway;
 
     public Transform runPositionTargetVeryYes;
+    public Vector3 hiddenPosition;
+    public Vector3 positionToTeleportTo;
+    public Vector3 finalWalkGoal;
     
     // Use this for initialization
     void Start()
@@ -140,11 +147,19 @@ public class orcMovement : MonoBehaviour {
 
         // Day2hadTalkedToGareghSecondTime
         if (AllFlags.Instance.flags[23].value && !walkedAway)
+            movedBack = true;
+            transform.position = positionToTeleportTo;
+            state = WAIT;
+        }
+
+		/*
+        if (boolWalkAway && !walkedAway)
         {
             walkedAway = true;
             state = TARGET;
             agent.SetDestination(finalWalkGoal);
         }
+		*/
 
         idleCounter += Time.deltaTime*60;
         if (idleCounter >= 270) idleCounter = 0;
