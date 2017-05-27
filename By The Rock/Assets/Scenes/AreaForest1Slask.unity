@@ -1866,6 +1866,29 @@ MonoBehaviour:
   _OverrideAttenuation: 0
   _OverrideMinDistance: -1
   _OverrideMaxDistance: -1
+--- !u!114 &36088134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36088126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04311eaee5e840c4d9e643972a9f3906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EventMusic: event:/Sounds/Player/PlayerPickup
+  _PlayEvent: 0
+  _StopEvent: 0
+  _playbackState: 0
+  _HasTriggered: 0
+  _AllowFadeout: 1
+  _isQuitting: 0
+  _TriggerOnce: 0
+  Params: []
+  _OverrideAttenuation: 0
+  _OverrideMinDistance: -1
+  _OverrideMaxDistance: -1
 --- !u!1001 &37356401
 Prefab:
   m_ObjectHideFlags: 0
@@ -5273,7 +5296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &110076889
 Transform:
   m_ObjectHideFlags: 0
@@ -13485,6 +13508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: 0
   trigger: {fileID: 809786524}
+  Bear: {fileID: 336271364}
 --- !u!114 &325509563
 MonoBehaviour:
   m_ObjectHideFlags: 0

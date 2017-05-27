@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MusicEmitter : BaseEmitter {
+public class MusicEmitter : BaseEmitter
+{
 
 
     private string _paramBincrement;
     private string _paramBool;
     FMOD.Studio.EventInstance _HaniaPTSD;
 
-    protected override void Start ()
+    protected override void Start()
     {
         base.Start();
         _paramBincrement = "SmallPassage";
@@ -24,7 +25,7 @@ public class MusicEmitter : BaseEmitter {
 
         switch (song)
         {
-            default:               
+            default:
             case 0:
                 guid = "{62b97563-a446-4cd2-b0c4-70ed712ea8c8}";
                 break;
@@ -92,5 +93,26 @@ public class MusicEmitter : BaseEmitter {
     public void StartFadeOut()
     {
         Stop();
+
+        string guid;
+        System.Guid thing;
+
+        guid = "{62b97563-a446-4cd2-b0c4-70ed712ea8c8}";
+
+        FMOD.Studio.Util.ParseID(guid, out thing);
+
+        if (GetComponent<GameManager>()._fmodSS.getEventByID(thing, out _EventDescription) != FMOD.RESULT.OK)
+            Debug.Log("Didn't find Event");
+
+        if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)
+            Debug.Log("Event not created");
+
+       
     }
+
+    public void startMusic()
+    {
+        Start();
+    }
+
 }
