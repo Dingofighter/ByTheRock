@@ -57,11 +57,7 @@
             <destination>{21845e61-17b7-4683-80c6-6a80f67795a3}</destination>
         </relationship>
     </object>
-    <object class="EventAutomatableProperties" id="{0816f994-6d23-4ae4-b44d-f99d17582df0}">
-        <property name="triggerCooldown">
-            <value>700</value>
-        </property>
-    </object>
+    <object class="EventAutomatableProperties" id="{0816f994-6d23-4ae4-b44d-f99d17582df0}"/>
     <object class="MarkerTrack" id="{7043cafa-40b9-45c5-a6ff-7eb1aee82832}"/>
     <object class="GroupTrack" id="{d1850921-57e1-45d7-9c81-33b907f2c5da}">
         <relationship name="modules">
@@ -86,6 +82,9 @@
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{e128179b-3863-495f-946e-9db97bf88863}">
+        <property name="volume">
+            <value>-9.5</value>
+        </property>
         <relationship name="effectChain">
             <destination>{6de6dece-b755-4209-8a89-1349472b39b3}</destination>
         </relationship>
@@ -125,7 +124,7 @@
     </object>
     <object class="EventMixerGroup" id="{b83c94a4-95a7-44ba-9039-174c1fbdb3e5}">
         <property name="volume">
-            <value>9.5</value>
+            <value>-80</value>
         </property>
         <property name="name">
             <value>Branch</value>
@@ -275,8 +274,14 @@
     <object class="MixerBusPanner" id="{4773b78b-1bbb-471d-8474-d078ba620549}"/>
     <object class="MixerBusFader" id="{baeec2d3-8eb3-4490-b383-f12369faf1df}"/>
     <object class="ThreeEQEffect" id="{aeabb885-33a1-4c88-8eff-7c5199f7cdac}">
+        <property name="lowGain">
+            <value>-23</value>
+        </property>
+        <property name="midGain">
+            <value>-1</value>
+        </property>
         <property name="highGain">
-            <value>2.5</value>
+            <value>1</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{e9fd63c6-d2b4-42cf-b0c0-032ba0c2f561}">

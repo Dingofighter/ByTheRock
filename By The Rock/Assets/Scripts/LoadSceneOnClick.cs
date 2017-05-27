@@ -33,4 +33,13 @@ public class LoadSceneOnClick : MonoBehaviour {
         Debug.Log("zooming");
         FindObjectOfType<cameraScript>().startMoving();
     } 
+
+    public void justStop()
+    {
+        var fireemitter = FindObjectOfType<FireEmitter>().GetComponent<FireEmitter>();
+        var musicemitter = FindObjectOfType<MusicEmitter>().GetComponent<MusicEmitter>();
+
+        fireemitter.StartFadeOut();
+        musicemitter.StartFadeOut();
+    }
 }

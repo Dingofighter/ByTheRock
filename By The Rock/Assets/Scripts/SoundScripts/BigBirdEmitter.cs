@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class BigBirdEmitter : BaseEmitter
 {
     public static BigBirdEmitter instance = null;
     private string _param = "Birds";
-    public enum area {HUNTING, BRUSHWOOD, GLADE, HIDEOUT, VILLAGE, FORESTPASS};
-    public area areas;
+    public Transform _player;
 
     void Awake()
     {
@@ -18,37 +18,19 @@ public class BigBirdEmitter : BaseEmitter
 
     protected override void Start()
     {
+        _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         base.Start();
-        ChangeArea();
+
     }
 
-    public void ChangeArea()
+    private void Update()
     {
-        float paramVal = 0f;
-
-        switch (areas)
-        {
-            case area.HUNTING:
-                paramVal = 0.8f;
-                break;
-            case area.BRUSHWOOD:
-                paramVal = 1.6f;
-                break;
-            case area.GLADE:
-                paramVal = 0f;
-                break;
-            case area.HIDEOUT:
-                paramVal = 3.2f;
-                break;
-            case area.VILLAGE:
-                paramVal = 0f;
-                break;
-            case area.FORESTPASS:
-                paramVal = 2.4f;
-                break;
-        }
-                _EventInstance.setParameterValue(_param, paramVal);
+        _3dAttributes.position.x = _player.transform.position.x;
+        _3dAttributes.position.y = _player.transform.position.y;
+        _3dAttributes.position.z = _player.transform.position.z;
+        _EventInstance.set3DAttributes(_3dAttributes);
     }
+
 }
-	
+
 

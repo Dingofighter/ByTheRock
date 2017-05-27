@@ -822,7 +822,13 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'ougrah_rigg:c_spine_02_jnt' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:c_spine_04_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:left_ball_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ougrah_rigg:right_ball_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -855,7 +861,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.16187593
+        functionName: PlayStep
+        data: 
+        objectReferenceParameter: {fileID: 103228, guid: 7af70c347576ca34c81065961faf62cf,
+          type: 2}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.68683815
+        functionName: PlayStep
+        data: 
+        objectReferenceParameter: {fileID: 103228, guid: 7af70c347576ca34c81065961faf62cf,
+          type: 2}
+        floatParameter: 0
+        intParameter: 2
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

@@ -4,12 +4,12 @@ using System.Collections;
 public class ScatterSounds : BaseEmitter
 {
     public ScatterManager _SM;
-    public float _minDist = 5.8f, _maxDist = 40f;
+    public float _minDist = 0.1f, _maxDist = 0.3f;
     float relativeX, relativeY;
     Vector3 _Player;
 
     // Use this for initialization
-    protected override void Start ()
+    protected override void Start()
     {
         base.Start();
         _SM = GetComponentInParent<ScatterManager>();
@@ -23,6 +23,10 @@ public class ScatterSounds : BaseEmitter
         transform.position = new Vector3(_Player.x + relativeX, _Player.y, _Player.z + relativeY);
         _EventInstance.getPlaybackState(out _playbackState);
 
+        _3dAttributes.position.x = _Player.x;
+        _3dAttributes.position.y = _Player.y;
+        _3dAttributes.position.z = _Player.z;
+
         if (_playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
         {
             _EventInstance.release();
@@ -33,11 +37,5 @@ public class ScatterSounds : BaseEmitter
     void ScatterPosition()
     {
         _Player = _SM.PlayerPosition();
-        float angle = Random.Range(0, Mathf.PI * 2);
-        float distance = Random.Range(_minDist, _maxDist);
-        relativeX = Mathf.Cos(angle)*distance;
-        relativeY = Mathf.Sin(angle)*distance;
-
-        transform.position = new Vector3(_Player.x + Mathf.Cos(angle) * distance, _Player.y, _Player.z + Mathf.Sin(angle) * distance);
     }
 }

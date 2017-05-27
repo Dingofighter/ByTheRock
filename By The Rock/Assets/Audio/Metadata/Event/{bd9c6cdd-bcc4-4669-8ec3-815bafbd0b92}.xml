@@ -102,16 +102,16 @@
             <value>1</value>
         </property>
         <property name="minimumTimeBetweenSounds">
-            <value>3000</value>
-        </property>
-        <property name="maximumTimeBetweenSounds">
             <value>6000</value>
         </property>
+        <property name="maximumTimeBetweenSounds">
+            <value>20000</value>
+        </property>
         <property name="minimumScatterDistance">
-            <value>20</value>
+            <value>4</value>
         </property>
         <property name="maximumScatterDistance">
-            <value>40</value>
+            <value>15</value>
         </property>
         <property name="pitchRandomization">
             <value>0.99999994</value>
@@ -121,6 +121,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{48d74623-e2a3-4618-93cc-0baec6da3a55}">
+        <property name="volume">
+            <value>7</value>
+        </property>
         <property name="name">
             <value>Woodpecker</value>
         </property>
@@ -159,10 +162,10 @@
     <object class="MixerBusFader" id="{05b4d4b6-fb2e-401f-88db-591bda3d64aa}"/>
     <object class="SpatialiserEffect" id="{caf3640d-62ba-4273-9ac5-1c78378a2b88}">
         <property name="minimumDistance">
-            <value>15</value>
+            <value>0</value>
         </property>
         <property name="maximumDistance">
-            <value>40</value>
+            <value>7.5999999</value>
         </property>
     </object>
     <object class="SingleSound" id="{d3cd3736-99b3-4b59-863c-adaa86d608d8}">

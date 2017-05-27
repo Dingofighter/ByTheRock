@@ -113,7 +113,7 @@
             <value>4</value>
         </property>
         <property name="volume">
-            <value>2.5</value>
+            <value>6.5</value>
         </property>
         <property name="polyphony">
             <value>1</value>
@@ -125,10 +125,10 @@
             <value>4000</value>
         </property>
         <property name="minimumScatterDistance">
-            <value>6</value>
+            <value>4</value>
         </property>
         <property name="maximumScatterDistance">
-            <value>9.80000019</value>
+            <value>10</value>
         </property>
         <property name="pitchRandomization">
             <value>1</value>
@@ -138,6 +138,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{99bceace-8612-4207-964e-803e5f3201c0}">
+        <property name="volume">
+            <value>7</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
@@ -179,10 +182,10 @@
     <object class="MixerBusFader" id="{75b89c9e-8cdd-4d93-bd03-95446e931ede}"/>
     <object class="SpatialiserEffect" id="{594308bd-ed1c-4ba5-ab84-08fc043d2660}">
         <property name="minimumDistance">
-            <value>6</value>
+            <value>0</value>
         </property>
         <property name="maximumDistance">
-            <value>15</value>
+            <value>10</value>
         </property>
     </object>
     <object class="SingleSound" id="{e80e0b50-c782-41d8-8217-04d702f99f12}">
