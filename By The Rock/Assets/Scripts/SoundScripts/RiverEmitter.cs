@@ -18,15 +18,15 @@ public class RiverEmitter : BaseEmitter
     public Vector3 bluePoint;
 
     public float temp = 0;
-	// Use this for initialization
-	protected override void Start ()
+    // Use this for initialization
+    protected override void Start()
     {
         base.Start();
 
         _TotalLength = 0;
         _Player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         _Pos = new Vector3[_Points.Length];
-        
+
         for (int i = 0; i < _Points.Length; i++)
         {
             _Pos[i] = _Points[i].transform.position;
@@ -39,14 +39,14 @@ public class RiverEmitter : BaseEmitter
 
         _Length = Vector3.Distance(_Pos[0], _Pos[_Pos.Length - 1]);
 
-        for (int i = 0; i < _Points.Length -1; i++)
+        for (int i = 0; i < _Points.Length - 1; i++)
         {
             _TotalLength += Vector3.Distance(_Pos[i], _Pos[i + 1]);
-        }       
+        }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         for (int i = 0; i < _Points.Length - 1; i++)
         {
@@ -98,13 +98,6 @@ public class RiverEmitter : BaseEmitter
         _3dAttributes.position.y = bluePoint.y;
         _3dAttributes.position.z = bluePoint.z;
         _EventInstance.set3DAttributes(_3dAttributes);
-
-        if (_Value < 20)
-            _EventInstance.setParameterValue("RiverIntensity", 0);
-        else if (_Value >= 20 && _Value < 74)
-            _EventInstance.setParameterValue("RiverIntensity", 39);
-        else if (_Value >= 74)
-            _EventInstance.setParameterValue("RiverIntensity", 60);
-
+        _EventInstance.setParameterValue("RiverIntensity", 1.16f);
     }
 }

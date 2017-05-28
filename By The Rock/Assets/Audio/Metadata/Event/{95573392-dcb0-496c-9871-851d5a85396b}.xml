@@ -120,8 +120,11 @@
         <property name="maximumTimeBetweenSounds">
             <value>28000</value>
         </property>
+        <property name="minimumScatterDistance">
+            <value>4</value>
+        </property>
         <property name="maximumScatterDistance">
-            <value>35</value>
+            <value>25</value>
         </property>
         <relationship name="sound">
             <destination>{f506814f-2e4b-417c-988e-9ca023b34b7b}</destination>
@@ -129,7 +132,7 @@
     </object>
     <object class="EventMixerGroup" id="{4ddcc316-ec45-4e89-8b72-2556ee29ac83}">
         <property name="volume">
-            <value>3</value>
+            <value>5</value>
         </property>
         <property name="name">
             <value>Small Birds</value>
@@ -160,14 +163,20 @@
         <property name="maximumTimeBetweenSounds">
             <value>20000</value>
         </property>
+        <property name="minimumScatterDistance">
+            <value>4</value>
+        </property>
         <property name="maximumScatterDistance">
-            <value>35</value>
+            <value>25</value>
         </property>
         <relationship name="sound">
             <destination>{eec72c5b-a98a-4ebf-a221-e4023daacc3f}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{d10e146b-4dc7-4cd0-a6db-0e85ea6e2652}">
+        <property name="volume">
+            <value>2</value>
+        </property>
         <property name="name">
             <value>Magpie</value>
         </property>

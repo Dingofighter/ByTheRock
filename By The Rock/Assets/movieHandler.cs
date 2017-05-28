@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class movieHandler : MonoBehaviour {
+public class movieHandler : BaseEmitter {
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
     }
 	
 	// Update is called once per frame
@@ -18,6 +18,7 @@ public class movieHandler : MonoBehaviour {
         Debug.Log("playing intro");
         MovieTexture movie = (MovieTexture) GetComponent<Renderer>().material.mainTexture;
         movie.Play();
+		Play();
     }
 
     public void playMovieWithAudio()

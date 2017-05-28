@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
     bool once;
 
     public GameObject buttonImg;
+    PickupEmitter pickupemitter;
+
 
     // Use this for initialization
     void Start()
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
         charController = GetComponent<CharacterController>();
         cam = Camera.main.transform;
         anim = GetComponent<Animator>();
+        pickupemitter = GetComponent<PickupEmitter>();
 
         buttonImg.SetActive(false);
 
@@ -365,6 +368,7 @@ public class PlayerController : MonoBehaviour
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
                         c.GetComponent<Interactable>().Interact();
+                        
                     }
                     else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
                     {
@@ -434,6 +438,7 @@ public class PlayerController : MonoBehaviour
         interacting = true;
         once = false;
         anim.SetBool("interacting", true);
+        pickupemitter.PickUp();
     }
 
     void removeFromInv(int itemID)

@@ -5,7 +5,7 @@
             <value>Bear</value>
         </property>
         <property name="outputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="folder">
             <destination>{adc96b33-ea8e-4527-a960-14fa573a4b8e}</destination>
@@ -59,7 +59,7 @@
     <object class="MarkerTrack" id="{a32bbe80-d14d-46f4-a260-3518be0b400f}"/>
     <object class="GroupTrack" id="{985b09ed-ddd5-4f69-a444-9d23d03c2cbc}">
         <relationship name="modules">
-            <destination>{37ecb657-2cd1-4197-8aae-1de2b8f6675e}</destination>
+            <destination>{fb942e2d-2af9-48ca-9546-8f48d90a63bc}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{0e8e9c6c-4d63-4755-a292-bac8b64af857}</destination>
@@ -96,7 +96,7 @@
             <value>10</value>
         </property>
         <relationship name="modules">
-            <destination>{37ecb657-2cd1-4197-8aae-1de2b8f6675e}</destination>
+            <destination>{fb942e2d-2af9-48ca-9546-8f48d90a63bc}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{f37a8fac-a9f0-4f07-9b5d-99ef181d26a6}">
@@ -116,15 +116,12 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{026dbf89-7e6a-4aaf-8c7f-5d38b8956aeb}"/>
-    <object class="EventSound" id="{37ecb657-2cd1-4197-8aae-1de2b8f6675e}">
+    <object class="EventSound" id="{fb942e2d-2af9-48ca-9546-8f48d90a63bc}">
         <property name="start">
-            <value>1</value>
+            <value>0.80000000000000004</value>
         </property>
-        <relationship name="parameters">
-            <destination>{c392702c-6b9f-43ec-9b62-7c5edd2c4145}</destination>
-        </relationship>
         <relationship name="event">
-            <destination>{8be0568c-8544-45e4-94f1-55518d4f1f53}</destination>
+            <destination>{b97a009f-2201-4a20-bc77-789c4d1ec4a4}</destination>
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{0e8e9c6c-4d63-4755-a292-bac8b64af857}">
@@ -148,11 +145,6 @@
     </object>
     <object class="MixerBusPanner" id="{3e13e396-74b1-489c-b8ce-8c86d8833173}"/>
     <object class="MixerBusFader" id="{8a8fd664-e8ca-4519-b971-32636df486e3}"/>
-    <object class="ParameterProperty" id="{c392702c-6b9f-43ec-9b62-7c5edd2c4145}">
-        <relationship name="parameter">
-            <destination>{65704a7b-ecc6-4a49-91df-b59396a91e6c}</destination>
-        </relationship>
-    </object>
     <object class="MixerBusEffectChain" id="{132353fc-bb2b-4e1d-911d-5a2400fcc634}">
         <relationship name="effects">
             <destination>{6481573a-cdba-4b3a-b0de-c442818462c8}</destination>

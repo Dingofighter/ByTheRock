@@ -115,9 +115,6 @@
         <property name="maximumTimeBetweenSounds">
             <value>10000</value>
         </property>
-        <property name="maximumScatterDistance">
-            <value>40</value>
-        </property>
         <property name="pitchRandomization">
             <value>2.99999976</value>
         </property>
@@ -129,6 +126,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{37ea4924-77d7-4f12-b4e4-e0268b071044}">
+        <property name="volume">
+            <value>4</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
@@ -176,10 +176,10 @@
     <object class="MixerBusFader" id="{7a91112f-294d-4230-bce5-0b774300d8e3}"/>
     <object class="SpatialiserEffect" id="{448accea-cff0-4544-9f95-14387ca30894}">
         <property name="minimumDistance">
-            <value>4</value>
+            <value>0</value>
         </property>
         <property name="maximumDistance">
-            <value>60</value>
+            <value>12</value>
         </property>
     </object>
     <object class="SingleSound" id="{e5d6bb28-e552-4bed-9ef6-6b0837049b88}">
@@ -193,25 +193,16 @@
         </relationship>
     </object>
     <object class="SingleSound" id="{53ce98a4-2633-4642-af36-8e0edda2bce1}">
-        <property name="volume">
-            <value>-16.5</value>
-        </property>
         <relationship name="audioFile">
             <destination>{411bf859-59b7-4245-bd9a-2a76a4fd8a33}</destination>
         </relationship>
     </object>
     <object class="SingleSound" id="{f31455aa-e895-4f6d-8873-b38750b7ab3d}">
-        <property name="volume">
-            <value>-19</value>
-        </property>
         <relationship name="audioFile">
             <destination>{b2809375-98fe-476e-9cf2-1731eb2ac13c}</destination>
         </relationship>
     </object>
     <object class="SingleSound" id="{94ecf3c9-c197-44c5-bacb-42c17e2cf004}">
-        <property name="volume">
-            <value>-11</value>
-        </property>
         <relationship name="audioFile">
             <destination>{1443ca20-00c5-4ef6-941a-0f349bb383a2}</destination>
         </relationship>

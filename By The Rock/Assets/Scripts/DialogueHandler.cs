@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
 
-public class DialogueHandler : BaseEmitter {
+public class DialogueHandler : MonoBehaviour {
 
     public Text dialogueText;
     public Text dialogueNameText;
@@ -32,12 +32,30 @@ public class DialogueHandler : BaseEmitter {
     Animator aGaregh;
     Animator aHania;
 
+    public FMODUnity.EmitterGameEvent _PlayEvent = FMODUnity.EmitterGameEvent.None;
+    public FMODUnity.EmitterGameEvent _StopEvent = FMODUnity.EmitterGameEvent.None;
+    public FMOD.Studio.EventDescription _EventDescription = null;
+    public FMOD.Studio.EventInstance _EventInstance = null, _SnapNeat, _SnapDia = null; 
+    public FMOD.ATTRIBUTES_3D _3dAttributes;
+    public FMOD.Studio.PLAYBACK_STATE _playbackState;
+
+    GameManager gm;
+
+    public float timer = 0;
+
+    public bool _HasTriggered = false;
+    public bool _AllowFadeout = true;
+    public bool _isQuitting = false;
+    public bool _TriggerOnce = false;
+
+    bool once = false;
     bool unskippable = false;
 
     // Use this for initialization
-    protected override void Start () {
+    void Start () {
         dialogueNameText.text = "";
         dialogueText.text = "";
+        gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
 
         if (choiceButtons == null)
         {
@@ -47,6 +65,14 @@ public class DialogueHandler : BaseEmitter {
         aOugrah = FindObjectOfType<PlayerController>().GetComponent<Animator>();
         aGaregh = FindObjectOfType<orcMovement>().GetComponent<Animator>();
         aHania = FindObjectOfType<TalkCheck>().GetComponent<Animator>();
+		
+        System.Guid id;
+        FMOD.Studio.Util.ParseID("{0a1248cd-c395-42ad-b955-7c4aabbc7a9e}", out id);
+        if (gm._fmodSS.getEventByID(id, out _EventDescription) != FMOD.RESULT.OK) ;
+            Debug.Log("Hitta inte dialogsnap");
+
+        if (_EventDescription.createInstance(out _SnapDia) != FMOD.RESULT.OK)
+            Debug.Log("Jag vet inte vad som händer och fötter");
 		
         DontDestroyOnLoad(this);
     }
@@ -101,24 +127,22 @@ public class DialogueHandler : BaseEmitter {
             }
         }
 
-        /*if (_EventInstance != null)
-        {
-            _EventInstance.getPlaybackState(out _playbackState);
+        if (unskippable)
+            timer += 1 * Time.deltaTime;
 
-            if (_playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
-            {
-                NextNode(0);
-            }
-            else
-            {
-                //_EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            }
-        }*/
-        
+        if (timer >= 3.4f && unskippable)
+        {
+            NextNode(0);
+            timer = 0;
+        }
+        else
+        {
+            //_EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
 
         if (inDialogue)
         {
-
+            //do stuff
         }
 
         if (walkietalkie && voiceSetup)
@@ -173,6 +197,8 @@ public class DialogueHandler : BaseEmitter {
         firstFrame = true;
         currentNode = currentDialogue.GetNode(0);
         NextNode(0);
+
+        _SnapDia.start();
     }
 
     void NextNode(int option)
@@ -191,6 +217,30 @@ public class DialogueHandler : BaseEmitter {
             Cursor.lockState = CursorLockMode.Locked;
             if (_EventInstance != null)
                 _EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+            switch (currentDialogue.name)
+            {
+                default:
+                    break;
+                case "BearRoarDialogue":
+                    Destroy(currentDialogue.gameObject);
+                    Snapshit(2);
+                    gm.GetComponent<MusicEmitter>().Change(1, false);
+                    break;
+                case "Very invisible wall after bear":
+                    currentDialogue.GetComponent<WallTimer>().start = true;                   
+                    break;
+            }
+
+            if (AllFlags.Instance.flags[3].value && !once)
+            {
+                _SnapNeat.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                once = true;
+                gm.GetComponent<MusicEmitter>().play();            }
+
+            Debug.Log(currentDialogue.name);
+
+            _SnapDia.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             return;
         }
 
@@ -208,7 +258,6 @@ public class DialogueHandler : BaseEmitter {
             if (voiceSetup)
             {
                 updatePosition(tempNode.Char);
-                base.Start();
                 _EventInstance.start();
             }
             dialogueNameText.text = tempNode.actorName;
@@ -386,7 +435,6 @@ public class DialogueHandler : BaseEmitter {
         System.Guid thing;
 
         FMOD.Studio.Util.ParseID(bank, out thing);
-        var gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
 
         if (gm._fmodSS.getEventByID(thing, out _EventDescription) != FMOD.RESULT.OK)
         {
@@ -394,18 +442,22 @@ public class DialogueHandler : BaseEmitter {
             voiceSetup = false;
             return;
         }
-            
 
-        if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)  
+
+        if (_EventDescription.createInstance(out _EventInstance) != FMOD.RESULT.OK)
         {
             Debug.Log("Instance not created because fuck you slask... gee that was harsh :|... slask wrote fuck yougrah slask");
             voiceSetup = false;
             return;
         }
 
+        if (charac == 4)
+            Snapshit(1);
+
+
         float c = charac + 0.2f;
         float d = dia + 0.2f;
-        float v = vc + 0.2f;        
+        float v = vc + 0.2f;
 
         _EventInstance.setParameterValue("CHAR", c);
         _EventInstance.setParameterValue("Dialogues", d);
@@ -413,11 +465,12 @@ public class DialogueHandler : BaseEmitter {
 
         _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         voiceSetup = true;
+        Debug.Log("c" + charac + " d" + dia + " v" + vc);
     }
 
     void updatePosition(int charac = 1)
     {
-        if (charac > 1.3f)
+        if (charac > 1.3f && charac != 4)
         {
             if (currentDialogue.autoTriggered)
             {
@@ -442,9 +495,50 @@ public class DialogueHandler : BaseEmitter {
             _pos = _player.transform.position;
         }
 
-            _3dAttributes.position.x = _pos.x;// interact.transform.position.x;
-            _3dAttributes.position.y = _pos.y;// interact.transform.position.y;
-            _3dAttributes.position.z = _pos.z; //interact.transform.position.z;
-            _EventInstance.set3DAttributes(_3dAttributes);
+
+        _3dAttributes.position.x = _pos.x;// interact.transform.position.x;
+        _3dAttributes.position.y = _pos.y;// interact.transform.position.y;
+        _3dAttributes.position.z = _pos.z; //interact.transform.position.z;
+        _EventInstance.set3DAttributes(_3dAttributes);
+        //Debug.Log(_pos);
+    }
+
+
+    void Snapshit(int thingtodo = 0)
+    {
+        if (_SnapNeat != null)
+        {
+            _SnapNeat.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _SnapNeat.release();
         }
+
+        System.Guid thing;
+        var gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+
+        switch (thingtodo)
+        {
+            default:
+                Debug.Log("Didn't find ID");
+                FMOD.Studio.Util.ParseID("{9f4a9dab-dc20-4a5b-9a2c-5c20fc9b1113}", out thing);
+                break;
+            case 1:
+                FMOD.Studio.Util.ParseID("{3cfe6b6e-b65d-4cc5-9474-c4f5db20fb30}", out thing);
+                break;
+            case 2:
+                FMOD.Studio.Util.ParseID("{afb5aa7c-fcc6-4b80-8728-fd72e9da12ee}", out thing);
+                break;
+        }
+
+
+        if (gm._fmodSS.getEventByID(thing, out _EventDescription) != FMOD.RESULT.OK)
+        {
+            Debug.Log("Oh SNAP... shot wasn't found");
+        }
+        if (_EventDescription.createInstance(out _SnapNeat) != FMOD.RESULT.OK)
+        {
+            Debug.Log("Snap your fingers if the instance wasn't created *snaps fingers*");
+        }
+
+        _SnapNeat.start();
+    }
 }
