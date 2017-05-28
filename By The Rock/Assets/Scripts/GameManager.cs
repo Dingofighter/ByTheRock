@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
     float invTimer;
 
     public FMOD.Studio.System _fmodSS;
+    MusicEmitter _me;
 
     void Awake()
     {
@@ -71,14 +72,14 @@ public class GameManager : MonoBehaviour {
         rt.anchoredPosition = rt.anchoredPosition;
 
         Game.current = new Game();
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
         //SaveLoad.Load();
 
         /*
@@ -98,7 +99,7 @@ public class GameManager : MonoBehaviour {
 
         //game.loadValues();
 
-
+        _me = GetComponent<MusicEmitter>();
         FmodInitialize();
     }
 
@@ -121,6 +122,8 @@ public class GameManager : MonoBehaviour {
             FindObjectOfType<PlayerController>().transform.position = ouPosDayTwo;
             FindObjectOfType<TalkCheck>().transform.position = haPosDayTwo;
             FindObjectOfType<lightHandler>().transform.eulerAngles = sunRotationDayTwo;
+            _me._EventInstance.setParameterValue("GlHi", 1);
+            _me._EventInstance.setParameterValue("RightAfter Bear", 0);
             fadeToBlack = true;
         }
 
