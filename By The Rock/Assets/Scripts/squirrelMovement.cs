@@ -3,12 +3,14 @@ using System.Collections;
 
 public class squirrelMovement : MonoBehaviour {
 
-    int timer;
+    float timer;
     public int treeLength;
     public int timeDown;
     public int timeUp;
     public float spinSpeed;
     public float runSpeed;
+
+    bool turned;
 
     Vector3 startPosition;
     Quaternion startRotation;
@@ -26,7 +28,7 @@ public class squirrelMovement : MonoBehaviour {
 
         if (GameManager.instance.paused) return;
 
-        timer++;
+        timer += Time.deltaTime * 60;
 
         if (timer < treeLength)
         {
@@ -35,8 +37,9 @@ public class squirrelMovement : MonoBehaviour {
             transform.position -= transform.right * runSpeed * Time.deltaTime * 60;
             
         }
-        else if (timer == treeLength + (timeDown - 1))
+        else if (timer >= treeLength + (timeDown - 1) && !turned)
         {
+            turned = true;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x + 180, transform.eulerAngles.y + 180, transform.eulerAngles.z);
             //transform.Rotate(new Vector3(180, 0, 0));
         }
@@ -49,11 +52,12 @@ public class squirrelMovement : MonoBehaviour {
         }
         else if (timer < treeLength * 2 + timeDown + timeUp)
         {
-            transform.position = Vector3.Lerp(transform.position, startPosition, 0.1f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, startRotation, 0.1f);
+            transform.position = Vector3.Lerp(transform.position, startPosition, 0.1f * Time.deltaTime * 60);
+            transform.rotation = Quaternion.Lerp(transform.rotation, startRotation, 0.1f * Time.deltaTime * 60);
         }
-        else if (timer == treeLength*2 + timeDown + timeUp)
+        else if (timer >= treeLength*2 + timeDown + timeUp)
         {
+            turned = false;
             timer = 0;
             
             //transform.Rotate(new Vector3(180, 0, 0));

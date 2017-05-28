@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
     public bool fadeToBlack;
     public bool changeToDayTwo;
     float fadeTimer;
+    public bool fadeToEnd;
+    public bool gameOver;
 
     public Vector3 ouPosDayTwo;
     public Vector3 haPosDayTwo;
@@ -116,12 +118,32 @@ public class GameManager : MonoBehaviour {
             fadePanel.GetComponent<fadeManager>().startFade();
         }
 
+        if (AllFlags.Instance.flags[23].value)
+        {
+            fadeToEnd = true;
+            AllFlags.Instance.flags[23].value = false;
+        }
+
+        if (fadeToEnd)
+        {
+            fadeToEnd = false;
+            fadePanel.GetComponent<fadeManager>().startEndFade();
+        }
+
         if (changeToDayTwo)
         {
-            FindObjectOfType<PlayerController>().transform.position = ouPosDayTwo;
+            PlayerController ougrah = FindObjectOfType<PlayerController>();
+            ougrah.transform.position = ouPosDayTwo;
             FindObjectOfType<TalkCheck>().transform.position = haPosDayTwo;
             FindObjectOfType<lightHandler>().transform.eulerAngles = sunRotationDayTwo;
+            ougrah.GetComponent<Animator>().SetBool("crouching", true);
+            ougrah.crouching = true;
             fadeToBlack = true;
+        }
+
+        if (gameOver)
+        {
+            Debug.Log("u rekt de geam, gz");
         }
 
 
@@ -178,7 +200,7 @@ public class GameManager : MonoBehaviour {
                 Debug.Log("raising invTimer");
                 invTimer += Time.deltaTime * 60;
             }
-            if (itemID1 == -1 && itemID2 == -1 && itemID3 == -1 && itemID4 == -1) invTimer = 127;
+            //if (itemID1 == -1 && itemID2 == -1 && itemID3 == -1 && itemID4 == -1) invTimer = 127;
             if (invTimer <= 25)
             {
                 Debug.Log("out");
@@ -211,8 +233,12 @@ public class GameManager : MonoBehaviour {
         if (slot == 3) itemID4 = itemID;
         */
         //Debug.Log(itemID1);
-        
-        if (!remove) invCanvas.GetComponent<itemManager>().addItem(itemID);
+
+        if (!remove)
+        {
+            invCanvas.GetComponent<itemManager>().addItem(itemID);
+            FindObjectOfType<PlayerController>().pickupemitter.PickUp();
+        }
         else invCanvas.GetComponent<itemManager>().removeItem(itemID);
 
         /*

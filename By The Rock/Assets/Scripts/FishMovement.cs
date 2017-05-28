@@ -49,7 +49,7 @@ public class FishMovement : MonoBehaviour {
         }
 
         //transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y+100, transform.rotation.z, transform.rotation.w);
-        transform.position += transform.right* moveSpeed;
+        transform.position += transform.right* moveSpeed * Time.deltaTime * 60;
        // transform.rotation
 
     }

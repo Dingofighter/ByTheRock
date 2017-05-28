@@ -209,6 +209,7 @@ public class DialogueHandler : MonoBehaviour {
         {
             aOugrah.SetBool("talking", false);
             aGaregh.SetBool("talking", false);
+            aHania.SetBool("talking", false);
              
             dialogueNameText.text = "";
             dialogueText.text = "";
@@ -235,6 +236,7 @@ public class DialogueHandler : MonoBehaviour {
             if (AllFlags.Instance.flags[3].value && !once)
             {
                 _SnapNeat.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                _SnapNeat.release();
                 once = true;
                 gm.GetComponent<MusicEmitter>().play();            }
 
@@ -263,105 +265,109 @@ public class DialogueHandler : MonoBehaviour {
             dialogueNameText.text = tempNode.actorName;
             dialogueText.text = tempNode.dialogueLine;
 
-            if (tempNode.actorName == "Ougrah")
+            if (!currentDialogue.walkAndTalk)
             {
-                switch (tempNode.animNR)
+                if (tempNode.actorName == "Ougrah")
                 {
-                    case 0:
-                        aOugrah.SetBool("mouth", false);
-                        aOugrah.SetBool("talking", false);
-                        aOugrah.SetBool("give", false);
-                        break;
-                    case 1:
-                        aOugrah.SetBool("mouth", true);
-                        aOugrah.SetBool("talking", false);
-                        aOugrah.SetBool("give", false);
-                        break;
-                    case 2:
-                        aOugrah.SetBool("talking", true);
-                        aOugrah.SetBool("mouth", false);
-                        aOugrah.SetBool("give", false);
-                        break;
-                    case 3:
-                        aOugrah.SetBool("give", true);
-                        aOugrah.SetBool("mouth", false);
-                        aOugrah.SetBool("talking", false);
-                        break;
+                    switch (tempNode.animNR)
+                    {
+                        case 0:
+                            aOugrah.SetBool("mouth", false);
+                            aOugrah.SetBool("talking", false);
+                            aOugrah.SetBool("give", false);
+                            break;
+                        case 1:
+                            aOugrah.SetBool("mouth", true);
+                            aOugrah.SetBool("talking", false);
+                            aOugrah.SetBool("give", false);
+                            break;
+                        case 2:
+                            aOugrah.SetBool("talking", true);
+                            aOugrah.SetBool("mouth", false);
+                            aOugrah.SetBool("give", false);
+                            break;
+                        case 3:
+                            aOugrah.SetBool("give", true);
+                            aOugrah.SetBool("mouth", false);
+                            aOugrah.SetBool("talking", false);
+                            break;
+                    }
+                    aOugrah.SetBool("talking", true);
+
+                    aGaregh.SetBool("mouth", false);
+                    aGaregh.SetBool("talking", false);
+                    aGaregh.SetBool("give", false);
+
+                    aHania.SetBool("mouth", false);
+                    aHania.SetBool("talking", false);
+                    aHania.SetBool("give", false);
                 }
-                aOugrah.SetBool("talking", true);
-
-                aGaregh.SetBool("mouth", false);
-                aGaregh.SetBool("talking", false);
-                aGaregh.SetBool("give", false);
-
-                aHania.SetBool("mouth", false);
-                aHania.SetBool("talking", false);
-                aHania.SetBool("give", false);
-            }
-            else if (tempNode.actorName == "Garegh")
-            {
-                switch (tempNode.animNR)
+                else if (tempNode.actorName == "Garegh")
                 {
-                    case 0:
-                        aGaregh.SetBool("mouth", false);
-                        aGaregh.SetBool("talking", false);
-                        aGaregh.SetBool("give", false);
-                        break;
-                    case 1:
-                        aGaregh.SetBool("mouth", true);
-                        aGaregh.SetBool("talking", false);
-                        aGaregh.SetBool("give", false);
-                        break;
-                    case 2:
-                        aGaregh.SetBool("talking", true);
-                        aGaregh.SetBool("mouth", false);
-                        aGaregh.SetBool("give", false);
-                        break;
-                    case 3:
-                        aGaregh.SetBool("give", true);
-                        aGaregh.SetBool("mouth", false);
-                        aGaregh.SetBool("talking", false);
-                        break;
+                    switch (tempNode.animNR)
+                    {
+                        case 0:
+                            aGaregh.SetBool("mouth", false);
+                            aGaregh.SetBool("talking", false);
+                            aGaregh.SetBool("give", false);
+                            break;
+                        case 1:
+                            aGaregh.SetBool("mouth", true);
+                            aGaregh.SetBool("talking", false);
+                            aGaregh.SetBool("give", false);
+                            break;
+                        case 2:
+                            aGaregh.SetBool("talking", true);
+                            aGaregh.SetBool("mouth", false);
+                            aGaregh.SetBool("give", false);
+                            break;
+                        case 3:
+                            aGaregh.SetBool("give", true);
+                            aGaregh.SetBool("mouth", false);
+                            aGaregh.SetBool("talking", false);
+                            break;
+                    }
+
+                    aOugrah.SetBool("mouth", false);
+                    aOugrah.SetBool("talking", false);
+                    aOugrah.SetBool("give", false);
+
+                    aGaregh.SetBool("talking", true);
                 }
-
-                aOugrah.SetBool("mouth", false);
-                aOugrah.SetBool("talking", false);
-                aOugrah.SetBool("give", false);
-
-                aGaregh.SetBool("talking", true);
-            }
-            else if (tempNode.actorName == "Hania" || tempNode.actorName == "???")
-            {
-                switch (tempNode.animNR)
+                else if (tempNode.actorName == "Hania" || tempNode.actorName == "???")
                 {
-                    case 0:
-                        aHania.SetBool("mouth", false);
-                        aHania.SetBool("talking", false);
-                        aHania.SetBool("give", false);
-                        break;
-                    case 1:
-                        aHania.SetBool("mouth", true);
-                        aHania.SetBool("talking", false);
-                        aHania.SetBool("give", false);
-                        break;
-                    case 2:
-                        aHania.SetBool("talking", true);
-                        aHania.SetBool("mouth", false);
-                        aHania.SetBool("give", false);
-                        break;
-                    case 3:
-                        aHania.SetBool("give", true);
-                        aHania.SetBool("mouth", false);
-                        aHania.SetBool("talking", false);
-                        break;
+                    switch (tempNode.animNR)
+                    {
+                        case 0:
+                            aHania.SetBool("mouth", false);
+                            aHania.SetBool("talking", false);
+                            aHania.SetBool("give", false);
+                            break;
+                        case 1:
+                            aHania.SetBool("mouth", true);
+                            aHania.SetBool("talking", false);
+                            aHania.SetBool("give", false);
+                            break;
+                        case 2:
+                            aHania.SetBool("talking", true);
+                            aHania.SetBool("mouth", false);
+                            aHania.SetBool("give", false);
+                            break;
+                        case 3:
+                            aHania.SetBool("give", true);
+                            aHania.SetBool("mouth", false);
+                            aHania.SetBool("talking", false);
+                            break;
+                    }
+
+                    aOugrah.SetBool("mouth", false);
+                    aOugrah.SetBool("talking", false);
+                    aOugrah.SetBool("give", false);
+
+                    aHania.SetBool("talking", true);
                 }
-
-                aOugrah.SetBool("mouth", false);
-                aOugrah.SetBool("talking", false);
-                aOugrah.SetBool("give", false);
-
-                aHania.SetBool("talking", true);
             }
+            
 
             if (currentDialogue.walkAndTalk)
             {

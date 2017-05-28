@@ -46,8 +46,8 @@ public class orcMovement : MonoBehaviour {
     bool tiemtoweitokethx;
     bool walkedAway;
 
-    public Vector3 hiddenPosition;
-    public Vector3 positionToTeleportTo;
+    public Transform hiddenPosition;
+    public Transform positionToTeleportTo;
     public Vector3 finalWalkGoal;
 
     readonly int FOLLOW = 0;
@@ -128,7 +128,8 @@ public class orcMovement : MonoBehaviour {
         if (AllFlags.Instance.flags[3].value && !moved)
         {
             moved = true;
-            transform.position = hiddenPosition;
+            transform.position = hiddenPosition.position;
+            agent.Warp(hiddenPosition.position);
             state = WAIT;
         }
 
@@ -136,7 +137,8 @@ public class orcMovement : MonoBehaviour {
         if (AllFlags.Instance.flags[25].value && !movedBack)
         {
             movedBack = true;
-            transform.position = positionToTeleportTo;
+            transform.position = positionToTeleportTo.position;
+            agent.Warp(positionToTeleportTo.position);
             state = FOLLOW;
         }
 
@@ -162,11 +164,13 @@ public class orcMovement : MonoBehaviour {
 
         anim.SetFloat("Speed", (Mathf.Abs(agent.velocity.z) + Mathf.Abs(agent.velocity.x) + Mathf.Abs(agent.velocity.y))/10);
 
-        if (GameManager.instance.farTalking)
+        if (GameManager.instance.farTalking && state == FOLLOW)
         {
             if (Vector3.Distance(transform.position, player.position) > 5)
             {
+                print("run to player");
                 agent.SetDestination(player.position + player.forward);
+                return;
             }
             else
             {

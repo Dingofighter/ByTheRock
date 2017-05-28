@@ -1333,6 +1333,7 @@ GameObject:
   - 114: {fileID: 11487338}
   - 114: {fileID: 11466776}
   - 114: {fileID: 11428518}
+  - 65: {fileID: 6561056}
   m_Layer: 0
   m_Name: HanaiaV1
   m_TagString: Hania
@@ -1799,8 +1800,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187594}
   m_LocalRotation: {x: 0, y: -0.7035027, z: 0, w: 0.7106926}
-  m_LocalPosition: {x: 19.124905, y: -87.20891, z: 10.291561}
-  m_LocalScale: {x: 0.6000001, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 66.988, y: 15.042999, z: 47.778}
+  m_LocalScale: {x: 0.60000014, y: 0.6, z: 0.6}
   m_LocalEulerAnglesHint: {x: 0, y: -89.4174, z: 0}
   m_Children:
   - {fileID: 452948}
@@ -2861,6 +2862,18 @@ Transform:
   - {fileID: 446044}
   m_Father: {fileID: 486988}
   m_RootOrder: 0
+--- !u!65 &6561056
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &9584956
 Animator:
   serializedVersion: 3
@@ -2936,7 +2949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 833632d764df504438b06ab07e0d59b0, type: 2}
+  dialogue: {fileID: 11400000, guid: c1b76c6820cae764486b9c22cf6dd0bb, type: 2}
   numFlagsRequired: 2
   walkAndTalk: 0
   autoTriggered: 0

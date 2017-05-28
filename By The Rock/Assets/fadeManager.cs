@@ -9,6 +9,7 @@ public class fadeManager : MonoBehaviour {
     float fadeTimer;
     bool fading;
     bool faded;
+    bool endFading;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +39,7 @@ public class fadeManager : MonoBehaviour {
                     GameManager.instance.fadeToBlack = false;
                     GameManager.instance.changeToDayTwo = false;
                     faded = false;
-                    blackImage.enabled = false;
+                    blackImage.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -48,6 +49,23 @@ public class fadeManager : MonoBehaviour {
                 
             }
         }
+
+        if (endFading)
+        {
+            blackImage.gameObject.SetActive(true);
+            if (fadeTimer < 150)
+            {
+                fadeTimer += Time.deltaTime * 60;
+                blackImage.color = new Color(0, 0, 0, fadeTimer / 120);
+            }
+            else
+            {
+                endFading = false;
+                fadeTimer = 0;
+                GameManager.instance.fadeToBlack = false;
+                GameManager.instance.gameOver = true;
+            }
+        }
 	
 	}
 
@@ -55,5 +73,12 @@ public class fadeManager : MonoBehaviour {
     {
         Debug.Log("fading");
         fading = true;
+    }
+
+    public void startEndFade()
+    {
+        Debug.Log("end fading");
+        fadeTimer = 0;
+        endFading = true;
     }
 }

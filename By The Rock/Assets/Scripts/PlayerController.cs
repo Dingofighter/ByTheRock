@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private bool interacting;
     private float interactTimer;
-    private bool crouching;
+    public bool crouching;
     private bool turnAround;
 
     GameObject itemToDestroy;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     bool once;
 
     public GameObject buttonImg;
-    PickupEmitter pickupemitter;
+    public PickupEmitter pickupemitter;
 
 
     // Use this for initialization
@@ -109,6 +109,11 @@ public class PlayerController : MonoBehaviour
                 return;
             }
             return;
+        }
+        else if (crouching && !GameManager.instance.talking)
+        {
+            crouching = false;
+            anim.SetBool("crouching", false);
         }
         
         //anim.SetBool("talking", false);
@@ -287,11 +292,8 @@ public class PlayerController : MonoBehaviour
 
         if (s == "Glow")
         {
-            Debug.Log("glowgogw");
             c.transform.parent.GetComponent<Renderer>().material.shader = Shader.Find("RimLightning Lerp");
         }
-
-
 
         if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered && !GameManager.instance.shoulderView)
         {
@@ -410,9 +412,9 @@ public class PlayerController : MonoBehaviour
                     transform.LookAt(c.transform);
                     transform.eulerAngles = new Vector3(tempAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
 
-                    tempAngles = c.transform.eulerAngles;
+                    /*tempAngles = c.transform.eulerAngles;
                     c.transform.LookAt(transform);
-                    c.transform.eulerAngles = new Vector3(tempAngles.x, c.transform.eulerAngles.y, c.transform.eulerAngles.z);
+                    c.transform.eulerAngles = new Vector3(tempAngles.x, c.transform.eulerAngles.y, c.transform.eulerAngles.z);*/
 
                     //Debug.Log("turned");
                     //transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
@@ -438,7 +440,6 @@ public class PlayerController : MonoBehaviour
         interacting = true;
         once = false;
         anim.SetBool("interacting", true);
-        pickupemitter.PickUp();
     }
 
     void removeFromInv(int itemID)
