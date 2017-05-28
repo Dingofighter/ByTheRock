@@ -19,13 +19,15 @@ public class SceneHandler : MonoBehaviour {
 	
         if (canLoad)
         {
-            SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            //SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            StartCoroutine("LoadSubScene");
             GameManager.instance.secondSceneLoaded = true;
             canLoad = false;
         }
         if (canUnload)
         {
-            SceneManager.UnloadScene(scene);
+            //SceneManager.UnloadScene(scene);
+            StartCoroutine("UnloadSubScene");
             GameManager.instance.secondSceneLoaded = false;
             canUnload = false;
         }
@@ -50,6 +52,19 @@ public class SceneHandler : MonoBehaviour {
         }
 
 
+    }
+
+    IEnumerator LoadSubScene()
+    {
+        yield return new WaitForEndOfFrame();
+        SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+    }
+
+    IEnumerator UnloadSubScene()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Bilder till story board"));
+        yield return new WaitForEndOfFrame();
+        SceneManager.UnloadScene(scene);
     }
 }
 

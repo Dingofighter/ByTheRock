@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 15200000, guid: 315f3bba59dc831409adba381f5dd90a, type: 3}
+          m_Texture: {fileID: 15200000, guid: 01fdc7bd7eec9b8449b781a91cccfe61, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -87,6 +87,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _tex0
         second:
           m_Texture: {fileID: 0}
@@ -95,13 +102,6 @@ Material:
       data:
         first:
           name: _tex1
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecGlossMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -169,42 +169,6 @@ Material:
         second: 0.02
       data:
         first:
-          name: _ZWrite
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0
-      data:
-        first:
-          name: _BumpScale
-        second: 1
-      data:
-        first:
-          name: _OcclusionStrength
-        second: 1
-      data:
-        first:
-          name: _DetailNormalMapScale
-        second: 1
-      data:
-        first:
-          name: _UVSec
-        second: 0
-      data:
-        first:
-          name: _Mode
-        second: 0
-      data:
-        first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _EdgeLength
-        second: 10
-      data:
-        first:
           name: _WindPower
         second: 0.02
       data:
@@ -241,12 +205,40 @@ Material:
         second: 1
       data:
         first:
-          name: _Cull
-        second: 2
+          name: _ZWrite
+        second: 1
       data:
         first:
-          name: _InvFade
+          name: _Glossiness
+        second: 0
+      data:
+        first:
+          name: _BumpScale
         second: 1
+      data:
+        first:
+          name: _OcclusionStrength
+        second: 1
+      data:
+        first:
+          name: _DetailNormalMapScale
+        second: 1
+      data:
+        first:
+          name: _UVSec
+        second: 0
+      data:
+        first:
+          name: _Mode
+        second: 0
+      data:
+        first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Cull
+        second: 2
       data:
         first:
           name: _animTimeParam
@@ -257,8 +249,12 @@ Material:
         second: 10
       data:
         first:
-          name: _Outline
-        second: 0.005
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _EdgeLength
+        second: 10
       data:
         first:
           name: _Stencil
@@ -287,6 +283,10 @@ Material:
         first:
           name: _UseUIAlphaClip
         second: 0
+      data:
+        first:
+          name: _Outline
+        second: 0.005
     m_Colors:
       data:
         first:

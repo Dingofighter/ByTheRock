@@ -971,6 +971,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414932}
   - 114: {fileID: 11413730}
+  - 114: {fileID: 11449794}
   m_Layer: 0
   m_Name: root_jnt
   m_TagString: Untagged
@@ -1216,10 +1217,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117364}
-  m_LocalRotation: {x: 0, y: -0.3209509, z: 0, w: 0.9470959}
-  m_LocalPosition: {x: -68.696, y: 11.868507, z: 124.929}
+  m_LocalRotation: {x: 0, y: -0.74474156, z: 0, w: 0.66735303}
+  m_LocalPosition: {x: -3.5545845, y: 107.69449, z: 122.023994}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -37.4409, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.1512, y: -541.333, z: 8.8133}
   m_Children:
   - {fileID: 488230}
   m_Father: {fileID: 0}
@@ -1964,6 +1965,17 @@ MonoBehaviour:
   m_DistantDisable: 1
   m_ReferenceObject: {fileID: 0}
   m_DistanceToObject: 1.5
+--- !u!114 &11449794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199748}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9b860ec8a7e9948af2bbb288fa688c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &13749336
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

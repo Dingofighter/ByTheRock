@@ -155,15 +155,6 @@ public class orcMovement : MonoBehaviour {
             agent.SetDestination(finalWalkGoal);
         }
 
-		/*
-        if (boolWalkAway && !walkedAway)
-        {
-            walkedAway = true;
-            state = TARGET;
-            agent.SetDestination(finalWalkGoal);
-        }
-		*/
-
         idleCounter += Time.deltaTime*60;
         if (idleCounter >= 270) idleCounter = 0;
         int temp = (int)idleCounter;
@@ -212,7 +203,7 @@ public class orcMovement : MonoBehaviour {
         }
         else { } //anim.SetBool("talking", false);
 
-        if (Vector3.Distance(player.position, transform.position) < 1)
+        if (Vector3.Distance(player.position, transform.position) < 1 && state == FOLLOW)
         {
             agent.SetDestination(transform.position);
             return;

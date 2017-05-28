@@ -46,7 +46,7 @@ public class DialogueHandler : BaseEmitter {
 
         aOugrah = FindObjectOfType<PlayerController>().GetComponent<Animator>();
         aGaregh = FindObjectOfType<orcMovement>().GetComponent<Animator>();
-        //aHania = FindObjectOfType<TalkCheck>().GetComponent<Animator>();
+        aHania = FindObjectOfType<TalkCheck>().GetComponent<Animator>();
 		
         DontDestroyOnLoad(this);
     }
@@ -239,15 +239,15 @@ public class DialogueHandler : BaseEmitter {
                         aOugrah.SetBool("talking", false);
                         break;
                 }
-                //aOugrah.SetBool("talking", true);
+                aOugrah.SetBool("talking", true);
 
-                //aGaregh.SetBool("mouth", false);
+                aGaregh.SetBool("mouth", false);
                 aGaregh.SetBool("talking", false);
-                //aGaregh.SetBool("give", false);
+                aGaregh.SetBool("give", false);
 
-                /*aHania.SetBool("mouth", false);
+                aHania.SetBool("mouth", false);
                 aHania.SetBool("talking", false);
-                aHania.SetBool("give", false);*/
+                aHania.SetBool("give", false);
             }
             else if (tempNode.actorName == "Garegh")
             {
@@ -275,11 +275,11 @@ public class DialogueHandler : BaseEmitter {
                         break;
                 }
 
-                //aOugrah.SetBool("mouth", false);
+                aOugrah.SetBool("mouth", false);
                 aOugrah.SetBool("talking", false);
-                //aOugrah.SetBool("give", false);
+                aOugrah.SetBool("give", false);
 
-                //aGaregh.SetBool("talking", true);
+                aGaregh.SetBool("talking", true);
             }
             else if (tempNode.actorName == "Hania")
             {
@@ -307,11 +307,11 @@ public class DialogueHandler : BaseEmitter {
                         break;
                 }
 
-                //aOugrah.SetBool("mouth", false);
+                aOugrah.SetBool("mouth", false);
                 aOugrah.SetBool("talking", false);
-                //aOugrah.SetBool("give", false);
+                aOugrah.SetBool("give", false);
 
-                //aHania.SetBool("talking", true);
+                aHania.SetBool("talking", true);
             }
 
             if (currentDialogue.walkAndTalk)

@@ -20,6 +20,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &125474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423976}
+  - 114: {fileID: 11476618}
+  m_Layer: 0
+  m_Name: Vitlav dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &169354
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 476772}
+  - 65: {fileID: 6565752}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Dialogue
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &170510
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +68,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &423976
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 476772}
+  m_Father: {fileID: 440658}
+  m_RootOrder: 1
 --- !u!4 &440658
 Transform:
   m_ObjectHideFlags: 1
@@ -43,11 +89,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107686}
   m_LocalRotation: {x: -0.5770763, y: -0.31164455, z: -0.25406447, w: 0.710853}
-  m_LocalPosition: {x: 34.11175, y: -52.834045, z: -4.195099}
+  m_LocalPosition: {x: 29.503, y: -53.259, z: -13.855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -78.177895, y: -47.001, z: -360.425}
   m_Children:
   - {fileID: 461414}
+  - {fileID: 423976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &461414
@@ -62,6 +109,19 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 440658}
+  m_RootOrder: 0
+--- !u!4 &476772
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 423976}
   m_RootOrder: 0
 --- !u!23 &2306836
 MeshRenderer:
@@ -108,6 +168,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.38, z: 0}
+--- !u!65 &6565752
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.38, z: 0}
 --- !u!95 &9566574
 Animator:
   serializedVersion: 3
@@ -142,6 +214,24 @@ MonoBehaviour:
   setFlag: 1
   setBoolIndex: 8
   setBoolValueIndex: 0
+--- !u!114 &11476618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb5f3f0bf8c6d4b9cc2cde71aaf2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 206152c12ca29354f85f91503ec572e8, type: 2}
+  numFlagsRequired: 2
+  walkAndTalk: 0
+  autoTriggered: 0
+  rotationTarget: {fileID: 0}
+  boolIndex: 0300000008000000
+  boolValueIndex: 0000000001000000
 --- !u!135 &13596076
 SphereCollider:
   m_ObjectHideFlags: 1
