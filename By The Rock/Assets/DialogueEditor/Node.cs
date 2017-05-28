@@ -12,12 +12,12 @@ public abstract class Node : ScriptableObject {
     public bool isSelected;
 
     //May not need to be here maybe
-    public string DayBank;
     public int Day;
     public int Clip;
     public int Char;
     public int _fmod;
     public int Dia;
+    public int Dial;
 
     public List<int> nextNodesID;
 

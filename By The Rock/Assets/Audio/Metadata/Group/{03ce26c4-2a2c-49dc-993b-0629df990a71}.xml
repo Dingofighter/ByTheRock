@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="MixerGroup" id="{03ce26c4-2a2c-49dc-993b-0629df990a71}">
+        <property name="name">
+            <value>BirdsBig</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{e9441e0f-65d9-4e50-8c6e-805cf90b240a}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{45914675-ed4a-45f5-97ee-fd809e1945f2}</destination>
+        </relationship>
+        <relationship name="output">
+            <destination>{7dde6eea-db7a-402a-86e5-175756f80cec}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{e9441e0f-65d9-4e50-8c6e-805cf90b240a}">
+        <relationship name="effects">
+            <destination>{71c5ca0d-3634-46cd-9cea-d6763daf0411}</destination>
+            <destination>{b2bfff86-77d5-4174-8f69-06023b3879e0}</destination>
+            <destination>{e8d02b2d-416c-4466-a99b-97edb9b33f2d}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{45914675-ed4a-45f5-97ee-fd809e1945f2}"/>
+    <object class="MixerBusFader" id="{71c5ca0d-3634-46cd-9cea-d6763daf0411}"/>
+    <object class="MixerSend" id="{b2bfff86-77d5-4174-8f69-06023b3879e0}">
+        <property name="level">
+            <value>-14</value>
+        </property>
+        <property name="inputFormat">
+            <value>0</value>
+        </property>
+        <relationship name="mixerReturn">
+            <destination>{8fd9d9e4-94e6-4fcf-b969-e0be12333a9d}</destination>
+        </relationship>
+    </object>
+    <object class="CompressorEffect" id="{e8d02b2d-416c-4466-a99b-97edb9b33f2d}">
+        <property name="ratio">
+            <value>18</value>
+        </property>
+        <property name="attackTime">
+            <value>3</value>
+        </property>
+        <property name="releaseTime">
+            <value>80</value>
+        </property>
+        <property name="sidechainEnabled">
+            <value>true</value>
+        </property>
+    </object>
+</objects>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="MixerReturn" id="{66a20213-b597-4eb1-97c6-cdc40a1a2e0e}">
+        <property name="name">
+            <value>BearRev2</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{65a40e7c-21c8-4316-a538-870c3af2b686}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{4203eaeb-80ef-4b71-a6a6-c3e3b4ce49f3}</destination>
+        </relationship>
+        <relationship name="output">
+            <destination>{73d23202-a63d-4ade-8032-b0d3af7998a0}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{65a40e7c-21c8-4316-a538-870c3af2b686}">
+        <relationship name="effects">
+            <destination>{6fe250b9-609a-4ff7-971b-2e68f6afa795}</destination>
+            <destination>{373d5754-b2d3-4991-902f-a877037610ff}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{4203eaeb-80ef-4b71-a6a6-c3e3b4ce49f3}"/>
+    <object class="MixerBusFader" id="{6fe250b9-609a-4ff7-971b-2e68f6afa795}"/>
+    <object class="SFXReverbEffect" id="{373d5754-b2d3-4991-902f-a877037610ff}">
+        <property name="decayTime">
+            <value>1900</value>
+        </property>
+        <property name="earlyDelay">
+            <value>84</value>
+        </property>
+        <property name="HFReference">
+            <value>10000</value>
+        </property>
+        <property name="HFDecayRatio">
+            <value>100</value>
+        </property>
+        <property name="diffusion">
+            <value>65.5</value>
+        </property>
+        <property name="lowShelfFrequency">
+            <value>230</value>
+        </property>
+        <property name="lowShelfGain">
+            <value>-12</value>
+        </property>
+        <property name="highCut">
+            <value>3800</value>
+        </property>
+        <property name="earlyLateMix">
+            <value>94</value>
+        </property>
+        <property name="wetLevel">
+            <value>3</value>
+        </property>
+        <property name="dryLevel">
+            <value>-14</value>
+        </property>
+    </object>
+</objects>

@@ -88,6 +88,11 @@ public class MusicEmitter : BaseEmitter
 
         _EventInstance.setParameterValue("RightAfter Bear", 1);
         _EventInstance.start();
+        if (_HaniaPTSD != null)
+        {
+            _HaniaPTSD.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _HaniaPTSD.release();
+        }
     }
 
     public void StartFadeOut()
