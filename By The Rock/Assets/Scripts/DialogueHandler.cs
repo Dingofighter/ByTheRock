@@ -330,7 +330,7 @@ public class DialogueHandler : MonoBehaviour {
 
                 aGaregh.SetBool("talking", true);
             }
-            else if (tempNode.actorName == "Hania")
+            else if (tempNode.actorName == "Hania" || tempNode.actorName == "???")
             {
                 switch (tempNode.animNR)
                 {
