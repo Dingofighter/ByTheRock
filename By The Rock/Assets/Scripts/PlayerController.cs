@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
             else
             return;
         }
-
+        /*
         if (crouching || anim.GetCurrentAnimatorStateInfo(0).IsName("Crouch Up") || anim.GetCurrentAnimatorStateInfo(0).IsName("Crouch Idle"))
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
-
+        */
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("otherIdle", !anim.GetBool("otherIdle"));
         }
         if (!(Mathf.Abs(vertical) + Mathf.Abs(horizontal) == 0) || GameManager.instance.talking) idleCounter = 0;
-
+        /*
         if (Input.GetKeyDown(KeyCode.E))
         {
             //turnRight = !turnRight;
@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("pressed to fade");
             GameManager.instance.fadeToBlack = true;
         }
-
+        */
         anim.SetBool("crouching", crouching);
         anim.SetBool("turnRight", turnRight);
         anim.SetBool("turnLeft", turnLeft);

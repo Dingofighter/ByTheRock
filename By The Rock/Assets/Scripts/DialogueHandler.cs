@@ -332,7 +332,10 @@ public class DialogueHandler : MonoBehaviour {
                     aOugrah.SetBool("talking", false);
                     aOugrah.SetBool("give", false);
 
-                    aGaregh.SetBool("talking", true);
+                    if (Vector3.Distance(aOugrah.transform.position, aGaregh.transform.position) <= 5)
+                    {
+                        aGaregh.SetBool("talking", true);
+                    }
                 }
                 else if (tempNode.actorName == "Hania" || tempNode.actorName == "???")
                 {
