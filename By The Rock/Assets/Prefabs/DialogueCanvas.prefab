@@ -47,6 +47,7 @@ GameObject:
   - 114: {fileID: 11438132}
   - 114: {fileID: 11424158}
   - 114: {fileID: 11492168}
+  - 114: {fileID: 11479456}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -203,6 +204,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Dialogue
+--- !u!114 &11479456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24d054f57e21514daf6b0bb5faa0bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11487892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,27 +253,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f18bca8a90525841ae3710503d641ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EventMusic: 
-  _PlayEvent: 0
-  _StopEvent: 0
-  _playbackState: 0
-  _HasTriggered: 0
-  _AllowFadeout: 1
-  _isQuitting: 0
-  _TriggerOnce: 0
-  Params: []
-  _OverrideAttenuation: 0
-  _OverrideMinDistance: -1
-  _OverrideMaxDistance: -1
   dialogueText: {fileID: 11472168}
   dialogueNameText: {fileID: 11407486}
   choiceButtonPrefab: {fileID: 11419110, guid: e7718a8bf756e204d84c47fe0bcd7da0, type: 2}
-  displayTimePerChar: 0.3
-  optionsPosition: {x: 600, y: 200, z: 0}
+  displayTimePerChar: 0.08
+  optionsPosition: {x: 600, y: 20, z: 0}
   optionsOffset: {x: 0, y: 40, z: 0}
   inDialogue: 0
   firstFrame: 0
   _pos: {x: 0, y: 0, z: 0}
+  _PlayEvent: 0
+  _StopEvent: 0
+  _playbackState: 0
+  timer: 0
+  _HasTriggered: 0
+  _AllowFadeout: 1
+  _isQuitting: 0
+  _TriggerOnce: 0
 --- !u!222 &22238664
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -314,8 +322,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -1}
-  m_SizeDelta: {x: 663, y: 80}
+  m_AnchoredPosition: {x: 0, y: 113}
+  m_SizeDelta: {x: 663, y: 86.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22468730
 RectTransform:
@@ -351,7 +359,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -236.5, y: 73}
+  m_AnchoredPosition: {x: -236.85, y: 180.09999}
   m_SizeDelta: {x: 215.3, y: 47.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22492572

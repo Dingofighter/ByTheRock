@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour {
 
         if (gameOver)
         {
-            Debug.Log("u rekt de geam, gz");
+            //Debug.Log("u rekt de geam, gz");
         }
 
 
@@ -179,6 +180,10 @@ public class GameManager : MonoBehaviour {
 
         if (Input.GetButtonDown("Pause"))
         {
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                return;
+            }
             TogglePause();
         }
 
