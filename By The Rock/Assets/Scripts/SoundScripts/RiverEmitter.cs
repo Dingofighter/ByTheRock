@@ -100,4 +100,12 @@ public class RiverEmitter : BaseEmitter
         _EventInstance.set3DAttributes(_3dAttributes);
         _EventInstance.setParameterValue("RiverIntensity", 1.16f);
     }
+
+    void OnDrawGizmos()
+    {
+        for (int i = 0; i < _Points.Length - 1; i++)
+        {
+            Debug.DrawLine(_Points[i].transform.position, _Points[i + 1].transform.position, Color.blue);
+        }
+    }
 }

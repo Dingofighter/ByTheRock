@@ -83,18 +83,9 @@ public class FmodDialogue : GUIDrawer {
     }
     
 
-    public string setEvent()
+    public int setDay()
     {
-        switch (DaySelect)
-        {
-            case 1:
-                return "{adc96b33-ea8e-4527-a960-14fa573a4b8e}";
-            case 2:
-                return "{059b97d6-2ea4-4f06-b452-074dd7fc060d}";
-            case 3:
-                return "{2e35ab6e-4d2d-46ab-9e5c-cb3262a898df}";
-        }
-        return "{adc96b33-ea8e-4527-a960-14fa573a4b8e}";
+        return DaySelect;
     }
 
     public int setChar()

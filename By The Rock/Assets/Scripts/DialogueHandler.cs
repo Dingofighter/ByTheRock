@@ -81,9 +81,9 @@ public class DialogueHandler : MonoBehaviour {
 	void Update () {
         if (inDialogue)
         {
-            print("paused: " + GameManager.instance.paused);
-            print("unskippable: " + unskippable);
-            print("firstframe: " + firstFrame);
+            //print("paused: " + GameManager.instance.paused);
+            //print("unskippable: " + unskippable);
+            //print("firstframe: " + firstFrame);
         }
         if (inDialogue && !firstFrame && Input.GetButtonDown("Interact") && !GameManager.instance.paused && !unskippable)
         {
@@ -119,25 +119,25 @@ public class DialogueHandler : MonoBehaviour {
             }
         }
 
-        if (inDialogue && currentDialogue.walkAndTalk)
+        if (inDialogue)
         {
-            if (Time.time >= autoClearTime)
+            if (currentDialogue.walkAndTalk && voiceSetup || unskippable)
+                _EventInstance.getPlaybackState(out _playbackState);
+        }
+
+        if (inDialogue && currentDialogue.walkAndTalk || unskippable)
+        {
+            if (voiceSetup)
+            { 
+                if (_playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+                {
+                    NextNode(0);
+                }
+            }
+            else if (Time.time >= autoClearTime)
             {
                 NextNode(0);
             }
-        }
-
-        if (unskippable)
-            timer += 1 * Time.deltaTime;
-
-        if (timer >= 3.4f && unskippable)
-        {
-            NextNode(0);
-            timer = 0;
-        }
-        else
-        {
-            //_EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
 
         if (inDialogue)
@@ -233,14 +233,15 @@ public class DialogueHandler : MonoBehaviour {
                     break;
             }
 
-            if (AllFlags.Instance.flags[3].value && !once)
+            if (AllFlags.Instance.flags[3].value && !once && _SnapNeat != null)
             {
                 _SnapNeat.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 _SnapNeat.release();
                 once = true;
-                gm.GetComponent<MusicEmitter>().play();            }
+                gm.GetComponent<MusicEmitter>().play();
+            }
 
-            Debug.Log(currentDialogue.name);
+            //Debug.Log(currentDialogue.name);
 
             _SnapDia.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             return;
@@ -256,7 +257,7 @@ public class DialogueHandler : MonoBehaviour {
 
             isChoice = false;
             DialogueLineNode tempNode = (DialogueLineNode)currentNode;
-            setFmodParams(tempNode.DayBank, tempNode.Char, tempNode.Day, tempNode.Clip);
+            setFmodParams(tempNode.Day, tempNode.Char, tempNode.Dia, tempNode.Clip);
             if (voiceSetup)
             {
                 updatePosition(tempNode.Char);
@@ -433,7 +434,7 @@ public class DialogueHandler : MonoBehaviour {
         }
     }
 
-    void setFmodParams(string bank, int charac, int dia, int vc)
+    void setFmodParams(int day, int charac, int dia, int vc)
     {
         if (_EventInstance != null)
         {
@@ -441,9 +442,38 @@ public class DialogueHandler : MonoBehaviour {
             _EventInstance.release();
         }
 
+        print(day + " " + dia);
+
+        string guid = null;
+
+        switch (charac)
+        {
+            default:
+                break;
+            case 1: //Ougrah
+                guid = setOugrahDialogue(day, dia);
+                break;
+            case 2: //Garegh
+                guid = setGareghDialogue(day, dia);
+                break;
+            case 3: //Hania
+                guid = setHaniaDialogue(day, dia);
+                break;
+            case 4: //Bear
+                guid = "{b97a009f-2201-4a20-bc77-789c4d1ec4a4}";
+                Snapshit(1);
+                break;
+        }
+
         System.Guid thing;
 
-        FMOD.Studio.Util.ParseID(bank, out thing);
+        if (guid == null)
+        {
+            voiceSetup = false;
+            return;
+        }
+
+        FMOD.Studio.Util.ParseID(guid, out thing);
 
         if (gm._fmodSS.getEventByID(thing, out _EventDescription) != FMOD.RESULT.OK)
         {
@@ -460,21 +490,10 @@ public class DialogueHandler : MonoBehaviour {
             return;
         }
 
-        if (charac == 4)
-            Snapshit(1);
-
-
-        float c = charac + 0.2f;
-        float d = dia + 0.2f;
-        float v = vc + 0.2f;
-
-        _EventInstance.setParameterValue("CHAR", c);
-        _EventInstance.setParameterValue("Dialogues", d);
-        _EventInstance.setParameterValue("VoiceClip", v);
+        _EventInstance.setParameterValue("VoiceClip", vc);
 
         _player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         voiceSetup = true;
-        Debug.Log("c" + charac + " d" + dia + " v" + vc);
     }
 
     void updatePosition(int charac = 1)
@@ -549,5 +568,107 @@ public class DialogueHandler : MonoBehaviour {
         }
 
         _SnapNeat.start();
+    }
+
+    string setHaniaDialogue(int day, int dia)
+    {
+        if (day == 1)
+        {
+            switch (dia)
+            {
+                default:
+                    break;
+                case 4:
+                    return "{6f42954b-9c3d-46b2-9dd1-5cd8eaff906d}";
+                case 5:
+                    return "{f1c31f39-d655-43f6-b853-6f1068520640}";
+            }
+        }
+        else if (day == 2)
+        {
+
+        }
+        else if (day == 3)
+        {
+
+        }
+        else if (day == 4)
+        {
+
+        }
+
+        return null; //nothing found
+    }
+
+    string setGareghDialogue(int day, int dia)
+    {
+        if (day == 1)
+        {
+            switch (dia)
+            {
+                default:
+                    break;
+                case -1:
+                    return "{607a89f9-3755-4219-9eeb-84d798408365}";
+                case 1:
+                    return "{560683cf-a949-412d-9d34-6db05efd5b50}";
+                case 3:
+                    return "{669ebd94-c646-4eeb-ab24-9c193ad433ac}";
+            }
+        }
+        else if (day == 2)
+        {
+
+        }
+        else if (day == 3)
+        {
+
+        }
+        else if (day == 4)
+        {
+
+        }
+
+        return null; //nothing found
+    }
+
+    string setOugrahDialogue(int day, int dia)
+    {
+        if (day == 1)
+        {
+            switch (dia)
+            {
+                default:
+                    break;
+                case -5:
+                    return "{4f135a78-a83d-41e2-b4c3-c7d4d60bd352}";
+                case -4:
+                    return "{b80cdc71-085b-469b-967f-a64753401896}";
+                case -1:
+                    return "{b8a286eb-b103-4796-a7c8-86d9f78d1f77}";
+                case 1:
+                    return "{67fef64a-8f51-4791-9692-2a686a2d133f}";
+                case 3:
+                    return "{ec7623b6-2ae6-431e-ad71-bb07e17356cc}";
+                case 4:
+                    return "{3a353e26-3950-4484-8b49-250455b3f5be}";
+                case 5:
+                    return "{23e54cef-927c-4bd7-98cb-f096ec7feca3}";
+            }
+        }
+        else if (day == 2)
+        {
+
+        }
+        else if (day == 3)
+        {
+
+        }
+        else if (day == 4)
+        {
+
+        }
+
+        return null; //nothing found
     }
 }

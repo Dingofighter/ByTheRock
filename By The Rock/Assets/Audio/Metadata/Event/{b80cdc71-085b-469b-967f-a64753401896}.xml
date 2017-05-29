@@ -8,7 +8,7 @@
             <value>0</value>
         </property>
         <relationship name="folder">
-            <destination>{b255b7c8-f3e3-46da-938d-04464fc00452}</destination>
+            <destination>{764b5469-7071-4da5-b1ab-6084add8739b}</destination>
         </relationship>
         <relationship name="mixer">
             <destination>{45e70f79-b2e6-45f0-b376-c7cb3143c1f7}</destination>
@@ -34,6 +34,9 @@
         <relationship name="parameters">
             <destination>{b9d3e384-ac85-4e87-8e32-16bfcd8ae277}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{8af06524-1887-4dcf-aded-ab3b330dc32d}</destination>
+        </relationship>
     </object>
     <object class="EventMixer" id="{45e70f79-b2e6-45f0-b376-c7cb3143c1f7}">
         <relationship name="masterBus">
@@ -52,6 +55,9 @@
         <relationship name="panner">
             <destination>{c3e296ed-cbd7-4d27-898b-71163337c539}</destination>
         </relationship>
+        <relationship name="output">
+            <destination>{180bbb4a-48c6-4c6a-8c07-60e5f7928c57}</destination>
+        </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{0fcb062e-da3f-4229-acbb-e4104870b9f5}"/>
     <object class="MarkerTrack" id="{b1da8f47-6a44-4adc-8af6-c6914de159e4}"/>
@@ -59,12 +65,17 @@
         <relationship name="modules">
             <destination>{4d99f755-686a-4f4f-8f6f-f239924e4ec5}</destination>
             <destination>{cbb957d5-8649-4025-bd3b-9ce238891eaf}</destination>
+            <destination>{87d6db6e-ffb9-4667-af22-502427b92f4b}</destination>
         </relationship>
         <relationship name="mixerGroup">
             <destination>{290e5fed-19cc-4af6-98a8-e0de1651485c}</destination>
         </relationship>
     </object>
-    <object class="Timeline" id="{f3a9d753-4f46-48c0-9fbf-416ca50ba9a2}"/>
+    <object class="Timeline" id="{f3a9d753-4f46-48c0-9fbf-416ca50ba9a2}">
+        <relationship name="modules">
+            <destination>{87d6db6e-ffb9-4667-af22-502427b92f4b}</destination>
+        </relationship>
+    </object>
     <object class="GameParameter" id="{b9d3e384-ac85-4e87-8e32-16bfcd8ae277}">
         <property name="name">
             <value>VoiceClip</value>
@@ -121,6 +132,11 @@
         <relationship name="audioFile">
             <destination>{90268071-c141-402a-ab87-725de569ab21}</destination>
         </relationship>
+    </object>
+    <object class="SingleSound" id="{87d6db6e-ffb9-4667-af22-502427b92f4b}">
+        <property name="length">
+            <value>0.22149302707136997</value>
+        </property>
     </object>
     <object class="EventMixerGroup" id="{290e5fed-19cc-4af6-98a8-e0de1651485c}">
         <property name="name">

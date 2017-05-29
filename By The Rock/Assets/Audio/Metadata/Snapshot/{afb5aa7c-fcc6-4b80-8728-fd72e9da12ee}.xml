@@ -40,11 +40,7 @@
             <destination>{0b757bd0-c0cd-4ebc-9bac-62ff60f8705f}</destination>
         </relationship>
     </object>
-    <object class="EventAutomatableProperties" id="{616af26a-0c1b-41c4-ba74-8f9dbf9f8d95}">
-        <relationship name="modulators">
-            <destination>{562f3021-24ae-45e9-959f-cf7e932e8750}</destination>
-        </relationship>
-    </object>
+    <object class="EventAutomatableProperties" id="{616af26a-0c1b-41c4-ba74-8f9dbf9f8d95}"/>
     <object class="MarkerTrack" id="{52326a6d-2ef9-49df-aaf8-8295800f33c7}"/>
     <object class="Timeline" id="{04472e4d-305e-47c5-979b-c4585938035f}">
         <relationship name="automationCurves">
@@ -198,20 +194,6 @@
         <relationship name="mixerStrip">
             <destination>{a78d7dfe-3871-408e-a4a2-5bbd47c903a9}</destination>
         </relationship>
-    </object>
-    <object class="ADSRModulator" id="{562f3021-24ae-45e9-959f-cf7e932e8750}">
-        <property name="nameOfPropertyBeingModulated">
-            <value>snapshotIntensity</value>
-        </property>
-        <property name="peakValue">
-            <value>100</value>
-        </property>
-        <property name="sustainValue">
-            <value>100</value>
-        </property>
-        <property name="releaseTime">
-            <value>2400</value>
-        </property>
     </object>
     <object class="AutomationCurve" id="{5626dc25-49d0-429a-82a0-05ad5e2bb8d3}">
         <relationship name="automationPoints">

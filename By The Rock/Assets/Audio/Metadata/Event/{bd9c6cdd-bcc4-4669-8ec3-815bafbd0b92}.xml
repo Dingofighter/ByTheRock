@@ -95,9 +95,6 @@
         <property name="maxVoices">
             <value>1</value>
         </property>
-        <property name="volume">
-            <value>7</value>
-        </property>
         <property name="polyphony">
             <value>1</value>
         </property>
@@ -156,6 +153,7 @@
     <object class="MixerBusEffectChain" id="{9855b029-0fe0-48ff-a236-af10fc81a6e8}">
         <relationship name="effects">
             <destination>{291b465d-e92e-418b-9572-f3578374e1f3}</destination>
+            <destination>{337acd79-236f-4e4a-9f15-55256e32bde0}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{aece0d5d-27d2-4c27-aef8-b620a1180efc}"/>
@@ -189,4 +187,9 @@
         </relationship>
     </object>
     <object class="MixerBusFader" id="{291b465d-e92e-418b-9572-f3578374e1f3}"/>
+    <object class="ThreeEQEffect" id="{337acd79-236f-4e4a-9f15-55256e32bde0}">
+        <property name="lowGain">
+            <value>-6</value>
+        </property>
+    </object>
 </objects>
