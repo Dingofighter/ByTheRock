@@ -26,6 +26,7 @@ public class LoadSceneOnClick : MonoBehaviour {
             {
                 Debug.Log("starting game");
                 Time.timeScale = 1.0f;
+                FindObjectOfType<movieHandler>().stopAudio();
                 //GameManager.instance.paused = true;
                 SceneManager.LoadScene(sceneID);
             }
@@ -39,6 +40,12 @@ public class LoadSceneOnClick : MonoBehaviour {
         Debug.Log("zooming");
         FindObjectOfType<cameraScript>().startMoving();
     } 
+
+    public void backToMenu(int i)
+    {
+        AllFlags.Instance.Reset();
+        SceneManager.LoadScene(0);
+    }
 
     public void justStop()
     {

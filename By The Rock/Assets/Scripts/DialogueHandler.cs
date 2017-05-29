@@ -79,6 +79,9 @@ public class DialogueHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        print(AllFlags.Instance.flags[18].description + " " + AllFlags.Instance.flags[18].value);
+
         if (inDialogue)
         {
             //print("paused: " + GameManager.instance.paused);

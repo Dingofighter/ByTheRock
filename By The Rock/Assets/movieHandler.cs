@@ -8,8 +8,8 @@ public class movieHandler : BaseEmitter {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        
+	void Update ()
+    {
 	
 	}
 
@@ -21,12 +21,18 @@ public class movieHandler : BaseEmitter {
 		Play();
     }
 
-    public void playMovieWithAudio()
+    public void stopAudio()
+    {
+        _EventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _EventInstance.release();
+    }
+
+    /*public void playMovieWithAudio()
     {
         MovieTexture movie = (MovieTexture)GetComponent<Renderer>().material.mainTexture;
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = movie.audioClip;
         movie.Play();
         audio.Play();
-    }
+    }*/
 }

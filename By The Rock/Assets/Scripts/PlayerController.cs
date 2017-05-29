@@ -282,15 +282,113 @@ public class PlayerController : MonoBehaviour
 
         string s = c.gameObject.tag;
 
-        if (s == "Dialogue" && !GameManager.instance.talking)
+        if (s == "Dialogue" && !GameManager.instance.talking && !c.transform.parent.GetComponent<Dialogue>().autoTriggered && !c.transform.parent.GetComponent<Dialogue>().walkAndTalk || s == "Mossa" || s == "Vatten" || s == "Bark" || s == "Ort" || s == "Svamp")
         {
-            buttonImg.transform.position = c.transform.position - c.transform.right * 0.7f + new Vector3(0, 1.3f, 0);
-            buttonImg.SetActive(true);
-        }
-        else if (s == "Mossa" || s == "Vatten" || s == "Bark" || s == "Ort" || s == "Svamp")
-        {
-            buttonImg.SetActive(true);
-            //c.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+
+            //buttonImg.transform.position = c.transform.position - c.transform.right * 0.7f + new Vector3(0, 1.3f, 0);
+
+            if (s != "Dialogue" && s != "Svamp")
+            { 
+                if (AllFlags.Instance.flags[3].value)
+                {
+                    switch (s)
+                    {
+                        default:
+                            break;
+                        case "Bark":
+                        case "Mossa":
+                        case "Ort":
+                            buttonImg.transform.position = c.transform.position + new Vector3(0, 0.8f, 0);
+                            buttonImg.transform.LookAt(cam);
+                            //buttonImg.SetActive(true);
+                            break;
+                        case "Vatten":
+                            buttonImg.transform.position = cam.position + new Vector3(2, 0, 0f);
+                            buttonImg.transform.LookAt(cam);
+                            //buttonImg.SetActive(true);
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                if (!AllFlags.Instance.flags[3].value)
+                {
+                    switch (c.gameObject.name)
+                    {
+                        default:
+                            break;
+                        case "Moss":
+                        case "Water":
+                        case "Barkis":
+                        case "Herb":
+                            return;
+                    }
+                }
+
+                if (!AllFlags.Instance.flags[24].value && s == "Svamp" || AllFlags.Instance.flags[25].value && s == "Svamp")
+                    return;
+                else if (AllFlags.Instance.flags[24].value && s == "Svamp")
+                {
+                    buttonImg.transform.position = c.transform.position + new Vector3(0, 0.8f, 0);
+                    buttonImg.transform.LookAt(cam);
+                    //buttonImg.SetActive(true);
+                }
+
+
+                if (c.gameObject.name == "DialougeTriggerHania")
+                {
+                    if (AllFlags.Instance.flags[24].value && !AllFlags.Instance.flags[20].value)
+                    {
+                    }
+                    else
+                    {
+                        buttonImg.transform.position = c.transform.position + new Vector3(0, 0.8f, 0);
+                        buttonImg.transform.LookAt(cam);
+                        //buttonImg.SetActive(true);
+                    }
+                        
+
+                    if (AllFlags.Instance.flags[22].value)
+                    {
+                    }
+                    else
+                    {
+                        buttonImg.transform.position = c.transform.position + new Vector3(0, 0.8f, 0);
+                        buttonImg.transform.LookAt(cam);
+                        //buttonImg.SetActive(true);
+                    }
+
+
+
+
+
+                }             
+                else
+                {
+                    if (c.gameObject.name == "DialougeTriggerGaregh")
+                    {
+
+                        if (AllFlags.Instance.flags[25].value && !AllFlags.Instance.flags[22].value)
+                        {
+                        }
+                        else
+                        {
+                            buttonImg.transform.position = c.transform.position + new Vector3(0, 1.7f, 0);
+                            buttonImg.transform.LookAt(cam);
+                            //buttonImg.SetActive(true);
+                        }
+
+                    }
+
+
+                }
+
+
+            }
+
+
+   
 
         }
         else
@@ -305,7 +403,10 @@ public class PlayerController : MonoBehaviour
 
         if (c.gameObject.tag == "Dialogue" && c.transform.parent.GetComponent<Dialogue>().autoTriggered && !GameManager.instance.shoulderView)
         {
+          
             dialogueHandler.StartDialogue(c.GetComponentsInParent<Dialogue>());
+
+            buttonImg.SetActive(false);
             if (dialogueHandler.firstFrame)
             {
                 //c.GetComponentInParent<Dialogue>().transform.LookAt(transform);
@@ -330,81 +431,96 @@ public class PlayerController : MonoBehaviour
                         transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                     }
                 }
+                buttonImg.SetActive(false);
             }
         }
 
         if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
         {
-            
+            if (!AllFlags.Instance.flags[3].value)
+            {
+                switch (c.gameObject.name)
+                {
+                    default:
+                        break;
+                    case "Moss":
+                    case "Water":
+                    case "Barkis":
+                    case "Herb":
+                    case "Svamp":
+                        return;
+                }
+            }
 
-            if (c.gameObject.tag == "Mossa")
-            {
-                if (c.GetComponent<Interactable>().CheckInteractable())
+
+                if (c.gameObject.tag == "Mossa")
                 {
-                    pickUp(MOSSA, c.transform.gameObject);
-                    //c.GetComponent<Interactable>().Interact();
-                }
-            }
-            if (c.gameObject.tag == "Vatten")
-            {
-                if (c.GetComponent<Interactable>().CheckInteractable())
-                {
-                    pickUp(VATTEN, c.transform.gameObject);
-                    //c.GetComponent<Interactable>().Interact();
-                }
-            }
-            if (c.gameObject.tag == "Bark")
-            {
-                if (c.GetComponent<Interactable>().CheckInteractable())
-                {
-                    pickUp(BARK, c.transform.gameObject);
-                    //c.GetComponent<Interactable>().Interact();
-                }
-            }
-            if (c.gameObject.tag == "Ort")
-            {
-                if (c.GetComponent<Interactable>().CheckInteractable())
-                {
-                    pickUp(ORT, c.transform.gameObject);
-                    //c.GetComponent<Interactable>().Interact();
-                }
-            }
-            if (c.gameObject.tag == "Svamp")
-            {
-                if (c.GetComponent<Interactable>().CheckInteractable())
-                {
-                    if (GameManager.instance.itemID1 >= INGET && GameManager.instance.itemID1 <= SVAMP4)
+                    if (c.GetComponent<Interactable>().CheckInteractable())
                     {
-                        int temp = GameManager.instance.itemID1;
-                        removeMushroom = true;
-                        pickUp(temp + 1, c.transform.gameObject);
+                        pickUp(MOSSA, c.transform.gameObject);
                         //c.GetComponent<Interactable>().Interact();
+                    }
+                }
+                if (c.gameObject.tag == "Vatten")
+                {
+                    if (c.GetComponent<Interactable>().CheckInteractable())
+                    {
+                        pickUp(VATTEN, c.transform.gameObject);
+                        //c.GetComponent<Interactable>().Interact();
+                    }
+                }
+                if (c.gameObject.tag == "Bark")
+                {
+                    if (c.GetComponent<Interactable>().CheckInteractable())
+                    {
+                        pickUp(BARK, c.transform.gameObject);
+                        //c.GetComponent<Interactable>().Interact();
+                    }
+                }
+                if (c.gameObject.tag == "Ort")
+                {
+                    if (c.GetComponent<Interactable>().CheckInteractable())
+                    {
+                        pickUp(ORT, c.transform.gameObject);
+                        //c.GetComponent<Interactable>().Interact();
+                    }
+                }
+                if (c.gameObject.tag == "Svamp")
+                {
+                    if (c.GetComponent<Interactable>().CheckInteractable())
+                    {
+                        if (GameManager.instance.itemID1 >= INGET && GameManager.instance.itemID1 <= SVAMP4)
+                        {
+                            int temp = GameManager.instance.itemID1;
+                            removeMushroom = true;
+                            pickUp(temp + 1, c.transform.gameObject);
+                            //c.GetComponent<Interactable>().Interact();
                         
+                        }
+                        else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
+                        {
+                            int temp = GameManager.instance.itemID2;
+                            removeMushroom = true;
+                            pickUp(temp + 1, c.transform.gameObject);
+                            //c.GetComponent<Interactable>().Interact();
+                        }
+                        else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
+                        {
+                            int temp = GameManager.instance.itemID3;
+                            removeMushroom = true;
+                            pickUp(temp + 1, c.transform.gameObject);
+                            //c.GetComponent<Interactable>().Interact();
+                        }
+                        else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
+                        {
+                            int temp = GameManager.instance.itemID4;
+                            removeMushroom = true;
+                            pickUp(temp + 1, c.transform.gameObject);
+                            //c.GetComponent<Interactable>().Interact();
+                        }
+                        else return;
                     }
-                    else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
-                    {
-                        int temp = GameManager.instance.itemID2;
-                        removeMushroom = true;
-                        pickUp(temp + 1, c.transform.gameObject);
-                        //c.GetComponent<Interactable>().Interact();
-                    }
-                    else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
-                    {
-                        int temp = GameManager.instance.itemID3;
-                        removeMushroom = true;
-                        pickUp(temp + 1, c.transform.gameObject);
-                        //c.GetComponent<Interactable>().Interact();
-                    }
-                    else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
-                    {
-                        int temp = GameManager.instance.itemID4;
-                        removeMushroom = true;
-                        pickUp(temp + 1, c.transform.gameObject);
-                        //c.GetComponent<Interactable>().Interact();
-                    }
-                    else return;
                 }
-            }
 
             if (c.gameObject.tag == "Dialogue" && !GameManager.instance.shoulderView && !GameManager.instance.talking)
             {
@@ -428,6 +544,7 @@ public class PlayerController : MonoBehaviour
                     //Debug.Log("turned");
                     //transform.rotation = Quaternion.Euler(0, c.transform.eulerAngles.y + 180, 0);
                 }
+ 
                 FindObjectOfType<DialogueHandler>().StartDialogue(c.GetComponentsInParent<Dialogue>());
 
                 if (c.transform.parent.gameObject.tag == "Hania")
@@ -437,6 +554,7 @@ public class PlayerController : MonoBehaviour
                     if (currentlyHolding(VATTEN)) removeFromInv(VATTEN);
                     if (currentlyHolding(BARK)) removeFromInv(BARK);
                     if (currentlyHolding(ORT)) removeFromInv(ORT);
+                    if (currentlyHolding(SVAMP5)) removeFromInv(SVAMP5);
                 }
             }
         }
