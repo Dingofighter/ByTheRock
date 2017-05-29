@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 11470380}
-  - {fileID: 11466616}
-  - {fileID: 11411262}
-  - {fileID: 11408834}
-  - {fileID: 11473578}
+  - {fileID: 11489328}
+  - {fileID: 11433320}
+  - {fileID: 11427566}
+  - {fileID: 11497090}
   EditorEvents:
   - {fileID: 11411608}
   - {fileID: 11402048}
@@ -58,9 +58,9 @@ MonoBehaviour:
   - {fileID: 11417330}
   - {fileID: 11406718}
   - {fileID: 11432096}
-  MasterBankRef: {fileID: 11473578}
+  MasterBankRef: {fileID: 11497090}
   StringsBankRef: {fileID: 11470380}
-  stringsBankWriteTime: 636316436803092473
+  stringsBankWriteTime: 636316160894046342
   cacheVersion: 2
 --- !u!114 &11400004
 MonoBehaviour:
@@ -166,7 +166,7 @@ MonoBehaviour:
   Path: event:/Sounds/Player/PlayerSpearThrow
   guid: 033b2d9dde50bb4e9fcd346021aa457b
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -218,6 +218,21 @@ MonoBehaviour:
   Min: -1
   Max: 13
   Default: -1
+--- !u!114 &11402534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11402602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,12 +390,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/Dialogues5
   guid: ef4ce5237c92d74b98cbf096ec7feca3
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11420244}
+  - {fileID: 11414224}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11407710
@@ -623,7 +638,7 @@ MonoBehaviour:
   Path: event:/Music/Uneasiness
   guid: febd94adce8a554595e854f7c350c7ec
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -692,7 +707,7 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/WoodpeckerScattersound
   guid: dd6c9cbdc4bc69468ec3815bafbd0b92
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -744,6 +759,36 @@ MonoBehaviour:
   Min: -10
   Max: 10
   Default: -10
+--- !u!114 &11414224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
+--- !u!114 &11414902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11415260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +819,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11415458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntesity
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &11415988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,13 +848,13 @@ MonoBehaviour:
   Path: event:/Sounds/Deer/DeerFootsteps
   guid: 110159f2cc57d0488221c5dacfedd8cf
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11495072}
-  - {fileID: 11405150}
+  - {fileID: 11481520}
+  - {fileID: 11493386}
   MinDistance: 1
   MaxDistance: 50
 --- !u!114 &11416120
@@ -891,12 +951,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/In-game1
   guid: eb86a2b803b19647a7c886d9f78d1f77
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11407710}
+  - {fileID: 11470290}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11417496
@@ -1113,7 +1173,7 @@ MonoBehaviour:
   Path: event:/Sounds/Player/PlayerPickup
   guid: 59516be4679dfa488faaf35defda5889
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1134,12 +1194,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/In-game5
   guid: 785a134f3da8e241b4c3c7d4d60bd352
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11438152}
+  - {fileID: 11414902}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11420514
@@ -1224,7 +1284,7 @@ MonoBehaviour:
   Path: snapshot:/Dialogues
   guid: cd48120a95c3ad42b9557c4aabbc7a9e
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1275,7 +1335,7 @@ MonoBehaviour:
   Path: event:/Sounds/General/Intro
   guid: 14d761fbbf5236468dcfe0bb1e7ef33b
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1436,6 +1496,21 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0
+--- !u!114 &11425154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: WindIntensity
+  Min: 0
+  Max: 3
+  Default: 0.56
 --- !u!114 &11425374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1564,7 +1639,7 @@ MonoBehaviour:
   Path: snapshot:/Nothing
   guid: ab9d4a9f20dc5b4a9a2c5c20fc9b1113
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1615,14 +1690,32 @@ MonoBehaviour:
   Path: event:/Sounds/Player/PlayerFootsteps
   guid: 939e9c82b2c3ff47adc112d95913ed02
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 11462108}
+  - {fileID: 11437386}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11427566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Day1Bank.bank
+  lastModified: 636316160894886941
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 12726336
+  Exists: 1
 --- !u!114 &11427878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,12 +1760,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Hania/Dialogues5
   guid: 391fc3f155d6f643b8536f1068520640
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11483972}
+  - {fileID: 11402534}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11428532
@@ -1740,12 +1833,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/Dialogues4
   guid: 263e353a503984448b49250455b3f5be
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11489434}
+  - {fileID: 11441052}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11428860
@@ -1891,7 +1984,7 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/Fish
   guid: 79aa4b8333cfb64fa1cc86f60571d081
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2098,12 +2191,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Garegh/In-game1
   guid: f9897a60553719429eeb84d798408365
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11453984}
+  - {fileID: 11444912}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11432526
@@ -2127,6 +2220,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11432736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11432770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,6 +2280,24 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11433320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Day3Bank.bank
+  lastModified: 636316160894906958
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 416
+  Exists: 1
 --- !u!114 &11433332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2268,6 +2394,21 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0.56
+--- !u!114 &11433822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GlHi
+  Min: 0
+  Max: 2
+  Default: 0
 --- !u!114 &11434016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2528,6 +2669,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11437386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11437672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2675,7 +2831,7 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/BreakingTwiggsScattersound
   guid: 26993efab9c38a41a613b8f97d301c87
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -2826,16 +2982,16 @@ MonoBehaviour:
   Path: event:/Music/Forest
   guid: 6375b96246a4d24cb0c470ed712ea8c8
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 11482148}
-  - {fileID: 11480402}
-  - {fileID: 11402240}
-  - {fileID: 11472370}
-  - {fileID: 11463392}
+  - {fileID: 11453678}
+  - {fileID: 11457686}
+  - {fileID: 11476570}
+  - {fileID: 11457898}
+  - {fileID: 11433822}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11439570
@@ -2952,14 +3108,29 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/Wind
   guid: 3b9b3faf938c824ab9a1f083330013b0
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 11466026}
+  - {fileID: 11425154}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11441052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11441120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,6 +3236,21 @@ MonoBehaviour:
   Min: -10
   Max: 10
   Default: -10
+--- !u!114 &11442334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11442364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,12 +3304,12 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/Waterfall
   guid: 95c842acfa035a4eb6f52b09f6f97599
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11489402}
+  - {fileID: 11471538}
   MinDistance: 1
   MaxDistance: 30
 --- !u!114 &11442796
@@ -3210,18 +3396,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: event:/Dialogues/Day1/Bear/Dialogues1
   guid: 9f007ab90122204abc77789c4d1ec4a4
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11444912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11444924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3327,7 +3528,7 @@ MonoBehaviour:
   Path: event:/Sounds/General/MenuClick
   guid: 7ed6f0f95d3f6d4b9f53479bece411d3
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3371,6 +3572,21 @@ MonoBehaviour:
   - {fileID: 0}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11446384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11446398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,7 +3788,7 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/Rustling BushesScattersound
   guid: cd8583103466ff4b856feee87e5c0c4f
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -3813,6 +4029,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11452716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11453088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3892,6 +4123,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 25808416
   Exists: 1
+--- !u!114 &11453678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bool
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11453708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4285,6 +4531,36 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11457686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 10
+  Default: 0
+--- !u!114 &11457898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RightAfter Bear
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11458350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4329,7 +4605,7 @@ MonoBehaviour:
   Path: snapshot:/PostBear
   guid: 7caab5afc6fc804b8728fd72e9da12ee
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -4588,12 +4864,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Hania/Dialogues4
   guid: 4b95426f3d9cb2469dd15cd8eaff906d
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11486748}
+  - {fileID: 11446384}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11462754
@@ -4835,12 +5111,12 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/River
   guid: 50ad831a7459824fa55b4213f23baa87
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11430506}
+  - {fileID: 11490954}
   MinDistance: 0
   MaxDistance: 30
 --- !u!114 &11465802
@@ -4895,12 +5171,12 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/River2
   guid: 9ff8d784693f7e48b42dec9231d938c0
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11417496}
+  - {fileID: 11415458}
   MinDistance: 0
   MaxDistance: 30
 --- !u!114 &11466148
@@ -4927,7 +5203,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Surface
   Min: 0
@@ -4947,12 +5223,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Garegh/Dialogues3
   guid: 94bd9e6646c6eb4eab249c193ad433ac
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11454026}
+  - {fileID: 11488922}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11466616
@@ -5047,7 +5323,7 @@ MonoBehaviour:
   Path: event:/Sounds/Player/PlayerHitBranch
   guid: f953488be0d9a04bb1f83c9a6cbcf23e
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5201,6 +5477,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11470290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11470380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,7 +5504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636316436803092473
+  lastModified: 636316160894046342
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -5352,6 +5643,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11471538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Far/Close
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11471604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5366,7 +5672,7 @@ MonoBehaviour:
   Path: event:/Sounds/General/MenuFireplace
   guid: bcb39fc52797694fab4d8d758c8a012b
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -5468,7 +5774,7 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/Birds_SmallAmbienceScattersound
   guid: 92335795b0dc6c499871851d5a85396b
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -5605,6 +5911,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11475396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11475546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5619,12 +5940,12 @@ MonoBehaviour:
   Path: event:/Sounds/Forest/Birds_BigAmbience
   guid: e4471221faa6414e807cc2f699b61978
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11479502}
+  - {fileID: 11497300}
   MinDistance: 1
   MaxDistance: 60
 --- !u!114 &11475664
@@ -5771,6 +6092,21 @@ MonoBehaviour:
   Min: 1
   Max: 4
   Default: 1
+--- !u!114 &11476570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SmallPassage
+  Min: -1
+  Max: 13
+  Default: -1
 --- !u!114 &11476582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5785,7 +6121,7 @@ MonoBehaviour:
   Path: event:/Music/MainMenu
   guid: 73939d901365fd468eb3cab76b18e9cb
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -6153,6 +6489,21 @@ MonoBehaviour:
   Min: -1
   Max: 13
   Default: -1
+--- !u!114 &11481520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11481536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6182,12 +6533,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Garegh/Dialogues1
   guid: cf83065649a92d419d346db05efd5b50
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11478912}
+  - {fileID: 11475396}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11482148
@@ -6538,13 +6889,28 @@ MonoBehaviour:
   Path: event:/Sounds/Deer/DeerDeath
   guid: e63479e3a313534e9dd864709bee78ff
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 30
+--- !u!114 &11488922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11489050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6575,6 +6941,24 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11489328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Day2Bank.bank
+  lastModified: 636316160894896949
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 416
+  Exists: 1
 --- !u!114 &11489402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6649,12 +7033,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/In-game4
   guid: 71dc0cb85b089b46967fa64753401896
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11418092}
+  - {fileID: 11442334}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11490782
@@ -6716,13 +7100,28 @@ MonoBehaviour:
   Path: snapshot:/PostHania
   guid: e336b6090b90e84ebcf397810f7f32c9
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11490954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntesity
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &11491654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6825,6 +7224,21 @@ MonoBehaviour:
   Name: Birds
   Min: 0
   Max: 4
+  Default: 0
+--- !u!114 &11493386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
   Default: 0
 --- !u!114 &11493508
 MonoBehaviour:
@@ -6971,12 +7385,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/Dialogues1
   guid: 4af6fe67518f914796922a686a2d133f
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11429222}
+  - {fileID: 11452716}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11495358
@@ -6993,7 +7407,7 @@ MonoBehaviour:
   Path: snapshot:/Bear
   guid: 6e6bfe3c5db6c54c9474c4f5db20fb30
   Banks:
-  - {fileID: 11473578}
+  - {fileID: 11497090}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -7029,12 +7443,12 @@ MonoBehaviour:
   Path: event:/Dialogues/Day1/Ougrah/Dialogues3
   guid: b62376ece62a1e43ad71bb07e17356cc
   Banks:
-  - {fileID: 11408834}
+  - {fileID: 11427566}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11437370}
+  - {fileID: 11432736}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11496554
@@ -7066,6 +7480,40 @@ MonoBehaviour:
   Name: VoiceClip
   Min: 0
   Max: 20
+  Default: 0
+--- !u!114 &11497090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636316160894031330
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 25808416
+  Exists: 1
+--- !u!114 &11497300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Birds
+  Min: 0
+  Max: 4
   Default: 0
 --- !u!114 &11497500
 MonoBehaviour:
