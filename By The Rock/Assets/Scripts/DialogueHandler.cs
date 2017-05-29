@@ -68,7 +68,7 @@ public class DialogueHandler : MonoBehaviour {
 		
         System.Guid id;
         FMOD.Studio.Util.ParseID("{0a1248cd-c395-42ad-b955-7c4aabbc7a9e}", out id);
-        if (gm._fmodSS.getEventByID(id, out _EventDescription) != FMOD.RESULT.OK) ;
+        if (gm._fmodSS.getEventByID(id, out _EventDescription) != FMOD.RESULT.OK)
             Debug.Log("Hitta inte dialogsnap");
 
         if (_EventDescription.createInstance(out _SnapDia) != FMOD.RESULT.OK)
@@ -237,6 +237,7 @@ public class DialogueHandler : MonoBehaviour {
             {
                 _SnapNeat.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 _SnapNeat.release();
+                FindObjectOfType<Area2WallTrigger>().GetComponent<Area2WallTrigger>().enableWall();
                 once = true;
                 gm.GetComponent<MusicEmitter>().play();
             }

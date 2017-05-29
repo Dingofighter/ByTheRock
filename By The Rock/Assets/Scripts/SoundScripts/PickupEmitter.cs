@@ -5,8 +5,9 @@ public class PickupEmitter : BaseEmitter {
 
     int played = 0;
 	// Use this for initialization
-	protected override void Start () {
-	
+	protected override void Start ()
+    {
+        Preload();
 	}
 	
 	// Update is called once per frame
@@ -16,10 +17,8 @@ public class PickupEmitter : BaseEmitter {
 
     public void PickUp()
     {
-
         Play();
-        _EventInstance.release();
+        //_EventInstance.release();
         played++;
-        Debug.Log("Sound played: " + played);
     }
 }

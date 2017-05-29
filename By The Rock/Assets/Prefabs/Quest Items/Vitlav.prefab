@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107686}
   m_LocalRotation: {x: -0.5770763, y: -0.31164455, z: -0.25406447, w: 0.710853}
-  m_LocalPosition: {x: 29.503, y: -53.259, z: -13.855}
+  m_LocalPosition: {x: 43.017, y: -53.896, z: -13.349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -78.177895, y: -47.001, z: -360.425}
   m_Children:
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numFlagsRequired: 2
-  boolIndex: 080000000300000000000000
-  boolValueIndex: 010000000000000000000000
-  setFlag: 0
+  boolIndex: 03000000080000000000000000000000
+  boolValueIndex: 00000000010000000000000000000000
+  setFlag: 1
   setBoolIndex: 8
   setBoolValueIndex: 0
 --- !u!114 &11476618
@@ -226,12 +226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 206152c12ca29354f85f91503ec572e8, type: 2}
-  numFlagsRequired: 2
+  numFlagsRequired: 0
   walkAndTalk: 0
   autoTriggered: 0
   rotationTarget: {fileID: 0}
   boolIndex: 0300000008000000
-  boolValueIndex: 0000000001000000
+  boolValueIndex: 
 --- !u!135 &13596076
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -7,6 +7,7 @@ public class RustleManager : BaseEmitter {
 	protected override void Start () {
 
         base.Start();
+        Preload();
 	
 	}
     private void OnTriggerEnter(Collider other)
@@ -14,8 +15,7 @@ public class RustleManager : BaseEmitter {
         if (other.tag == "Prassel")
         {
             Play();
-            _EventInstance.release();
-            Debug.Log("pamsdfasdf");
+            //_EventInstance.release();
         } 
        
     }

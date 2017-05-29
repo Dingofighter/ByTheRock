@@ -14,6 +14,12 @@ public class LoadSceneOnClick : MonoBehaviour {
     {
         if (started)
         {
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                startTimer = 85 * 60 + 350;
+            }
+
             startTimer += Time.deltaTime * 60;
 
             if (startTimer >  85 * 60 + 350)

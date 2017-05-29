@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour {
     public bool fadeToEnd;
     public bool gameOver;
 
+    public bool fadingAtm;
+
     public Vector3 ouPosDayTwo;
     public Vector3 haPosDayTwo;
     public Vector3 sunRotationDayTwo;
@@ -110,6 +112,7 @@ public class GameManager : MonoBehaviour {
     {
         if (AllFlags.Instance.flags[16].value)
         {
+            fadingAtm = true;
             fadeToBlack = true;
             AllFlags.Instance.flags[16].value = false;
         }
@@ -122,6 +125,7 @@ public class GameManager : MonoBehaviour {
 
         if (AllFlags.Instance.flags[23].value)
         {
+            fadingAtm = true;
             fadeToEnd = true;
             AllFlags.Instance.flags[23].value = false;
         }
@@ -130,6 +134,7 @@ public class GameManager : MonoBehaviour {
         {
             fadeToEnd = false;
             fadePanel.GetComponent<fadeManager>().startEndFade();
+            _me._EventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         if (changeToDayTwo)

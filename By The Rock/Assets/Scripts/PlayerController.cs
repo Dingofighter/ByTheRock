@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.paused)
+        if (GameManager.instance.paused || GameManager.instance.fadingAtm)
         {
             return;
         }
@@ -122,6 +122,11 @@ public class PlayerController : MonoBehaviour
         if (interacting)
         {
             interactTimer += Time.deltaTime * 60;
+            if (!once)
+            {
+                //itemToDestroy.GetComponent<BoxCollider>().enabled = false;
+                //itemToDestroy.GetComponentInChildren<BoxCollider>().enabled = false;
+            }
             if (interactTimer >= 40 && !once)
             {
                 once = true;
@@ -135,12 +140,15 @@ public class PlayerController : MonoBehaviour
                 }
 
                 GameManager.instance.changeItem(itemToAdd, false, false);
+                itemToDestroy.GetComponent<Interactable>().Interact();
                 Destroy(itemToDestroy);
+
             }
 
             if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("interacting") && interactTimer > 40)
             //if (interactTimer > 130)
             {
+                Debug.Log("klar");
                 interacting = false;
                 interactTimer = 0;
                 anim.SetBool("interacting", false);
@@ -327,13 +335,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Interact") && !GameManager.instance.crouching)
         {
+            
 
             if (c.gameObject.tag == "Mossa")
             {
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(MOSSA, c.transform.gameObject);
-                    c.GetComponent<Interactable>().Interact();
+                    //c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Vatten")
@@ -341,7 +350,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(VATTEN, c.transform.gameObject);
-                    c.GetComponent<Interactable>().Interact();
+                    //c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Bark")
@@ -349,7 +358,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(BARK, c.transform.gameObject);
-                    c.GetComponent<Interactable>().Interact();
+                    //c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Ort")
@@ -357,7 +366,7 @@ public class PlayerController : MonoBehaviour
                 if (c.GetComponent<Interactable>().CheckInteractable())
                 {
                     pickUp(ORT, c.transform.gameObject);
-                    c.GetComponent<Interactable>().Interact();
+                    //c.GetComponent<Interactable>().Interact();
                 }
             }
             if (c.gameObject.tag == "Svamp")
@@ -369,7 +378,7 @@ public class PlayerController : MonoBehaviour
                         int temp = GameManager.instance.itemID1;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
-                        c.GetComponent<Interactable>().Interact();
+                        //c.GetComponent<Interactable>().Interact();
                         
                     }
                     else if (GameManager.instance.itemID2 >= INGET && GameManager.instance.itemID2 <= SVAMP4)
@@ -377,21 +386,21 @@ public class PlayerController : MonoBehaviour
                         int temp = GameManager.instance.itemID2;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
-                        c.GetComponent<Interactable>().Interact();
+                        //c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID3 >= INGET && GameManager.instance.itemID3 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID3;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
-                        c.GetComponent<Interactable>().Interact();
+                        //c.GetComponent<Interactable>().Interact();
                     }
                     else if (GameManager.instance.itemID4 >= INGET && GameManager.instance.itemID4 <= SVAMP4)
                     {
                         int temp = GameManager.instance.itemID4;
                         removeMushroom = true;
                         pickUp(temp + 1, c.transform.gameObject);
-                        c.GetComponent<Interactable>().Interact();
+                        //c.GetComponent<Interactable>().Interact();
                     }
                     else return;
                 }
@@ -437,6 +446,7 @@ public class PlayerController : MonoBehaviour
     {
         itemToAdd = itemID;
         itemToDestroy = item;
+        
         interacting = true;
         once = false;
         anim.SetBool("interacting", true);

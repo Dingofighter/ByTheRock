@@ -6,6 +6,7 @@ public class FootstepsEmitter : BaseEmitter {
     protected override void Start()
     {
         base.Start();
+        Preload();
     }
 
     public void PlayStep(int stepnr)
@@ -18,7 +19,6 @@ public class FootstepsEmitter : BaseEmitter {
         _3dAttributes.position.y = _t.y;
         _3dAttributes.position.z = _t.z;
         _EventInstance.set3DAttributes(_3dAttributes);
-        _EventInstance.release();
-        Debug.Log("Step nr: " + stepnr);
+        //_EventInstance.release();
     }
 }

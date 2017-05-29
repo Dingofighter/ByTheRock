@@ -33,6 +33,7 @@ public class fadeManager : MonoBehaviour {
             else
             {
                 fading = false;
+                GameManager.instance.fadingAtm = false;
                 fadeTimer = 0;
                 if (faded)
                 {
@@ -60,6 +61,7 @@ public class fadeManager : MonoBehaviour {
             }
             else
             {
+                GameManager.instance.fadingAtm = false;
                 endFading = false;
                 fadeTimer = 0;
                 GameManager.instance.fadeToBlack = false;

@@ -32,7 +32,7 @@ public class BaseEmitter : MonoBehaviour {
     }
 
 
-    public void Play()
+    public void Play(bool preload = false)
     {
         if (_HasTriggered && _TriggerOnce)
             return;
@@ -97,10 +97,19 @@ public class BaseEmitter : MonoBehaviour {
             _EventInstance.setProperty(FMOD.Studio.EVENT_PROPERTY.MINIMUM_DISTANCE, _OverrideMinDistance);
             _EventInstance.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, _OverrideMaxDistance);
         }
-        
+
+
+        if (preload)
+        {
+            print("SOUND PRELOADED");
+            return;
+        }
+
 
         /*_EventCallback = new FMOD.Studio.EVENT_CALLBACK(StudioEventCallback);
 _EventInstance.setCallback(_EventCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT);*/
+
+
         _EventInstance.start();
 
         //add 3d attributes here when converting to a more base script
@@ -122,6 +131,11 @@ _EventInstance.setCallback(_EventCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMEL
             if (_EventInstance != null && _EventInstance.isValid())
                 FMODUnity.RuntimeManager.DetachInstanceFromGameObject(_EventInstance);
         }
+    }
+
+    public void Preload()
+    {
+        Play(true);
     }
 
     public void Stop()
