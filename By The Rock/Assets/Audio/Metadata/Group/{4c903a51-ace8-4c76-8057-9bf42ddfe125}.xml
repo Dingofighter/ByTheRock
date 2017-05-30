@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="MixerGroup" id="{4c903a51-ace8-4c76-8057-9bf42ddfe125}">
+        <property name="name">
+            <value>Ougrah</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{3b745357-7b67-480a-9250-20fce5a4d8cd}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{ae1e9d3b-2fc9-4cd3-aa14-5dc43a510632}</destination>
+        </relationship>
+        <relationship name="output">
+            <destination>{180bbb4a-48c6-4c6a-8c07-60e5f7928c57}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{3b745357-7b67-480a-9250-20fce5a4d8cd}">
+        <relationship name="effects">
+            <destination>{773d3a14-292e-447b-816d-6b575553a62e}</destination>
+            <destination>{ff41ffc1-70aa-4fd2-bdf3-217a81c7c3a2}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{ae1e9d3b-2fc9-4cd3-aa14-5dc43a510632}"/>
+    <object class="MixerBusFader" id="{773d3a14-292e-447b-816d-6b575553a62e}"/>
+    <object class="ThreeEQEffect" id="{ff41ffc1-70aa-4fd2-bdf3-217a81c7c3a2}">
+        <property name="highGain">
+            <value>5.5</value>
+        </property>
+    </object>
+</objects>

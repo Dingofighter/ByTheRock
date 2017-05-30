@@ -5,7 +5,7 @@ public class EnableStuff : MonoBehaviour {
 
     public GameObject stuffToEnable;
     public GameObject stuffToDisable;
-
+    public GameObject Bear;
     public GameObject riverhunt;
     public GameObject riverglade;
 
@@ -38,6 +38,9 @@ public class EnableStuff : MonoBehaviour {
         {
             stuffToEnable.SetActive(true);
             riverglade.SetActive(true);
+            stuffToDisable.SetActive(false);
+            riverhunt.SetActive(false);
+            Bear.SetActive(false);
         }
         else if (c.tag == "Player")
         {
@@ -50,7 +53,7 @@ public class EnableStuff : MonoBehaviour {
         }*/
     }
 
-    void OnTriggerExit(Collider c)
+    /*void OnTriggerExit(Collider c)
     {
         if (c.tag == "Player" && _pos.x < 0)
         {
@@ -61,5 +64,5 @@ public class EnableStuff : MonoBehaviour {
         {
             //Other håll
         }
-    }
+    }*/
 }

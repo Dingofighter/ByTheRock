@@ -26,7 +26,8 @@ public class LoadSceneOnClick : MonoBehaviour {
             {
                 Debug.Log("starting game");
                 Time.timeScale = 1.0f;
-                FindObjectOfType<movieHandler>().stopAudio();
+                if (FindObjectOfType<movieHandler>()._EventInstance != null)
+                    FindObjectOfType<movieHandler>().stopAudio();
                 //GameManager.instance.paused = true;
                 SceneManager.LoadScene(sceneID);
             }

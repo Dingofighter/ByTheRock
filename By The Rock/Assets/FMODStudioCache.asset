@@ -60,7 +60,7 @@ MonoBehaviour:
   - {fileID: 11432096}
   MasterBankRef: {fileID: 11497090}
   StringsBankRef: {fileID: 11470380}
-  stringsBankWriteTime: 636316971210720349
+  stringsBankWriteTime: 636317337373721739
   cacheVersion: 2
 --- !u!114 &11400004
 MonoBehaviour:
@@ -72,6 +72,21 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
   Name: VoiceClip
   Min: 0
@@ -388,6 +403,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11405768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11406102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +485,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11471736}
+  - {fileID: 11408688}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11407384
@@ -563,6 +593,21 @@ MonoBehaviour:
   Min: -1
   Max: 13
   Default: -1
+--- !u!114 &11408688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11408834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1074,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11414814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 10
+  Default: 0
 --- !u!114 &11414902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,8 +1198,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11477020}
-  - {fileID: 11479292}
+  - {fileID: 11472844}
+  - {fileID: 11405768}
   MinDistance: 1
   MaxDistance: 50
 --- !u!114 &11415990
@@ -1256,7 +1316,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11461842}
+  - {fileID: 11400018}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11417496
@@ -1559,7 +1619,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11483888}
+  - {fileID: 11441370}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11420514
@@ -1840,6 +1900,21 @@ MonoBehaviour:
   Min: 0
   Max: 5
   Default: 0
+--- !u!114 &11423408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Far/Close
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11423758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,6 +1946,21 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &11424238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RightAfter Bear
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &11424542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,7 +2205,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 11419138}
+  - {fileID: 11494506}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &11427566
@@ -2130,7 +2220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Day1Bank.bank
-  lastModified: 636316971211525925
+  lastModified: 636317337402412206
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -2215,7 +2305,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11476140}
+  - {fileID: 11451808}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11428532
@@ -2288,7 +2378,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11410494}
+  - {fileID: 11430434}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11428860
@@ -2531,6 +2621,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11430434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11430506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2597,6 +2702,21 @@ MonoBehaviour:
   Min: -10
   Max: 10
   Default: -10
+--- !u!114 &11431110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11431130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2736,7 +2856,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11432586}
+  - {fileID: 11484718}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11432526
@@ -2862,7 +2982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Day3Bank.bank
-  lastModified: 636316971211545939
+  lastModified: 636317337402432217
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -3123,7 +3243,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: VoiceClip
   Min: 0
@@ -3193,6 +3313,21 @@ MonoBehaviour:
   Name: VoiceClip
   Min: 0
   Max: 20
+  Default: 0
+--- !u!114 &11435668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bool
+  Min: 0
+  Max: 1
   Default: 0
 --- !u!114 &11435672
 MonoBehaviour:
@@ -3485,6 +3620,21 @@ MonoBehaviour:
   - {fileID: 0}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11438550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: Birds
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &11438588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,11 +3827,11 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 11454842}
-  - {fileID: 11466462}
-  - {fileID: 11495342}
-  - {fileID: 11480844}
-  - {fileID: 11430926}
+  - {fileID: 11435668}
+  - {fileID: 11414814}
+  - {fileID: 11476898}
+  - {fileID: 11424238}
+  - {fileID: 11463554}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11439570
@@ -3863,7 +4013,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 11449924}
+  - {fileID: 11498032}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11441052
@@ -3921,6 +4071,36 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
+--- !u!114 &11441370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
+--- !u!114 &11441444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
   Name: VoiceClip
   Min: 0
@@ -4089,7 +4269,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11494064}
+  - {fileID: 11423408}
   MinDistance: 1
   MaxDistance: 30
 --- !u!114 &11442796
@@ -4881,6 +5061,21 @@ MonoBehaviour:
   Name: 476c4869
   Min: 0
   Max: 2
+  Default: 0
+--- !u!114 &11451808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
   Default: 0
 --- !u!114 &11451866
 MonoBehaviour:
@@ -6009,7 +6204,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11453398}
+  - {fileID: 11441444}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11462754
@@ -6087,6 +6282,21 @@ MonoBehaviour:
   Min: -10
   Max: 10
   Default: -10
+--- !u!114 &11463554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GlHi
+  Min: 0
+  Max: 2
+  Default: 0
 --- !u!114 &11463622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6237,6 +6447,21 @@ MonoBehaviour:
   Min: 0
   Max: 20
   Default: 0
+--- !u!114 &11465130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11465132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6301,7 +6526,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11477076}
+  - {fileID: 11481274}
   MinDistance: 0
   MaxDistance: 30
 --- !u!114 &11465802
@@ -6391,7 +6616,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11448446}
+  - {fileID: 11498184}
   MinDistance: 0
   MaxDistance: 30
 --- !u!114 &11466148
@@ -6473,7 +6698,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11437432}
+  - {fileID: 11475060}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11466616
@@ -6761,7 +6986,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Surface
   Min: 0
@@ -6794,11 +7019,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636316971210720349
+  lastModified: 636317337373721739
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 3804
+    Value: 3854
   Exists: 1
 --- !u!114 &11470704
 MonoBehaviour:
@@ -6957,7 +7182,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Bool
   Min: 0
@@ -7073,6 +7298,21 @@ MonoBehaviour:
   Name: Dialogues
   Min: -10
   Max: 10
+  Default: 0
+--- !u!114 &11472844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
   Default: 0
 --- !u!114 &11472852
 MonoBehaviour:
@@ -7231,6 +7471,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 6
   MaxDistance: 15
+--- !u!114 &11475060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11475074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7310,7 +7565,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 11422374}
+  - {fileID: 11438550}
   MinDistance: 1
   MaxDistance: 60
 --- !u!114 &11475664
@@ -7553,6 +7808,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11476898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SmallPassage
+  Min: -1
+  Max: 13
+  Default: -1
 --- !u!114 &11477020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7718,6 +7988,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 416
   Exists: 1
+--- !u!114 &11478054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11478176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8034,6 +8319,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11481274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntesity
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &11481468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8098,7 +8398,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11415112}
+  - {fileID: 11465130}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11482148
@@ -8317,6 +8617,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11484718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11485266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8618,7 +8933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Day2Bank.bank
-  lastModified: 636316971211535930
+  lastModified: 636317337402422212
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -8684,6 +8999,21 @@ MonoBehaviour:
   Min: -10
   Max: 10
   Default: -10
+--- !u!114 &11489838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VoiceClip
+  Min: 0
+  Max: 20
+  Default: 0
 --- !u!114 &11490186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8718,7 +9048,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11429886}
+  - {fileID: 11489838}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11490296
@@ -8856,7 +9186,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Path: event:/Sounds/General/Intro
   guid: 14d761fbbf5236468dcfe0bb1e7ef33b
@@ -8974,7 +9304,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   Name: Surface
   Min: 0
@@ -9090,6 +9420,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &11494506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 5
+  Default: 0
 --- !u!114 &11494978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9175,7 +9520,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11465880}
+  - {fileID: 11431110}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11495342
@@ -9278,7 +9623,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 11495196}
+  - {fileID: 11478054}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11496554
@@ -9324,11 +9669,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:\GitRepos\By The Rock\ByTheRock\By The Rock\Assets\Audio\Build\Desktop\Master
     Bank.bank
-  lastModified: 636316971210695332
+  lastModified: 636317337373706725
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 25808800
+    Value: 25809024
   Exists: 1
 --- !u!114 &11497300
 MonoBehaviour:
@@ -9385,7 +9730,37 @@ MonoBehaviour:
   - {fileID: 11434904}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &11498032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: WindIntensity
+  Min: 0
+  Max: 3
+  Default: 0.56
 --- !u!114 &11498110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: RiverIntesity
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &11498184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
